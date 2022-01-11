@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <link href="css/fonts/Scala_SansRegular_LF.ttf" rel="stylesheet" type="text/css"/> -->
+    <title>Generalidades de las redes FTTH</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+<!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+<!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <header>
+            <div class="logo">
+                <img src="img/logo_color.svg" alt="Fyco learning" />
+            </div>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Presentación" data-page="pag-presentacion"></menuitem>
+                    <menuitem label="Componentes">
+                        <menu>
+                            <menuitem label="1. ¿Qué son las redes FTTH?" data-page="pag-que_son"></menuitem>
+                            <menuitem label="2. FTTx: La denominación genérica" data-page="pag-fttx"></menuitem>
+                            <menuitem label="3. Topologías FTTH" data-page="pag-topologias"></menuitem>
+                            <menuitem label="4. Arquitectura de la red FTTH" data-page="pag-arquitectura"></menuitem>
+                            <menuitem label="5. La tecnología WDM" data-page="pag-wdm"></menuitem>
+                        </menu>
+                    </menuitem>
+                </menu>
+            </nav>
+            <h2 class="page-title"></h2>
+        </header>
+
+        <main style="display: none;">
+
+            <section id="pag-presentacion">
+                <div class="subpage">
+                    <div class="page-index">
+                        <div class="ova_name">
+                            <div class="title">
+                                <h1>Generalidades de las redes FTTH</h1>
+                                <div class="title-img-fibra"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <h2>Presentación</h2>
+                                <div class="videobox">
+                                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/sqeh7i6BiNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                    <video controls src="https://info.fycolearning.com/fba/cursos/fcff/mod3/tema2/m3-t3_2-introduccion.mp4" poster="https://info.fycolearning.com/fba/cursos/fcff/mod3/tema2/poster/m3-t3_2-introduccion.png"></video>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <h2>Objetivo</h2>
+                                <div class="objetivo-text">
+                                    <p>Comprender los conceptos de las redes de acceso basadas en fibra óptica hasta el hogar, así como los componentes y su arquitectura.</p>
+                                </div>
+                                <div class="duration">
+                                    <h2>Duración: 2 horas / 120 minutos</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-que_son" ptitle="1. ¿Qué son las redes FTTH?">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Para comenzar, es importante recordar que las siglas FTTH significan “Fiber To The Home”, que traducido al español es “fibra hasta el hogar”, esto ya nos dice bastante sobre lo que es esta importante red de acceso de banda ancha. </p>
+                            <p>El tipo de fibra óptica que se emplea en FTTH es monomodo, recordemos que un 'modo' es la ruta que sigue un rayo de luz a medida que viaja a lo largo de una fibra óptica. Las fibras monomodo (<i>singlemode fiber</i>) soportan grandes distancias, dado que presentan una menor atenuación y un mejor desempeño en cuanto a la dispersión, que recordemos limita la tasa de transmisión.</p>
+                            <div class="box-text important" label="¡Importante!">
+                                <p>Las fibras ópticas empleadas en las redes FTTH son del tipo monomodo, que presentan un núcleo más pequeño, de apenas 9 micrómetros de diámetro. También tienen una menor atenuación en comparación con las fibras multimodo, lo que hace que puedan recorrer mayores distancias sin utilizar amplificación alguna y permiten mayores tasas de transmisión al tener una menor dispersión. Existen varios estándares para las fibras ópticas monomodo según las aplicaciones.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 1.</strong> Representación gráfica de la aplicación de redes FTTH.</div>
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre la imagen para conocer su descripción.</span>
+                                <span class="onlymobile">Toca sobre la imagen para conocer su descripción.</span>
+                            </div>
+                            <div class="view-first">
+                                <img src="content/fig1.png" />
+                                <div class="view-content">
+                                    <p>Actualmente, con el avance acelerado de la tecnología, la oferta de servicios y de aplicaciones de una FTTH va más allá del Triple-Play (TV-telefonía-internet), siendo estas cada vez más diversas y sofisticadas tales como: telesalud, teleeducación, acceso de banda ancha, multimedia de alta definición, IPTV, video bajo demanda o juegos en línea, entre otras.</p>
+                                </div>
+                            </div>
+                            <div class="box-text connection">
+                                <p>Pero para comprender mejor el desarrollo y las aplicaciones de FTTH, partamos de una red de acceso antecesora: la red HFC. Veamos de qué se trata.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <h3>La red HFC</h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>HFC proviene de las siglas Hybrid Fiber Coaxial, es decir, Híbrido de Fibra-Coaxial. Esta es una infraestructura de red en donde el cable de fibra óptica parte desde las instalaciones del prestador del servicio de Internet u operador de servicio (conocido como ISP del inglés Internet service Provider) y llega hasta un punto llamado nodo óptico, en donde se cambia por cable coaxial, siendo éste el tramo último que distribuye la red por todo el barrio hasta la vivienda del usuario.  En la imagen, podemos apreciar las conexiones generales de la infraestructura de una red HFC.</p>
+                            <p>Estas redes fueron muy populares a finales de la década de 1980 en Estados Unidos, siendo más asequible para muchos hogares al utilizar menor infraestructura física, convirtiéndose en una solución novedosa y económica.</p>
+                            <p>Para finales de los años 1990, se estableció la tecnología de red para el transporte de datos sobre la red HFC, conocida como DOCSIS (<i>Data Over Cable Service Interface Specification</i>), siendo hasta hoy el estándar utilizado para el acceso a Internet sobre HFC. Como es de esperarse DOCSIS ha evolucionado a lo largo de los años, permitiendo mayores velocidades de conexión, como es el caso de DOCSIS 3.1 Full-Duplex, que proporciona velocidades de 10 Gbps.</p>
+                            <p>Dado que en el nodo de HFC se realiza una conversión del tipo óptico a eléctrico (fibra a coaxial), existe allí la necesidad de utilizar equipos para esta conversión de señales. A partir del nodo, los datos se envían por el cable coaxial, utilizando señales eléctricas que puede ser susceptible de sufrir interferencias electromagnéticas, por lo que requiere, en muchos casos, el uso de amplificadores o regeneradores de señal. Los amplificadores son necesarios aquí, debido a que el cable coaxial presenta una atenuación grande por causa de las altas frecuencias que emplea la red HFC.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 2.</strong> Infraestructura de la red HFC.</div>
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento del esquema para conocer su nombre.</span>
+                                <span class="onlymobile">Toca sobre cada elemento del esquema para conocer su nombre.</span>
+                            </div>
+                            <div class="genially">
+                                <h1 class="change">Pendiente</h1>
+                            </div>
+                            <div class="box-text important" label="¡Importante!">
+                                <p>HFC es la infraestructura física de la red de acceso que emplea una combinación de fibras ópticas y cable coaxial. DOCSIS es el estándar de tecnología de comunicación de datos que permite el transporte de los paquetes de Internet desde y hasta el usuario final, empleando la red HFC.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Teniendo claro el funcionamiento de HFC, como punto de partida para el estudio de la FTTH, volvamos a revisar las características de esta red.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>FTTH ofrece una infraestructura mucho más reducida que HFC, cubriendo distancias de hasta 20 kilómetros y una mayor tasa de transmisión de datos.</p>
+                            <p>Todo ello, como ya se ha dicho, utilizando un hilo de fibra desde la cabecera del operador, conocido también como Central Office, hasta las instalaciones del usuario final. Esto hace una diferencia importante con la infraestructura de HFC, donde la fibra no ingresa a la vivienda del cliente. Podemos hacernos una idea de esto con la figura, en la cual se utiliza un nodo para la transición fibra-coaxial en las redes HFC, mientras que en las redes FTTH la fibra no requiere esta transición, pudiendo continuar el hilo de fibra hasta el usuario.</p>
+                            <p>Entonces una importante diferencia con HFC es que, al no requerir un cambio de fibra-coaxial, no necesita emplear dispositivos de conversión de señales ópticas a eléctricas, lo que simplifica las instalaciones de esta infraestructura de red en las ciudades.</p>
+                            <p>En vez de nodo óptico, FTTH emplea un punto de conexión óptica de un único hilo de fibra que llega desde la cabecera del operador, y desde el cual salen varios hilos de fibras, para dar servicio a varios clientes. Así, se trata de un punto <em>pasivo</em> de división óptica que simplifica aún más la infraestructura al recibir un hilo de fibra que va a ser común para varias viviendas.</p>
+                            <div class="box-text important" label="Recuerda que:">
+                                <p><strong>pasivo</strong> significa que no requiere de alimentación de la energía eléctrica.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 3.</strong> Diferencias entre HFC y FTTH.</div>
+                            <div class="instruction">
+                                Desliza la línea divisoria de izquierda a derecha para observar las diferencias
+                            </div>
+                            <div class="box_media">
+                                <div class="after-before" data-before-label="FTTH" data-after-label="HFC">
+                                    <img src="content/fig3_1.png" />
+                                    <img src="content/fig3_2.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Dado que este punto de división óptica se puede ubicar a varios kilómetros de la cabecera, se obtiene una simplificación aún mayor de la infraestructura de red, porque se disminuye bastante la cantidad de hilos de fibra necesarios para la instalación de FTTH. Una idea de esta conectividad la encontramos en la imagen, allí podemos observar el elemento que permite realizar la división óptica y que podemos considerar como el elemento central de esta infraestructura de red: el <strong><em>splitter</em> óptico o divisor óptico</strong>.</p>
+                            <p>Por lo tanto, las redes de FTTH utilizan una misma fibra saliendo desde la cabecera del operador hasta un punto intermedio, donde se instala el <i>splitter</i> o divisor óptico. A partir de allí, el divisor recibe las señales del hilo de fibra y divide la potencia de esas señales, entregando una porción más pequeña en la salida. Con esto habrá varias conexiones individuales de fibra óptica para atender así a varios clientes finales. </p>
+                            <p>Esta disposición de la arquitectura de la red es la que aporta mucha más simplicidad a la infraestructura, dado que solo se utiliza un hilo de fibra entre la oficina central del operador y el punto donde se ubica el splitter.</p>
+                            <div class="box-text connection">
+                                <p>Veamos características importantes de este elemento.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 4.</strong> Infraestructura general de la red FTTH.</div>
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento del esquema para conocer su nombre.</span>
+                                <span class="onlymobile">Toca sobre cada elemento del esquema para conocer su nombre.</span>
+                            </div>
+                            <div class="genially">
+                                <h1 class="change">Pendiente</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <h3>El <i>splitter</i></h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Un splitter es un divisor de la señal óptica que, como ya fue mencionado, no requiere de alimentación eléctrica para su funcionamiento, lo que lo convierte en un elemento pasivo.</p>
+                            <p>Se compone de <strong>una entrada y N salidas</strong>, por lo que es común hablar de <strong><i>splitter</i> 1 x N</strong>.</p>
+                            <p>El “1” representa una entrada y la “N” un número determinado de salidas, las cuales siempre están en la proporción de las potencias de 2, es decir, que el número de salidas de un splitter puede ser 2, 4, 8, 16, 32, 64.</p>
+                            <p>Por lo tanto, es común encontrar splitters de las siguientes denominaciones: 1x2, 1x4, 1x8, 1x16, 1x32 y 1x64.</p>
+                            <p>Dado que los divisores serán utilizados en las aplicaciones FTTH, además de ser pasivos, transportan las informaciones de forma bidireccional. </p>
+                            <p>Otro punto importante es que la división de una señal óptica implica una reducción de la potencia en la salida del splitter. Esta reducción depende del número de salidas en las que se divide la señal, siendo que, a mayor número de salidas, menor será la potencia entregada por cada una de esas salidas.</p>
+                            <div class="box-text connection">
+                                <p>Existen dos tecnologías en la fabricación de los <i>splitters</i> que estudiaremos a continuación.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-text example" label="Ejemplo">
+                                <p>En la figura podemos ver la representación de un splitter 1x2, es decir, una entrada y dos salidas.</p>
+                                <div class="about"><strong>Figura 5.</strong> Representación de un splitter 1x2 (una entrada y dos salidas).</div>
+                                <div class="box_media">
+                                    <h1 class="change">Pendiente</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="horizontal-menu">
+                        <dl>
+                            <dt>FBT</dt>
+                            <dd>
+                                <h5>FBT (Fused Biconical Taper)</h5>
+                                <p>El FBT es un divisor con dos o más fibras independientes que se unen mediante aplicación de calor. En esta tecnología, los claddings o revestimientos de las fibras son fundidos en una pequeña región de forma que se genera una transferencia de energía por acoplamiento.</p>
+                                <p>La imagen nos muestra la idea de la construcción de un splitter FBT.</p>
+                                <div class="genially">
+                                    <h1 class="change">Pendiente</h1>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>PLC</dt>
+                            <dd>
+                                <h5>PLC (Planar Lightware Circuits)</h5>
+                                <p>El PLC realiza la división de la señal óptica utilizando un sistema de construcción basado en tecnologías de semiconductores, proporcionando a la señal de entrada una serie de bifurcaciones internas que la dividen hasta obtener el número N de salidas.</p>
+                                <p>En la imagen, tenemos un divisor óptico construido con una tecnología PLC. Observa una estructura de “árbol” con sus “ramas” por donde la potencia óptica es controlada y enviada hacia las salidas.</p>
+                                <div class="box_media">
+                                    <h1 class="change">Pendiente</h1>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Una particularidad de los splitters FBT es que suelen construirse de 1x2 o 1x4, pudiendo ser del tipo “salida desbalanceada”.</p>
+                            <div class="box-text note" label="Desbalanceado:">
+                                <p>En este caso, significa que la potencia de la señal en las salidas no se reparte equitativamente, sino que una salida puede tener mayor potencia que otra. Esto es una característica que puede ser utilizada para lograr distancias mayores en la salida con mayor potencia.</p>
+                            </div>
+                            <p>Existen divisores FBT desbalanceados de 1x2 con relación de salida como por ejemplo 80/20. Esto significa que una salida tiene el 80% de la potencia de la señal entrada, mientras que la otra salida tiene el 20%. También pueden encontrarse FBT desbalanceados del tipo 90/10 o incluso 99/1.</p>
+                            <p>Dado que la tecnología de fabricación de los splitters PLC es más sofisticada, suelen tener mayor cantidad de salidas que los FBT, como por ejemplo hasta 64 y 128. Normalmente van a ser construidos con “salida balanceada” y es lo que en general va a requerir una aplicación de fibras hasta el hogar.</p>
+                            <p>La figura corresponde a una fotografía de un splitter óptico PLC de 1x4.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 7.</strong> Divisor PLC 1x4.</div>
+                            <div class="box_media">
+                                <h1 class="change">Pendiente</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Ahora, las redes FTTH también pueden emplear divisores del tipo 2xN, es decir, con dos entradas. </p>
+                            <p>De seguro te estarás preguntando <i>¿para qué sirve este splitter de dos entradas?</i>. Pues bien, como sabes, los cables de fibra son instalados en diferentes sitios de la ciudad y, por lo tanto, pasan por tuberías subterráneas o de forma aérea por postes.</p>
+                            <p>Piensa en lo que sucedería si una retroexcavadora mientras trabaja, perfora un cable de fibra, lo mismo puede pasar con un camión que se lleva de frente un cable de fibra de la red FTTH. </p>
+                            <p>Entonces, como medida para garantizar el mantenimiento de los servicios, a pesar de que se rompa la fibra que llega al splitter, los operadores suelen utilizar divisores de dos entradas para así construir un camino alternativo desde la cabecera hasta dicho splitter. Al aplicar este principio, el operador está haciendo uso de lo que se llama redundancia de rutas. Bien, ya sabes para qué se utilizan los splitters 2xN.</p>
+                            <p>Por regla general cuando en FTTx se emplea un divisor 2xN, el equipo transmisor solo utiliza una fibra al mismo tiempo para operar, mientras la otra estará en espera de ser activada. Esta fibra de “backup” (respaldo) solo se activará en casos de que la fibra activa se desconecte o se rompa. En tal caso la salida que estaba como backup asume como activa, mientras que la fibra activa pasará a estar en backup. En la siguiente imagen podemos ver la operación de un splitter 2xN con sus dos fibras: activa y backup.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 8.</strong> Operación del splitter 2xN.</div>
+                            <div class="instruction">Desliza la línea divisoria de abajo hacia arriba para observar las diferencias.</div>
+                            <div class="after-before" data-orientation="vertical" data-offset="0.2"
+                              data-before-label="Fibra activa" data-after-label="Fibra backup">
+                                <img src="content/fig8_1.png" />
+                                <img src="content/fig8_2.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-text important" label="¡Consideraciones importantes!">
+                        <ul>
+                            <li>Una red FTTH utiliza los splitters que son divisores ópticos de señales. Esto significa que las señales que ingresan en su entrada, con una cierta potencia, se dividen en señales más pequeñas de menor potencia, que quedan disponibles en la salida del splitter.</li>
+                            <li>Existen splitters de 1xN, es decir, de una entrada y varias salidas. Estas salidas siempre son números de potencia 2, así: 2, 4, 8, 16, 32 y 64. De la misma forma, existen splitters de 2xN utilizados para brindar redundancia de caminos a la red FTTH.</li>
+                            <li>Recuerde que los splitters tienen dos tecnologías de fabricación que son PLC y FBT. Los PLC permiten salidas desbalanceadas, como por ejemplo 80/20, es decir, una salida con el 80% de la potencia de entrada y la otra con el 20%.</li>
+                            <li>Los divisores PLC suelen tener más salidas que los FBT y, por lo general, son balanceados, es decir, que presentan una gran uniformidad en la potencia de salida. </li>
+                            <li>Es más común que se utilicen splitters PLC en los proyectos de FTTH, pero algunos proyectos también emplean del tipo FBT, justamente para aprovechar las salidas desbalanceadas.</li>
+                        </ul>
+                    </div>
+                    <p>En la siguiente tabla, puedes revisar las características y diferencias principales de ambas tecnologías:</p>
+                    <div class="about"><strong>Tabla 1.</strong> Diferencias entre splitter FBT y PLC</div>
+                    <table class="datatable">
+                        <thead>
+                            <th>Especificaciones</th>
+                            <th>Splitter FBT</th>
+                            <th>Splitter PLC</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Proceso de fabricación</th>
+                                <td>A través de fusión: dos o más fibras se colocan muy juntas, típicamente entorchadas y mediante aplicación de calor, el conjunto se alarga y estrecha.</td>
+                                <td>Utilizando circuitos de guía de ondas de vidrio de sílice, que son alineados con una matriz de fibras con ranura en V que utiliza fibra tipo cinta (ribbon) que se empaquetan dentro de una carcasa en miniatura.</td>
+                            </tr>
+                            <tr class="odd">
+                                <th>Longitud de onda</th>
+                                <td>850 nm, 1310 nm, 1550 nm</td>
+                                <td>1260 nm a 1650 nm</td>
+                            </tr>
+                            <tr>
+                                <th>Entrada / salida</th>
+                                <td>Una o dos entradas con una salida de máximo 32 fibras</td>
+                                <td>Una o dos entradas con una salida de máximo 64 fibras</td>
+                            </tr>
+                            <tr class="odd">
+                                <th>Temperatura</th>
+                                <td>-5 °C a 75 °C</td>
+                                <td>-40 °C a 85 °C</td>
+                            </tr>
+                            <tr>
+                                <th>Divisiones realizables</th>
+                                <td>Hasta 1:8 divisiones</td>
+                                <td>Hasta 1:64 divisiones</td>
+                            </tr>
+                            <tr class="odd">
+                                <th>Costo</th>
+                                <td>Más bajo</td>
+                                <td>Más alto</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="pag-fttx" ptitle="2. FTTx: La denominación genérica">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Como ahora sabemos, FTTH es una arquitectura de red que utiliza fibras ópticas monomodo y splitters para llegar hasta la vivienda del usuario, partiendo desde la cabecera del operador. Sin embargo,  existen algunas aplicaciones específicas que permiten instalar la fibra en otras ubicaciones diferentes de la vivienda, como por ejemplo la oficina, el apartamento o departamento en el interior de un edificio o la fibra instalada en la esquina del barrio.</p>
+                            <p>Por ello, existe un término genérico para referirse a las redes de acceso construidas con fibra óptica. Ese término es <strong>FTTx</strong> y se refiere a cualquier red de acceso de banda ancha que utiliza fibra óptica. Aquí la “equis” significa el punto en donde termina la fibra y determina las diferentes aplicaciones específicas.</p>
+                            <div class="box-text connection">
+                                <p>De esta forma, tenemos las siguientes denominaciones particulares del término genérico FTTx:</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 9.</strong> Representación de FTTH.</div>
+                            <div class="view-first">
+                                <img src="content/fig9.png" />
+                                <div class="view-content">
+                                    <p>FTTH es una arquitectura de red que utiliza fibras ópticas monomodo y splitters para llegar hasta la vivienda del usuario, partiendo desde la cabecera del operador.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about"><strong>Figura 10.</strong> Denominaciones de FTTx.</div>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento del esquema para conocer su descripción.</span>
+                        <span class="onlymobile">Toca sobre la imagen para conocer su descripción.</span>
+                    </div>
+                    <div class="genially">
+                        <h1 class="change">Pendiente</h1>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Teniendo claro el funcionamiento de HFC, como punto de partida para el estudio de la FTTH, volvamos a revisar las características de esta red.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Estas diferentes denominaciones son importantes porque podemos conocer los tipos de cables de fibra y los accesorios requeridos por cada una de las aplicaciones. Entonces, podemos ver que cada una de las denominaciones lleva la fibra hasta un punto diferente. </p>
+                            <p>En la figura podemos observar los lugares hasta donde llega la fibra óptica y el cable de cobre según el tipo de aplicación FTTx.</p>
+                            <p>Una vez entendidas estas diferencias en las aplicaciones de FTTx, es muy importante observar que incluso para FTTH (la más común de estas redes de acceso) se requiere cable de cobre para conectar a los equipos del usuario. Esto es así porque, en realidad, la mayoría de los equipos del cliente final tiene una entrada por interfaz de red Ethernet, en el estándar de RJ45, con lo cual es preciso utilizar un cable de patch cord de UTP, desde el equipo terminal óptico del usuario.</p>
+                            <div class="box-text connection">
+                                <p>En la siguiente imagen, podemos apreciar en una misma red de FTTx los diferentes puntos de terminación de la fibra, para tener así las aplicaciones de como FTTC, FTTB, FTTA/FTTD y FTTH.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 11.</strong> Diferentes aplicaciones del FTTx.</div>
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento del esquema para conocer su descripción.</span>
+                                <span class="onlymobile"> Toca sobre cada elemento del esquema  para conocer su descripción.</span>
+                            </div>
+                            <div class="genially">
+                                <h1 class="change">Pendiente</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 12.</strong> Diferentes aplicaciones del FTTx.</div>
+                            <div class="box_media">
+                                <img src="content/fig12.svg" alt="Figura 12. Diferentes aplicaciones del FTTx." />
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-text important" label="¡Importante!">
+                                <p>Las denominaciones específicas del FTTx no son un mero capricho de nombres y nada más. En realidad, se trata de diversas aplicaciones que requieren de grupos de implementos, componentes, cables de fibra y accesorios que los hacen diferentes en cada caso. Así, dependiendo de los ambientes en los que finaliza la fibra, cada aplicación puede emplear diferentes cables, como, por ejemplo, de uso interno para FTTA y de uso externo para FTTH. Lo mismo aplica para las cajas que contienen los empalmes y los splitters y también para el resto de componentes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-topologias" ptitle="3. Topologías FTTH">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>La red de FTTH puede emplear más de un divisor para llegar hasta un usuario. Cada divisor que se utiliza en esta red para alcanzar al cliente final se conoce como <strong>nivel de <i>splitter</i>, de división</strong> y en el campo lo conocemos también como “<strong>de spliteo</strong>”. Así, si la fibra óptica pasa por dos splitters hasta llegar al cliente, se dice que hay dos niveles de <i>splitter</i> en la red.</p>
+                            <p>Es muy común que las redes FTTH-PON tengan dos niveles de división, pero esto no es una regla. De hecho, puede construirse una red de FTTH con uno, dos o tres niveles de división. La cantidad de niveles de splitter depende principalmente de la distancia de la cabecera hasta los clientes y de la cantidad de clientes de la red. </p>
+                            <p>En la imagen, se aprecia una red FTTH con dos niveles de <i>splitter</i>.</p>
+                            <p>Un aspecto que es de mucho cuidado a la hora de decidir cuántos niveles de división van a ponerse en una red FTTH, es la cantidad de potencia con la que debe llegar la fibra óptica hasta cada usuario. Esto es importante porque entre mayor cantidad de niveles haya en la red, menor será la potencia con la que se llega hasta el usuario. Dicho de otra forma, cuantos más divisores instalamos para llegar hasta un usuario, menor será la distancia máxima a la que podrá estar el mismo.</p>
+                            <p>Otro factor que afecta a esta distancia es el nivel de división de los splitters, dado que entre mayor cantidad de salidas tenga el divisor entonces menor será la potencia entregada por cada salida del <i>splitter</i>.</p>
+                            <p>Entonces, como se ha mencionado, puede utilizarse un solo nivel, dos niveles o incluso tres. Cuando las redes FTTH son pequeñas, puede utilizarse un solo splitter y cuando se desee ampliar una red existente, allí se puede utilizar un tercer nivel de splitter, pero también como ya se ha dicho, es muy común que las redes de FTTH cubran a todos sus clientes con dos niveles de división.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 13.</strong> Red FTTH con dos niveles de <i>splitters</i>.</div>
+                            <div class="box_media">
+                                <h1 class="change">Pendiente</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Las topologías de las redes FTTH están estrechamente relacionadas con la ubicación de los divisores. Así tenemos tres topologías principales, que son las siguientes:</p>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <h3>Topología de <i>splitters</i> centralizados</h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Los divisores se ubican en la central del operador, con lo cual cada cliente se va a conectar con un hilo de fibra independiente que sale desde la cabecera del operador. En general, es una topología poco viable desde el punto de vista económico, dada la gran infraestructura que supone.</p>
+                            <p>En la imagen, se observa la topología de divisores centralizados de una red FTTH.</p>
+                            <div class="about"><strong>Figura 14.</strong> Topología de splitters centralizados.</div>
+                            <div class="box_media">
+                                <h1 class="change">Pendiente</h1>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Tabla 2.</strong> Ventajas y desventajas de la tipología de <i>splitters</i> centralizados.</div>
+                            <table class="datatable">
+                                <thead>
+                                    <th>Ventajas</th>
+                                    <th>Desventajas</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <ul>
+                                                <li>Una fibra dedicada desde la central, siendo transparente a la tecnología de transmisión de datos (pudiendo ser P2P-Ethernet o P2MP-PON).</li>
+                                                <li>Máxima capacidad de ancho de banda y escalabilidad para la red pasiva.</li>
+                                                <li>Operación y mantenimiento sencillo (la red externa no tiene divisores).</li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>Alta inversión en infraestructura.</li>
+                                                <li>Altos costos de instalación.</li>
+                                                <li>Gran cantidad de fibras en toda la red.</li>
+                                                <li>Ductos y postes con alta ocupación.</li>
+                                                <li>La gestión de fibras debe hacerse desde la central.</li>
+                                                <li>Bajo nivel de penetración.</li>
+                                                <li>Expansión muy costosa.</li>
+                                                <li>Solo es viable económicamente en redes muy pequeñas.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <h3>Topología de <i>splitters</i> en convergencia local</h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Se utiliza también un solo nivel de división, ubicado por fuera de la oficina central, más cerca de los usuarios finales como se muestra en la figura:</p>
+                            <div class="about"><strong>Figura 15.</strong> Topología de splitters en convergencia local.</div>
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento del esquema para conocer su nombre.</span>
+                                <span class="onlymobile">Toca sobre cada elemento del esquema para conocer su nombre.</span>
+                            </div>
+                            <div class="genially">
+                                <h1 class="change">Pendiente</h1>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Tabla 3.</strong> Ventajas y desventajas de la tipología de splitters en convergencia local.</div>
+                            <table class="datatable">
+                                <thead>
+                                    <th>Ventajas</th>
+                                    <th>Desventajas</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <ul>
+                                                <li>Escalable en equipos activos y en divisores.</li>
+                                                <li>Alto nivel de penetración.</li>
+                                                <li>Posible crecimiento de la red.</li>
+                                                <li>Cables ópticos de baja capacidad en la red principal.</li>
+                                                <li>Relativa facilidad de operación y mantenimiento.</li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>Alta cantidad de fibras en la red de distribución.</li>
+                                                <li>Alta inversión en infraestructura.</li>
+                                                <li>Altos costos de instalación.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <h3>Topología de <i>splitters</i> distribuidos</h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Es la topología más comúnmente utilizada en FTTH, dado que combina la red óptica más simplificada y la mejor forma de llegar a más usuarios. Este último aspecto se conoce como Tasa de Penetración. </p>
+                            <p>La figura muestra la red FTTH con dos divisores distribuidos.</p>
+                            <div class="about"><strong>Figura 16.</strong> Topología de splitters distribuidos.</div>
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento del esquema para conocer su nombre.</span>
+                                <span class="onlymobile">Toca sobre cada elemento del esquema para conocer su nombre.</span>
+                            </div>
+                            <div class="genially">
+                                <h1 class="change">Pendiente</h1>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Tabla 4.</strong> Ventajas y desventajas de la tipología de <i>splitters</i> distribuidos.</div>
+                            <table class="datatable">
+                                <thead>
+                                    <th>Ventajas</th>
+                                    <th>Desventajas</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <ul>
+                                                <li>Bajo costo inicial de implementación.</li>
+                                                <li>Red óptica mínima - mayor flexibilidad.</li>
+                                                <li>Adecuado para altas tasas de penetración.</li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>Baja capacidad de ampliación para los equipos activos y pasivos.</li>
+                                                <li>Más dificultad de mantenimiento de la red óptica (troubleshooting).</li>
+                                                <li>Requiere una planificación cuidadosa.</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-arquitectura" ptitle="4. Arquitectura de la red FTTH">
+                <div class="subpage">
+                    <p>La red FTTH es una aplicación de red PON y se compone de tres elementos principales: La central de la operadora, el cliente, y entre ellos, la red óptica.</p>
+                    <div class="box-text connection">
+                        <p>Veamos algunas importantes características de estos tres componentes en la figura.</p>
+                    </div>
+                    <div class="about"><strong>Figura 17.</strong> Arquitectura general de la red FTTH.</div>
+                    <div class="instruction">
+                        <span class="notmobile">Haz clic sobre cada botón del esquema para conocer la descripción del componente.</span>
+                        <span class="onlymobile">Toca sobre cada botón del esquema para conocer la descripción del componente.</span>
+                    </div>
+                    <div class="fig17">
+                        <button class="w-content-controler general jpit-activities-view" data-property-width="90%" data-content="#central_operadora">Central de Operadora</button>
+                        <button class="w-content-controler general jpit-activities-view" data-property-width="90%" data-content="#cliente">Cliente</button>
+                        <button class="w-content-controler general jpit-activities-view" data-property-width="90%" data-content="#odn">Red de distribución óptica</button>
+                    </div>
+                    <div class="contenidos_fig17">
+                        <div id="central_operadora" class="w-content">
+                            <h3>La Central Operadora (Central Office)</h3>
+                            <div class="row">
+                                <div class="col-2">
+                                    <p>Dado que FTTH es una red de acceso, la Central Operadora realiza las conexiones de la red de transporte, donde el ISP contrata los servicios de Internet y los comercializa a sus clientes finales a través de la propia red FTTH.</p>
+                                    <p>Entre los principales accesorios y equipos que vamos a encontrar en la Central de operadora tenemos los siguientes, que, por lo general, estarán montados sobre un rack: </p>
+                                    <ul>
+                                        <li><strong>Router de borde:</strong> Es el equipo que entrega los servicios de Internet que ha contratado el operador. Generalmente, este equipo segmenta los diferentes servicios, separándolos en paquetes lógicos diferentes, tales como Internet, televisión y telefonía.</li>
+                                        <li><strong>OLT (<i>Optical Line Terminal</i>):</strong> Es el equipo principal de la red de FTTH que se encarga de enviar y recibir los paquetes por la red hacia el cliente. La OLT tiene instalado un transceptor óptico que convierte las señales eléctricas provenientes de la red en señales ópticas hacia el usuario final. Este transceptor también convierte la señal óptica que viene del cliente en señal eléctrica para entregarla a la red.</li>
+                                        <li><strong>ODF<i> (Optical Distribution Frame</i>):</strong> Es el elemento que permite la acomodación de los cables de fibra que salen en dirección a la red óptica externa. El ODF representa un punto de conexión entre la red óptica interna y la red óptica externa de FTTH. Aquí, se realizan las fusiones de fibras de los cables ópticos y se utilizan <i>patch cord</i> ópticos para realizar las maniobras de conexión de los servicios. Los grupos de ODFs hacen parte de un elemento más grande llamado <strong>DGO</strong>, por las siglas en español de Distribuidor General Óptico.</li>
+                                    </ul>
+                                    <p>Opcionalmente en la Central de Operadora, podemos encontrar también los siguientes elementos:</p>
+                                    <ul>
+                                        <li><strong><i>Splitter</i>:</strong> Si lo hay, generalmente es para atender los clientes que están muy cerca del local de la operadora o para realizar pruebas de campo.</li>
+                                        <li><strong>Equipos de video:</strong> En caso de que el cliente entregue servicios de televisión overlay (televisión estándar, no televisión IP), los equipos de video están conformados por el transmisor, amplificador y dispositivo de WDM.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-2">
+                                    <div class="about"><strong>Figura 18.</strong> Oficina central.</div>
+                                    <div class="instruction">
+                                        <span class="notmobile">Pasa el cursor sobre la imagen para conocer su descripción.</span>
+                                        <span class="onlymobile">Toca sobre la imagen para conocer su descripción.</span>
+                                    </div>
+                                    <div class="view-first">
+                                        <img src="content/fig18.png" />
+                                        <div class="view-content">
+                                            <p>Conocido en el mundo de los operadores como “la cabecera”, es el lugar donde se encuentran los equipos de red que prestarán los servicios de datos y que generalmente están acompañados de los equipos necesarios para prestar los servicios de Telefonía y Televisión. Al grupo de servicios del operador se le conoce como “Triple-Play”.</p>
+                                            <p>A la Central Operadora también se le conoce como Oficina Central (Central Office), siendo un término heredado de los sistemas telefónicos antiguos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cliente" class="w-content">
+                            <h3>El Cliente</h3>
+                            <div class="row">
+                                <div class="col-2">
+                                    <p>Una fibra óptica llega hasta el local, residencia o lugar que recibe el servicio, en donde se realiza una terminación mediante accesorios que incluyen:</p>
+                                    <ul>
+                                        <li><strong>El cable de fibra de un hilo:</strong> Fibra óptica monomodo compatible con el estándar ITU-T G.657A/B.</li>
+                                        <li><strong>Conectores de fibra óptica:</strong> Conectores de campo del tipo SC/APC.</li>
+                                        <li><strong>PTO (Punto Terminal Óptico):</strong> Compuesto por una conexión óptica, es un punto donde la red óptica externa ingresa en la vivienda del usuario y se convierte en la red del cliente.</li>
+                                        <li><strong>Cordón óptico: </strong>es el patch cord de fibra que va a conectar el PTO con la ONT.</li>
+                                        <li><strong>ONT (Optical Network Terminal):</strong> Equipo router del cliente que ofrece los servicios de red de FTTH. Al igual que la OLT, tiene un transceptor que convierte señales ópticas que vienen de la red del operador en señales eléctricas, para la interconexión con los dispositivos del cliente y, así mismo, las señales eléctricas de estos dispositivos son convertidas en ópticas y enviadas por la fibra hacia la central de operadora.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-2">
+                                    <div class="about"><strong>Figura 19.</strong> Cliente.</div>
+                                    <div class="instruction">
+                                        <span class="notmobile">Pasa el cursor sobre la imagen para conocer su descripción.</span>
+                                        <span class="onlymobile">Toca sobre la imagen para conocer su descripción.</span>
+                                    </div>
+                                    <div class="view-first">
+                                        <img src="content/fig19.png" />
+                                        <div class="view-content">
+                                            <p>El cliente es el local, residencial o comercial, que recibe el servicio en sus propias instalaciones.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="odn" class="w-content">
+                            <h3>Red de distribución óptica (ODN)</h3>
+                            <div class="row">
+                                <div class="col-2">
+                                    <p>La red de distribución óptica u ODN (<i>del inglés Optical Distribution Network</i>) está conformada por todos los cables ópticos y accesorios para su instalación, como cajas de empalme, cajas de derivación de cables, elementos de soporte y anclaje de cables en los postes y tuberías para canalización subterránea, entre otros elementos más. Aquí, también están instalados los divisores, con sus diferentes niveles de acuerdo con la topología y las aplicaciones de la red FTTH.</p>
+                                    <p>La red ODN se subdivide en tres partes principales: red feeder o de alimentación, red de distribución y red drop. En una topología típica con dos niveles de división, estas subdivisiones de la red pasiva están separadas por los niveles de splitters, así: </p>
+                                    <ul>
+                                        <li><strong>Red de alimentación o <i>feeder</i>: </strong>ubicada entre la central de operadora y el primer nivel de división.</li>
+                                        <li><strong>Red de distribución: </strong>entre el primer y el segundo nivel de división.</li>
+                                        <li><strong>Red de acometida o <i>drop</i>: </strong>entre el segundo nivel de división y el cliente.</li>
+                                    </ul>
+                                    <div class="box-text connection">
+                                        <p>En el siguiente diagrama, podemos observar estos subelementos o componentes de la red ODN.</p>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="about"><strong>Figura 20. </strong>Red de distribución óptica (ODN).</div>
+                                    <div class="instruction">
+                                        <span class="notmobile">Pasa el cursor sobre la imagen para conocer su descripción.</span>
+                                        <span class="onlymobile">Toca sobre la imagen para conocer su descripción.</span>
+                                    </div>
+                                    <div class="view-first">
+                                        <img src="content/fig20.png" />
+                                        <div class="view-content">
+                                            <p>La ODN está compuesta por fibras ópticas que conectan la central de operadora con el cliente. Es una red pasiva, en la medida en que no hay equipos allí afuera, por lo que no requiere de alimentación eléctrica.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about"><strong>Figura 21.</strong> Componentes de la red ODN.</div>
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento del esquema para conocer su nombre.</span>
+                                <span class="onlymobile">Toca sobre cada elemento del esquema para conocer su nombre.</span>
+                            </div>
+                            <div class="genially">
+                                <h1 class="change">Pendiente</h1>
+                            </div>
+                            <p>Desde la OLT, el cable de alimentación o feeder se encamina hacia un splitter de primer nivel junto con la fibra redundante, si se utiliza. Las fibras de distribución se conectan desde el divisor de primer nivel hasta un terminal de red llamado NAP (<i>Network Access Point</i>), donde se encuentra el splitter de segundo nivel. Las fibras de acometida, muy comúnmente llamadas Drop, proporcionan la conexión final hacia la ONT del usuario. Cada hilo de fibra óptica del cable de alimentación puede dividirse para prestar servicio hasta 128 ONTs, dependiendo del estándar PON utilizado. </p>
+                            <p>Así, cada componente de la red ODN utiliza un tipo de cable óptico diferente, principalmente por el ambiente en donde irá a operar y también considerando la cantidad de fibras que presenta el cable.</p>
+                            <p>El punto donde se ubica el primer nivel de splitters utiliza una caja protegida que recibe el nombre de CEO, por caja de empalme óptico. Los CEOs también se utilizan para dar continuidad a los tramos de fibra. Para la instalación del segundo nivel de splitters se utiliza una caja llamada CTO, por las siglas en español de caja terminal óptica. En esta caja es donde se encuentra el <strong>punto de acceso óptico </strong>NAP.</p>
+                        </div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Ahora que ya conocemos la arquitectura de una red FTTH, veamos otro punto importante de las características de esta red de acceso, conocida como WDM. Iniciemos antes con comprender cómo se transmiten los datos entre OLT y ONT. Pasa a la siguiente página para continuar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-wdm" ptitle="5. La tecnología WDM">
+                <div class="subpage">
+                    <p>Las fibras ópticas reconocidas para FTTH deben ser del estándar ITU-T G.652 C/D y G.657 y para realizar la comunicación bidireccional, es decir, desde el operador hasta el cliente y desde el cliente al operador, la red FTTH utiliza una sola fibra; lo cual significa que por esta única fibra tenemos los dos flujos de comunicación: transmisión y recepción en forma simultánea. </p>
+                    <ul>
+                        <li>La OLT realiza las transmisiones hacia la ONT empleando señales con longitudes de onda de 1490 nm. Este flujo de datos es llamado downstream o bajada.</li>
+                        <li>La ONT transmite hacia la OLT en la longitud de onda de 1310 nm. Esta dirección del flujo de datos es llamada upstream o subida.</li>
+                    </ul>
+                    <p>Para que la OLT emita datos hacia las ONT, se emplea una difusión o broadcast, es decir, la información se transmite para todas las ONT conectadas al mismo puerto de la OLT (en sentido <i>downstream</i> en 1490 nm). Dado que a todas las terminales les llega la misma información, es la ONT quien selecciona los paquetes que van dirigidos hacia ella.</p>
+                    <p>La comunicación de ONT hacia OLT se realiza “por turnos” en donde se emplea una técnica de acceso al medio por multiplexación de división del tiempo, llamada TDMA (Time Division Multiple Access), donde cada ONT transmite información en un orden establecido por la OLT y con un volumen de datos determinado. Así, en sentido upstream, en 1310 nm, la OLT asigna turnos para que cada ONT transmita, de tal manera que se emplea una sola longitud de onda sin interferencias entre las ONT.</p>
+                    <p>Adicionalmente a estas longitudes de onda de los datos, cuando en FTTH se tiene el servicio de TV Overlay (televisión convencional, no IP), se requiere de un WDM externo para mezclar una tercera señal de 1550 nm sobre la red de fibra, para la transmisión del video hasta el cliente.</p>
+                    <p>Para lograr la mezcla de las señales de datos en la red (<i>upstream y downstream</i>) con la nueva longitud de onda del video overlay de 1550 nm, se utiliza la tecnología de Multiplexación por División de la Longitud de Onda. Esta es conocida como WDM (<i>Wavelength Division Multiplexing</i>) y emplea un multiplexor (MUX) que mezcla señales ópticas de diferentes longitudes de onda que se transmiten desde un extremo de la fibra, mientras en el otro extremo utiliza un equipo receptor llamado demultiplexor (DEMUX) que separa la señal de 1550 nm de la señal de datos. </p>
+                    <p>Entonces WDM permite que varios haces de luz con diferentes longitudes de onda, viajen al mismo tiempo por dentro de la fibra.</p>
+                    <p>En la siguiente imagen, podemos ver el principio de operación del WDM con su MUX y DEMUX, en este caso, para una fibra que transporta 4 diferentes longitudes de onda.</p>
+                    <div class="about"><strong>Figura 20. </strong>WDM de 4 longitudes de onda.</div>
+                    <div class="genially">
+                        <h1 class="change">Pendiente</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Dado que cada señal óptica está viajando por la fibra con una longitud de onda diferente, estas señales no se interfieren. Las longitudes de onda son equivalentes a colores de la luz de cada señal óptica, y todas ellas se mezclan en la fibra para consolidar una mixtura de colores que se asemeja a la luz blanca, como lo que ocurre con la luz en un prisma. </p>
+                            <p>De hecho, el principio de operación de un sistema WDM se basa en la separación de los colores que le ocurre a la luz en un prisma, como lo podemos ver en la imagen.</p>
+                            <p>Existen varias tecnologías de WDM que involucran estándares para multiplexar diferentes cantidades de señales ópticas y son conocidos como C-WDM, D-WDM y UD-WDM. Como vimos, para el caso particular de la multiplexación de los sistemas FTTH, la OLT emplea dos longitudes de onda, una de 1490 nm para la transmisión en el sentido <i>downstream</i> y otra de 1310 nm para el <i>upstream</i>.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Animación 2. </strong>Descomposición de la luz en un prisma óptico.</div>
+                            <div class="box_media">
+                                <h1 class="change">Pendiente</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-text important w-100" label="¡Consideraciones importantes!">
+                        <div class="ctrl-pagination" data-layer-height="100px" data-labelcurrent="true" >
+                            <li>
+                                La comunicación en el sentido <strong>operador-cliente</strong> se conoce con el nombre de <em>Downstream</em>, mientras que en el sentido <strong>cliente-operador</strong> recibe el nombre <em>Upstream</em>. En upstream, se emplea una señal óptica de 1310 nm y en downstream la señal es de 1490 nm.
+                            </li>
+                            <li>
+                                WDM es una tecnología para mezclar, en una misma fibra óptica, señales de varias longitudes de onda, sin que éstas se interfieran. Cuando en FTTH se adiciona el servicio de TV overlay, entonces se emplea un WDM.
+                            </li>
+                            <li>
+                                Como hemos visto, las redes FTTH utilizan los splitters para dividir las señales ópticas que ingresan por una fibra en señales “más pequeñas”, con menor potencia en la salida, para así atender a varios usuarios con un hilo común hasta el propio divisor.
+                            </li>
+                        </div>
+                        <p>Por otro lado, las redes FTTH utilizan la tecnología WDM para agregar una señal de video overlay, mientras que para hacer que las señales de datos en downstream y upstream circulen por la red se utiliza TDMA.</p>
+                        <p>Es muy importante distinguir entre un divisor y un dispositivo WDM. ¡Tienen funciones muy diferentes!  De hecho, el <i>splitter</i> es un dispositivo que se encarga de dividir la potencia óptica de la fibra en partes más pequeñas que salen por fibras independientes. Mientras que, la función de un Mux/Demux WDM combina y separa señales ópticas de diferentes longitudes de onda.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Ahora que ya conoces los componentes de la red FTTH y que has analizado la arquitectura de esta importante red de acceso, donde solo hay dos equipos de red (activos) ubicados en los extremos, es decir, la OLT del lado del operador y la ONT del lado del cliente, siendo toda la red compuesta de elementos pasivos, te invitamos a seguir aprendiendo, enfocando tus estudios en los estándares para la transmisión de datos sobre esta red.</p>
+                            <p>Estos estándares se refieren a las características de la comunicación sobre las redes FTTH, que también conocemos como  redes PON. </p>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-text important" label="¡Importante!">
+                                <p>La red de acceso FTTH es quizás la aplicación PON más conocida, pero no es la única. Dado que las tecnologías PON (GPON y EPON) existen para atender las demandas de las redes FTTH, suele ser común que hablemos de PON y FTTH como la misma cosa, pero en realidad la red PON se refiere a un término más general.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-text important" label="Síntesis">
+                        <div class="videobox">
+                            <video controls src=""></video>
+                        </div>
+                    </div>
+                    <p>Las llamadas redes de fibra óptica hasta el hogar han venido siendo implementadas cada vez más por los operadores de servicios de Internet, en parte por las necesidades de incrementar el desempeño de las actuales redes de acceso basadas en cables de cobre, donde incluso se puede encontrar la fibra óptica, pero hasta un punto aún muy distante del usuario final.</p>
+                    <p>Vimos en este capítulo lo que es una red de FTTH y sus diferencias con la tecnologías de red basada en híbrido de fibra y coaxial o HFC, que presenta limitaciones por el tramo de cobre en la última milla.</p>
+                    <p>De esta manera, nos hemos concentrado en las generalidades del FTTH, abordando su arquitectura, con la central de operadora, la red de distribución ODN y el cliente. En la red ODN destaca el splitter, como un elemento de división óptica que permite establecer enlaces del tipo punto a multipunto. Vimos, además, que el divisor puede tener doble entrada para garantizar aquellos enlaces que requieren redundancia del canal físico. Desde allí, vimos las tecnologías FBT y PLC para la construcción de splitters, en donde los primeros permiten tener salidas desbalanceadas y los segundos una mayor cantidad de salidas, hasta 64 o 128.</p>
+                    <p>Abordamos también, en este capítulo, las topologías físicas de FTTH, que no son más que la posición en la que tendremos los splitters, así como la cantidad de niveles de estos divisores ópticos en la red, encontrando así las topologías centralizadas, convergencia local y distribuida.</p>
+                    <p>Vimos que la tecnología WDM es utilizada por la red de FTTH cuando se requiere agregar otro servicio a la red de datos, como el video overlay. </p>
+                    <p>Para la comunicación de los datos se utilizan dos longitudes de onda distintas. Downstream se produce en 1490 nm y utiliza una difusión simultánea a todas las ONTs. Upstream opera en 1310 nm  y utiliza TDMA, que consiste en una técnica de turnos para mantener la comunicación de cada ONT con la OLT, utilizando la longitud de onda de 1310 nm.</p>
+                    <p>Pudimos ver, por lo tanto, que FTTH tienen un gran impacto en la infraestructura, debido fundamentalmente a que disminuyen los componentes al emplear únicamente cables, cajas y conexiones, que, además de los splitters, conforman solo elementos pasivos, sin necesidad de alimentación eléctrica en ningún punto de la red y que simplifican así la arquitectura. Como consecuencia, se disminuyen las inversiones iniciales y el mantenimiento de la red, que requieren los operadores del servicio. </p>
+                    <p>De este modo, las redes de FTTH representan una ventaja comparativa frente a las redes de HFC al disminuir la infraestructura de la red, mantener solo elementos pasivos y simplificar el mantenimiento, además de aprovechar las bondades de la fibra tales como una mayor velocidad de transmisión, total inmunidad al ruido, mayores distancias de las aplicaciones, pero tal vez el principal punto diferenciador es la proyección de futuro del FTTH.</p>
+                </div>
+            </section>
+
+            <section id="pag-bibliografia" ptitle="Referencias">
+                <div class="subpage" id="bibliography_subpage">
+                    <ul>
+                        <li>FTTH Council LATAM Chapter. (2017). Entienda por qué la elección de la arquitectura de red es clave para el éxito de un proyecto. Construyendo un camino de fibra hacia el futuro. FTTH Council LATAM Americas Chapter.</li>
+                        <li>Commscope. (2020). <i>FTTX Fibra a la X. Principios Básicos.</i> Hickory, Estados Unidos. Commscope, Inc.</li>
+                        <li>Olmos, A. (2018). <i>Estudio práctico del despliegue de una red de distribución FTTH.</i> Cartagena, España. Universidad Politécnica de Cartagena. </li>
+                        <li>Farmer, J. y otros. (2017). <i>FTTx Networks Technology Implementation and Operation</i>. Cambridge, United States. Morgan Kaufmann.</li>
+                        <li>Fiber Broadband Association, (2017). <i>El FTTH Council Americas LATAM Chapter es ahora la Fiber Broadband Association LATAM Chapter</i>. Extraído el 06 de enero de 2022 de https://www.fiberbroadband.org/chapter-overview</li>
+                        <li>FOCC, (2020). <i>¿Qué es la multiplexación por división de longitud de onda (WDM, CWDM, DWDM)?.</i> Extraído el 06 de enero de 2022 de <a href="http://www.fibresplitter.com/news/what-is-wavelength-division-multiplexing-wdm-34901254.html" target="_blank">http://www.fibresplitter.com/[...]</a></li>
+                        <li>García, A. (2017). <i>El cable HFC no está tan maduro con la fibra FTTH</i>. Recuperado el 16 de diciembre de 2021 de <a href="https://www.adslzone.net/2017/11/28/fibra-ftth-hfc-maduro/" target="_blank">https://www.adslzone.net/[...]</a>.</li>
+                        <li>García, R. (2021). <i>¿Toda la fibra óptica es igual? Comparativa entre FTTH y HFC.</i> Extraído el 06 de enero de 2022 de <a href="https://www.adslzone.net/reportajes/operadores/ftth-vs-hfc-fibra-cable/" target="_blank">https://www.adslzone.net/[...]</a></li>
+                        <li>Imagen tomada de: Banco de Imágenes, Freepink, <a href="https://www.freepik.com/premium-photo/close-up-view-young-man-connects-internet-cable-into-router-wireless-home_19323720.htm#query=router&position=8&from_view=search" target="_blank">https://www.freepik.com/[...]</a></li>
+                        <li>López, A. (2021). <i>Qué es y cómo funciona la tecnología GPON: secretos técnicos.</i> Recuperado el 10 de diciembre de 2021 de <a href="https://www.redeszone.net/tutoriales/redes-cable/tecnologia-ftth-gpon-que-es-funcionamiento/" target="_blank">https://www.redeszone.net/[...]</a>.</li>
+                        <li>Rodríguez, A. (2013). <i>Divisores (Splitters) para FTTH.</i> Recuperado el 16 de diciembre de 2021 del sitio web <a href="https://www.instaladoresdetelecomhoy.com/divisores-splitters-para-ftth/" target="_blank">https://www.instaladoresdetelecomhoy.com/[...]</a></li>
+                        <li>Silex Fiber. (). <i>Diferencias Divisores Splitters FBT & PLC.</i> Recuperado el 16 de diciembre de 2021 de <a href="https://silexfiber.com/diferencias-divisores-splitters-fbt-plc/" target="_blank">https://silexfiber.com/[...]</a>.</li>
+                        <li>Mendez, L. (). <i>Redes de telecomunicaciones PON con splitters simétricos y desbalanceados</i>. Recuperado el 16 de diciembre de 2021 de <a href="https://mydigitalpublication.com/publication/?i=720768&article_id=4110760&view=articleBrowser&ver=html5" target="_blank">https://mydigitalpublication.com/[...]</a></li>
+
+                        <li>Wikimedia Commons. (2008). Oficina central. [Fotografía]. Recuperado el 10 de enero de 2021 de <a href="https://commons.wikimedia.org/wiki/File:Emulab-cluster2-back.jpg" target="_blank">https://commons.wikimedia.org/[...]</a> </li>
+                        <li>Wikimedia Commons. (2007). Prisma-lightSpectrum-goethe. [ gif]. Recuperado el 10 de enero de 2021 de <a href="https://es.wikipedia.org/wiki/Archivo:Prisma-lightSpectrum-goethe.gif" target="_blank">https://es.wikipedia.org/[...]</a> </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <!--Créditos-->
+            <section id="pag-creditos">
+                <div class="subpage" id="credits_subpage">
+
+                    <div class="creditos-fba">
+                        <h2>Créditos</h2>
+                        <div class="bloque">
+                            <table>
+                                <tr>
+                                    <td>Experto Temático</td>
+                                    <td>Luis Fernando Rodríguez</td>
+                                </tr>
+                                <tr>
+                                    <td>Pares evaluadores</td>
+                                    <td>Ana María Cárdenas / Marco Teran / Fredy Pereira</td>
+                                </tr>
+                                <tr>
+                                    <td>Asesoría pedagógica / Diseño instruccional</td>
+                                    <td>Carolina Llanos</td>
+                                </tr>
+                                <tr>
+                                    <td>Corrección de estilos</td>
+                                    <td>Danleibi Molina</td>
+                                </tr>
+                                <tr>
+                                    <td>Diseño gráfico</td>
+                                    <td>Inesly Vega</td>
+                                </tr>
+                                <tr>
+                                    <td>Producción audiovisual</td>
+                                    <td>Fernanda Álvarez / Sebastián Quintero</td>
+                                </tr>
+                                <tr>
+                                    <td>Integración de contenidos</td>
+                                    <td>Santiago Bernal</td>
+                                </tr>
+                                <tr>
+                                    <td>Revisión de calidad</td>
+                                    <td>Bambuco</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bloque logo">
+                            <h3>Gestión técnica y administrativa</h3>
+                            <a href="https://fycolearning.com/" target="_blank"><img src="img/logo_azul.png" alt="Fyco learning" /></a>
+                            <p>Versión 1.0</p>
+                        </div>
+                        <div class="bloque copy">
+                            <p>
+                                Este recurso educativo es propiedad de Fyco Learning.
+                                <br />Todo el material didáctico que lo compone está protegido por las leyes que rigen la propiedad intelectual. 
+                                <br />Para utilizar todo o parte de este material se debe contar con autorización expresa de la organización. 
+                            </p>
+                            <p>
+                                Derechos reservados ©
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                    <!-- <p>
+                        Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+                    </p>
+                    <div>
+                        <h3>Expertos temáticos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Leidy Cristina Madrigal Arrieta</cite>
+                    </div>
+                    <div>
+                        <h3>Asesoría pedagógica</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Corrección de estilo</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Traducción de contenidos</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión Administrativa</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión de calidad</h3>
+                        <cite>Ana Yarenis Arango</cite>
+                    </div>
+                    <div>
+                        <h3>Diseño gráfico</h3>
+                        <cite>Juliana Tobón Gaviria</cite>
+                    </div>
+                    <div>
+                        <h3>Integración de contenidos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Santiago Bernal García</cite>
+                    </div>
+
+                    <div>
+                        <h3>Producción</h3>
+                        <p class="logos">
+                            <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                            <br />
+                            <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                            <br />
+                            <a href="http://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                        </p>
+                    </div>
+
+                    <div class="editions">
+                        1ª edición: diciembre 2013<br />
+                        2ª edición: octubre 2015<br />
+                        3ª edición: febrero 2016<br />
+                        4ª edición: junio 2017
+                    </div>
+                    <div>
+                        <br />
+                        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Obra publicada bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                    </div>
+
+                    <p>
+                        Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+                    </p>
+                    <p>
+                        Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+                    </p> -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <div class="measuring-progress" data-type="horizontal"></div>
+
+            <nav label="Características globales" class="globals">
+                <menu>
+                    <menuitem data-global-id="results"><div class="progress"><p>Progreso</p></div></menuitem>
+                    <menuitem data-page="pag-creditos"><div class="credits"><p>Créditos</p></div></menuitem>
+                    <menuitem data-page="pag-bibliografia"><div class="biblio"><p>Referencias</p></div></menuitem>
+                    <menuitem data-global-id="return">
+                        <div class="maximize"><p>Maximizar</p></div>
+                        <div class="minimize"><p>Minimizar</p></div>
+                    </menuitem>
+                    <menuitem data-global-id="close_all"><div class="back"><p>Salir</p></div></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div id="page_number"></div>
+                <div class="button" next-page></div>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de tu avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya has visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

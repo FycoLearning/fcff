@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <link href="css/fonts/Scala_SansRegular_LF.ttf" rel="stylesheet" type="text/css"/> -->
+    <title>Evolución de las redes ópticas de transporte y redes de acceso</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+<!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+<!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <header>
+            <div class="logo">
+                <img src="img/logo_color.svg" alt="Fyco learning" />
+            </div>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Presentación" data-page="pag-presentacion"></menuitem>
+                    <menuitem label="Componentes">
+                        <menu>
+                            <menuitem label="1. Una visión de la conformación de las redes de telecomunicaciones" data-page="pag-vision"></menuitem>
+                            <menuitem label="2. Evolución de las redes de transporte" data-page="pag-transporte"></menuitem>
+                            <menuitem label="3. Evolución de la red de acceso de banda ancha" data-page="pag-acceso"></menuitem>
+                        </menu>
+                    </menuitem>
+                </menu>
+            </nav>
+            <h2 class="page-title"></h2>
+        </header>
+
+        <main style="display: none;">
+
+            <section id="pag-presentacion">
+                <div class="subpage">
+                    <div class="page-index">
+                        <div class="ova_name">
+                            <div class="title">
+                                <h1>Evolución de las redes ópticas de transporte (PDH/SDH/Ethernet) y redes de acceso (xDSL, HFC, FTTH y wireless)</h1>
+                                <div class="title-img-fibra"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <h2>Presentación</h2>
+                                <div class="videobox">
+                                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/sqeh7i6BiNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                    <video controls src="https://info.fycolearning.com/fba/cursos/fcff/mod1/tema1/m1-t1_1-introduccion.mp4" poster="https://info.fycolearning.com/fba/cursos/fcff/mod1/tema1/poster/m1-t1_1-introduccion.png"></video>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <h2>Objetivo</h2>
+                                <div class="objetivo-text">
+                                    <p>Identificar la evolución tecnológica que han  tenido las redes de transporte y las redes de acceso de telecomunicaciones, de acuerdo con su capacidad de llevar información a cierto rango de distancias.</p>
+                                </div>
+                                <div class="duration">
+                                    <h2>Duración: X horas / minutos</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-vision" ptitle="1. Una visión de la conformación de las redes de telecomunicaciones">
+                <div class="subpage">
+                    <p>Para comenzar, ubiquémonos en el contexto de las redes de telecomunicaciones y su diferencia de acuerdo con el nivel de agregación de información de cada una.</p>
+                    <p>Si observas la figura, en el primer nivel puedes encontrar las redes de larga distancia (redes core), en el segundo las redes backbone o redes troncales, y en el tercero las redes metropolitanas y regionales. Las redes de los dos últimos niveles son conocidas como redes de transporte. </p>
+                    <div class="box-text note" label="Nota:">
+                        <p>En estos tres tipos de redes, las fibras ópticas son el medio de transmisión por excelencia.</p>
+                    </div>
+                    <p>En el último nivel de agregación, están las redes de acceso que, de forma amplia, se dividen en fijas y móviles según la posibilidad de ofrecer movilidad al cliente final; y a su vez, las de acceso fijo se clasifican en cableadas e inalámbricas. </p>
+                    <p>Por último, dentro de las cableadas encontramos tres tipos según el medio de transmisión que las soporta: xDSL; HFC y FTTH/PON; siendo este último el objeto de nuestro aprendizaje.</p>
+                    <div class="box-text note" label="Nota:">
+                        <p>Las redes de acceso tienen presencia de diferentes tipos de medios de transmisión, por ejemplo, cableados, inalámbricos o configuraciones híbridas.</p>
+                    </div>
+                    <div class="about"><strong>Figura 1.</strong> Redes de telecomunicaciones de acuerdo con su nivel de agregación: larga distancia (<cite>long-haul</cite>), metropolitana y acceso</div>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento del esquema para conocer su descripción.</span>
+                        <span class="onlymobile">Toca cada elemento del esquema para conocer su descripción.</span>
+                    </div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 75.02%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1801" height="1351.06" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61aa815de3eef30d7e8677e8" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="box-text activity" label="ACTIVIDAD DE APRENDIZAJE">
+                        <p><strong>Objetivo:</strong> Clasificar las redes de telecomunicaciones de acuerdo con su nivel de agregación.</p> 
+                        <p>¡Pongamos a prueba los conocimientos adquiridos!</p>
+                        <p>¿Qué tal completar el esquema con las redes que acabamos de estudiar? </p>
+                        <p><strong>Enunciado:</strong> Arrastra cada opción al espacio correspondiente para dar la respuesta correcta.</p>
+                        <p><i>Si tienes dudas, puedes repasar el contenido y realizar esta actividad las veces que necesites hasta completar el 100% de la calificación.</i></p>
+                    </div>
+                    <div id="arrastrar1" class="jpit-activities-droppable" data-act-id="1_arrastrar1" data-act-title="Actividad de aprendizaje">
+                        <div class="row align-center">
+                            <div class="w-80">
+                                <div class="mapa">
+                                    <div class="acc target-box title" data-target-group="1"></div>
+                                    <div class="trans target-box title" data-target-group="2"></div>
+                                    <div class="larga target-box title" data-target-group="3"></div>
+                                    <div class="xdsl target-box" data-target-group="4"></div>
+                                    <div class="hfc target-box" data-target-group="5"></div>
+                                    <div class="ftth target-box" data-target-group="6"></div>
+                                    <div class="cable target-box" data-target-group="7"></div>
+                                    <div class="inal target-box" data-target-group="8"></div>
+                                    <div class="fija target-box" data-target-group="9"></div>
+                                    <div class="movil target-box" data-target-group="10"></div>
+                                    <div class="metro target-box" data-target-group="11"></div>
+                                    <div class="back target-box" data-target-group="12"></div>
+                                </div>
+                            </div>
+                            <div class="sources">
+                                <div class="option" data-group="1">Redes de Acceso</div>
+                                <div class="option" data-group="2">Redes de transporte</div>
+                                <div class="option" data-group="3">Redes de larga distancia</div>
+                                <div class="option" data-group="4">XDSL (Par de cobre)</div>
+                                <div class="option" data-group="5">HFC (híbrido fibra-coaxial)</div>
+                                <div class="option" data-group="6">FTTH /PON (fibra óptica)</div>
+                                <div class="option" data-group="7">Cableada</div>
+                                <div class="option" data-group="8">Inalámbrica</div>
+                                <div class="option" data-group="9">Fijas</div>
+                                <div class="option" data-group="10">Móviles</div>
+                                <div class="option" data-group="11">Metropolitana y Regional</div>
+                                <div class="option" data-group="12">Backbone</div>
+                                <div class="box_end"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Ahora, ubiquémonos en las dos grandes categorías de redes de telecomunicaciones: Transporte y Acceso. A continuación, revisaremos cómo ha sido la evolución de cada una, comenzando con las redes de mayor nivel de agregación, las de <i>transporte</i> y luego estudiaremos la evolución de las redes de <i>acceso</i>. Dado que nuestro enfoque va orientado a las redes FTTH, solo echaremos un vistazo a las redes de transporte. </p>
+                        <p>Pasa a la siguiente página para continuar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-transporte" ptitle="2. Evolución de las redes de transporte">
+                <div class="subpage">
+                    <p>Las redes de transporte fueron prontamente soportadas por las fibras ópticas, debido a sus características ideales para este tipo de redes, como baja atenuación y alta capacidad de transporte de información. </p>
+                    <p>La evolución de las redes de transporte por fibra óptica se ha acelerado en la última década debido a la creciente demanda que existe de accesos a alta velocidad y gran ancho de banda, requeridos por nuevas aplicaciones y servicios para ofrecer una experiencia satisfactoria al usuario. Esto provoca cambios sustanciales en las arquitecturas de las redes ópticas, empezando con redes punto a punto en PDH (del inglés <i>Plesiochronous Digital Hierarchy</i>) a redes definidas por software en una quinta generación.</p>
+                    <p>En la siguiente figura, puedes observar gráficamente como ha sido esta evolución:</p>
+                    <div class="about"><strong>Figura 2.</strong> Evolución de las redes de transporte de telecomunicaciones</div>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento del esquema para conocer su descripción.</span>
+                        <span class="onlymobile">Toca cada elemento del esquema para conocer su descripción.</span>
+                    </div>
+                    <div class="genially notmobile">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 49.92%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="599" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61aa3a503e98cb0d9279ce9b" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="genially onlymobile">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 133.33%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="1600" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61b9e56521a0d10d648da770" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="box-text important unset" label="En resumen">
+                        <p>Podemos sintetizar la comparación de las cinco generaciones así:</p>
+
+                        <table class="datatable notmobile">
+                            <thead>
+                                <th>Generación</th>
+                                <th>Tecnologías</th>
+                                <th>Características</th>
+                                <th>Tasas de transmisión</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Primera</th>
+                                    <td>
+                                        PDH (Jerarquía Digital Plesiócrona)
+                                        <br />FC (Canal de FIbra)
+                                        <br />Optical Ethernet
+                                    </td>
+                                    <td>
+                                        Enlaces p-t-p (punto a punto)
+                                        <br />Multiplexación bit a bit
+                                    </td>
+                                    <td>1 - 140 Mbps</td>
+                                </tr>
+                                <tr class="odd">
+                                    <th>Segunda</th>
+                                    <td>
+                                        SDH (Jerarquía Digital Sincrónica)
+                                        <br />SONET (Red Óptica Sincronizada)
+                                    </td>
+                                    <td>
+                                        Topología en anillo
+                                        <br />APS (Conmutación de protección automática)
+                                        <br />Multiplexación byte a byte
+                                        <br />Enlaces p-t-p (punto a punto)
+                                    </td>
+                                    <td>50 Mbps - 2.5 Gbps</td>
+                                </tr>
+                                <tr>
+                                    <th>Tercera</th>
+                                    <td>SDH, SONET sobre WDM (Multiplexación por división de longitud de onda)</td>
+                                    <td>
+                                        Topologías en anillo y malla
+                                        <br />APS (Conmutación de protección automática)
+                                        <br />Malla de longitud de onda fija
+                                        <br />Multiplexación byte a byte
+                                        <br />Enlaces p-t-p (punto a punto)
+                                    </td>
+                                    <td>50 Mbps - 40 Gbps</td>
+                                </tr>
+                                <tr class="odd">
+                                    <th>Cuarta</th>
+                                    <td>
+                                        OTN (Red de transporte óptico)
+                                        <br />DWDM (Multiplexado denso por división de longitud de onda)
+                                        <br />ROADM (Multiplexor reconfigurable  Add/Drop )
+                                        <br />100G Ethernet
+                                    </td>
+                                    <td>
+                                        Topologías en anillo y malla
+                                        <br />Malla de longitud de onda fija
+                                        <br />Configuración ODU (Unidad de datos ópticos)
+                                    </td>
+                                    <td>1 - 100 Gbps</td>
+                                </tr>
+                                <tr>
+                                    <th>Quinta</th>
+                                    <td>
+                                        HOS (Conmutación óptica híbrida)
+                                        <br />EON (Redes ópticas elásticas)
+                                        <br />NFV (Virtualización de funciones de Red)
+                                        <br />SDN Multicapa (Redes definidas por software)
+                                        <br />Conexión de retorno en 5G
+                                        <br />Nube con infraestructura óptica
+                                    </td>
+                                    <td>
+                                        Topologías en malla
+                                        <br />Modulación adaptativa
+                                        <br />Malla flexible
+                                        <br />Adaptabilidad
+                                        <br />Eficiencia
+                                        <br />Modo de transferencia de flujo
+                                    </td>
+                                    <td>10 Gbps - 1 Tbps</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="box_media onlymobile">
+                            <img src="content/tabla1.png" alt="Tabla 1">
+                        </div>
+                    </div>
+                    <div class="box-text link" label="Extendiendo el saber">
+                        <p>Podemos ampliar la descripción de algunas redes de transporte enmarcadas en las 4 generaciones, hasta llegar a la más reciente que es la red OTN (por sus siglas en inglés Optical Transport Network y en español como Red de Transporte Óptica). Vale la pena notar las tasas de cada una de estas tecnologías y el enfoque en sus características. Consulta el siguiente enlace para conocer esta información:</p>
+                        <p>Documento: <a href="content/pdf1.pdf" target="_blank">Características de algunas redes de transporte</a></p>
+                        <p>Extensión: 4 páginas</p>
+                    </div>
+                    <div class="box-text activity" label="ACTIVIDAD DE APRENDIZAJE">
+                        <p><strong>Objetivo: </strong>Reconocer las características importantes de las redes de transporte.</p>
+                        <p>¿Han quedado claros los temas estudiados sobre redes de transporte? Si sientes que aún no, es momento de hacer una pausa, repasar e incluso investigar un poco más. ¡Luego podrás ponerte a prueba con esta actividad!</p>
+                        <p><strong>Enunciado: </strong>Selecciona en cada espacio en blanco la respuesta correcta para completar las afirmaciones.</p>
+                        <p><i>Recuerda que puedes repasar el contenido y realizar esta actividad las veces que necesites hasta completar el 100% de la calificación.</i></p>
+                    </div>
+                    <div class="jpit-activities-cloze" data-parent-mark-selector="span" data-act-id="2_cloze" data-act-title="Actividad de aprendizaje">
+                        <p>
+                            Las redes 
+                            <span>
+                                <select>
+                                    <option>elásticas</option>
+                                    <option>OTN sobre DWDM</option>
+                                    <option>PDH</option>
+                                    <option data-response="true">SDH-SONET</option>
+                                    <option>SDH-SONET sobre WDM</option>
+                                </select>
+                            </span>
+                             de 
+                            <span>
+                                <select>
+                                    <option>primera</option>
+                                    <option data-response="true">segunda</option>
+                                    <option>tercera</option>
+                                    <option>cuarta</option>
+                                    <option>quinta</option>
+                                </select>
+                            </span>
+                             generación permiten configuración en anillo, pero con una única portadora circulando a través del anillo.
+                        </p>
+                        <p>
+                            Las redes 
+                            <span>
+                                <select>
+                                    <option data-response="true">elásticas</option>
+                                    <option>OTN sobre DWDM</option>
+                                    <option>PDH</option>
+                                    <option>SDH-SONET</option>
+                                    <option>SDH-SONET sobre WDM</option>
+                                </select>
+                            </span>
+                             de 
+                             <span>
+                                <select>
+                                    <option>primera</option>
+                                    <option>segunda</option>
+                                    <option>tercera</option>
+                                    <option>cuarta</option>
+                                    <option data-response="true">quinta</option>
+                                </select>
+                            </span> generación permiten configurar el ancho de banda entre canales.
+                        </p>
+                        <p>
+                            Las redes 
+                            <span>
+                                <select>
+                                    <option data-response="true">elásticas</option>
+                                    <option>OTN sobre DWDM</option>
+                                    <option>PDH</option>
+                                    <option>SDH-SONET</option>
+                                    <option>SDH-SONET sobre WDM</option>
+                                </select>
+                            </span>
+                             de 
+                             <span>
+                                <select>
+                                    <option data-response="true">primera</option>
+                                    <option>segunda</option>
+                                    <option>tercera</option>
+                                    <option>cuarta</option>
+                                    <option>quinta</option>
+                                </select>
+                            </span> generación no son interoperables.
+                        </p>
+
+                        <div class="box_end"></div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Hasta este punto, hemos revisado un tipo de redes que transportan una muy alta capacidad. Pasemos ahora a revisar la evolución de aquellas redes que conectan al cliente final con las redes de transporte, las ya mencionadas <i>redes de acceso</i>.</p>
+                        <p>Pasa a la siguiente página para continuar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-acceso" ptitle="3. Evolución de la red de acceso de banda ancha">
+                <div class="subpage">
+                    <div class="row align-center">
+                        <div class="col-2">
+                            <p>En nuestro estudio de la evolución de las redes de acceso de telecomunicaciones, conviene aclarar que nos enfocaremos en aquellas que soportan capacidades de banda ancha (entendiendo banda ancha como la capacidad que tienen las redes de transmitir información) y que son de acceso fijo, es decir, cuando los dispositivos del cliente no poseen la flexibilidad de movilidad, quedando conectados físicamente a la red. </p>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-text connection">
+                                <p>Sin embargo, siendo esta una característica importante, vamos a revisar unas tecnologías de acceso complementarias a estas redes fijas de tipo inalámbrico que permiten añadir cierta movilidad a los equipos del cliente.</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <h3>3.1. Redes de acceso Fijas</h3>
+                    <h4>3.1.1. Tecnología xDSL</h4>
+                    <p>Estas tecnologías surgen como respuesta de las tradicionales operadoras de telefonía para incursionar en el mercado de banda ancha. El objetivo principal es hacer uso del mismo par de cobre para prestar tanto el servicio de telefonía como los servicios de internet.</p>
+                    <p>En la figura, puedes observar la tasa alcanzable de las generaciones de <i>xDSL</i>.</p>
+                    <div class="about"><strong>Figura 3.</strong> Evolución de las redes xDSL</div>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento del esquema para conocer su descripción.</span>
+                        <span class="onlymobile">Toca cada elemento del esquema para conocer su descripción.</span>
+                    </div>
+                    <div class="genially notmobile">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 61.11%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1800" height="1100" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61af7faa0cece40d63da8f66" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="genially onlymobile">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 162.50%; padding-top: 0; height: 0;"><iframe frameborder="0" width="800" height="1300" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61b89a6d107f170da5fbdf5b" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <p>El módem V.x antecesor de los xDSL, no fue diseñado para soportar simultáneamente servicios telefónicos y de datos, eran los inicios de la transmisión de datos a principios de los 90.</p>
+                    <p>Este problema fue resuelto por la red digital de servicios integrados RDSI o ISDN por sus siglas en inglés. En 1994, se estandariza la tecnología línea de abonado digital de alta velocidad (HDSL), para transmisiones con velocidades de hasta 1.544 Mbps en T1 con dos pares de cobre con cobertura del orden de 3658 m (12000 pies) y transmisión simétrica.</p>
+                    <p>DSL asimétrico (ADSL) se diseñó para distribuir en un ancho de banda de 1.1 MHz, los servicios de telefonía y la transmisión de datos, tanto en el downstream como en el upstream, proporcionando una velocidad de hasta 8 Mbit / s para el flujo descendente. </p>
+                    <p>Por otro lado, ADSL2 mejoró la velocidad pico de flujo descendente a 12 Mbps extendiendo el ancho de banda de 1.1 MHz a 2.2 MHz DSL de muy alta velocidad (VDSL). Amplió, aún más, el ancho de banda, hasta 17 MHz y 30 MHz para la edición más reciente denominada como VDSL2. Cabe resaltar que estos incrementos en las tasas tienen un costo en la disminución de la cobertura. Igualmente con el incremento de las frecuencias, se presenta la diafonía entre pares. Surgen entonces las técnicas de vectorización (<i>vectoring</i>) para mitigar este inconveniente, posibilitando tasas hasta 100 Mbps.</p>
+                    <p>Fibra al punto de distribución FTTdp (<i>Fiber to the distribution point</i>) y G.fast son las nuevas perspectivas de evolución. Tienen la posibilidad de proporcionar 1 Gbps sobre un ancho de banda de 106 MHz y una distancia de 100 metros, usando la fibra para la interconexión con la oficina central. Según el <i>Broadband Forum</i>, organismo que impulsa el uso de tecnologías de última milla en pares de cobre, se espera que FTTdp tenga rendimientos similares a las actuales redes de fibra que llegan directamente a los hogares, pero haciendo uso del par de cobre en el interior de los predios.</p>
+                    <p>La siguiente figura nos muestra una comparación de las velocidades y alcances de distintas tecnologías xDSL.</p>
+                    <div class="about"><strong>Figura 4.</strong> Gráfico de velocidad xDSL. Tasas de transmisión y cobertura de distintas tecnologías xDSL</div>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada curva del gráfico para conocer el nombre de la tecnología asociada.</span>
+                        <span class="onlymobile">Toca cada sobre cada curva del gráfico para conocer el nombre de la tecnología asociada.</span>
+                    </div>
+                    <div class="genially notmobile">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 55.56%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1800" height="1000" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61af82c5cec5b10d5140f682" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="genially onlymobile">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 75.00%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1400" height="1050" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61b89f4a1bbf600d9e880897" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <h4>3.1.2. Tecnología HFC</h4>
+                    <p>Podemos decir que la evolución de las redes de acceso basadas en cables coaxiales ha tenido dos frentes: en los años 80´s, la introducción de los láseres y la fibra óptica, y en los 90´s, la capa de datos.</p>
+                    <p>Las redes de CATV (<i>Community Antenna Television</i>) prestaban únicamente el servicio de televisión de forma unidireccional, sobre cables coaxiales y una serie de amplificadores de RF en una arquitectura árbol-rama, la cual introducía muchas distorsiones y presentaba una muy baja confiabilidad al depender de elementos activos en la red. Los láseres aportaron la linealidad suficiente para no distorsionar las señales analógicas cuando se hace la conversión electro-óptica de las señales de televisión.</p>
+                    <p>Por otro lado, las fibras aportaron un medio de muy bajas pérdidas que posibilitaron eliminar varios amplificadores y con ello mejorar las características de desempeño de las redes.</p>
+                    <p>En los años 90´s con la aparición del internet, se genera la necesidad de un segundo frente de evolución: la implementación de la transmisión de datos en forma bidireccional. Este frente ha sido desarrollado por CableLabs, el organismo estandarizador de esta capa en las redes HFC, y sus estándares DOCSIS.</p>
+                    <p>En la siguiente figura, puedes observar esta evolución. El estándar en fuerza es el DOCSIS 3.1 Dúplex completo, estandarizado en octubre de 2013, posibilita velocidades máximas de 10 Gbps de ancho de banda compartido entre suscriptores en un área de servicio.</p>
+                    <div class="about"><strong>Tabla 2.</strong> Evolución estándares DOCSIS</div>
+                    <table class="datatable notmobile">
+                        <thead>
+                            <th></th>
+                            <th>DOCSIS 1.0</th>
+                            <th>DOCSIS 1.1</th>
+                            <th>DOCSIS 2.0</th>
+                            <th>DOCSIS 3.0</th>
+                            <th>DOCSIS 3.1</th>
+                            <th>DOCSIS 4.0</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Características Destacadas</th>
+                                <td>Tecnología inicial de banda ancha por cable</td>
+                                <td>Servicio de voz sobre IP</td>
+                                <td>Mayor velocidad de subida</td>
+                                <td>Mayor velocidad de bajada</td>
+                                <td>Capacidad muy mejorada</td>
+                                <td>Avance en capacidad y eficiencia</td>
+                            </tr>
+                            <tr class="odd">
+                                <th>Capacidad de Bajada</th>
+                                <td>40 Mbps</td>
+                                <td>40 Mbps</td>
+                                <td>40 Mbps</td>
+                                <td>1 Gbps</td>
+                                <td>10 Gbps</td>
+                                <td>10 Gbps</td>
+                            </tr>
+                            <tr>
+                                <th>Capacidad de Subida</th>
+                                <td>10 Mbps</td>
+                                <td>10 Mbps</td>
+                                <td>30 Mbps</td>
+                                <td>200 Mbps</td>
+                                <td>1-2 Gbps</td>
+                                <td>6 Gbps</td>
+                            </tr>
+                            <tr class="odd">
+                                <th>Fecha de Producción</th>
+                                <td>1996</td>
+                                <td>1999</td>
+                                <td>2001</td>
+                                <td>2006</td>
+                                <td>2013</td>
+                                <td>2019</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="box_media onlymobile">
+                        <img src="content/tabla2.png" alt="Tabla 2">
+                    </div>
+                    <h4>3.1.3. Tecnología FTTH</h4>
+                    <p>El constante crecimiento de la demanda de ancho de banda, ha mostrado la necesidad de que la fibra pase de las redes de larga distancia y metropolitanas a las redes de acceso. Esto ha ocurrido tanto en las redes de pares de cobre como en redes xDSL y en redes coaxiales, en lo que se conoce como redes HFC. Sin embargo, la evolución hacia redes completamente ópticas en el acceso en lo que se conoce como redes FTTH sobre redes ópticas pasivas-PON, han cobrado una importancia notable, siendo actualmente la técnica sobre la cual los ISP están haciendo su expansión.</p>
+                    <p>Así mismo, lo que se denomina como <strong>Redes Neutras</strong>, en las que se propone una única infraestructura de telecomunicaciones y varios proveedores de servicios, también se soporta sobre la fibra óptica. Esta evolución se refleja, como en las demás redes de acceso, en el incremento de capacidad tanto en sentido descendente como ascendente.</p>
+                    <p>En la siguiente figura, puedes observar esta evolución. Es importante notar que existen dos organismos estandarizadores: la ITU-T (<i>Telecommunication Standardization Sector</i>) y la IEEE (<i>Institute of Electrical and Electronics Engineers, Inc.</i>), siendo este último el organismo impulsor de Ethernet sobre este tipo de redes, y por ello sus estándares comienzan con “E”. Actualmente, en Latinoamérica el estándar en fuerza es el GPON que ofrece 2.5 Gbps en sentido descendente y 1.25 Gbps en sentido ascendente. En otros países, el estándar imperante es el XG-PON que proporciona 10 Gbps en el sentido descendente y 2.5 Gbps en el sentido ascendente. Recientemente, se ha comenzado a implementar el XGS-PON, que logra velocidades simétricas de 10 Gbps. </p>
+                    <p>La coexistencia entre diferentes generaciones se logra con la implementación de diferentes longitudes de onda. Cabe destacar que, las redes de Nueva Generación NG (<i>NG New Generation</i>), como NG- PON2 y NG-EPON, habilitan el uso de la multiplexación por división de onda WDM, de allí que se simboliza con una barra de colores, indicando el uso de varias longitudes de onda.</p>
+                    <div class="about"><strong>Figura 5.</strong> Evolución y progresos en estándares PON</div>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento del gráfico para conocer su descripción.</span>
+                        <span class="onlymobile">Toca cada elemento del esquema para conocer su descripción.</span>
+                    </div>
+                    <div class="genially notmobile">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 42.11%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1900" height="800" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61af8347e3eef30d7e86b90c" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="genially onlymobile">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 123.08%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1300" height="1600" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61b8a26431ef510d777a56a8" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <p>Un resumen de esta evolución de las redes fijas de acceso de banda ancha lo puedes observar en la siguiente figura:</p>
+                    <div class="about"><strong>Figura 6.</strong> Evolución de redes de acceso fijo</div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 44.44%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1800" height="800" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61af83d176a0420d6a8bff35" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="box-text activity" label="ACTIVIDAD DE APRENDIZAJE">
+                        <p><strong>Objetivo:</strong> Reconocer las características importantes de algunas redes de acceso fijo.</p>
+                        <p>¡Pongamos a prueba los conocimientos adquiridos! <br />
+                        Hablemos de las tres redes de acceso fijo de banda ancha que están operando actualmente: xDSL, HFC-DOCSIS y FTTH-PON.</p>
+                        <p><strong>Enunciado: </strong>Arrastra cada opción al espacio correspondiente para responder por cuáles medios de transmisión son soportados estos sistemas de banda ancha.</p>
+                        <p><i>Recuerda que puedes repasar el contenido y realizar esta actividad las veces que necesites hasta completar el 100% de la calificación.</i></p>
+                    </div>
+
+                    <div id="arrastrar2" class="jpit-activities-droppable" data-act-id="3_arrastrar2" data-act-title="Actividad de aprendizaje">
+                        <div class="row align-center">
+                            <div class="w-70">
+                                <table>
+                                    <tr>
+                                        <td><img src="content/act3-img1.png"></td>
+                                        <td><img src="content/act3-img2.png"></td>
+                                        <td><img src="content/act3-img3.png"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="target-box" data-target-group="1"></div></td>
+                                        <td><div class="target-box" data-target-group="2"></div></td>
+                                        <td><div class="target-box" data-target-group="3"></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="sources w-30">
+                                <div class="option" data-group="1">xDSL</div>
+                                <div class="option" data-group="2">HFC-DOCSIS</div>
+                                <div class="option" data-group="3">FTTH-PON</div>
+                                <div class="box_end"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-text connection">
+                        <p>Si bien las redes cableadas tienen su línea de progresión muy clara, hoy en día todos los modem en casa del usuario, de cualquiera de las redes de acceso de banda ancha fija, ofrecen la posibilidad de incluir el acceso inalámbrico como complemento para la conexión de los equipos del cliente. Vamos a revisar brevemente la evolución de estas tecnologías.</p>
+                    </div>
+                    <h3>3.2. Redes de acceso fijas inalámbricas</h3>
+                    <p>Son aquellos accesos que no requieren una conexión por cable hasta el terminal del usuario, dado que la comunicación se produce de forma inalámbrica a través de ondas electromagnéticas, pero que requieren que el usuario esté a una distancia del punto de acceso no superior al alcance del mismo.</p>
+                    <p>Este tipo de accesos normalmente suplen o complementan a los accesos cableados, sustituyendo el último tramo de cable que conecta el terminal de usuario a la red, por un enlace inalámbrico, como sucede en las redes WIFI domésticas.</p>
+                    <p>Estos accesos aunque dan cierta movilidad al usuario, no es total, ya que está limitada a una zona concreta que depende de la cobertura del punto inalámbrico de acceso. Cabe destacar que, a pesar de las velocidades permitidas por cada tecnología de acceso inalámbrico, la velocidad real de acceso a Internet dependerá de la velocidad que se tenga contratada con el proveedor de servicio de acceso.</p>
+                    <p>Entre las tecnologías de este tipo se encuentran:</p>
+                    <h4>3.2.1. Wi-Fi</h4>
+                    <p>La tecnología WIFI permite la comunicación entre dispositivos de forma inalámbrica a través de ondas electromagnéticas. Debido a su facilidad de instalación y funcionamiento, se ha convertido en una de las tecnologías inalámbricas más populares, y es ampliamente utilizada en redes domésticas, sustituyendo la conexión por cable desde el terminal de usuario hasta el router o módem que da acceso a Internet.</p>
+                    <div class="about"><strong>Figura 7.</strong> Evolución de la tecnología WIFI. El futuro del wifi como complemento de las conexiones fijas</div>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento del gráfico para conocer su descripción.</span>
+                        <span class="onlymobile">Toca cada elemento del esquema para conocer su descripción.</span>
+                    </div>
+                    <div class="genially notmobile">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 53.57%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1400" height="750" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61af843de3eef30d7e86b934" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="genially onlymobile">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 173.33%; padding-top: 0; height: 0;"><iframe frameborder="0" width="750" height="1300" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61cdbac8890f1e0d9b90c914" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <h4>3.2.2. WiGig</h4>
+                    <p>La <i>Wireless Gigabit Alliance</i> (WiGig) era una organización comercial que desarrolló y promovió la adopción de la tecnología de comunicaciones inalámbricas de alta velocidad multi-gigabit que opera en la banda de frecuencias sin licencia de 60 GHz. La alianza fue absorbida por la WIFI Alliance en marzo de 2013.</p>
+                    <p>El estándar que resultó para esta banda es el IEEE 802.11ad en mayo de 2009. La versión completa 1.0 de la especificación WiGig se anunció en diciembre de 2009. Los dispositivos habilitados para WiGig tribanda, que operan en las bandas de 2.4, 5 y 60 GHz, ofrecen tasas de transferencia de datos de hasta 7 Gbps.</p>
+                    <h4>Li-Fi</h4>
+                    <p>La comunicación de luz visible (VLC <i>Visible light communication</i>) es un método inalámbrico que utiliza la luz emitida por LED para ofrecer una comunicación en red de alta velocidad similar a WIFI, lo que lleva al término LIFI. Se puede utilizar como solución independiente o en una función complementaria a la comunicación por red de radiofrecuencia RF o celular.</p>
+                    <p>La base de la tecnología, concebida por el profesor Harald Haas de la Universidad de Edimburgo, implica encender y apagar los LED en nanosegundos a una frecuencia muy alta. Haas demostró la tecnología en una charla TED Global en 2011 y luego cofundó PureLIFI, un OEM de tecnología LIFI para fabricantes de LED.</p>
+                    <p>Como el espectro de luz visible es 10000 veces mayor que el espectro de radiofrecuencia, VLC se considera una solución a las limitaciones de ancho de banda de RF. La industria ha generado velocidades de transmisión de datos muy altas, lo que la hace competitiva.</p>
+                    <p>Aunque la señal no puede atravesar obstrucciones como paredes, no se requiere una línea de visión directa siempre que la luz se refleje desde otras superficies. La iluminación LED debe estar ENCENDIDA para que la señal se transmita, pero puede atenuarse a niveles muy bajos de potencia.</p>
+                    <p>VLC tiene una ventaja sobre WIFI y es que la transmisión no causa interferencia electromagnética. Su ruta de evolución la puedes detallar a continuación:</p>
+                    <div class="about"><strong>Figura 8.</strong> Evolución de tecnología LIFI</div>
+                    <div class="genially notmobile">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 53.33%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1500" height="800" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61af849fdf3d3b0d55e82f5f" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="genially onlymobile">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 107.69%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1300" height="1400" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61b8a3801bbf600d9e88091d" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <p>Las aplicaciones son amplias, pero una aplicación ha atraído el interés clave de las principales empresas fabricantes de iluminación: Acuity Brands, GE y Philips, es decir, gran venta al por menor.</p>
+                    <div class="box-text activity" label="ACTIVIDAD DE APRENDIZAJE">
+                        <p><strong>Objetivo: </strong>Reconocer las características importantes de la tecnología WIFI.</p>
+                        <p>¿Lograste comprender qué caracteriza el WIFI? Si sientes que aún no, puedes repasar o investigar un poco más antes de realizar esta actividad.</p>
+                        <p><strong>Enunciado: </strong>Selecciona cuál de las siguientes afirmaciones caracterizan la tecnología WIFI.</p>
+                        <p><i>Recuerda que puedes repasar el contenido y realizar esta actividad las veces que necesites hasta completar el 100% de la calificación.</i></p>
+                    </div>
+                    <div class="jpit-activities-check" data-act-id="4_check" data-act-title="Actividad de aprendizaje">
+                        <words>
+                            <li data-val="true">Es una tecnología que puede interoperar con casi todas las tecnologías de acceso.</li>
+                            <li data-val="true">Es una tecnología de grandes tasas de bits a una relativa baja distancia.</li>
+                            <li>Es una tecnología que siendo inalámbrica, es considerada de acceso móvil.</li>
+                            <li data-val="true">Es una tecnología sensible a las condiciones del entorno.</li>
+                        </words>
+                        <div class="board">
+                            <div class="check_left">
+                                <div class="play">
+                                    <div class="word_content"> </div>
+                                    <div class="buttons">
+                                        <button class="yes general">Sí</button>
+                                        <button class="not general">No</button>
+                                    </div>
+                                </div>
+                                <div class="box_conclution">
+                                    <h3>¡Has finalizado!</h3>
+                                    <div class="buttons">
+                                        <button class="general reload">Repasa el contenido e intenta de nuevo esta actividad.</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="check_right">
+                                <div class="box_result">
+                                    <div class="correct">
+                                        <div class="hits">0</div>
+                                        <div class="text">Aciertos</div>
+                                    </div>
+                                    <div class="wrong">
+                                        <div class="miss">0</div>
+                                        <div class="text">Desaciertos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Como vemos hay una serie de tecnologías fijas e inalámbricas complementarias entre sí.  Esta tendencia sigue y se afianza con el 5G.</p>
+                    </div>
+                    <h3>3.3. Una visión de futuro: redes de fibra y tecnología móvil 5G</h3>
+                    <p>En las redes móviles, 5G es la quinta generación, la cual es especificada por la organización 3GPP, ya que ofrece mejores capacidades de transmisión en una red inalámbrica móvil que antes solo se podía creer posible en redes de área local que utilizaban tecnología fija.</p>
+                    <p>Entre las grandes ventajas del 5G, se encuentra una menor latencia y una mayor capacidad y rendimiento que su antecesor red 4G. Esto permite desarrollar nuevas aplicaciones como videos 3D de alta definición, entornos de realidad virtual en tiempo real, vehículos autónomos, cirugía remota y conectividad a miles de millones de dispositivos para admitir el <strong>Internet de las cosas IoT</strong> (<i>IoT Internet of Things</i>).</p>
+                    <p>5G también promete una mayor confiabilidad, una eficiencia energética mejorada y una reconfiguración más fácil de la red para implementar servicios adicionales. En la siguiente figura, puedes observar una comparación del desempeño de estas redes y su evolución.</p>
+                    <div class="about"><strong>Animación.</strong> Evolución de redes de acceso móviles</div>
+                    <div class="videobox">
+                        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/qAr7nXPuyJQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                        <video controls src="https://info.fycolearning.com/fba/cursos/fcff/mod1/tema1/evolucion_redes_moviles.mp4" poster="https://info.fycolearning.com/fba/cursos/fcff/mod1/tema1/poster/evolucion_redes_moviles.jpg"></video>
+                    </div>
+                    <p>Expertos de la industria y la academia, afirman que una de las alternativas más promisorias para conectar las antenas con las oficinas centrales del operador, es directamente con fibra óptica, y desde las antenas hacer la radiación en 5G. Esto por el ancho que requiere 5G para ofrecer tasas mayores a 1 Gbps, y por los requerimientos de emisión a bajas potencias, necesitando así una mayor densidad de antenas que las tecnologías previas. En este caso la infraestructura sería una FTTA, fibra a la antena.</p>
+                    <div class="box-text important" label="Síntesis">
+                        <audio controls>
+                            <source src="content/sounds/sintesis.mp3" type="audio/mp3">
+                             Su navegador no soporta el componente de audio
+                        </audio>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-bibliografia" ptitle="Referencias">
+                <div class="subpage" id="bibliography_subpage">
+                    <ul>
+                        <li>Aleksic, S. (2015). <cite>Towards Fifth-Generation (5G) Optical Transport Networks.</cite> Recuperado el 20 de noviembre de 2021 de <a href="https://ieeexplore.ieee.org/document/7193532/authors#authors" target="_blank">https://ieeexplore.ieee.org/[...]</a></li>
+
+                        <li>Broadband Forum. (2019). <cite>TR-301 Architecture and Requirements for Fiber to the Distribution Point.</cite> Recuperado el 20 de noviembre de 2021 de <a href="https://www.broadband-forum.org/technical/download/TR-301_Issue-2_Corrigendum-1.pdf" target="_blank">https://www.broadband-forum.org/[...]</a></li>
+
+                        <li>EXFO. (20 de noviembre de 2021). <cite>ONT (6.709) Reference Guide</cite>. Recuperado de <a href="https://exfopreprodstorage.blob.core.windows.net/media/3711/exfo_reference-guide_otn.pdf" target="_blank">https://exfopreprodstorage.blob.core.windows.net/[...]</a></li>
+
+                        <li>Gibbons, A. (2021). <cite>De 1G a 5G: una breve evolución de la telefonía y las redes inalámbricas.</cite> Recuperado el 20 de noviembre de 2021 de <a href="https://www.allaboutcircuits.com/news/from-1g-to-5g-the-evolution-of-telephony-and-wireless-networks/" target="_blank">https://www.allaboutcircuits.com/[...]</a></li>
+
+                        <li>Ghadialy, Z. (2018). <cite>LiFi can be a valuable tool for densification.</cite> Recuperado el 20 de noviembre de 2021 de <a href="https://blog.3g4g.co.uk/2018/09/lifi-can-be-valuable-tool-for.html" target="_blank">https://blog.3g4g.co.uk/2018/[...]</a></li>
+
+                        <li>Hogan, H. (s.f). <cite>Big Data impulsa cambios en las redes ópticas.</cite> Recuperado el 20 de noviembre de 2021 de <a href="https://www.photonics.com/EDU/Handbook.aspx?AID=61471&PID=4" target="_blank">https://www.photonics.com/EDU/[...]</a></li>
+
+                        <li>ITU-T PON standars - progress and recent activities. (20 de noviembre de 2021). Recuperado de <a href="https://www.itu.int/en/ITU-T/studygroups/2017-2020/15/Documents/OFC2018-2-Q2_v5.pdf" target="_blank">https://www.itu.int/en/[...]</a></li>
+
+                        <li>Lighting Controls Association. (2021). <cite>NEMA Awarded International Trade Administration Grant to Boost U.S. Exports.</cite> Recuperado el 20 de noviembre de 2021 de <a href="http://lightingcontrolsassociation.org/" target="_blank">http://lightingcontrolsassociation.org/</a></li>
+
+                        <li>Ministerio de Asuntos Económicos y Transformación Digital. (20 de noviembre de 2021). <cite>Acceso móvil</cite>. Recuperado de <a href="https://avancedigital.mineco.gob.es/banda-ancha/tecnologias/movil/Paginas/acceso-movil.aspx" target="_blank">https://avancedigital.mineco.gob.es/[...]</a></li>
+
+                        <li>Ministerio de Asuntos Económicos y Transformación Digital. (20 de noviembre de 2021). <cite>Acceso inalámbrico.</cite> Recuperado de <a href="https://avancedigital.mineco.gob.es/banda-ancha/tecnologias/inalambrico/Paginas/acceso-inalambrico.aspx" target="_blank">https://avancedigital.mineco.gob.es/[...]</a></li>
+
+                        <li>Ministerio de Asuntos Económicos y Transformación Digital. (20 de noviembre de 2021). <cite>Acceso cableado</cite>. Recuperado de <a href="https://avancedigital.mineco.gob.es/banda-ancha/tecnologias/cableado/Paginas/acceso-cableado.aspx" target="_blank">https://avancedigital.mineco.gob.es/[...]</a></li>
+
+                        <li>OFCOM (20 de noviembre de 2021). <cite>UK fixed-line broadband performance, May 2011.</cite> Recuperado de <a href="https://www.ofcom.org.uk/__data/assets/pdf_file/0026/59273/bb-speeds-may2011.pdf" target="_blank">https://www.ofcom.org.uk/[...]</a></li>
+
+                        <li>Ohno, O. (2020). <cite>Desafío 5G: Conectividad Post Covid-19, diseño y densidad de las redes de fibra óptica.</cite> Recuperado el 20 de noviembre de 2021 de <a href="https://www.furukawalatam.com/es/conexion-furukawa-detalles/desafio-5g-conectividad-post-covid-19-diseno-y-densidad-de-las-redes-de-fibra-optica" target="_blank">https://www.furukawalatam.com/es/[...]</a></li>
+
+                        <li>Pinho, P. (2017). <cite>Plastic Optical Fibers in Access Networks.</cite> Recuperado el 20 de noviembre de 2021 de <a href="https://www.researchgate.net/publication/275539262_Plastic_Optical_Fibers_in_Access_Networks" target="_blank">https://www.researchgate.net/[...]</a></li>
+
+                        <li>Wikipedia. (20 de noviembre de 2021). <cite>Jerarquía digital plesiócrona.</cite> Recuperado de <a href="https://es.wikipedia.org/wiki/Jerarqu%C3%ADa_digital_plesi%C3%B3crona" target="_blank">https://es.wikipedia.org/[...]</a></li>
+
+                        <li>Wikipedia. (20 de noviembre de 2021). <cite>Wireless Gigabit Alliance.</cite> Recuperado de <a href="https://es.wikipedia.org/wiki/Wireless_Gigabit_Alliance#cite_note-1" target="_blank">https://es.wikipedia.org/[...]</a></li>
+                    </ul>
+
+                </div>
+            </section>
+
+            <!--Créditos-->
+            <section id="pag-creditos">
+                <div class="subpage" id="credits_subpage">
+
+                    <div class="creditos-fba">
+                        <h2>Créditos</h2>
+                        <div class="bloque">
+                            <table>
+                                <tr>
+                                    <td>Experta Temática</td>
+                                    <td>Ana María Cárdenas</td>
+                                </tr>
+                                <tr>
+                                    <td>Pares evaluadores</td>
+                                    <td>Luis Fernando Rodríguez / Marco Teran / Fredy Pereira</td>
+                                </tr>
+                                <tr>
+                                    <td>Asesoría pedagógica / Diseño instruccional</td>
+                                    <td>Carolina Llanos</td>
+                                </tr>
+                                <tr>
+                                    <td>Corrección de estilos</td>
+                                    <td>Danleibi Molina</td>
+                                </tr>
+                                <tr>
+                                    <td>Diseño gráfico</td>
+                                    <td>Inesly Vega</td>
+                                </tr>
+                                <tr>
+                                    <td>Producción audiovisual</td>
+                                    <td>Fernanda Álvarez</td>
+                                </tr>
+                                <tr>
+                                    <td>Integración de contenidos</td>
+                                    <td>Santiago Bernal</td>
+                                </tr>
+                                <tr>
+                                    <td>Revisión de calidad</td>
+                                    <td>Fyco Learning</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bloque logo">
+                            <h3>Gestión técnica y administrativa</h3>
+                            <a href="https://fycolearning.com/" target="_blank"><img src="img/logo_azul.png" alt="Fyco learning" /></a>
+                            <p>Versión 1.0</p>
+                        </div>
+                        <div class="bloque copy">
+                            <p>
+                                Este recurso educativo es propiedad de Fyco Learning.
+                                <br />Todo el material didáctico que lo compone está protegido por las leyes que rigen la propiedad intelectual. 
+                                <br />Para utilizar todo o parte de este material se debe contar con autorización expresa de la organización. 
+                            </p>
+                            <p>
+                                Derechos reservados ©
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                    <!-- <p>
+                        Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+                    </p>
+                    <div>
+                        <h3>Expertos temáticos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Leidy Cristina Madrigal Arrieta</cite>
+                    </div>
+                    <div>
+                        <h3>Asesoría pedagógica</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Corrección de estilo</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Traducción de contenidos</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión Administrativa</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión de calidad</h3>
+                        <cite>Ana Yarenis Arango</cite>
+                    </div>
+                    <div>
+                        <h3>Diseño gráfico</h3>
+                        <cite>Juliana Tobón Gaviria</cite>
+                    </div>
+                    <div>
+                        <h3>Integración de contenidos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Santiago Bernal García</cite>
+                    </div>
+
+                    <div>
+                        <h3>Producción</h3>
+                        <p class="logos">
+                            <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                            <br />
+                            <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                            <br />
+                            <a href="http://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                        </p>
+                    </div>
+
+                    <div class="editions">
+                        1ª edición: diciembre 2013<br />
+                        2ª edición: octubre 2015<br />
+                        3ª edición: febrero 2016<br />
+                        4ª edición: junio 2017
+                    </div>
+                    <div>
+                        <br />
+                        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Obra publicada bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                    </div>
+
+                    <p>
+                        Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+                    </p>
+                    <p>
+                        Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+                    </p> -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <div class="measuring-progress" data-type="horizontal"></div>
+
+            <nav label="Características globales" class="globals">
+                <menu>
+                    <menuitem data-global-id="results"><div class="progress"><p>Progreso</p></div></menuitem>
+                    <menuitem data-page="pag-creditos"><div class="credits"><p>Créditos</p></div></menuitem>
+                    <menuitem data-page="pag-bibliografia"><div class="biblio"><p>Referencias</p></div></menuitem>
+                    <menuitem data-global-id="return">
+                        <div class="maximize"><p>Maximizar</p></div>
+                        <div class="minimize"><p>Minimizar</p></div>
+                    </menuitem>
+                    <menuitem data-global-id="close_all"><div class="back"><p>Salir</p></div></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div id="page_number"></div>
+                <div class="button" next-page></div>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de tu avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya has visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

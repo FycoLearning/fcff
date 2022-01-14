@@ -94,3 +94,71 @@ video, img {
     background-position: -61px -225px;
     filter: brightness(0.7);
 }
+
+.after-before.fig3 {
+	width: 400px !important;
+	max-height: 515px;
+}
+
+.after-before.fig8 {
+	width: 460px !important;
+	height: 139px !important;
+}
+
+.after-before.fig8 img {
+	background-color: #fff;
+}
+
+.twentytwenty-handle {
+	left: 200px;
+}
+
+.horizontal-menu .about {
+	color: #fff;
+}
+
+.horizontal-menu .box_media {
+	background-color: #fff;
+	max-width: 400px;
+}
+
+.ui-dialog .ui-dialog-content {
+	max-height: 90vh !important;
+}
+
+.fig17 {
+	background: url(../content/fig17.png) no-repeat;
+	background-size: 100%;
+	padding-top: 47%;
+	position: relative;
+}
+
+.fig17 .general {
+	position: absolute;
+	top: 3%;
+}
+
+.fig17 .general.central {
+	left: 4%;
+}
+
+.fig17 .general.cliente {
+	top: 10%;
+    left: 40%;
+}
+
+.fig17 .general.odn {
+	right: 15%;
+}
+
+.box-text.sintesis {
+	text-align: center;
+}
+
+table ul {
+	padding-left: 15px;
+}
+
+table.vent-desv td {
+	width: 50%;
+}

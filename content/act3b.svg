@@ -1,0 +1,57 @@
+<svg id="Grupo_2111" data-name="Grupo 2111" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255.997" height="255.997" viewBox="0 0 255.997 255.997">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4bbbd7"/>
+      <stop offset="0.206" stop-color="#359fba"/>
+      <stop offset="0.43" stop-color="#2a8aaa"/>
+      <stop offset="0.711" stop-color="#005377"/>
+      <stop offset="1" stop-color="#141b2f"/>
+    </radialGradient>
+    <clipPath id="clip-path">
+      <circle id="Elipse_150" data-name="Elipse 150" cx="127.998" cy="127.998" r="127.998" stroke="#707070" stroke-width="1" fill="url(#radial-gradient)"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_2101" data-name="Grupo 2101" transform="translate(0 0)">
+    <g id="Enmascarar_grupo_3" data-name="Enmascarar grupo 3" transform="translate(0 0)" clip-path="url(#clip-path)">
+      <rect id="Rectángulo_747" data-name="Rectángulo 747" width="400.251" height="320.98" rx="5.614" transform="translate(-72.212 -40.843)" fill="url(#radial-gradient)"/>
+    </g>
+    <g id="Elipse_151" data-name="Elipse 151" transform="translate(5.535 5.535)" fill="#fff" stroke="#707070" stroke-width="1">
+      <circle cx="122.463" cy="122.463" r="122.463" stroke="none"/>
+      <circle cx="122.463" cy="122.463" r="121.963" fill="none"/>
+    </g>
+  </g>
+  <g id="Grupo_2103" data-name="Grupo 2103" transform="translate(52.368 60.694)">
+    <path id="Trazado_6241" data-name="Trazado 6241" d="M5996.2,2052.9h129.015" transform="translate(-5981.779 -1988.219)" fill="#06304d" stroke="#2c8ead" stroke-width="4"/>
+    <g id="Grupo_2102" data-name="Grupo 2102" transform="translate(0)">
+      <path id="Trazado_6242" data-name="Trazado 6242" d="M6000.6,2034.5v72.294" transform="translate(-5984.064 -2005.197)" fill="#06304d" stroke="#2c8ead" stroke-width="3"/>
+      <path id="Trazado_6243" data-name="Trazado 6243" d="M6023.4,2052.9v39.127" transform="translate(-5963.027 -1988.219)" fill="#06304d" stroke="#2c8ead" stroke-width="3"/>
+      <path id="Trazado_6244" data-name="Trazado 6244" d="M6036.2,2068.677V2033.3" transform="translate(-5951.216 -2003.997)" fill="#06304d" stroke="#2c8ead" stroke-width="3"/>
+      <path id="Trazado_6245" data-name="Trazado 6245" d="M6049.4,2053.3v38.357" transform="translate(-5939.038 -1987.85)" fill="#06304d" stroke="#2c8ead" stroke-width="3"/>
+      <path id="Trazado_6246" data-name="Trazado 6246" d="M6062.2,2069.077V2033.7" transform="translate(-5927.227 -2004.397)" fill="#06304d" stroke="#2c8ead" stroke-width="3"/>
+      <g id="Elipse_152" data-name="Elipse 152" transform="translate(0 101.303)" fill="#06304d" stroke="#2c8ead" stroke-width="2">
+        <circle cx="16.653" cy="16.653" r="16.653" stroke="none"/>
+        <circle cx="16.653" cy="16.653" r="15.653" fill="none"/>
+      </g>
+      <g id="Elipse_153" data-name="Elipse 153" fill="#06304d" stroke="#2c8ead" stroke-width="2">
+        <ellipse cx="16.653" cy="15.959" rx="16.653" ry="15.959" stroke="none"/>
+        <ellipse cx="16.653" cy="15.959" rx="15.653" ry="14.959" fill="none"/>
+      </g>
+      <g id="Elipse_154" data-name="Elipse 154" transform="translate(67.998)" fill="#06304d" stroke="#2c8ead" stroke-width="2">
+        <ellipse cx="16.653" cy="15.959" rx="16.653" ry="15.959" stroke="none"/>
+        <ellipse cx="16.653" cy="15.959" rx="15.653" ry="14.959" fill="none"/>
+      </g>
+      <g id="Elipse_155" data-name="Elipse 155" transform="translate(119.343)" fill="#06304d" stroke="#2c8ead" stroke-width="2">
+        <circle cx="15.959" cy="15.959" r="15.959" stroke="none"/>
+        <circle cx="15.959" cy="15.959" r="14.959" fill="none"/>
+      </g>
+      <g id="Elipse_156" data-name="Elipse 156" transform="translate(44.407 101.303)" fill="#06304d" stroke="#2c8ead" stroke-width="2">
+        <circle cx="16.653" cy="16.653" r="16.653" stroke="none"/>
+        <circle cx="16.653" cy="16.653" r="15.653" fill="none"/>
+      </g>
+      <g id="Elipse_157" data-name="Elipse 157" transform="translate(94.364 101.303)" fill="#06304d" stroke="#2c8ead" stroke-width="2">
+        <circle cx="16.653" cy="16.653" r="16.653" stroke="none"/>
+        <circle cx="16.653" cy="16.653" r="15.653" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

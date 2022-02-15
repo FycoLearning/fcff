@@ -1,0 +1,59 @@
+<svg id="Grupo_2110" data-name="Grupo 2110" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255.997" height="255.997" viewBox="0 0 255.997 255.997">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4bbbd7"/>
+      <stop offset="0.206" stop-color="#359fba"/>
+      <stop offset="0.43" stop-color="#2a8aaa"/>
+      <stop offset="0.711" stop-color="#005377"/>
+      <stop offset="1" stop-color="#141b2f"/>
+    </radialGradient>
+    <clipPath id="clip-path">
+      <circle id="Elipse_150" data-name="Elipse 150" cx="127.998" cy="127.998" r="127.998" stroke="#707070" stroke-width="1" fill="url(#radial-gradient)"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_1592" data-name="Grupo 1592" transform="translate(0)">
+    <g id="Enmascarar_grupo_3" data-name="Enmascarar grupo 3" transform="translate(0)" clip-path="url(#clip-path)">
+      <rect id="Rectángulo_747" data-name="Rectángulo 747" width="400.251" height="320.98" rx="5.614" transform="translate(-72.212 -40.843)" fill="url(#radial-gradient)"/>
+    </g>
+    <g id="Elipse_151" data-name="Elipse 151" transform="translate(5.424 5.424)" fill="#fff" stroke="#707070" stroke-width="1">
+      <circle cx="122.575" cy="122.575" r="122.575" stroke="none"/>
+      <circle cx="122.575" cy="122.575" r="122.075" fill="none"/>
+    </g>
+  </g>
+  <g id="Grupo_2106" data-name="Grupo 2106" transform="translate(221.523 215.796) rotate(180)">
+    <g id="Grupo_2105" data-name="Grupo 2105" transform="translate(27.359 19.215)">
+      <path id="Trazado_6247" data-name="Trazado 6247" d="M64.849,0,0,105.486" fill="none" stroke="#2c8ead" stroke-width="2"/>
+    </g>
+    <path id="Trazado_6248" data-name="Trazado 6248" d="M0,0V26.95" transform="translate(59.784 90.466)" fill="none" stroke="#2c8ead" stroke-width="2"/>
+    <path id="Trazado_6249" data-name="Trazado 6249" d="M0,0,33.184,35.71" transform="translate(64.837 86.76)" fill="none" stroke="#2c8ead" stroke-width="2"/>
+    <path id="Trazado_6250" data-name="Trazado 6250" d="M0,0,57.943,89.273" transform="translate(98.02 33.533)" fill="none" stroke="#2c8ead" stroke-width="2"/>
+    <g id="Elipse_167" data-name="Elipse 167" transform="translate(73.762)" fill="#06304d" stroke="#2c8ead" stroke-width="2">
+      <circle cx="18.983" cy="18.983" r="18.983" stroke="none"/>
+      <circle cx="18.983" cy="18.983" r="17.983" fill="none"/>
+    </g>
+    <g id="Elipse_168" data-name="Elipse 168" transform="translate(35.796 55.321)" fill="#06304d" stroke="#2c8ead" stroke-width="2">
+      <circle cx="18.983" cy="18.983" r="18.983" stroke="none"/>
+      <circle cx="18.983" cy="18.983" r="17.983" fill="none"/>
+    </g>
+    <g id="Elipse_169" data-name="Elipse 169" transform="translate(105.219 55.321)" fill="#06304d" stroke="#2c8ead" stroke-width="2">
+      <circle cx="18.983" cy="18.983" r="18.983" stroke="none"/>
+      <circle cx="18.983" cy="18.983" r="17.983" fill="none"/>
+    </g>
+    <g id="Elipse_170" data-name="Elipse 170" transform="translate(149.693 113.897)" fill="#06304d" stroke="#2c8ead" stroke-width="2">
+      <circle cx="18.983" cy="18.983" r="18.983" stroke="none"/>
+      <circle cx="18.983" cy="18.983" r="17.983" fill="none"/>
+    </g>
+    <g id="Elipse_171" data-name="Elipse 171" transform="translate(92.202 113.897)" fill="#06304d" stroke="#2c8ead" stroke-width="2">
+      <circle cx="18.983" cy="18.983" r="18.983" stroke="none"/>
+      <circle cx="18.983" cy="18.983" r="17.983" fill="none"/>
+    </g>
+    <g id="Elipse_172" data-name="Elipse 172" transform="translate(45.559 113.897)" fill="#06304d" stroke="#2c8ead" stroke-width="2">
+      <circle cx="18.983" cy="18.983" r="18.983" stroke="none"/>
+      <circle cx="18.983" cy="18.983" r="17.983" fill="none"/>
+    </g>
+    <g id="Elipse_173" data-name="Elipse 173" transform="translate(0 113.897)" fill="#06304d" stroke="#2c8ead" stroke-width="2">
+      <circle cx="18.983" cy="18.983" r="18.983" stroke="none"/>
+      <circle cx="18.983" cy="18.983" r="17.983" fill="none"/>
+    </g>
+  </g>
+</svg>

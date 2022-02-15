@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Redes Punto a Punto (P2P-ETH) y Punto a Multipunto (P2MP-PON)</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+<!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+<!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="40" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <header>
+            <div class="logo">
+                <img src="img/logo_color.svg" alt="Fyco learning" />
+            </div>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Presentación" data-page="pag-presentacion"></menuitem>
+                    <menuitem label="Componentes">
+                        <menu>
+                            <menuitem label="1. El modelo de la red de comunicaciones" data-page="pag-modelo"></menuitem>
+                            <menuitem label="2. Topologías de las redes" data-page="pag-topologia"></menuitem>
+                            <menuitem label="3. Redes P2P y redes P2MP" data-page="pag-redes"></menuitem>
+                        </menu>
+                    </menuitem>
+                </menu>
+            </nav>
+            <h2 class="page-title"></h2>
+        </header>
+
+        <main style="display: none;">
+
+            <section id="pag-presentacion">
+                <div class="subpage">
+                    <div class="page-index">
+                        <div class="ova_name">
+                            <div class="title">
+                                <h1>Redes Punto a Punto (P2P-ETH) y Punto a Multipunto (P2MP-PON)</h1>
+                                <div class="title-img-fibra"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <h2>Presentación</h2>
+                                <div class="videobox">
+                                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/sqeh7i6BiNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                    <video controls src="https://info.fycolearning.com/fba/cursos/fcff/mod3/tema1/m3-t3_1-introduccion.mp4" poster="https://info.fycolearning.com/fba/cursos/fcff/mod3/tema1/poster/m3-t3_1-introduccion.png"></video>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <h2>Objetivo</h2>
+                                <div class="objetivo-text">
+                                    <p>Identificar los elementos que componen la infraestructura de las redes PON, los principios de operación, sus componentes y las aplicaciones para entornos residenciales y/o comerciales en donde se utilizan las fibras ópticas hasta el hogar, conocidas como FTTH.</p>
+                                </div>
+                                <div class="duration">
+                                    <h2>Duración: 1 hora / 60 minutos</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-modelo" ptitle="1. El modelo de la red de comunicaciones">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>El modelo más simple de una red de comunicaciones consta de un dispositivo transmisor, un canal físico o medio de comunicación y un dispositivo receptor, como podemos ver en la imagen.</p>
+                            <div class="box-text connection">
+                                <p>Este modelo puede diseñarse para manejar la transmisión en distintas direcciones. Veamos cómo pueden darse estas variaciones, conocidas como Modos de transmisión.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Haz clic sobre cada nombre del modelo para conocer su descripción.</span>
+                                <span class="onlymobile">Toca sobre cada nombre del modelo para conocer su descripción.</span>
+                            </div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1920" height="1080" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61eeef9c930ec20013bc0023" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                            <div class="about"><strong>Figura 1.</strong> Modelo simple de una red de comunicación.</div>
+                        </div>
+                    </div>
+                    <div class="row align-center">
+                        <div class="col-2">
+                            <h3>Simplex</h3>
+                            <p>En el modelo simple de comunicaciones, la información fluye en una sola dirección, desde el transmisor hacia el receptor y es conocido como modo de transmisión simplex. Aquí, la comunicación es unidireccional.</p>
+                            <div class="box-text important" label="¡Importante!">
+                                <p>Cuando la comunicación es unidireccional, se envía información en un solo sentido, desde el transmisor en un extremo hasta el receptor en el otro, como, por ejemplo, en una transmisión de radiodifusión o de televisión por cable, donde el operador envía las señales hacia el cliente.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <img src="content/gif1.gif" alt="Animación 1. Modo de transmisión simplex." />
+                            <div class="about"><strong>Animación 1.</strong> Modo de transmisión simplex.</div>
+                        </div>
+                    </div>
+                    <div class="box-text connection w-60">
+                        <p>Las redes de telecomunicaciones requieren, por lo general, que desde el equipo que recibe la información también se pueda emitir una respuesta. Por eso veamos otro modo de transmisión más completo para dar respuesta a esa necesidad.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <h3>Full-Duplex</h3>
+                            <p>En la práctica, es común encontrar dispositivos que, además de ser receptores, al mismo tiempo se comportan como transceivers o transceptores, logrando que la comunicación sea bidireccional (puede realizarse en ambos sentidos simultáneamente). Se conoce como el modo full-dúplex.</p>
+                            <p>Este modo permite dos tipos de conexión entre los nodos (entre los equipos transceptores del operador y del cliente) de la red:</p>
+                            <div class="instruction">
+                                <span class="notmobile">Haz clic en cada botón para ver su descripción.</span>
+                                <span class="onlymobile">Toca sobre cada botón para ver su descripción.</span>
+                            </div>
+                            <div class="flex space">
+                                <button class="w-content-controler general" data-property-width="80%" data-content="#dos-medios">
+                                    Dos  medios
+                                </button>
+                                <button class="w-content-controler general" data-property-width="80%" data-content="#un-medio">
+                                    Un medio
+                                </button>
+                                <div id="dos-medios" class="w-content">
+                                    <p>Utilizando dos medios físicos o enlaces diferentes, donde cada uno de ellos transporta la información en un sentido diferente, es decir, que cada enlace se utiliza desde el transmisor de un equipo hasta el receptor del otro, con lo cual se tendrán los dos sentidos simultáneos, pero sobre diferentes enlaces.</p>
+                                    <div class="instruction">
+                                        <span class="notmobile">Pasa el cursor sobre la imagen para conocer su descripción.</span>
+                                        <span class="onlymobile">Toca sobre la imagen para conocer su descripción.</span>
+                                    </div>
+                                    <div class="view-first">
+                                        <img src="content/fig2.svg" />
+                                        <div class="view-content">
+                                            <p>Comunicación bidireccional empleando dos medios físicos de comunicación diferentes. En esta topología de conexión, cada equipo posee un terminal transmisor y otro receptor, de tal forma que se utiliza un canal físico para conectar el transmisor del equipo A con el receptor del equipo B, y otro canal para conectar el receptor del equipo A con el transmisor del equipo B.</p>
+                                        </div>
+                                    </div>
+                                    <div class="about"><strong>Figura 2.</strong> Modo full-dúplex utilizando dos medios físicos de comunicación.</div>
+                                </div>
+                                <div id="un-medio" class="w-content">
+                                    <p>Utilizando un único medio físico para realizar la comunicación de forma simultánea y sin interferencias entre las dos señales de información. Esto presupone el uso de una técnica llamada <strong>multiplexación</strong>, que hace que cada señal viaje en una frecuencia portadora diferente o en instantes de tiempos diferentes si usa la misma frecuencia portadora, para evitar que interfieran entre si.</p>
+                                    <div class="instruction">
+                                        <span class="notmobile">Pasa el cursor sobre la imagen para conocer su descripción.</span>
+                                        <span class="onlymobile">Toca sobre la imagen para conocer su descripción.</span>
+                                    </div>
+                                    <div class="view-first">
+                                        <img src="content/fig3.svg" />
+                                        <div class="view-content">
+                                            <p>Comunicación bidireccional empleando un único medio físico de comunicación. En esta topología de conexión, cada equipo posee un terminal que es al mismo tiempo transmisor y receptor, de tal forma que se utiliza un solo canal físico para conectar los equipos A y B. Por este único medio viajan los dos flujos de información en sentidos diferentes. Este arreglo requiere que las señales no se interfieran entre sí, bien sea utilizando frecuencias diferentes en cada sentido, o realizando un proceso de mezclado y separación de señales en cada extremo, y es conocido como multiplexación.</p>
+                                        </div>
+                                    </div>
+                                    <div class="about"><strong>Figura 3.</strong> Modo full-dúplex utilizando un solo medio físico de comunicación.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <img src="content/gif2.gif" alt="Animación 2. Modo de transmisión full-duplex." />
+                            <div class="about"><strong>Animación 2.</strong> Modo de transmisión full-duplex.</div>
+                        </div>
+                    </div>
+                    <div class="box-text important w-70" label="¡Importante!">
+                        <p>Las comunicaciones bidireccionales permiten la transmisión en dos sentidos. Por otro lado, cuando esta comunicación es simultánea, entonces estamos ante un modo de comunicación llamado Full-Dúplex, siendo el tipo más común para las redes de comunicaciones. De esta manera, se habilitan servicios interactivos y colaborativos, como en el caso de Internet.</p>
+                    </div>
+                    <div class="box-text activity w-70" label="Actividades de aprendizaje">
+                        <p>
+                            <strong>Objetivo:</strong>
+                            <br />Reconocer los elementos fundamentales del modelo de comunicaciones.
+                        </p>
+                        <p>¿Lograste comprender qué caracteriza el modelo de comunicaciones y sus tipos? Si sientes que aún no, puedes repasar o investigar un poco más antes de realizar estas actividades.</p>
+                        <p><strong>Recuerda que puedes intentarlo las veces que necesites hasta completar el 100% de la calificación.</strong></p>
+                    </div>
+                    <h4>Actividad 1.</h4>
+                    <div class="act1 jpit-activities-droppable" id="act1" data-act-id="1_act1" data-act-title="Actividad de aprendizaje 1">
+                        <div class="instruction">
+                            <span class="notmobile">Analiza la situación que se plantea en la imagen (aplicación de domótica), y con ella identifica los elementos presentes en la red, arrastrando el nombre correspondiente a cada uno de ellos.</span>
+                            <span class="onlymobile">Analiza la situación que se plantea en la imagen (aplicación de domótica), y con ella identifica los elementos presentes en la red, seleccionando el nombre correspondiente a cada uno de ellos.</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="situacion">
+                                    <div class="tooltip uno" title="APP del dispositivo">.</div>
+                                    <div class="tooltip dos" title="WIFI del dispositivo">.</div>
+                                    <div class="tooltip tres" title="Cámara">.</div>
+                                    <div class="tooltip cuatro" title="WIFI de la cámara">.</div>
+                                    <div class="tooltip cinco" title="Aire">.</div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <ol class="opciones">
+                                    <li><div data-target-group="1"></div></li>
+                                    <li><div data-target-group="2"></div></li>
+                                    <li><div data-target-group="3"></div></li>
+                                    <li><div data-target-group="4"></div></li>
+                                    <li><div data-target-group="5"></div></li>
+                                </ol>
+                                <!-- <h4>Opciones para arrastrar</h4> -->
+                                <div class="sources">
+                                    <div data-group="1">Destino de información</div>
+                                    <div data-group="2">Receptor</div>
+                                    <div data-group="3">Fuente de información</div>
+                                    <div data-group="4">Transmisor</div>
+                                    <div data-group="5">Medio de transmisión</div>
+                                </div>
+                                <br class="clear" />
+                                <div class="box_end"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4>Actividad 2.</h4>
+                    <div class="instruction">Recuerda que en el modelo de red de comunicaciones, la información puede viajar en un sentido o en ambos. Para ambos sentidos, estos pueden ser uno a la vez o en forma simultánea. Para los siguientes sistemas de comunicaciones, identifica su tipo correspondiente.</div>
+                    <div class="jpit-activities-cloze" data-parent-mark-selector="span" data-act-id="2_act2" data-act-title="Actividad de aprendizaje 2">
+                        <div class="sistemas" id="act2">
+                            <div>
+                                <p>Televisión Digital Terrestre</p>
+                                <p>
+                                    <span>
+                                        <select>
+                                            <option data-response="true">SIMPLEX</option>
+                                            <option>HALF-DUPLEX</option>
+                                            <option>FULL-DUPLEX</option>
+                                        </select>
+                                    </span>
+                                </p>
+                            </div>
+                            <div>
+                                <p>Televisión IP</p>
+                                <p>
+                                    <span>
+                                        <select>
+                                            <option>SIMPLEX</option>
+                                            <option>HALF-DUPLEX</option>
+                                            <option data-response="true">FULL-DUPLEX</option>
+                                        </select>
+                                    </span>
+                                </p>
+                            </div>
+                            <div>
+                                <p>Red de computadoras</p>
+                                <p>
+                                    <span>
+                                        <select>
+                                            <option>SIMPLEX</option>
+                                            <option>HALF-DUPLEX</option>
+                                            <option data-response="true">FULL-DUPLEX</option>
+                                        </select>
+                                    </span>
+                                </p>
+                            </div>
+                            <div>
+                                <p>Circuito cerrado de televisión (CCTV)</p>
+                                <p>
+                                    <span>
+                                        <select>
+                                            <option data-response="true">SIMPLEX</option>
+                                            <option>HALF-DUPLEX</option>
+                                            <option>FULL-DUPLEX</option>
+                                        </select>
+                                    </span>
+                                </p>
+                            </div>
+                            <div>
+                                <p>Walkie-Talkie</p>
+                                <p>
+                                    <span>
+                                        <select>
+                                            <option>SIMPLEX</option>
+                                            <option data-response="true">HALF-DUPLEX</option>
+                                            <option>FULL-DUPLEX</option>
+                                        </select>
+                                    </span>
+                                </p>
+                            </div>
+                            <div>
+                                <p>Control remoto del TV</p>
+                                <p>
+                                    <span>
+                                        <select>
+                                            <option data-response="true">SIMPLEX</option>
+                                            <option>HALF-DUPLEX</option>
+                                            <option>FULL-DUPLEX</option>
+                                        </select>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="box_end"></div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Ahora bien, en las redes de telecomunicaciones actuales es bastante común que las fibras ópticas sean utilizadas para actuar como ese medio físico entre los diversos equipos de la red, principalmente por las grandes ventajas que presenta este medio.</p>
+                        <p>Entonces, conociendo los componentes básicos del modelo de comunicaciones, en donde el medio físico juega un papel importante en la transmisión de señales, avancemos hacia las formas en que los diversos equipos y dispositivos de la red, también llamados “nodos de red”, pueden ser conectados empleando este canal de comunicaciones.</p>
+                        <p>Pasa a la siguiente página para continuar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-topologia" ptitle="2. Topologías de las redes">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Ya sabemos que el modelo simple de comunicaciones puede utilizar una comunicación unidireccional, también llamada simplex, mediante un solo medio físico y que la comunicación también puede ser del tipo bidireccional o full duplex, utilizando dos medios diferentes (uno para transmisión y el otro para recepción) o empleando un solo medio para llevar a cabo la comunicación full dúplex (mediante una técnica llamada multiplexación). </p>
+                            <p>Pero cuando agregamos más nodos a la red de telecomunicaciones, pasando de la red simple a una red más compleja, debemos definir el arreglo físico de conectividad entre los equipos y dispositivos de la red, así como establecer las condiciones o reglas en las que las informaciones van a transitar entre dichos dispositivos.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-text example" label="Ejemplo">
+                                <p>Las redes de acceso ofrecen servicios para una diversidad de entornos, como una red de área local dentro de un ambiente corporativo, servicios de triple play en ambientes residenciales, servicios para usuarios de un entorno de ciudad, o las comunicaciones de alta velocidad de un gran centro de datos. Cada una de estas redes va a necesitar que los nodos de red interactúen de forma particular. Ello requiere que los nodos se conecten y se comuniquen en distintas formas, dependiendo de las aplicaciones de red.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Esas formas en las que los nodos van a ser interconectados, se conocen como <strong>topologías de red</strong>, las cuales involucran una topología física y una topología lógica, así:</p>
+                    <div class="instruction">
+                        <span class="notmobile">Haz clic sobre cada tipo de topología para conocer su descripción.</span>
+                        <span class="onlymobile">Toca sobre cada tipo de topología para conocer su descripción.</span>
+                    </div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 54.44%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1800" height="980" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61ef07e4e591610014939442" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="about"><strong>Figura 4.</strong> Elementos de las tipologías de red.</div>
+                    <div class="box-text important w-70" label="¡Recuerda!">
+                        <p>La <strong>topología de una red</strong> se refiere a la forma en que se conectan los medios a los equipos de red, y además a la forma en que ellos llevan a cabo la comunicación. Esta topología se puede diferenciar entre lógica y física. La lógica describe el flujo de datos a través de la red y la física se refiere a las conexiones reales que muestran el mapa dónde se encuentra cada componente de la red.</p>
+                    </div>
+                    <div class="box-text connection w-70">
+                        <p>Existen varias topologías físicas que pueden ser utilizadas por las redes de acceso, como veremos a continuación. Una red puede emplear una única topología, aunque también existen redes que combinan una o más topologías. Veamos entonces cuáles son las topologías físicas más utilizadas en las redes de acceso:</p>
+                    </div>
+                    <div class="instruction">
+                        <span class="notmobile">Haz clic sobre cada tipo de topología para conocer su descripción.</span>
+                        <span class="onlymobile">Toca sobre cada tipo de topología para conocer su descripción.</span>
+                    </div>
+                    <div class="genially w-500">
+                        <div style="position: relative; padding-bottom: 100.00%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1500" height="1500" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61ef0d2edc1c7500131cd636" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div>
+                    </div>
+                    <div class="about"><strong>Figura 5.</strong> Tipos de topologías físicas.</div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="box-text important" label="Ten presente">
+                                <p>Al elegir una topología de red se está eligiendo de alguna forma las aplicaciones de red, las velocidades de transmisión, los tiempos de respuesta, la forma de gestión, la confiabilidad y la escalabilidad, es decir, la forma de expansión de la red sin afectar a los usuarios existentes.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <p>Por lo general, una topología lógica está asociada a una topología física, es decir, que una topología lógica responde a una cierta topología física previamente conectada.</p>
+                            <p>Sin embargo, esto no significa que ambas topologías (física y lógica) sean del mismo tipo.</p>
+                        </div>
+                    </div>
+                    <div class="box-text example" label="Por ejemplo">
+                        <p>Podemos tener una red conectada con topología en estrella, y aun así su operación podría funcionar con topología de bus. Allí, tendremos una red con topología lógica de bus, que está asociada con una topología física de estrella. De hecho, esto es normalmente así en las redes de área local o redes LAN (Local Area Network), en donde las estaciones de trabajo están conectadas en forma radial a un switch de datos, en una topología en estrella, mientras que las comunicaciones entre esas estaciones están basadas en la tecnología Ethernet, que utiliza una topología lógica de bus para la transmisión de los paquetes. Esta representación de las topologías físicas y lógicas de la red LAN las podemos ver en las siguientes imágenes.</p>
+                    </div>
+                    <div class="instruction">
+                        Desliza la línea divisoria de izquierda a derecha para observar las diferencias.
+                    </div>
+                    <div class="after-before center" data-before-label="Topologías física" data-after-label="Topología lógica">
+                        <img src="content/fig6a.svg" />
+                        <img src="content/fig6b.svg" />
+                    </div>
+                    <div class="about"><strong>Figura 6 </strong>Topologías física (izquierda) y lógica (derecha) de la Red de Área Local.</div>
+                    <div class="box-text connection">
+                        <p>Ahora que ya conoces las principales topologías de las redes de telecomunicaciones, veamos otro importante concepto relacionado con la topología lógica, que determina en gran medida la arquitectura de una red de acceso. Este aspecto particular de la comunicación lógica tiene que ver con la forma en que los nodos negocian el uso o control del medio de comunicación, estableciendo cuál de ellos puede emplear la red en un determinado momento. En otras palabras, se trata de las reglas para que los nodos se comuniquen a través del medio compartido. Existen básicamente dos reglas para la comunicación lógica, que va a determinar otra forma de referirse a las topologías lógicas. Ellas son: </p>
+                    </div>
+                    <div class="instruction">
+                        <span class="notmobile">Haz clic sobre cada tipo de topología para conocer su descripción.</span>
+                        <span class="onlymobile">Toca sobre cada tipo de topología para conocer su descripción.</span>
+                    </div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 53.08%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1801" height="956" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61eede42aba9220013313dd6" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="about"><strong>Figura 7.</strong> Tipos de topologías lógicas.</div>
+                    <div class="box-text connection w-70">
+                        <p>Como ya hemos visto, las redes de acceso utilizan el medio de transmisión para poder conectar las redes del proveedor de Internet hasta los usuarios finales. Estas redes pueden tener, además de sus topologías, una diferenciación en cuanto a la arquitectura de red, destacando las redes Punto a Punto y las Punto a Multipunto, veamos de qué trata cada una de estas arquitecturas.</p>
+                        <p>Pasa a la siguiente página para continuar.</p>
+                    </div>
+                    <div class="box-text activity w-70" label="Actividad de aprendizaje">
+                        <p>
+                            <strong>Objetivo: </strong>
+                            <br />Reconocer la clasificación de topologías utilizadas en las redes.
+                        </p>
+                        <p>¡Pongamos a prueba los conocimientos adquiridos!</p>
+                        <p>Hablemos de las topologías y su identificación según la representación gráfica que acabamos de estudiar.</p>
+                        <p><strong>Recuerda que puedes realizar estas actividades las veces que necesites hasta completar el 100% de la calificación.</strong></p>
+                    </div>
+                    <div id="act3" class="jpit-activities-droppable" data-verify-type="target" data-act-id="3_act3" data-act-title="Actividad de aprendizaje 3">
+                        <div class="instruction">
+                            <span class="notmobile">De acuerdo con las siguientes imágenes, arrastra el nombre de la topología correspondiente a la que cada una hace referencia.</span>
+                            <span class="onlymobile">De acuerdo con las siguientes imágenes, selecciona el nombre de la topología correspondiente a la que cada una hace referencia.</span>
+                        </div>
+                        <div class="topologias">
+                            <div class="option">
+                                <img src="content/act3a.svg" />
+                                <div class="box_target" data-target-group="1"></div>
+                            </div>
+                            <div class="option">
+                                <img src="content/act3b.svg" />
+                                <div class="box_target" data-target-group="2"></div>
+                            </div>
+                            <div class="option">
+                                <img src="content/act3c.svg" />
+                                <div class="box_target" data-target-group="3"></div>
+                            </div>
+                            <div class="option">
+                                <img src="content/act3d.svg" />
+                                <div class="box_target" data-target-group="4"></div>
+                            </div>
+                        </div>
+                        <div class="sources">
+                            <div data-group="1">Anillo</div>
+                            <div data-group="2">Bus</div>
+                            <div data-group="3">Árbol</div>
+                            <div data-group="4">Estrella</div>
+                        </div>
+                        <br class="clear" />
+
+                        <div class="box_end"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-redes" ptitle="3. Redes P2P y redes P2MP">
+                <div class="subpage">
+                    <h3>3.1. Punto a Punto (P2P)</h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Una red Punto a Punto, llamada también P2P por el Inglés Point-To-Point, es un tipo de arquitectura de red que utiliza un canal físico o lógico, para comunicar únicamente dos equipos de la red.</p>
+                            <p>En las redes P2P, los dispositivos participan en una comunicación entre pares, de tal modo que un dispositivo puede actuar como emisor unas veces y como receptor otras veces. Normalmente, las redes disponen de varios canales para que otros pares de dispositivos puedan comunicarse al tiempo que lo hacen otros pares.</p>
+                            <p>La comunicación en la red Punto a Punto es similar a las conversaciones que se producen en una cafetería, donde en cada mesa dos personas hablan entre sí. Como sabemos, al mismo tiempo también se establecen conversaciones entre pares de otras mesas.</p>
+                            <p>En estas redes, los enlaces pueden tener transmisiones en un solo sentido (Simplex), en ambos sentidos, pero uno a la vez (Half-Duplex), o en ambos sentidos simultáneos (Full-Duplex).</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 46.43%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1400" height="650" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61f04ca03c01a50012da2493" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                            <div class="about"><strong>Figura 8.</strong> Representación de comunicación en la red P2P.</div>
+                        </div>
+                    </div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.52%; padding-top: 0; height: 0;"><iframe frameborder="0" width="2300" height="1300" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61f04e44c5806e0014163ea6" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <h3>3.2 Punto a Multipunto (P2MP)</h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Las redes de Punto a Multipunto, abreviadas comúnmente como P2MP por la expresión en Inglés Point-To-Multi-Point, permiten que se utilice un mismo canal de comunicaciones para transmitir información hacia todos los dispositivos de red al mismo tiempo.</p>
+                            <p>Esta arquitectura envía datos en la forma de “uno para todos”, donde la información es entonces dirigida desde un equipo principal hacia todos los equipos simultáneamente y utilizando una línea común de comunicación, compartiendo así el canal con todas las terminales en la red.</p>
+                            <p>La comunicación en la red Punto a Multipunto es similar a la que ofrece un conferencista que se dirige a todo el auditorio, llevando, al mismo tiempo, el mismo mensaje para todos los participantes.</p>
+                            <p>P2MP utiliza una técnica para acceder al medio llamada Polling, mediante la cual el equipo principal pasa por todos los dispositivos para saber si necesitan enviar información o si están disponibles para recibirla.</p>
+                            <p>Esta arquitectura de red es muy utilizada en redes con tecnología PON (Passive Optical Network), donde una fibra óptica se puede dividir a través de splitters pasivos, pudiendo derivarse hacia varios puntos finales.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 50.00%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1600" height="800" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61f051e03c01a50012da2593" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                            <div class="about"><strong>Figura 9.</strong> Comunicación P2P y P2MP.</div>
+                        </div>
+                    </div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 57.14%; padding-top: 0; height: 0;"><iframe frameborder="0" width="2450" height="1400" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61f05079c5806e0014163f08" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="box-text activity w-60" label="Actividad de aprendizaje">
+                        <p>
+                            <strong>Objetivo:</strong>
+                            <br />Reconocer las características de las redes P2P y P2MP.
+                        </p>
+                        <p>
+                            ¡Revisa tus aprendizajes!
+                            <br />Vamos a identificar las diferencias existentes entre Punto a Punto y Punto a Multipunto.
+                        </p>
+                        <p><strong>Recuerda que puedes realizar estas actividades las veces que necesites hasta completar el 100% de la calificación.</strong></p>
+                    </div>
+                    <div id="act4" class="jpit-activities-multidroppable" data-act-title="Actividad de aprendizaje 4" data-act-id="4_act4">
+                        <div class="instruction">
+                            <span class="notmobile">De acuerdo con las siguientes imágenes, arrastra las características de la lista a la red correspondiente.</span>
+                            <span class="onlymobile"></span>
+                        </div>
+                        <table class="box_targets">
+                            <tbody>
+                                <tr>
+                                    <td><img src="content/act4a.png"><div data-target-group="1" class="target"></div></td>
+                                    <td><img src="content/act4b.png"><div data-target-group="2" class="target"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="buttons">
+                            <button class="general verify">Verificar</button>
+                            <button class="general continue" style="display: none;">Continuar intentando</button>
+                        </div>
+                        <div class="box_end"></div>
+                        <div class="sources">
+                            <div data-group="1">Enlace P2MP</div>
+                            <div data-group="2">Enlace P2P</div>
+                            <div data-group="1">Canal compartido</div>
+                            <div data-group="2">Canal dedicado</div>
+                            <div data-group="2">Implementación costosa</div>
+                            <div data-group="1">Implementación económica</div>
+                            <div data-group="2">Gestión en diferentes puntos</div>
+                            <div data-group="1">Gestión en un solo punto</div>
+                            <div data-group="1">Fácil escalabilidad</div>
+                            <div data-group="2">Difícil escalabilidad</div>
+                            <div data-group="1">Utilizada en redes PON</div>
+                            <div data-group="2">Utilizada en redes Ethernet</div>
+                        </div>
+                    </div>
+                    <div class="box-text note" label="Síntesis">
+                        <audio controls src="content/sounds/au01.mp3"></audio>
+                        <p>Así podemos ver un resumen de P2P y P2MP en la siguiente tabla.</p>
+                    </div>
+                    <table class="datatable">
+                        <thead>
+                            <th>P2P</th>
+                            <th>P2MP</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Canal dedicado</td>
+                                <td>Canal compartido</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Infraestructura de red grande</td>
+                                <td>Infraestructura de red simple</td>
+                            </tr>
+                            <tr>
+                                <td>Implementación costosa</td>
+                                <td>Implementación más económica</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Mantenimiento de nivel medio</td>
+                                <td>Mantenimiento más fácil</td>
+                            </tr>
+                            <tr>
+                                <td>Facilidad de instalación y configurar</td>
+                                <td>Instalación y configuración más compleja</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Gestión en diferentes puntos de la red</td>
+                                <td>Gestión centralizada</td>
+                            </tr>
+                            <tr>
+                                <td>Escalabilidad compleja</td>
+                                <td>Facilidad de escabilidad</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Utiliza nodos intermedios</td>
+                                <td>Sin nodos intermedios</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="about"><strong>Tabla 1.</strong> Características de las redes P2P y P2MP.</div>
+                </div>
+            </section>
+
+            <section id="pag-bibliografia" ptitle="Referencias">
+                <div class="subpage" id="bibliography_subpage">
+                    <ul>
+                        <li>Ana Cecilia GM, (s/f). Topologías de Red. Recuperado el 10 de diciembre de 2021 desde <a href="http://telecomunicacionesyredes.weebly.com/topologiacuteas-de-red.html" target="_blank">http://telecomunicacionesyredes.weebly.com/[...]</a></li>
+
+                        <li>Areatecnología, (s/f). Topologías de red. Recuperado el 10 de diciembre desde <a href="https://www.areatecnologia.com/informatica/topologias-de-red.html" target="_blank">https://www.areatecnologia.com/[...]</a></li>
+
+                        <li>Castillo, J. (2018). Que son las redes LAN, MAN y WAN y para que se usan. Recuperado el 10 de diciembre de 2021 desde <a href="https://www.profesionalreview.com/2018/12/09/redes-lan-man-wan/" target="_blank">https://www.profesionalreview.com/[...]</a></li>
+
+                        <li>Commscope. (2020). FTTX Fibra a la X. Principios Básicos. Hickory, Estados Unidos. Commscope, Inc.</li>
+
+                        <li>Corvo, H. (2019). Topología en estrella: características, ventajas, desventajas. Recuperado el 10 de diciembre desde <a href="https://www.lifeder.com/topologia-en-estrella/" target="_blank">https://www.lifeder.com/topologia-en-estrella/</a></li>
+
+                        <li>EcuRed, (s/f). Topología de bus. Recuperado el 10 de diciembre desde <a href="https://www.ecured.cu/Topolog%C3%ADa_de_bus" target="_blank">https://www.ecured.cu/[...]</a></li>
+
+                        <li>Jedruch, E y Chiron, X. (2021). Redes Multi-X: Multiservicios y/o Multioperadora. Revista LATAM Edición 2021. Recuperado el 11 de diciembre de 2021 de <a href="https://issuu.com/fiberbroadband/docs/es_revista_fiber_2021/s/12677527" target="_blank">https://issuu.com/fiberbroadband/[...]</a></li>
+
+                        <li>Kurose, J. y Roos, K. (2017). Redes de computadoras. Un enfoque descendente. Madrid. España. Pearson Educación S.A.</li>
+
+                        <li>Limones, E. (2021). Topologías de Redes Informáticas. Recuperado el 9 de diciembre de 2021 desde <a href="https://openwebinars.net/blog/topologia-de-redes-informaticas/" target="_blank">https://openwebinars.net/[...]</a></li>
+
+                        <li>Littlewood, P., Masoud, F. y Follis, E. (2015). Redes de Transporte Óptico. Ciena Expert Series. Hanover, Estados Unidos. Ciena Corporation.</li>
+
+                        <li>López, A. (2021). Qué es y cómo funciona la tecnología GPON: secretos técnicos. Recuperado el 10 de diciembre de 2021 desde <a href="https://www.redeszone.net/tutoriales/redes-cable/tecnologia-ftth-gpon-que-es-funcionamiento/" target="_blank">https://www.redeszone.net/[...]</a></li>
+
+                        <li>Nolle, T. (2021). Topología de red de malla (red de malla). Recuperado el 10 de diciembre desde <a href="https://www.computerweekly.com/es/definicion/Topologia-de-red-de-malla-red-de-malla" target="_blank">https://www.computerweekly.com/[...]</a></li>
+
+                        <li>Olmos, A. (2018). Estudio práctico del despliegue de una red de distribución FTTH. Cartagena, España. Universidad Politécnica de Cartagena.</li>
+                        
+                        <li>Orozco, F. (2019). Configuración de servicios en entornos GPON. Valencia, España. Universidad politécnica de Valencia.</li>
+
+                        <li>Sistemas de información geográficos, (2013). Redes lógicas - Tipos, Ventajas y Desventajas. Recuperado el 10 de diciembre de 2021 desde <a href="http://veritohoyos.blogspot.com/2013/10/redes-logicas-tipos-ventajas-y.html" target="_blank">http://veritohoyos.blogspot.com/[...]</a></li>
+
+                        <li>TIC Portal. (2021). Tecnología de redes. Recuperado el 11 de diciembre de 2021 desde <a href="https://www.ticportal.es/glosario-tic/tecnologia-redes" target="_blank">https://www.ticportal.es/[...]</a></li>
+
+                        <li>Topología de redes informáticas, (s/f). Red de anillo. Recuperado el 10 de diciembre desde <a href="https://sites.google.com/site/topologiaderedesinformaticas/topologia-de-anillo" target="_blank">https://sites.google.com/[...]</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!--Créditos-->
+            <section id="pag-creditos">
+                <div class="subpage" id="credits_subpage">
+
+                    <div class="creditos-fba">
+                        <h2>Créditos</h2>
+                        <div class="bloque">
+                            <table>
+                                <tr>
+                                    <td>Experto Temático</td>
+                                    <td>Luis Fernando Rodríguez</td>
+                                </tr>
+                                <tr>
+                                    <td>Pares evaluadores</td>
+                                    <td>Ana María Cárdenas / Marco Teran / Fredy Pereira</td>
+                                </tr>
+                                <tr>
+                                    <td>Asesoría pedagógica / Diseño instruccional</td>
+                                    <td>Carolina Llanos</td>
+                                </tr>
+                                <tr>
+                                    <td>Corrección de estilos</td>
+                                    <td>Danleibi Molina</td>
+                                </tr>
+                                <tr>
+                                    <td>Diseño gráfico</td>
+                                    <td>Inesly Vega</td>
+                                </tr>
+                                <tr>
+                                    <td>Producción audiovisual</td>
+                                    <td>Fernanda Álvarez / Sebastián Quintero</td>
+                                </tr>
+                                <tr>
+                                    <td>Integración de contenidos</td>
+                                    <td>Santiago Bernal</td>
+                                </tr>
+                                <tr>
+                                    <td>Revisión de calidad</td>
+                                    <td>Bambuco</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bloque logo">
+                            <h3>Gestión técnica y administrativa</h3>
+                            <a href="https://fycolearning.com/" target="_blank"><img src="img/logo_azul.png" alt="Fyco learning" /></a>
+                            <p>Versión 1.0</p>
+                        </div>
+                        <div class="bloque copy">
+                            <p>
+                                Este recurso educativo es propiedad de Fyco Learning.
+                                <br />Todo el material didáctico que lo compone está protegido por las leyes que rigen la propiedad intelectual. 
+                                <br />Para utilizar todo o parte de este material se debe contar con autorización expresa de la organización. 
+                            </p>
+                            <p>
+                                Derechos reservados ©
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                    <!-- <p>
+                        Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+                    </p>
+                    <div>
+                        <h3>Expertos temáticos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Leidy Cristina Madrigal Arrieta</cite>
+                    </div>
+                    <div>
+                        <h3>Asesoría pedagógica</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Corrección de estilo</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Traducción de contenidos</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión Administrativa</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión de calidad</h3>
+                        <cite>Ana Yarenis Arango</cite>
+                    </div>
+                    <div>
+                        <h3>Diseño gráfico</h3>
+                        <cite>Juliana Tobón Gaviria</cite>
+                    </div>
+                    <div>
+                        <h3>Integración de contenidos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Santiago Bernal García</cite>
+                    </div>
+
+                    <div>
+                        <h3>Producción</h3>
+                        <p class="logos">
+                            <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                            <br />
+                            <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                            <br />
+                            <a href="http://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                        </p>
+                    </div>
+
+                    <div class="editions">
+                        1ª edición: diciembre 2013<br />
+                        2ª edición: octubre 2015<br />
+                        3ª edición: febrero 2016<br />
+                        4ª edición: junio 2017
+                    </div>
+                    <div>
+                        <br />
+                        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Obra publicada bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                    </div>
+
+                    <p>
+                        Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+                    </p>
+                    <p>
+                        Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+                    </p> -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <div class="measuring-progress" data-type="horizontal"></div>
+
+            <nav label="Características globales" class="globals">
+                <menu>
+                    <menuitem data-global-id="results"><div class="progress"><p>Progreso</p></div></menuitem>
+                    <menuitem data-page="pag-creditos"><div class="credits"><p>Créditos</p></div></menuitem>
+                    <menuitem data-page="pag-bibliografia"><div class="biblio"><p>Referencias</p></div></menuitem>
+                    <menuitem data-global-id="return">
+                        <div class="maximize"><p>Maximizar</p></div>
+                        <div class="minimize"><p>Minimizar</p></div>
+                    </menuitem>
+                    <menuitem data-global-id="close_all"><div class="back"><p>Salir</p></div></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div id="page_number"></div>
+                <div class="button" next-page></div>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de tu avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya has visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

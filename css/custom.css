@@ -1,0 +1,306 @@
+.change {
+	color: red;
+}
+/*General*/
+.unset {
+	max-width: unset !important;
+}
+
+.genially {
+	max-width: 900px;
+	margin: auto;
+	max-height: 90vh;
+}
+
+.row.align-center {
+	align-items: center;
+}
+
+.center {
+	margin: auto;
+	text-align: center;
+}
+
+.datatable {
+	margin: auto;
+}
+
+.w-30 {width: 30%; max-width: 30% !important;}
+.w-40 {width: 40%; max-width: 40% !important;}
+.w-60 {width: 60%; max-width: 60% !important;}
+.w-70 {width: 70%; max-width: 70% !important;}
+.w-80 {width: 80%; max-width: 80% !important;}
+.w-90 {width: 90%; max-width: 90% !important;}
+.w-100 {width: 100%; max-width: 100% !important;}
+
+.w-500 {width: 500px; max-width: 500px !important;}
+
+video, img {
+	max-width: 100%;
+}
+
+.view-first {
+	max-width: 600px;
+	margin: auto;
+	z-index: 1;
+}
+
+.view-first .mask {
+	display: flex;
+	align-items: center;
+}
+
+.view-content p {
+	font-size: 14px;
+}
+
+.box-text .instruction,
+.box-text .about {
+	color: #fff;
+}
+
+/*#ventana_act_example {
+	width: 600px !important;
+}
+
+.ui-widget.ui-widget-content {
+	width: auto !important;
+}*/
+
+.important .ctrl-pagination {
+	margin-bottom: 50px;
+    border: 1px solid;
+}
+
+.ctrl-pagination .next {
+	width: 32px;
+    height: 32px;
+    background: url(../img/sprite.png) no-repeat;
+    background-size: 500%;
+    background-position: -122px -225px;
+}
+
+.ctrl-pagination .next:hover {
+	filter: brightness(0.7);
+	width: 32px;
+    height: 32px;
+    background: url(../img/sprite.png) no-repeat;
+    background-size: 500%;
+    background-position: -122px -225px;
+}
+
+.ctrl-pagination .previous {
+	width: 32px;
+    height: 32px;
+    background: url(../img/sprite.png) no-repeat;
+    background-size: 500%;
+    background-position: -61px -225px;
+}
+
+.ctrl-pagination .previous:hover {
+	width: 32px;
+    height: 32px;
+    background: url(../img/sprite.png) no-repeat;
+    background-size: 500%;
+    background-position: -61px -225px;
+    filter: brightness(0.7);
+}
+
+.after-before.fig3 {
+	width: 400px !important;
+	max-height: 515px;
+}
+
+.after-before.fig8 {
+	width: 460px !important;
+	height: 139px !important;
+}
+
+.after-before.fig8 img {
+	background-color: #fff;
+}
+
+.twentytwenty-handle {
+	left: 200px;
+}
+
+.horizontal-menu .about {
+	color: #fff;
+}
+
+.horizontal-menu .box_media {
+	background-color: #fff;
+	max-width: 400px;
+}
+
+.ui-dialog .ui-dialog-content {
+	max-height: 90vh !important;
+}
+
+.fig17 {
+	background: url(../content/fig17.png) no-repeat;
+	background-size: 100%;
+	padding-top: 47%;
+	position: relative;
+}
+
+.fig17 .general {
+	position: absolute;
+	top: 3%;
+}
+
+.fig17 .general.central {
+	left: 4%;
+}
+
+.fig17 .general.cliente {
+	top: 10%;
+    left: 40%;
+}
+
+.fig17 .general.odn {
+	right: 15%;
+}
+
+.box-text.sintesis {
+	text-align: center;
+}
+
+table ul {
+	padding-left: 15px;
+}
+
+table.vent-desv td {
+	width: 50%;
+}
+
+/*ACTIVIDAD 1*/
+
+.act1 .situacion {
+	background: url(../content/act1.png) no-repeat;
+	background-size: 100%;
+	width: 100%;
+	padding-top: 64%;
+	position: relative;
+}
+
+.act1 .tooltip {
+	position: absolute;
+	color: transparent;
+	width: 6%;
+    height: 7%;
+}
+
+.act1 .tooltip.uno {top: 59%; left: 27%;}
+.act1 .tooltip.dos {top: 32%; left: 37%;}
+.act1 .tooltip.tres {top: 29%; left: 60.5%;}
+.act1 .tooltip.cuatro {top: 7%; left: 69%;}
+.act1 .tooltip.cinco {top: 46%; left: 83%;}
+
+#act1 .opciones {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+#act1 .opciones li div.droppable {
+	width: 200px;
+    height: 33px;
+    border: 1px dashed #000;
+    border-radius: 5px;
+}
+
+#act1 .opciones li {
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+#act1 .sources div {
+	width: 200px;
+	border-radius: 5px;
+	margin: 10px;
+}
+
+#act1 .sources {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#act1.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
+	background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
+    border-color: transparent;
+}
+
+/*ACTIVIDAD 2*/
+
+#act2.sistemas {
+	margin-top: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+#act2.sistemas div {
+	display: flex;
+}
+
+#act2.sistemas div p {
+	margin: 10px;
+	max-width: 200px;
+}
+
+/*ACTIVIDAD 3*/
+
+#act3 .sources,
+#act3 .topologias {
+	display: flex;
+	justify-content: space-evenly;
+	margin-top: 30px;
+}
+
+#act3 .topologias .option {
+	max-width: 150px;
+}
+
+#act3 .box_target {
+	min-height: 30px;
+	border: 1px dashed #000;
+    border-radius: 5px;
+}
+
+#act3 .sources div {
+	width: 100px;
+}
+
+#act3.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
+	background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
+    border-color: transparent;
+}
+
+/*ACTIVIDAD 4*/
+
+#act4 .box_targets td {
+	position: relative;
+}
+
+#act4.jpit-activities-multidroppable .droppable {
+	border: none;
+    text-align: center;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+#act4 .sources {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+#act4 .sources div {
+	margin: 10px;
+}

@@ -1,0 +1,35 @@
+<svg id="Grupo_2112" data-name="Grupo 2112" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255.997" height="255.997" viewBox="0 0 255.997 255.997">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4bbbd7"/>
+      <stop offset="0.206" stop-color="#359fba"/>
+      <stop offset="0.43" stop-color="#2a8aaa"/>
+      <stop offset="0.711" stop-color="#005377"/>
+      <stop offset="1" stop-color="#141b2f"/>
+    </radialGradient>
+    <clipPath id="clip-path">
+      <circle id="Elipse_150" data-name="Elipse 150" cx="127.998" cy="127.998" r="127.998" stroke="#707070" stroke-width="1" fill="url(#radial-gradient)"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_1594" data-name="Grupo 1594" transform="translate(0)">
+    <g id="Enmascarar_grupo_3" data-name="Enmascarar grupo 3" clip-path="url(#clip-path)">
+      <rect id="Rectángulo_747" data-name="Rectángulo 747" width="400.251" height="320.98" rx="5.614" transform="translate(-72.212 -40.843)" fill="url(#radial-gradient)"/>
+    </g>
+    <g id="Elipse_151" data-name="Elipse 151" transform="translate(5.424 5.424)" fill="#fff" stroke="#707070" stroke-width="1">
+      <circle cx="122.575" cy="122.575" r="122.575" stroke="none"/>
+      <circle cx="122.575" cy="122.575" r="122.075" fill="none"/>
+    </g>
+  </g>
+  <g id="Grupo_2104" data-name="Grupo 2104" transform="translate(46.702 46.701)">
+    <circle id="Elipse_158" data-name="Elipse 158" cx="24.076" cy="24.076" r="24.076" transform="translate(56.836 57.909)" fill="#06304d"/>
+    <circle id="Elipse_159" data-name="Elipse 159" cx="11.006" cy="11.006" r="11.006" transform="translate(70.593 4.255)" fill="#06304d"/>
+    <circle id="Elipse_160" data-name="Elipse 160" cx="11.006" cy="11.006" r="11.006" transform="translate(22.442 22.14)" fill="#06304d"/>
+    <circle id="Elipse_161" data-name="Elipse 161" cx="11.006" cy="11.006" r="11.006" transform="translate(3.182 70.291)" fill="#06304d"/>
+    <circle id="Elipse_162" data-name="Elipse 162" cx="11.006" cy="11.006" r="11.006" transform="translate(22.442 118.442)" fill="#06304d"/>
+    <circle id="Elipse_163" data-name="Elipse 163" cx="11.006" cy="11.006" r="11.006" transform="translate(70.593 137.703)" fill="#06304d"/>
+    <circle id="Elipse_164" data-name="Elipse 164" cx="11.006" cy="11.006" r="11.006" transform="translate(118.744 118.442)" fill="#06304d"/>
+    <circle id="Elipse_165" data-name="Elipse 165" cx="11.006" cy="11.006" r="11.006" transform="translate(136.629 70.291)" fill="#06304d"/>
+    <circle id="Elipse_166" data-name="Elipse 166" cx="11.006" cy="11.006" r="11.006" transform="translate(118.744 22.14)" fill="#06304d"/>
+    <path id="Trazado_6240" data-name="Trazado 6240" d="M375,884.907a14.51,14.51,0,0,0-2.9,28.728v23.818a28.751,28.751,0,0,0-15.481,6.26L339.9,926.984a14.545,14.545,0,1,0-4.116,4.107l16.728,16.729a28.768,28.768,0,0,0-6.26,15.481H322.442a14.517,14.517,0,1,0,0,5.806h23.794a28.743,28.743,0,0,0,6.272,15.494l-16.717,16.717a14.526,14.526,0,1,0,4.105,4.118v-.011L356.6,988.717a28.776,28.776,0,0,0,15.494,6.25v23.795h-.012a14.522,14.522,0,1,0,5.819,0V994.967a28.784,28.784,0,0,0,15.481-6.261l16.717,16.718v.011a14.5,14.5,0,1,0,4.107-4.118L397.489,984.6a28.764,28.764,0,0,0,6.261-15.494h23.806v.012a14.523,14.523,0,1,0,0-5.818H403.75a28.78,28.78,0,0,0-6.261-15.481L414.207,931.1h.011A14.5,14.5,0,1,0,410.1,927l-16.717,16.717a28.735,28.735,0,0,0-15.481-6.26V913.635h.011A14.512,14.512,0,0,0,375,884.907Zm0,5.807a8.711,8.711,0,1,1-8.71,8.711A8.668,8.668,0,0,1,375,890.714Zm-47.227,19.542a8.733,8.733,0,1,1-6.158,2.574A8.688,8.688,0,0,1,327.771,910.257Zm94.442,0a8.733,8.733,0,1,1-6.159,2.574A8.685,8.685,0,0,1,422.214,910.257ZM375,942.931a23.274,23.274,0,1,1-16.433,6.828A23.172,23.172,0,0,1,375,942.931Zm-66.779,14.564a8.71,8.71,0,1,1-8.711,8.71A8.666,8.666,0,0,1,308.219,957.494Zm133.559,0a8.71,8.71,0,1,1-8.711,8.71A8.666,8.666,0,0,1,441.778,957.494Zm-114.007,47.2a8.733,8.733,0,1,1-6.158,2.574A8.688,8.688,0,0,1,327.771,1004.7Zm94.442,0a8.733,8.733,0,1,1-6.159,2.574A8.685,8.685,0,0,1,422.214,1004.7ZM375,1024.273a8.711,8.711,0,1,1-8.71,8.71A8.667,8.667,0,0,1,375,1024.273Z" transform="translate(-293.701 -884.907)" fill="#2c8ead"/>
+  </g>
+</svg>

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Empalmes ópticos mecánicos y por fusión</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="40" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <header>
+            <div class="logo">
+                <img src="img/logo_color.svg" alt="Fyco learning" />
+            </div>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Presentación" data-page="pag-presentacion"></menuitem>
+                    <menuitem label="Componentes">
+                        <menu>
+                            <menuitem label="1. Definición de empalme" data-page="pag-empalme"></menuitem>
+                            <menuitem label="2. Tipos de empalmes" data-page="pag-tipos"></menuitem>
+                            <menuitem label="3. Parámetros para medir la calidad de un empalme" data-page="pag-parametros"></menuitem>
+                            <menuitem label="4. Características de cada tipo de empalme" data-page="pag-caracteristicas"></menuitem>
+                        </menu>
+                    </menuitem>
+                </menu>
+            </nav>
+            <h2 class="page-title"></h2>
+        </header>
+
+        <main style="display: none;">
+
+            <section id="pag-presentacion">
+                <div class="subpage">
+                    <div class="page-index">
+                        <div class="ova_name">
+                            <div class="title">
+                                <h1>Empalmes ópticos mecánicos y por fusión</h1>
+                                <div class="title-img-fibra"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <h2>Presentación</h2>
+                                <div class="videobox">
+                                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/sqeh7i6BiNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                    <video controls src="https://info.fycolearning.com/fba/cursos/fcff/mod2/tema6/m2-t2_6-introduccion.mp4 " poster="https://info.fycolearning.com/fba/cursos/fcff/mod2/tema6/poster/m2-t2_6-introduccion.png "></video>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <h2>Objetivo</h2>
+                                <div class="objetivo-text">
+                                    <ul>
+                                        <li>Diferenciar los tipos de empalmes que se realizan en las fibras ópticas.</li>
+                                        <li>Reconocer los parámetros que permiten evaluar la calidad del empalme.</li>
+                                        <li>Identificar algunas causas del incremento de pérdidas de inserción en los empalmes de las fibras ópticas.</li>
+                                    </ul>
+                                </div>
+                                <div class="duration">
+                                    <h2>Duración: 1 hora / 60 minutos</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-empalme" ptitle="1. Definición de empalme">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>En fibra óptica, la definición estándar de empalme se refiere a la unión que se realiza en los extremos de dos cables, para que la luz salga de una fibra y se introduzca en la siguiente.</p>
+                            <p>Una situación muy común en la que se requieren uniones de fibras se da cuando se conecta un equipo a la red, un transmisor/receptor. Para ello, es necesario empalmar un <i>pigtail</i> (conector más cordón de fibra) con el cable de fibra de la red externa. </p>
+                        </div>
+                        <div class="col-2">
+                            <img src="content/animacion1.gif" alt="Animación 1. Empalme de fibra óptica" />
+                            <div class="about"><strong>Animación 1.</strong>Empalme de fibra óptica</div>
+                        </div>
+                    </div>
+                    <p>En situaciones de este tipo se hacen necesarios distintos tipos de uniones: de fibra a fibra y de fibra a transceivers (transmisor/receptor).</p>
+                    <p>Entonces podemos identificar uniones:</p>
+                    <div class="objetivo-text">
+                        <ul>
+                            <li><strong>A través de conectores,</strong> donde se crean uniones temporales o semipermanentes entre fibras o entre la fibra y un equipo de red. Su propósito es proporcionar flexibilidad a la red.</li>
+                            <li><strong>A través de empalmes,</strong> que crean uniones permanentes entre dos fibras. </li>
+                        </ul>
+                    </div>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                        <span class="onlymobile">Toca sobre cada elemento para conocer su descripción.</span>
+                    </div>
+                    <div class="genially">
+                        <div style="width: 100%;">
+                            <div style="position: relative; padding-bottom: 50.00%; padding-top: 0; height: 0;">
+                                <iframe frameborder="0" width="1200" height="600" style="position: absolute; top: 0; leftin: 0; width: 100%; height: 100%;" src="https://view.genial.ly/620292275d1c850018a23fb5" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all">
+                                </iframe> 
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="about"><strong>Figura 1.</strong> Diferentes uniones de fibras ópticas, mediante conectores y empalmes.</div>
+                     <div class="box-text connection w-60">
+                    <p>Las características deseables de ambos tipos de uniones, es que tengan muy bajas pérdidas y muy bajas reflexiones, que a su vez se realicen de forma sencilla tal que permitan un alto rendimiento en su instalación, y finalmente que provean alta confiabilidad en la unión cualquiera que sea. En este tema, haremos énfasis en las uniones mediante empalmes, que pueden ser de varios tipos y los estudiaremos a continuación.</p>
+                    <p>Pasa a la siguiente página para continuar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-tipos" ptitle="2. Tipos de empalmes">
+                <div class="subpage">
+                    <p>En cuanto a los empalmes, en general se tienen dos métodos para realizarlos: por fusión y mecánicos. Veamos en que consiste cada uno:</p>
+                    <div class="horizontal-menu">
+                        <dl>
+                          <dt>Fusión</dt>
+                              <dd>
+                             <h3>Empalme por fusión</h3>
+                                <p>Ofrece un nivel de atenuación bajo y mínima reflectancia, así como también una unión muy confiable.</p>
+                                <p>Este empalme requiere un equipo especial, relativamente costoso, conocido como fusionadora y entrenamiento de la mano de obra para realizarlo.</p>
+                            </dd>   
+                        </dl>
+                        <dl>
+                            <dt>Mecánico</dt>
+                            <dd>
+                                <h3>Empalme mecánico</h3>
+                                <p>Las dos fibras ópticas no se fusionan físicamente, sino que las mantienen en contacto por medio de algún mecanismo mecánico.</p>
+                                <p>La pérdida de inserción y la reflexión son peores en este tipo de empalmes.</p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="box-text connection w-60">
+                        <p>El tipo de empalme a utilizar dependerá, entre otras cosas, de elementos asociados a la calidad de su desempeño. Por eso, conviene notar cuáles son los <strong>parámetros que existen para medir la calidad de un empalme.</strong> Estos se denominan <strong>pérdidas de inserción</strong> y <strong>pérdidas de retorno</strong> y también medirán la calidad de la unión usando conectores. Veamos en qué consisten estos parámetros..</p>
+                        <p>Pasa a la siguiente página para continuar.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="pag-parametros" ptitle="3. Parámetros para medir la calidad de un empalme">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Las pérdidas de inserción y las pérdidas de retorno ocurren porque la luz es muy sensible a cualquier cambio de medio de transmisión. Puede suceder que haya quedado un espacio de aire o incluso cambios en el índice de refracción entre las fibras (la que lleva y la que recibe la luz).</p>
+                            <div class="box-text important" label="Recuerda que">
+                                <p>Los cambios en el índice de refracción producirán igualmente reflexiones que podrían regresar por la fibra que lleva la luz y llegar al transmisor, lo que introducirá alta perturbación a la señal óptica.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-text connection w-60">
+                                <p>A continuación, detallaremos cada uno de los parámetros mencionados, presta atención a su descripción, ya que entenderlos te será de mucha utilidad en cualquier área de las telecomunicaciones en que te desempeñes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subpage">
+                    <h3>3.1. Pérdida por inserción - IL</h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Del inglés <i>Insertion Loss,</i> este parámetro se refiere a la diferencia de potencia que sale de la unión entre fibras y sigue su camino por la fibra receptora (Ps) y la que entra a la unión (Pe) por la fibra alimentadora.</p>
+                            <p>Esta pérdida se mide en decibelios (dB) según la expresión:</p>
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                                <span class="onlymobile">Toca sobre cada elemento para conocer su descripción.</span>
+                            </div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/620bb8c720602f0012cb41ca" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <img src="content/animacion2.gif" alt="Animación 2. Representación gráfica de la pérdida por inserción." />
+                            <div class="about"><strong>Animación 2.</strong>Representación gráfica de la pérdida por inserción.</div>
+                            <p>Se supone que esta diferencia debe ser muy pequeña, pues el propósito del empalme es entregar toda la potencia de la luz a la fibra receptora, sin que la luz sea perturbada, pero como lo mencionamos anteriormente, la luz es muy sensible a cualquier cambio de índice de refracción en su trayectoria, por lo que es posible que se fugue por cualquier pequeña discontinuidad, o que se retorne por el fenómeno de la reflexión, dado el cambio de medio de transmisión.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="box-text note" label="Nota">
+                                <p>Como las pérdidas de inserción se miden en dB, dado que la potencia que sale del punto de empalme es menor que la que entra, esta relación dará un resultado en unidades de dB <strong>negativas, lo cual indica efectivamente una pérdida.</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-text important" label="Recuerda que ">
+                                <p>0dB significa que la potencia de salida es igual a la potencia de entrada en el punto de empalme.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Queremos entonces que la potencia de salida sea lo más parecida a la potencia de entrada en el punto de conexión, por lo que este valor debería estar lo más cercano posible a 0dB, lo que significa que pasa casi toda la potencia.</p>
+                </div>
+
+                <div class="subpage">
+                    <h3>3.2. Pérdida de retorno óptico - ORL</h3>
+                    <div class="row">
+                        <div class="col-2">
+                             <p>Del inglés <strong>Optical Return Loss,</strong> este parámetro da cuenta de la diferencia que hay entre la potencia óptica que se regresa por la fibra debido al fenómeno de “reflexión” y la que entra al punto de empalme. La causa de esta reflexión es el cambio de medio en el punto de unión.</p>
+                             <p>Esta pérdida se determina mediante la diferencia entre la potencia reflejada en la fibra alimentadora (Pr) y la que entra a la unión (Pe) por la fibra alimentadora.</p>
+                             <p>Esta pérdida se mide en decibelios (dB) según la expresión:</p>
+                        <div class="instruction">
+                            <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                            <span class="onlymobile">Toca sobre cada elemento para conocer su descripción.</span>
+                        </div>
+                        <div class="genially">
+                            <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/620bba9515be8b0018a792cb" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                        </div>
+                        </div>
+                        <div class="col-2">
+                            <img src="content/animacion3.gif" alt="Animación 3. Representación gráfica de la pérdida de retorno óptico." />
+                            <div class="about"><strong>Animación 3.</strong>Representación gráfica de la pérdida de retorno óptico.</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="box-text note" label="Nota">
+                                <p>Como las pérdidas de retorno óptico se miden en dB, dado que la potencia que se refleja es menor que la potencia que entra a la unión, esta relación también dará un resultado en unidades de dB <strong>negativas, lo cual indica efectivamente una pérdida.</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <p>Si este valor negativo es muy grande, significa que menos potencia se refleja. Aunque los empalmes están pensados para tener mínimas reflexiones, un poco de potencia reflejada será suficiente para que alcance el transmisor, y cause perturbaciones en la señal, por lo que es sumamente importante hacer mediciones a través de pruebas de campo.</p>
+                            <p>Una de las maneras de hacerle <strong>pruebas a los empalmes,</strong> es a través de un instrumento denominado reflectómetro óptico en el dominio del tiempo OTDR (por sus siglas en inglés <i>Optical Time Domain Reflectometer).</i></p>
+                        </div>
+                    </div>
+                    <p>El OTDR registra las pérdidas de la fibra, por fusiones y por conectores, como podemos observar de manera general en la figura. Dado que las pérdidas por empalmes son menores que en los conectores, la potencia que se regresa igualmente es menor, y por ello en la pantalla del OTDR veremos un pequeño descenso de la señal, en comparación con el caso en el que tengamos conectores e incluso cuando tenemos un extremo abierto de la fibra.</p>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada imagen para conocer su descripción. </span>
+                        <span class="onlymobile">Toca sobre cada imagen para conocer su descripción.</span>
+                    </div>
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="view-first">
+                                    <img src="content/fig2a.png" />
+                                    <div class="view-content">
+                                        <p>Equipo para medición de las pérdidas de inserción en puntos de unión entre fibras ópticas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="view-first">
+                                    <img src="content/fig2b.png" />
+                                    <div class="view-content">
+                                        <p>Esquema de la información de pérdidas en un enlace que arroja el OTDR.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about"><strong>Figura 2.</strong> Reflectómetro óptico - OTDR.</div>
+                        <div class="box-text important" label= "Ten en cuenta que">
+                            <p>La pérdida óptica en uniones se reduce en las siguientes situaciones ideales: 
+                                <ul>
+                                    <li>Cuando los núcleos de las dos fibras son idénticos.</li>
+                                    <li>Cuando los núcleos están alineados de manera perfecta y no existe espacio de aire entre sí. </li>
+                                    <li>¡Muy importante! cuando no hay suciedad en la unión. </li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="box-text connection">
+                            <p>Las pérdidas que se registran tanto en los conectores como en los empalmes de fusión se deben a varios factores. A continuación, vamos a dividir estos factores por tipos (extrínsecos e intrínsecos), pensando siempre en <strong>cómo sería posible que la luz note un cambio en el índice de refracción.</strong></p>
+                        </div>
+                </div>
+
+                <div class="subpage">
+                    <h3>3.3. Pérdidas extrínsecas causadas por desalineamiento de dos fibras idénticas</h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Uno de los factores más importantes para tener bajas pérdidas en los empalmes es la alineación de las dos fibras a empalmar. </p>
+                            <p>Pensemos en el caso de dos fibras a empalmar que son idénticas en dimensiones y en sus índices de refracción. La alineación tiene como propósito que los núcleos de las fibras queden completamente superpuestos, considerando además que una vez alineados los núcleos, ambos extremos queden en total contacto.</p>
+                            <p>Un mal alineamiento produce altas pérdidas de inserción, bien sea porque hay un cambio abrupto del medio, como sucede en la separación longitudinal y desalineación angular, o porque parte de la luz se va por el revestimiento, como la desalineación lateral.</p>
+                            <p>En las imágenes, podemos notar cómo se comportan esos errores comunes de alineamiento en fibras ópticas.</p>
+                            <p>En general, para corregir estos errores se hacen tres alineamientos típicos:
+                                <ul>
+                                    <li>Longitudinales.</li>
+                                    <li>Laterales.</li>
+                                    <li>Angulares.</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada imagen para conocer su descripción. </span>
+                                <span class="onlymobile">Toca sobre cada imagen para conocer su descripción.</span>
+                            </div>
+                            <div>
+                                <div class="view-first">
+                                    <img src="content/fig3a.png" />
+                                    <div class="view-content">
+                                        Desalineación lateral del núcleo
+                                    </div>
+                                </div>
+                                <div class="view-first">
+                                    <img src="content/fig3b.png" />
+                                    <div class="view-content">
+                                        Separación longitudinal
+                                    </div>
+                                </div>
+                                <div class="view-first">
+                                    <img src="content/fig3c.png" />
+                                    <div class="view-content">
+                                        Desalineación angular
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about"><strong>Figura 3.</strong> Errores de alineamiento en fibras ópticas..</div>
+                        </div>
+                    </div>
+                    <div class="box-text note" label="Nota">
+                            <p>En la actualidad, las empalmadoras por fusión se encargan de hacer este alineamiento de forma automática. Es importante destacar que esto puede variar en algunos equipos de empalme y es directamente proporcional a la calidad del equipo. No todas las empalmadoras se alinean con la misma precisión y/o calidad.</p>
+                    </div>
+                </div>
+
+                <div class="subpage">
+                    <h3>3.4. Pérdidas intrínsecas causadas por conexión de fibras con características diferentes</h3>
+                    <div class="box-text connection">
+                        <p>Estas pérdidas ocurren cuando los núcleos no coinciden perfectamente, esto hace que parte de la luz pase al revestimiento y deje de ser transmitida por el núcleo. Estudiemos algunos ejemplos de este tipo de pérdidas.</p>
+                    </div>
+                
+                    <h4>No concentricidad</h4>
+                    <p>En este caso, una de las fibras no cumple con la concentricidad recomendada en las especificaciones de las fibras. La concentricidad se refiere a que los dos cilindros que conforman el hilo de fibra deben compartir el mismo eje. Vemos que cuando esto no se da, en el punto de unión se producirán pérdidas altas al pasar parte de la luz al revestimiento y la producción de reflexiones debido a que la luz percibirá un cambio de medio.</p>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="box-text note" label="Nota">
+                                <p>Profundicemos un poco más en el concepto de concentricidad.</p>
+                                <button class="w-content-controler general" data-content="#definicion1">
+                                    Ver definición
+                                </button>
+                                <div id="definicion1" class="w-content" data-property-width="80%">
+                                    <blockquote>
+                                        La concentricidad núcleo-revestimiento define la posición relativa del núcleo con respecto al revestimiento en una fibra óptica y ofrece una clara indicación de lo bien centrado que está el núcleo de la fibra dentro del revestimiento de la misma. El centro del núcleo debe estar lo más cerca posible del eje central de la fibra. Esto significa que si las fibras de ambos lados de la unión tienen sus núcleos perfectamente centrados, la alineación de las fibras será mucho más fácil y la pérdida del empalme será significativamente menor.
+                                        <label>Fibercore, (s/f). Concentricidad del núcleo. Extraído el 20 de enero de 2022 de <a href="https://fibercore.humaneticsgroup.com/services-support/fiberpaedia/c/core-concentricity" target="_blank">Fibercore</a></label>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                             <img src="content/animacion4.gif" alt="Animación 4. Representación gráfica de la pérdida por no concentricidad." />
+                            <div class="about"><strong>Animación 4.</strong>Representación gráfica de la pérdida por no concentricidad.</div>
+                        </div>
+                    </div>
+                    <h4>Desajuste en el diámetro externo de las fibras</h4>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Dado que usualmente el alineamiento se hace en la base de las fibras, una unión entre ellas cuyo diámetro del revestimiento sea diferente, causará pérdidas de inserción y reflexión altas por el cambio de índice de refracción que encontrará la luz en la unión, y que parte de la luz dejará de propagarse por el núcleo y se irá por el revestimiento, incrementando las pérdidas.</p>
+                        </div>
+                        <div class="col-2">
+                             <img src="content/animacion5.gif" alt="Animación 5. Representación gráfica de la pérdida por desajuste en el diámetro externo de las fibras." />
+                            <div class="about"><strong>Animación 5.</strong>Representación gráfica de la pérdida por desajuste en el diámetro externo de las fibras.</div>
+                        </div>
+                    </div>
+                    <div class="box-text connection">
+                            <p>Pongamos especial atención a dos tipos de empalmes de fibras que tienen el mismo diámetro exterior pero tienen diferencias en sus núcleos o sus aperturas numéricas. Esto nos lleva a analizar si es posible empalmar dos fibras que tengan especificaciones diferentes.</p>
+                    </div>
+                    <h4>Desajuste en diámetro</h4>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Se pueden dar dos casos, de acuerdo al <strong>sentido de alimentación de luz, si es de fibra de mayor núcleo a una de menor núcleo,</strong> la pérdida de señal sería mucho más grande que el caso contrario (la luz se transmite de la fibra de núcleo menor a una fibra de núcleo mayor). Un ejemplo de este tipo de empalme es empalmar una fibra multimodo (50 μm diámetro del núcleo) y una monomodo (9 μm); o una OM2 (50 μm) y una OM1 (62.5 μm). </p>
+                        </div>
+                        <div class="col-2">
+                            <img src="content/animacion6.gif" alt="Animación 6. Representación gráfica de la pérdida por desajuste en el diámetro." />
+                            <div class="about"><strong>Animación 6.</strong>Representación gráfica de la pérdida por desajuste en el diámetro.</div>
+                        </div>
+                    </div>
+                    <h4>Desajuste de aperturas numéricas (AN)</h4>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>En las fibras que tienen AN diferentes se nos pueden presentar dos casos: cuando <strong>la fibra que trae la luz al empalme tiene AN mayor a la de la fibra que recibe la luz,</strong> esta última se acoplará y saturará el núcleo de la fibra que recibe. Esta condición hace que la unión sea más sensible al desalineamiento angular y al espacio entre conectores, con lo cual <strong>tendrá una pérdida alta.</strong> En el segundo caso, cuando la luz se transmite de una fibra de AN menor a una de AN mayor, se producirá una menor pérdida. </p>
+                        </div>
+                        <div class="col-2">
+                            <img src="content/animacion7.gif" alt="Animación 7. Representación gráfica de la pérdida por desajuste en las Aperturas Numéricas." />
+                            <div class="about"><strong>Animación 7.</strong>Representación gráfica de la pérdida por desajuste en las Aperturas Numéricas.</div>
+                        </div>
+                    </div>
+                    <div class="box-text connection">
+                            <p>El corte de la fibra en su extremo es otro factor muy importante en la realización de los empalmes de fibras ópticas, así como la limpieza de los conectores y la suciedad en los extremos de fibras. Veamos cómo pueden darse pérdidas por estos factores.</p>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <h3>3.5. Pérdidas introducidas por el corte de la fibra y limpieza de conectores</h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>El propósito de un buen corte de fibra se centra en que el ángulo de corte respecto a una perpendicular del eje sea menor a 1° y que no tenga deformaciones. Este corte se debe realizar con una cortadora de precisión usualmente conocida como clivadora (del inglés cleaver) y de él depende el valor de la pérdida que se produzca.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/fig4.png" alt="     Figura 4. Ángulo esperado para un corte de fibra"/>
+                            <div class="about"><strong>Figura 4.</strong> Ángulo esperado para un corte de fibra</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-text note" label="Por ejemplo:">
+                                <p>Un corte realizado con cortadora de precisión (usualmente integradas a las fusionadoras) puede producir pérdidas de 0.5 dB, en tanto que una cortadora común suele generar pérdidas del orden de los 0.75 dB.</p>
+                    </div>
+                    <p>Otra causa de pérdidas es la suciedad en los conectores y polvo en los extremos de fibras. Por ello, los procedimientos de empalmería siempre incluyen limpieza de los extremos a través de diferentes métodos y herramientas.</p>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="view-first">
+                                <img src="content/fig5a.png" />
+                                <div class="view-content">
+                                    <p>Ángulo en los extremos de la fibra.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="view-first">
+                                <img src="content/fig5b.png" />
+                                <div class="view-content">
+                                    <p>Terminación  de los extremos y suciedad.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about"><strong>Figura 5.</strong> Pérdidas por el corte de la fibra y la limpieza de los conectores.</div>
+                </div>
+            </section>
+
+            <section id="pag-caracteristicas" ptitle="4. Características de cada tipo de empalme">
+                <div class="subpage">
+                    <p>El estándar TIA 568 requiere que la pérdida óptica en la conectorización sea menor a 0.75 dB, y la pérdida óptica en el empalme a 0.3 dB. Son cifras elevadas de pérdida pero que permitirán la utilización de conectores prepulidos  y la mayoría de los empalmes mecánicos.</p>
+                    <div class="box-text connection">
+                        <p>Siendo este un documento de conceptualización, mencionaremos brevemente aspectos descriptivos de los dos tipos de empalme: mecánico y por fusión.</p>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <h3>4.1. Empalme mecánico</h3>
+                    <p>El empalme mecánico une las fibras y las mantiene en contacto por medio de algún elemento.</p>
+                    <p>Dicho elemento que hace posible tal unión, está compuesto de dos partes:</p>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 58.82%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1700" height="1000" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/6201434f47e002001284c629" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="about"><strong>Figura 6.</strong> Representación gráfica del empalme mecánico.</div>
+                    <div class="box-text link" label="Extendiendo el saber">
+                        <p>Para visualizar cómo se realiza un empalme mecánico, te recomendamos revisar este vídeo, solo detalla que se requiere básicamente una buena cortadora, todo el proceso es muy manual, sin requerir herramientas especiales:</p>
+                        <p><strong>Video:</strong> <a href="https://youtu.be/g0J8hBNMU98" target="_blank">Empalme Mecánico KeyQuick</a></p>
+                        <p><strong>Duración:</strong> 3 minutos</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Las especificaciones técnicas de los conectores mecánicos, nos indican sus parámetros de construcción y desempeño, para complementar la información referente a este tipo de empalme, veamos un ejemplo de especificación como la que se muestra en el documento anexo.</p>
+                            <p>Analizando los datos, observamos que la pérdida de inserción (<i>Insertion loss</i>) máxima para este conector es de alrededor de 0.5 dB para pulimento UPC y 0.6 dB para pulimento APC. Por su parte, la pérdida de retorno estaría en el orden de 45 dB y 50 dB respectivamente, lo que quiere decir que se devuelve una diezmilésima parte de la potencia que incide en el punto de empalme. </p>
+                        </div>
+                        <div class="col-2">
+                            <p><strong>Documento anexo:</strong></p>
+                            <div class="instruction">
+                                <span class="notmobile">Haz clic sobre la miniatura para abrir el documento.</span>
+                                <span class="onlymobile">Toca sobre la miniatura para abrir el documento.</span>
+                            </div>
+                            <a href="content/ficha_tecnica_conector_mecanico_sc-apc.pdf" target="_blank">
+                                <img src="content/miniatura.png" />
+                            </a>
+                        </div>
+                    </div>
+                    <p>Una gran ventaja del empalme mecánico es que prescinde de una empalmadora de fusión para unir la fibra óptica y es útil para reparaciones tanto para cables de fibra óptica multimodo como monomodo. Si al utilizar esta técnica, tomamos en cuenta las recomendaciones y las buenas prácticas para llevarla a cabo, tendremos en teoría (0.3 dB) una pérdida de luz, sin embargo, este tipo de unión produce una alta reflexión en comparación con el empalme por fusión.</p>
+                </div>
+                <div class="subpage">
+                    <h3>4.2. Empalme por fusión</h3>
+                    <p>El empalme por fusión ocurre cuando dos fibras se sueldan literalmente mediante un arco eléctrico (que se produce entre dos electrodos a temperaturas elevadas del orden de los 2000 grados centígrados, durante dos o tres segundos), anteriormente alineadas en su núcleo. Este método proporciona la menor pérdida de inserción y prácticamente ninguna reflexión posterior. Los empalmes por fusión resultan ser uniones permanentes.</p>
+                    <div class="box_media">
+                        <img src="content/animacion8.gif"alt="Animación 8. Representación gráfica del empalme por fusión"/>
+                        <div class="about"><strong>Animación 8.</strong>Representación gráfica del empalme por fusión</div>
+                    </div>
+                    <p>Este empalme se realiza con una máquina automática llamada empalmadora por fusión o máquina de empalme por fusión.</p>
+                    <div class="box_media w-60">
+                        <img src="content/fig7.png" alt="Figura 7. Foto de una empalmadora por fusión."/>
+                        <div class="about"><strong>Figura 7.</strong>Foto de una empalmadora por fusión.</div>
+                    </div>
+                    <p>Los empalmes por fusión llegan a producir atenuaciones casi imperceptibles (0.01 a 0.10 dB)</p>
+                    <div class="box-text link" label="Extendiendo el saber">
+                         <p>Para visualizar cómo se realiza un empalme por fusión, te recomendamos entrar a este enlace que contiene el paso a paso y un vídeo demostrativo. Notarás que el elemento principal es una herramienta denominada fusionadora. Este equipo es de un costo elevado, pero se justifica por la calidad del empalme y los rendimientos en la empalmería. Las nuevas empalmadoras hacen el proceso de alineación automático, y traen incorporados la cortadora y un calentador que permite que los tubos protectores del empalme, que son termocontraibles, se ajusten y aseguren el punto de fusión.</p>
+                        <p><strong>Video:</strong> <a href="https://www.promax.es/esp/noticias/556/como-fusionar-dos-fibras-opticas/ " target="_blank">Empalme Mecánico KeyQuick</a></p>
+                    <p><strong>Duración:</strong> 15 minutos</p>
+                    </div>
+                     <div class="box-text note" label="Conclusión">
+                        <audio controls>
+                            <source src="content/sounds/au1.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="pag-bibliografia" ptitle="Referencias">
+                <div class="subpage" id="bibliography_subpage">
+                    <ul>
+                        <li>Bob Chomycz,<i>Instalaciones de Fibra Óptica: Fundamentos, técnicas y aplicaciones.</i> Primera edición, Ed. Mc Graw-Hill, pp 239, 1998</li>
+                        <li>Bob Chomycz, <i>Fiber Optic Installer´s Field Manual.</i>Segunda edición , Ed. Mc Graw-Hill, pp 413, 2015</li>
+                        <li>Borja, (2016). <i>Empalme mecánico de fibra óptica.</i> Extraído el 20 de enero de 2022 desde <a href="http://borja2fb.blogspot.com/2016/01/empalme-mecanico-de-fibra-optica.html" target="_blank">http://borja2fb.blogspot.com[...]</a></li>
+                        <li>Borja, (2016). Empalme mecánico de fibra óptica. Extraído el 20 de enero de 2022 desde <a href="http://borja2fb.blogspot.com/2016/01/empalme-por-fusion.html" target="_blank">http://borja2fb.blogspot.com/[...]</a></li>
+                        <li>Trindell, P. (s/f). <i>Connectors and Splices: Correct Alignment Spells Success.</i> Extraído el 20 de enero de 2022 desde  <a href="https://www.photonics.com/Articles/Connectors_and_Splices_Correct_Alignment_Spells/a25152 "target="_blank">https://www.photonics.com/[...]</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!--Créditos-->
+            <section id="pag-creditos">
+                <div class="subpage" id="credits_subpage">
+
+                    <div class="creditos-fba">
+                        <h2>Créditos</h2>
+                        <div class="bloque">
+                            <table>
+                                <tr>
+                                    <td>Experta Temática</td>
+                                    <td>Ana María Cárdenas</td>
+                                </tr>
+                                <tr>
+                                    <td>Pares evaluadores</td>
+                                    <td>Luis Fernando Rodríguez / Marco Teran / Fredy Pereira</td>
+                                </tr>
+                                <tr>
+                                    <td>Asesoría pedagógica / Diseño instruccional</td>
+                                    <td>Carolina Llanos</td>
+                                </tr>
+                                <tr>
+                                    <td>Corrección de estilos</td>
+                                    <td>Danleibi Molina</td>
+                                </tr>
+                                <tr>
+                                    <td>Diseño gráfico</td>
+                                    <td>Inesly Vega</td>
+                                </tr>
+                                <tr>
+                                    <td>Producción audiovisual</td>
+                                    <td>Maria Álvarez / Sebastián Quintero</td>
+                                </tr>
+                                <tr>
+                                    <td>Integración de contenidos</td>
+                                    <td>Santiago Bernal</td>
+                                </tr>
+                                <tr>
+                                    <td>Revisión de calidad</td>
+                                    <td>Fyco Learning</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bloque logo">
+                            <h3>Gestión técnica y administrativa</h3>
+                            <a href="https://fycolearning.com/" target="_blank"><img src="img/logo_azul.png" alt="Fyco learning" /></a>
+                            <p>Versión 1.0</p>
+                        </div>
+                        <div class="bloque copy">
+                            <p>
+                                Este recurso educativo es propiedad de Fyco Learning.
+                                <br />Todo el material didáctico que lo compone está protegido por las leyes que rigen la propiedad intelectual. 
+                                <br />Para utilizar todo o parte de este material se debe contar con autorización expresa de la organización. 
+                            </p>
+                            <p>
+                                Derechos reservados ©
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <div class="measuring-progress" data-type="horizontal"></div>
+
+            <nav label="Características globales" class="globals">
+                <menu>
+                    <menuitem data-global-id="results"><div class="progress"><p>Progreso</p></div></menuitem>
+                    <menuitem data-page="pag-creditos"><div class="credits"><p>Créditos</p></div></menuitem>
+                    <menuitem data-page="pag-bibliografia"><div class="biblio"><p>Referencias</p></div></menuitem>
+                    <menuitem data-global-id="return">
+                        <div class="maximize"><p>Maximizar</p></div>
+                        <div class="minimize"><p>Minimizar</p></div>
+                    </menuitem>
+                    <menuitem data-global-id="close_all"><div class="back"><p>Salir</p></div></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div id="page_number"></div>
+                <div class="button" next-page></div>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de tu avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya has visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

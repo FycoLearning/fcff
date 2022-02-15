@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Presupuesto de potencia óptica</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="40" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <header>
+            <div class="logo">
+                <img src="img/logo_color.svg" alt="Fyco learning" />
+            </div>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Presentación" data-page="pag-presentacion"></menuitem>
+                    <menuitem label="Componentes">
+                        <menu>
+                            <menuitem label="1. El concepto de presupuesto de potencia" data-page="pag-concepto"></menuitem>
+                            <menuitem label="2. Presupuesto de potencia óptica (<i>Power Budget</i>)" data-page="pag-presupuesto"></menuitem>
+                            <menuitem label="3. Cálculo del Power Budget en la red PON" data-page="pag-calculo"></menuitem>
+                            <menuitem label="4. Clases de transceivers PON" data-page="pag-clases"></menuitem>
+                            <menuitem label="5. Presupuesto de pérdida (<i>Loss Budget</i>)" data-page="pag-loss"></menuitem>
+                            <menuitem label="6. Margen de potencia (Power Margin)" data-page="pag-margen"></menuitem>
+                        </menu>
+                    </menuitem>
+                </menu>
+            </nav>
+            <h2 class="page-title"></h2>
+        </header>
+
+        <main style="display: none;">
+
+            <section id="pag-presentacion">
+                <div class="subpage">
+                    <div class="page-index">
+                        <div class="ova_name">
+                            <div class="title">
+                                <h1>Presupuesto de potencia óptica</h1>
+                                <div class="title-img-fibra"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <h2>Presentación</h2>
+                                <div class="videobox">
+                                    <video controls src="https://info.fycolearning.com/fba/cursos/fcff/mod3/tema4/m3-t3_4-introduccion.mp4" poster="https://info.fycolearning.com/fba/cursos/fcff/mod3/tema4/poster/m3-t3_4-introduccion.png"></video>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <h2>Objetivo</h2>
+                                <div class="objetivo-text">
+                                    <p>Interpretar los principios del cálculo de presupuesto óptico de los proyectos con redes pasivas ópticas PON.</p>
+                                </div>
+                                <div class="duration">
+                                    <h2>Duración: 1 hora / 60 minutos</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-concepto" ptitle="1. El concepto de presupuesto de potencia">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Los sistemas de comunicaciones requieren de una potencia adecuada llegando al receptor. Aquí la palabra adecuada significa que, para la correcta operación, el receptor debe recibir señales en un rango determinado, entre un valor mínimo y un valor máximo.</p>
+                            <p>Si el receptor recibe una señal débil entonces no podrá interpretarla como información. Por el contrario, si recibe una señal con potencia por encima del valor máximo, se saturará el dispositivo receptor y la consecuencia será prácticamente la misma. Por lo tanto, es necesario garantizar las potencias en el rango correcto en la entrada del receptor, para que le permitan operar correctamente.</p>
+                        </div>
+                        <div class="col-2">
+                           <p>Para tener una idea general del concepto de presupuesto de potencia, consideremos un enlace de comunicaciones como el que se muestra en la figura, con su equipo transmisor, el equipo receptor y un enlace físico.</p>
+                           <div class="genially">
+                               <div style="width: 100%;"><div style="position: relative; padding-bottom: 50.00%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="600" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/620292275d1c850018a23fb5" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                           </div>
+                            <div class="about"><strong>Figura 1.</strong> Concepto de presupuesto de potencia.</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Allí, tenemos una potencia de transmisión de 2 dBm y una atenuación total del canal de 15 dB.</p>
+                            <p>Entonces, <strong>¿cuál será la potencia esperada en el receptor?</strong></p>
+                            <p>Este cálculo es bastante sencillo, y se trata de una simple operación de resta aritmética, así:</p>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/6204402b687ad9001196e61e" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-text important" label="Notas importantes">
+                                <ul>
+                                    <li>Recuerda que la potencia se expresa en dBm (decibeles milivatio) y que una atenuación se expresa en dB (decibeles).</li>
+                                    <li>Ten presente que puedes realizar operaciones de suma y resta entre dBm y dB y el resultado estará expresado en dBm.</li>
+                                </ul>
+                            </div>
+                            <p>Usando esta expresión tenemos que <img src="https://latex.codecogs.com/svg.image?P_{r}\,&space;=\,&space;2dBm\,&space;-\,&space;15dB\,&space;=\,&space;-13dBm" /></p>
+                            <p>Entonces, la potencia del receptor es de –13 dBm.</p>
+                        </div>
+                    </div>
+                    <p>Con este sencillo ejemplo puedes notar que, una vez conocida la potencia del transmisor y la atenuación del canal, es posible calcular la potencia de llegada en el receptor.</p>
+                    <div class="box-text important" label="Importante"> <p>Así, el presupuesto de potencia óptica se refiere al cálculo teórico de la cantidad de pérdida de potencia que un enlace de fibra puede tolerar. Esto implica conocer por anticipado las potencias del transmisor y del receptor, y las pérdidas del canal.</p></div>
+                    <div class="box-text connection">
+                        <p>Los presupuestos de potencia óptica son fundamentales para definir el radio de cobertura de la red ODN, es decir nos permite comprender cuántas veces se pueden extender las redes ópticas sin experimentar una distorsión de la señal, debido a la falta de energía para generar luz. Sigue estudiando este tema, donde te enseñaremos a calcular los diferentes parámetros que son críticos en la fase de diseño y para juzgar los rendimientos de los enlaces de fibra. Pasa a la siguiente página para continuar.</p>
+                    </div>                   
+            </section>
+
+            <section id="pag-presupuesto" ptitle="2. Presupuesto de potencia óptica (<i>Power Budget</i>)">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Recordemos que una red PON está constituida principalmente por tres componentes:</p>
+                            <div class="horizontal-menu">
+                                <dl>
+                                    <dt>OLT</dt>
+                                    <dd>
+                                        <p>Es el equipo principal de la red PON. Utiliza un <i>transceiver</i> óptico para convertir las señales eléctricas en señales ópticas que se inyectan en la fibra, y al mismo tiempo interpreta las señales ópticas que llegan por la fibra provenientes de la ONT convirtiéndolas en señales eléctricas, es decir funciona como un dispositivo de transferencia de las señales transmisoras y receptoras.</p>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>ONT</dt>
+                                    <dd>
+                                        <p>Son los equipos instalados en las casas de los usuarios y hacen lo propio utilizando un <i>transceiver</i> óptico. </p>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>ODN</dt>
+                                    <dd>
+                                        <p>Es la red pasiva que se compone de <i>splitter</i>, conectores y fibras ópticas, que conectan la OLT con las ONT.</p>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <p>En la imagen podemos ver estos componentes relacionados.</p>
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                                <span class="onlymobile">: Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                            </div>
+                            <div class="genially">
+                                <iframe src="https://view.genial.ly/61faf1f5fe36a50011ac1d90"></iframe>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="box-text note" label="Nota">
+                        <p>Las señales ópticas que viajan por la fibra sufren atenuación por los diferentes elementos del canal: los conectores, los empalmes, los splitter y la fibra misma.</p>
+                        <p>En general, dado que cada canal tiene su propia distancia y puede tener diferentes cantidades de empalmes y conectores, cada enlace presenta una atenuación diferente.</p>
+                    </div>
+                    <div class="onlymobile">
+                        <div class="row">
+                            <div class="col-2">
+                                <img src="content/diagonal.png" />
+                            </div>
+                            <div class="col-2">
+                                <p>En la red PON, para que cada enlace OLT-ONT pueda operar adecuadamente, se requiere que el equipo receptor reciba las señales ópticas en un rango de potencias que son determinadas por la propia tecnología. Este parámetro se conoce como <strong><i>rango dinámico del receptor</i></strong> y no es más que una especificación sobre las potencias ópticas mínima y máxima en las que pueden operar correctamente los equipos.</p>
+                                <p>Por su parte, el equipo transmisor presenta el parámetro denominado <strong><i>rango dinámico del transmisor</i></strong> que especifica las potencias ópticas mínima y máxima que es capaz de transmitir. Como es lógico, las potencias del equipo transmisor siempre serán mayores a las potencias que requiere el equipo receptor, dado que en los enlaces se tendrá atenuación, que a la larga van a disminuir las potencias que llegan a los equipos.</p>
+                                <p>Un enlace óptico adecuado debe garantizar que la potencia que llega al equipo receptor esté dentro de su rango dinámico, aún con las pérdidas asociadas al canal. Por eso, es necesario conocer de los enlaces, no solo los rangos de potencia de transmisión y recepción, sino también las pérdidas asociadas al canal.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="genially notmobile">
+                        <iframe src="content/genially/index.html"></iframe>
+                        <!-- <div style="width: 100%;"><div style="position: relative; padding-bottom: 45.83%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="550" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/620670d279604d0011c3cd3a" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div> -->
+                    </div>
+                    <div class="box-text important" label="Importante">
+                        <p>En las redes PON, las potencias ópticas tienen un valor máximo y un valor mínimo, lo que significa que se necesita de un valor mínimo de pérdida o atenuación para que no se sature el receptor y también un valor máximo de atenuación, para garantizar que al receptor llegue suficiente señal para operar correctamente.</p>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Por lo tanto, el presupuesto de potencia óptica de una red PON es un cálculo teórico realizado a cada enlace de fibra, desde el operador hasta la toma del cliente, para garantizar que los equipos OLT y ONT reciban las potencias dentro del rango dinámico de operación.</p>
+                        <p>Este cálculo se elabora en la etapa de diseño de la red y es obligatorio. Veamos cómo se realiza.</p>
+                        <p>Pasa a la siguiente página para continuar.</p>
+                    </div>
+
+                </section>
+            
+            <section id="pag-calculo" ptitle="3. Cálculo del Power Budget en la red PON">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>El cálculo del presupuesto de potencia óptica o Power Budget, debe hacerse en ambos sentidos, downstream (de OLT a ONT) y upstream (de ONT a OLT); para representar la potencia esperada en el lado del receptor, conocidas la potencia del transmisor y las pérdidas asociadas al canal.</p>
+                            <p>En la animación vemos los dos flujos, downstream y upstream para este cálculo que debe hacerse para ambas longitudes de onda (1310 nm y 1490 nm). Las diferencias en la atenuación del enlace están únicamente representadas en una atenuación distinta para cada longitud de onda.</p>
+                            <p>Notemos que en el presupuesto de potencia óptica en sentido downstream se calcula para la potencia de recepción en la ONT, mientras que en el sentido upstream, esta potencia de recepción se calcula en la OLT.</p>
+                        </div>
+                        <div class="col-2">
+                            <img src="content/animacion1.gif" alt="Animación 1. Cálculo de Power Budget en sentido downstream (1490 nm) y upstream (1310 nm)." />
+                            <div class="about"><strong>Animación 1.</strong> Cálculo de Power Budget en sentido downstream (1490 nm) y upstream (1310 nm).</div>
+                        </div>
+                    </div>
+                    <p>Entonces, conocidas la atenuación del enlace y la potencia de transmisión, se calcula el presupuesto óptico en el lado del receptor así:</p>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                        <span class="onlymobile">Toca sobre sobre cada elemento para conocer su descripción.</span>
+                    </div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/6205a782fa8d6700114949b1" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="subpage">
+                        <div class="row">
+                            <div class="col-2">
+                                <p>Los <i>transceivers</i> PON operan en un rango de potencias y no en una potencia fija única. Dichos valores de potencias se conocen con el nombre de <i>rango dinámico</i> (<i>del transmisor y del receptor</i>).</p>
+                                <p>En la imagen vemos un ejemplo de estos rangos, para una operación de <i>downstream.</i></p>
+                                <p>El receptor requiere de una potencia mínima para poder reconocer las señales que llegan desde el transmisor. Esta señal mínima conocida como la <strong><i>sensibilidad máxima del receptor,</i></strong> en el ejemplo es de -27 dBm.</p>
+                            </div>
+                            <div class="col-2">
+                                <div class="genially">
+                                    <div style="width: 100%;"><div style="position: relative; padding-bottom: 41.67%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="500" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/6202d80cbcf8f0001a51ccaa" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                                </div>
+                                <div class="about"><strong>Figura 3.</strong> Ejemplo de rangos de potencia óptica del transmisor y del receptor.</div>
+                            </div>
+                        </div>
+                        <div class="box-text important" label="Importante">
+                        <p>Cuando el cálculo de presupuesto de potencia óptica arroja un resultado por debajo de la sensibilidad del receptor, entonces el enlace óptico no podrá construirse y en cambio deberá ser recalculado, haciendo cambios en algunas características del enlace hasta hacer que se consiga llegar con una potencia superior a la sensibilidad máxima.</p>
+                        </div>
+                         <div class="box-text connection">
+                        <p>Como pudimos observar, el cálculo del presupuesto de potencia depende directamente de los transceptores SFP, componentes esenciales para la transmisión activa en las redes ópticas PON. A continuación, estudiaremos sus características, clasificación y las principales diferencias en potencia de transmisión y sensibilidad de recepción.</p>
+                        <div>Pasa a la siguiente página para continuar.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-clases" ptitle="4. Clases de transceivers PON">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Los transceivers ópticos de los equipos activos OLT y ONT pueden ser de diferente tipo, de acuerdo con los rangos de potencias que pueden manejar. Estos tipos, también denominados clases, existen en el mercado como: B+, C+ y C++.</p>
+                            <p>En la siguiente tabla se resumen los rangos de potencias de transmisión y de recepción de estas clases de transceiver.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/fig4.png" alt="Figura 4. Módulo transceptor óptico utilizado en conjunción con los puertos ópticos PON y con las placas de Uplink de la plataforma de OLT EPON y GPON Furukawa." />
+                                <div class="about"><strong>Figura 4.</strong> Módulo transceptor óptico utilizado en conjunción con los puertos ópticos PON y con las placas de Uplink de la plataforma de OLT EPON y GPON Furukawa.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="datatable">
+                        <thead>
+                            <th>Especificaciones</th>
+                            <th>SFP tipo B+</th>
+                            <th>SFP tipo C+</th>
+                            <th>SFP tipo C++</th>
+                        </thead>
+                        <tbody> 
+                            <tr>
+                                <th>Tipo</th>
+                                <td>1 fibra bidireccional</td>
+                                <td>1 fibra bidireccional</td>
+                                <td>1 fibra bidireccional</td>
+                            </tr>
+                            <tr class="odd">
+                                <th>Longitud de onda</th>
+                                <td>Tx: 1490 nm<br />Rx: 1310 nm</td>
+                                <td>Tx: 1490 nm<br />Rx: 1310 nm</td>
+                                <td>Tx: 1490 nm<br />Rx: 1310 nm</td>
+                            </tr>
+                            <tr>
+                                <th>Velocidad</th>
+                                <td>Tx: 2.49 Gb/S<br />Rx: 1.24 Gb/S</td>
+                                <td>Tx: 2.49 Gb/S<br />Rx: 1.24 Gb/S</td>
+                                <td>Tx: 2.49 Gb/S<br />Rx: 1.24 Gb/S</td>
+                            </tr>
+                            <tr class="odd">
+                                <th>Mínima Potencia óptica salida</th>
+                                <td>1.50 dBm</td>
+                                <td>3 dBm</td>
+                                <td>6 dBm</td>
+                            </tr>
+                            <tr>
+                                <th>Máxima Potencia óptica salida</th>
+                                <td>5 dBm</td>
+                                <td>7 dBm</td>
+                                <td>10 dBm</td>
+                            </tr>
+                            <tr class="odd">
+                                <th>Sensibilidad máxima receptor</th>
+                                <td>-28 dBm</td>
+                                <td>-32 dBm</td>
+                                <td>-35 dBm</td>
+                            </tr>
+                            <tr>
+                                <th>Tipo de conector</th>
+                                <td>SC/PC</td>
+                                <td>SC/PC</td>
+                                <td>SC/PC</td>
+                            </tr>
+                            <tr class="odd">
+                                <th>Alcance máximo</th>
+                                <td>20 km</td>
+                                <td>20 km</td>
+                                <td>20 km</td>
+                            </tr>
+                            <tr>
+                                <th>Potencia óptica de sobrecarga</th>
+                                <td>-8 dBm</td>
+                                <td>-12 dBm</td>
+                                <td>-15 dBm</td>
+                             </tr>
+                            <tr class="odd">
+                                <th>Ratio de extinción</th>
+                                <td>8.2 dB</td>
+                                <td>8.2 dB</td>
+                                <td>8.2 dB</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="about"><strong>Tabla 1.</strong> Tipos de transceiver GPON.</div>
+                    <div class="box-text connection w-90">
+                        <p>Dado que las potencias ópticas de los equipos OLT y ONT son bien conocidas; de acuerdo con la clase de <i>transceiver</i> empleado, el presupuesto óptico de PON se va a centrar en el cálculo de la pérdida del canal, a la cual también se le llama <strong>presupuesto de pérdida</strong> (del inglés <i>Loss Budget</i>). De esta manera, si se conocen las pérdidas del canal, además de la clase de <i>transceivers</i> utilizados, podrá determinarse si el enlace va a cumplir o no con los requisitos del cálculo de presupuesto óptico.</p>
+                        <p>Entonces, veamos a continuación el cálculo del presupuesto de pérdida del canal óptico PON, que involucra cuatro factores que inciden en la pérdida de señal por atenuación.</p>
+                        <p>Entonces, veamos a continuación el cálculo del presupuesto de pérdida del canal óptico PON, que involucra cuatro factores que inciden en la pérdida de señal por atenuación.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-loss"ptitle="5. Presupuesto de pérdida (<i>Loss Budget</i>)">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Expresado como LB, es una medida expresada en dB que se calcula teniendo en cuenta las pérdidas de los siguientes cuatro factores:</p>
+                            <ul>
+                                <li><i>Splitters</i> o divisores ópticos.</li>
+                                <li>Conectores.</li>
+                                <li>Empalmes ópticos.</li>
+                                <li>Distancia del canal de fibra.</li>
+                            </ul>
+                            <p>Al sumar las pérdidas asociadas a estos factores se obtiene la pérdida total del enlace de la red de fibra en aplicaciones PON.</p>
+                        </div>
+                        <div class="col-2"> 
+                            <p>Podemos expresar la pérdida total así:</p>
+                            <div class="instruction">
+                            <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                            <span class="onlymobile">Toca sobre cada elemento para conocer su descripción.</span>
+                            </div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/620be7ac647b650012b2445e" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Para el cálculo del presupuesto de pérdida se pueden utilizar los valores máximos indicados en la norma TIA 568 e ISO/IEC 11801, que se presentan en la siguiente tabla:</p>
+                             <table class="datatable">
+                        <thead>
+                            <th>Componente</th>
+                            <th>Pérdida máxima</th>
+                         </thead>
+                         <tr>
+                             <td>Par de conectores acoplados</td>
+                             <td>0.75 dB</td>
+                         </tr>
+                         <tr class="odd">
+                             <td>Empalme</td>
+                             <td>0.3 dB</td>
+                         </tr>
+                          <tr>
+                             <td>Fibra monomodo <br />(planta interna)</td>
+                             <td>1.0 dB/Km<br />(1310 nm, 1490 nm y 1550 nm)</td>
+                         </tr>
+                         <tr class="odd">
+                            <td>Fibra monomodo <br />(planta externa)</td>
+                            <td>0.5 dB/Km<br />(1310 nm, 1490 nm y 1550 nm)</td>
+                         </tr>
+                     </table>
+                     <div class="about"><strong>Tabla 2.</strong> Atenuación máxima de componentes del canal de fibra.</div>
+                        </div>
+                        <div class="col-2">
+                             <p>Adicionalmente, es necesario considerar las pérdidas de los <i>splitters</i>, la cual depende de la cantidad de salidas de cada divisor óptico. En la siguiente tabla, se pueden apreciar valores típicos de la atenuación para varios <i>splitters</i>, los cuales pueden variar ligeramente entre un fabricante y otro, sin embargo, las diferencias suelen ser muy pequeñas.</p>
+                             <table class="datatable">
+                                 <thead>
+                                     <th>Splitter</th>
+                                     <th>Pérdida aproximada</th>
+                                 </thead>
+                                    <tr>
+                                        <td>1x2</td>
+                                         <td>3.7 dB</td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td>1x4</td>
+                                        <td>7.1 dB</td>
+                                    </tr>
+                                     <tr>
+                                         <td>1x8</td>
+                                        <td>10.5 dB</td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td>1x16</td>
+                                    <td>13.7 dB</td>
+                                     </tr>
+                                    <tr>
+                                        <td>1x32</td>
+                                        <td>17.1 dB</td>
+                                    </tr>
+                            </table>
+                             <div class="about"><strong>Tabla 3.</strong> Atenuación aproximada de los splitters.</div>
+                        </div>
+                    </div>
+                    <p>También se pueden utilizar valores indicados por los fabricantes de los componentes, que informan valores menores y normalmente más cercanos a las mediciones reales en la mayoría de los casos y que se conocen como valores típicos.</p>
+                    <p>Es muy normal que los diseñadores utilicen para este cálculo las especificaciones de norma, que al tener valores mayores, permiten cierto margen en el cálculo y esto va a representar mejores opciones para llevar a cabo reparaciones y modificaciones en la red, después de que ésta es construida.</p>
+                    <div class="box-text connection">
+                    <p>Dicho margen, es llamado margen de potencia o margen de seguridad y lo abordaremos con mayor profundidad en la siguiente sección. Pasa a la siguiente página</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-margen"ptitle="6. Margen de potencia (<i>Power Margin</i>)">
+                <div class="subpage">
+                    <p>En telecomunicaciones, al hablar del margen de potencia (también denominado margen de seguridad), nos referimos a la diferencia entre la potencia de señal disponible y la potencia de señal mínima necesaria para superar las pérdidas del sistema y seguir satisfaciendo los requisitos mínimos de entrada del receptor para un nivel de rendimiento determinado.</p>
+                    <p>De esta manera, en las redes pasivas ópticas PON, se representa la cantidad de potencia disponible restando la pérdida de enlace LB (<i>Loss Budget</i>) del presupuesto de potencia PB (<i>Power Budget</i>).</p>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción. </span>
+                        <span class="onlymobile">Toca sobre cada elemento para conocer su descripción.</span>
+                    </div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/620be97136f1e200199688f5" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <p>Los valores superiores a cero indicarán que el enlace tiene suficiente potencia para una transmisión efectiva.</p>
+                    <p>En la siguiente gráfica, podemos observar en resumen una representación del presupuesto de potencia óptica, las pérdidas del enlace, y el margen de seguridad o margen de potencia.</p>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 41.67%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="500" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/6202e68f6cd99d0013a34b11" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="about"><strong>Figura 5.</strong> Presupuesto de potencia, pérdida de enlace y margen de potencia de una red PON.</div>
+                    <div class="box-text example" label="Ejercicio de apropiación">
+                        <p>Veamos en el siguiente ejercicio una aplicación de los conceptos estudiados en este tema.</p>
+                        <a href="content/ejercicio.pdf" target="_blank">
+                          <button class="general">Abrir ejercicio</button>
+                        </a>
+                    </div>
+                    <div class="box-text note" label="Síntesis">
+                        <audio controls src="content/sounds/au1.mp3">Su navegador no soporta el componente de audio</audio>
+                        <div class="about">Si no puedes escuchar el audio, lee su contenido <span class="w-content-controler" data-content="#audio1"><strong>aquí</strong></span>.
+                        </div>
+                        
+                        <div id="audio1" class="w-content" data-property-width="80%">
+                            <p>El diseño de las redes de acceso PON requiere del cálculo del presupuesto de potencia óptica, que no es más que una comparación entre la potencia del transmisor óptico y las pérdidas asociadas con el canal de fibra. Este cálculo es fundamental para definir el radio de cobertura de la red ODN y para poder validar la construcción de los enlaces de fibra.</p>
+                            <p>Para realizar el cálculo del presupuesto óptico o <i>Power Budget</i> de un canal, es preciso conocer las pérdidas por atenuación total en enlace y el tipo de <i>transceiver</i> (clase B+, C+ o C++) utilizado en los equipos activos OLT y ONT. En cuanto a la atenuación del canal, las pérdidas son conocidas como presupuesto de pérdidas y deben ser calculadas según los parámetros máximos de pérdida de los componentes, de acuerdo con la norma ANSI/TIA e ISO/IEC, o puede seguirse parámetros más exactos de los productos del fabricante con el que se construye la red. Dichos parámetros incluyen cuatro elementos a tener en cuenta, que son:</p>
+                            <ul>
+                                <li>Los <i>splitters</i> o divisores ópticos,</li>
+                                <li>Los empalmes ópticos,</li>
+                                <li>Los acoples de conectores, y</li>
+                                <li>La longitud del canal óptico.</li>
+                            </ul>
+                            <p>El presupuesto óptico permite conocer el rango de potencia óptica que llegará en el receptor y debe involucrar los cálculos tanto para el flujo de <i>downstream</i> como el <i>upstream</i>, teniendo en cuenta que los <i>transceivers</i> presentan un rango de potencias de transmisión y también un rango en las potencias de recepción.</p>
+                            <p>Para que el enlace óptico pueda ser construido, el cálculo del presupuesto de potencia debe arrojar un resultado con una potencia por encima de la máxima sensibilidad del equipo receptor. De otra forma, no podrá construirse el enlace, por lo que al no cumplir esta premisa debe ser recalculado, cambiando la distancia, el número de conectores o empalmes y la relación de salidas de sus divisores.</p>
+                        </div>
+                    </div>
+                </div>      
+            </section>
+  
+            <section id="pag-bibliografia" ptitle="Referencias">
+                <div class="subpage" id="bibliography_subpage">
+                    <ul>
+                        <li>Conectrónica, (2019). Significados de redes PON, GPON, XG-PON, 10G-EPON. Recuperado el 10 de diciembre de 2021 de <a href="https://www.conectronica.com/fibra-optica/redes-opticas/significados-de-redes-pon-gpon-xg-pon-10g-epon" target="_blank">https://www.conectronica.com/[...]</a></li>
+                        <li>Aleashop, (s/f). Tipos de transceivers SFP GPON. Recuperado el 31 de enero de 2022 desde <a href="https://www.aleashop.es/blog/2018/04/04/tipos-sfp-gpon/" target="_blank">https://www.aleashop.es/blog/[...]</a></li>
+                        <li>Fluke networks, (s/f). Cálculo del presupuesto de pérdida de enlaces de fibra óptica: SimpliFiber Pro. Recuperado el 31 de enero de 2022 desde <a href="https://es.flukenetworks.com/knowledge-base/simplifiber-pro/loss-budget-calculation-simplifiber-pro" target="_blank">https://es.flukenetworks.com/[...]</a></li>
+                        <li>Trindell, P. (s/f). <i>Connectors and Splices: Correct Alignment Spells Success.</i> Extraído el 20 de enero de 2022 desde  <a href="https://www.photonics.com/Articles/Connectors_and_Splices_Correct_Alignment_Spells/a25152 "target="_blank">https://www.photonics.com/[...]</a></li>
+                        <li>Furukawa Electric (s/f). Módulo SFP GPON LR 1490NM SC-UPC. Recuperado el 31 de enero de 2022 desde https://www.furukawalatam.com/es/catalogo-de-productos-detalles/modulo-sfp-gpon-lr-1490nm-scupc</li>
+                        <li>Furukawa Latam, (2021). Divisor óptico modular. Recuperado el 31 de enero de 2022 desde https://www.furukawalatam.com/es/versao-et-pdf/=a0A6100000blnoE</li>
+                        <li>García, A. (2012). GPON Introducción y Conceptos Generales. Telnet Redes Inteligentes. Recuperado el 10 de diciembre de 2021 de <a href=" https://www.telnet-ri.es/wp-content/uploads/2014/10/gpon-introduccion-conceptos.pdf "target="_blank"> https://www.telnet-ri.es/[...]</a></li>
+                        <li>López, A. (2021). Qué es y cómo funciona la tecnología GPON: Secretos técnicos. Recuperado el 10 de diciembre de 2021 de <a href=" https://www.redeszone.net/tutoriales/redes-cable/tecnologia-ftth-gpon-que-es-funcionamiento/ "target="_blank"> https://www.redeszone.net/[...]</a></li>
+                        <li>The Fiber Optic Association, Inc. (2016). Capítulo 9 - Presupuesto de potencia y de pérdida óptica. Recuperado el 31 de enero de 2022 desde<a href=" https://www.thefoa.org/ESP-Design/Ch9.htm "target="_blank"> https://www.thefoa.org/[...]</a></li>
+                        <li>Tabla 2. Elaboración propia con base en las normas TIA 568 e ISO/IEC 11801.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!--Créditos-->
+            <section id="pag-creditos">
+                <div class="subpage" id="credits_subpage">
+
+                    <div class="creditos-fba">
+                        <h2>Créditos</h2>
+                        <div class="bloque">
+                            <table>
+                                <tr>
+                                    <td>Experto Temático</td>
+                                    <td>Luis Fernando Rodríguez</td>
+                                </tr>
+                                <tr>
+                                    <td>Pares evaluadores</td>
+                                    <td>Ana María Cárdenas / Marco Teran / Fredy Pereira</td>
+                                </tr>
+                                <tr>
+                                    <td>Asesoría pedagógica / Diseño instruccional</td>
+                                    <td>Carolina Llanos</td>
+                                </tr>
+                                <tr>
+                                    <td>Corrección de estilos</td>
+                                    <td>Danleibi Molina</td>
+                                </tr>
+                                <tr>
+                                    <td>Diseño gráfico</td>
+                                    <td>Inesly Vega</td>
+                                </tr>
+                                <tr>
+                                    <td>Producción audiovisual</td>
+                                    <td>Maria Álvarez / Sebastián Quintero</td>
+                                </tr>
+                                <tr>
+                                    <td>Integración de contenidos</td>
+                                    <td>Santiago Bernal</td>
+                                </tr>
+                                <tr>
+                                    <td>Revisión de calidad</td>
+                                    <td>Bambuco</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bloque logo">
+                            <h3>Gestión técnica y administrativa</h3>
+                            <a href="https://fycolearning.com/" target="_blank"><img src="img/logo_azul.png" alt="Fyco learning" /></a>
+                            <p>Versión 1.0</p>
+                        </div>
+                        <div class="bloque copy">
+                            <p>
+                                Este recurso educativo es propiedad de Fyco Learning.
+                                <br />Todo el material didáctico que lo compone está protegido por las leyes que rigen la propiedad intelectual. 
+                                <br />Para utilizar todo o parte de este material se debe contar con autorización expresa de la organización. 
+                            </p>
+                            <p>
+                                Derechos reservados ©
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <div class="measuring-progress" data-type="horizontal"></div>
+
+            <nav label="Características globales" class="globals">
+                <menu>
+                    <menuitem data-global-id="results"><div class="progress"><p>Progreso</p></div></menuitem>
+                    <menuitem data-page="pag-creditos"><div class="credits"><p>Créditos</p></div></menuitem>
+                    <menuitem data-page="pag-bibliografia"><div class="biblio"><p>Referencias</p></div></menuitem>
+                    <menuitem data-global-id="return">
+                        <div class="maximize"><p>Maximizar</p></div>
+                        <div class="minimize"><p>Minimizar</p></div>
+                    </menuitem>
+                    <menuitem data-global-id="close_all"><div class="back"><p>Salir</p></div></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div id="page_number"></div>
+                <div class="button" next-page></div>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de tu avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya has visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+/*General*/
+.unset {
+	max-width: unset !important;
+}
+
+.genially {
+	max-width: 900px;
+	margin: auto;
+}
+
+.row {
+	align-items: center;
+}
+
+.center {
+	margin: auto;
+	text-align: center;
+}
+
+.w-30 {width: 30%;}
+.w-40 {width: 40%;}
+.w-50 {width: 50%;}
+.w-60 {width: 60%;}
+.w-70 {width: 70%;}
+.w-80 {width: 80%;}
+.w-100 {width: 100%;}
+
+video, img {
+	max-width: 100%;
+}
+
+.view-first {
+	max-width: 600px;
+	margin: auto;
+	z-index: 1;
+}
+
+.view-first .mask {
+	display: flex;
+	align-items: center;
+}
+
+.box-text .instruction,
+.box-text .about {
+	color: #fff;
+}
+
+.flex {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+/*#ventana_act_example {
+	width: 600px !important;
+}
+
+.ui-widget.ui-widget-content {
+	width: auto !important;
+}*/
+
+.text_tooltip {
+	line-height: 20px;
+}
+
+.datatable {
+	margin: 10px auto;
+}
+
+.ui-dialog .ui-dialog-content {
+	max-height: 90vh !important;
+}
+
+.ctrl-pagination .button.next {
+	width: 32px;
+    height: 32px;
+    background: url(../img/sprite.png) no-repeat;
+    background-size: 500%;
+    background-position: -122px -225px;
+}
+
+.ctrl-pagination .button.previous {
+	width: 32px;
+    height: 32px;
+    background: url(../img/sprite.png) no-repeat;
+    background-size: 500%;
+    background-position: -61px -225px;
+}
+
+.ctrl-pagination .button.previous:hover,
+.ctrl-pagination .button.next:hover {
+	filter: brightness(0.7);
+}
+
+/*Holograma */
+.holograma {
+	background: url(../content/hologram.png) no-repeat;
+    background-size: 100%;
+    width: 100%;
+    padding-top: 56.5%;
+    position: relative;
+}
+
+.holograma .formula {
+	position: absolute;
+	bottom: 50%;
+	left: 0;
+	right: 0;
+	text-align: center;
+	color: #fff;
+}
+
+.holograma .formula table {
+	margin: auto;
+	font-size: 22px;
+}
+
+table.formula td {
+	text-align: center;
+}
+
+table.no-bg {
+	border: 1px solid #0DA8D3;
+    border-spacing: 0;
+    border-collapse: none;
+    margin: 10px auto;
+    color: #000;
+}
+
+.no-bg th {
+	padding: 5px;
+    border: 1px solid #999999;
+    border-top-width: 0;
+    font-weight: normal;
+    text-align: left;
+    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
+    color: #fff;
+    font-size: 18px;
+}
+
+.no-bg td,
+.no-bg .odd td {
+	padding: 5px;
+    border: 1px solid #B8B8B8;
+    border-top-width: 0;
+    empty-cells: show;
+}
+
+/********************************************************************************/
+/*Genially*
+/********************************************************************************/
+div.genially iframe {
+	border: none;
+	width: 100%;
+	height: calc(100vw * 56 / 100);
+	max-height: 80vh;
+}
+
+div.col-2 div.genially iframe {
+	height: calc(100vw * 48 / 200);
+}

@@ -224,7 +224,7 @@ img.animation, img.play-animation, .animation_image .label {
     margin: 50px auto 0;
 }
 
-.box_media:after {
+/*.box_media:after {
     content: "";
     position: absolute;
     background: url(../img/media.svg) no-repeat;
@@ -234,7 +234,7 @@ img.animation, img.play-animation, .animation_image .label {
     width: 200px;
     height: 200px;
 }
-
+*/
 /********************************************************************************/
 /* DEVICE CONTROL
 /********************************************************************************/
@@ -259,13 +259,13 @@ main {
 }
 
 header {
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
+    background: #151C31;
     width: 100%;
     height: 100px;
 }
 
 header .logo img {
-    padding: 10px 40px;
+    padding: 30px 40px;
     float: left;
     width: 130px;
 }
@@ -320,7 +320,7 @@ nav.horizontal ul.menu > li {
     height: 15px;
     cursor: pointer;
     border: 1px solid #44A0BA;
-    background-color: #DBDBD3;
+    background-color: #fff;
     margin: 5px;
     border-radius: 5px;
 }
@@ -529,7 +529,7 @@ footer {
     text-align: center;
     max-width: 1200px;
     margin: auto;
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
+    background-color: #151C31;
     color: #fff;
 }
 
@@ -2615,10 +2615,6 @@ html.single h1 {
 /********************************************************************************/
 
 .page-index {
-    background: url(../img/bg-azul.png) no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    color: #fff;
     padding: 30px;
 }
 
@@ -2630,7 +2626,7 @@ html.single h1 {
 }
 
 .page-index .objetivo-text {
-    color: #DBDBD3;
+    color: #151C31;
     border: 1px solid #44A0BA;
     border-radius: 5px;
     padding: 5px 20px;

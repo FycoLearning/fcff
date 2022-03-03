@@ -1,12 +1,12 @@
-<svg id="Componente_1_1" data-name="Componente 1 – 1" xmlns="http://www.w3.org/2000/svg" width="785.907" height="50.389" viewBox="0 0 785.907 50.389">
-  <line id="Línea_44" data-name="Línea 44" x2="700.293" transform="translate(0 4.46)" fill="none" stroke="#e45c09" stroke-miterlimit="10" stroke-width="3"/>
-  <line id="Línea_45" data-name="Línea 45" x2="746.255" transform="translate(0 14.593)" fill="none" stroke="#468abc" stroke-miterlimit="10" stroke-width="3"/>
-  <line id="Línea_46" data-name="Línea 46" x2="781.466" transform="translate(0 25.55)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3"/>
-  <line id="Línea_47" data-name="Línea 47" x2="727.291" transform="translate(0 35.976)" fill="none" stroke="#71409b" stroke-miterlimit="10" stroke-width="3"/>
-  <line id="Línea_48" data-name="Línea 48" x2="665.412" transform="translate(0 45.929)" fill="none" stroke="#dd9b0d" stroke-miterlimit="10" stroke-width="3"/>
-  <ellipse id="Elipse_76" data-name="Elipse 76" cx="4.441" cy="4.46" rx="4.441" ry="4.46" transform="translate(696.289)" fill="#e45c09"/>
-  <ellipse id="Elipse_77" data-name="Elipse 77" cx="4.441" cy="4.46" rx="4.441" ry="4.46" transform="translate(741.814 9.949)" fill="#468abc"/>
-  <ellipse id="Elipse_78" data-name="Elipse 78" cx="4.441" cy="4.46" rx="4.441" ry="4.46" transform="translate(777.025 20.537)" fill="#fff"/>
-  <ellipse id="Elipse_79" data-name="Elipse 79" cx="4.441" cy="4.46" rx="4.441" ry="4.46" transform="translate(723.45 31.516)" fill="#71409b"/>
-  <ellipse id="Elipse_80" data-name="Elipse 80" cx="4.441" cy="4.46" rx="4.441" ry="4.46" transform="translate(662.312 41.469)" fill="#dd9b0d"/>
+<svg id="Componente_1_5" data-name="Componente 1 – 5" xmlns="http://www.w3.org/2000/svg" width="784.983" height="47.894" viewBox="0 0 784.983 47.894">
+  <line id="Línea_44" data-name="Línea 44" x2="703.609" transform="translate(0 4.239)" fill="none" stroke="#e45c09" stroke-width="3"/>
+  <line id="Línea_45" data-name="Línea 45" x2="747.294" transform="translate(0 13.87)" fill="none" stroke="#468abc" stroke-width="3"/>
+  <line id="Línea_46" data-name="Línea 46" x2="780.762" transform="translate(0 24.285)" fill="none" stroke="#5b7e91" stroke-width="3"/>
+  <line id="Línea_47" data-name="Línea 47" x2="729.27" transform="translate(0 34.194)" fill="none" stroke="#71409b" stroke-width="3"/>
+  <line id="Línea_48" data-name="Línea 48" x2="632.456" transform="translate(0 43.654)" fill="none" stroke="#dd9b0d" stroke-width="3"/>
+  <ellipse id="Elipse_76" data-name="Elipse 76" cx="4.221" cy="4.239" rx="4.221" ry="4.239" transform="translate(699.804)" fill="#e45c09"/>
+  <ellipse id="Elipse_77" data-name="Elipse 77" cx="4.221" cy="4.239" rx="4.221" ry="4.239" transform="translate(743.073 9.457)" fill="#468abc"/>
+  <ellipse id="Elipse_78" data-name="Elipse 78" cx="4.221" cy="4.239" rx="4.221" ry="4.239" transform="translate(776.541 19.52)" fill="#5b7e91"/>
+  <ellipse id="Elipse_79" data-name="Elipse 79" cx="4.221" cy="4.239" rx="4.221" ry="4.239" transform="translate(725.619 29.955)" fill="#71409b"/>
+  <ellipse id="Elipse_80" data-name="Elipse 80" cx="4.221" cy="4.239" rx="4.221" ry="4.239" transform="translate(627.509 39.415)" fill="#dd9b0d"/>
 </svg>

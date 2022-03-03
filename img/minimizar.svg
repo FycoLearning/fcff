@@ -1,18 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="41.543" height="41.543" viewBox="0 0 41.543 41.543">
-  <defs>
-    <clipPath id="clip-path">
-      <rect id="Rectángulo_121" data-name="Rectángulo 121" width="21.183" height="22" fill="none"/>
-    </clipPath>
-  </defs>
-  <g id="Grupo_194" data-name="Grupo 194" transform="translate(-562.38 -1421)">
-    <g id="Grupo_173" data-name="Grupo 173" transform="translate(572.38 1431)">
-      <g id="Grupo_172" data-name="Grupo 172" clip-path="url(#clip-path)">
-        <path id="Trazado_227" data-name="Trazado 227" d="M6.31,6.569,2.242,2.5a.512.512,0,0,0-.722,0L.149,3.873a.512.512,0,0,0,0,.722L4.143,8.59,1.608,10.954H9.162V3.91Z" transform="translate(0 -1.995)" fill="#faffff"/>
-        <path id="Trazado_228" data-name="Trazado 228" d="M83.534,6.31,87.6,2.242a.512.512,0,0,0,0-.722L86.231.149a.512.512,0,0,0-.722,0L81.514,4.143,79.15,1.608V9.162h7.044Z" transform="translate(-67.129 0)" fill="#faffff"/>
-        <path id="Trazado_229" data-name="Trazado 229" d="M7.913,87.378,3.846,91.446a.512.512,0,0,0,0,.722L5.217,93.54a.512.512,0,0,0,.722,0l3.995-3.995L12.3,92.08V84.526H5.254Z" transform="translate(-3.135 -71.689)" fill="#faffff"/>
-        <path id="Trazado_230" data-name="Trazado 230" d="M82,88.911l4.068,4.068a.512.512,0,0,0,.722,0l1.372-1.371a.512.512,0,0,0,0-.722l-3.995-3.995L86.7,84.527H79.149v7.044Z" transform="translate(-67.128 -71.689)" fill="#faffff"/>
-      </g>
-    </g>
-    <circle id="Elipse_94" data-name="Elipse 94" cx="20.272" cy="20.272" r="20.272" transform="translate(562.88 1421.5)" fill="none" stroke="#44a0ba" stroke-miterlimit="10" stroke-width="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="41.544" height="41.544" viewBox="0 0 41.544 41.544">
+  <g id="Grupo_1338" data-name="Grupo 1338" transform="translate(-544.5 -819.5)">
+    <circle id="Elipse_94" data-name="Elipse 94" cx="20.272" cy="20.272" r="20.272" transform="translate(545 820)" fill="none" stroke="#faffff" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Icon_awesome-compress-arrows-alt" data-name="Icon awesome-compress-arrows-alt" d="M7.981,11.492H3.512a.958.958,0,0,0-.678,1.636l1.313,1.237L.189,18.326a.641.641,0,0,0,0,.9L1.2,20.241a.641.641,0,0,0,.9,0L6.066,16.28,7.307,17.6a.956.956,0,0,0,1.632-.678V12.449A.955.955,0,0,0,7.981,11.492Zm4.468-2.553h4.468A.959.959,0,0,0,17.6,7.3L16.28,6.066,20.241,2.1a.641.641,0,0,0,0-.9L19.228.189a.641.641,0,0,0-.9,0L14.365,4.151,13.124,2.834a.956.956,0,0,0-1.632.678V7.981A.955.955,0,0,0,12.449,8.938Zm3.83,5.426L17.6,13.124a.956.956,0,0,0-.678-1.632H12.449a.955.955,0,0,0-.958.958v4.468a.959.959,0,0,0,1.636.678l1.237-1.313,3.962,3.962a.641.641,0,0,0,.9,0l1.013-1.013a.641.641,0,0,0,0-.9ZM7.3,2.838,6.066,4.151,2.1.189a.641.641,0,0,0-.9,0L.189,1.2a.641.641,0,0,0,0,.9L4.151,6.066,2.834,7.307a.956.956,0,0,0,.678,1.632H7.981a.955.955,0,0,0,.958-.958V3.512A.958.958,0,0,0,7.3,2.838Z" transform="translate(555.057 830.055)" fill="#faffff"/>
   </g>
 </svg>

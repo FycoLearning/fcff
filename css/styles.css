@@ -224,7 +224,7 @@ img.animation, img.play-animation, .animation_image .label {
     margin: 50px auto 0;
 }
 
-.box_media:after {
+/*.box_media:after {
     content: "";
     position: absolute;
     background: url(../img/media.svg) no-repeat;
@@ -234,7 +234,7 @@ img.animation, img.play-animation, .animation_image .label {
     width: 200px;
     height: 200px;
 }
-
+*/
 /********************************************************************************/
 /* DEVICE CONTROL
 /********************************************************************************/
@@ -259,13 +259,13 @@ main {
 }
 
 header {
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
+    background: #151C31;
     width: 100%;
     height: 100px;
 }
 
 header .logo img {
-    padding: 10px 40px;
+    padding: 30px 40px;
     float: left;
     width: 130px;
 }
@@ -320,7 +320,7 @@ nav.horizontal ul.menu > li {
     height: 15px;
     cursor: pointer;
     border: 1px solid #44A0BA;
-    background-color: #DBDBD3;
+    background-color: #fff;
     margin: 5px;
     border-radius: 5px;
 }
@@ -529,7 +529,7 @@ footer {
     text-align: center;
     max-width: 1200px;
     margin: auto;
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
+    background-color: #151C31;
     color: #fff;
 }
 
@@ -609,6 +609,10 @@ footer .globals .back {
 /********************************************************************************/
 .box-text .box_body {
     padding: 5px 50px 5px 15px;
+}
+
+.box-text a {
+    color: #fff;
 }
 
 .box-text {
@@ -2611,10 +2615,6 @@ html.single h1 {
 /********************************************************************************/
 
 .page-index {
-    background: url(../img/bg-azul.png) no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    color: #fff;
     padding: 30px;
 }
 
@@ -2626,7 +2626,7 @@ html.single h1 {
 }
 
 .page-index .objetivo-text {
-    color: #DBDBD3;
+    color: #151C31;
     border: 1px solid #44A0BA;
     border-radius: 5px;
     padding: 5px 20px;
@@ -2674,14 +2674,17 @@ html.single h1 {
     margin-bottom: 10px;
 }
 
-.flex {display: flex;}
-.flex.space {justify-content: space-around;}
-
 .w-30 {width: 30%; max-width: 30% !important;}
 .w-40 {width: 40%; max-width: 40% !important;}
-.w-50 {width: 50%; max-width: 40% !important;}
+.w-50 {width: 50%; max-width: 50% !important;}
 .w-60 {width: 60%; max-width: 60% !important;}
 .w-70 {width: 70%; max-width: 70% !important;}
 .w-80 {width: 80%; max-width: 80% !important;}
 .w-90 {width: 90%; max-width: 90% !important;}
 .w-100 {width: 100%; max-width: 100% !important;}
+
+.w-200 {width: 200px; max-width: 200px !important;}
+
+.float-right {float: right;}
+
+.ctrl-pagination .about {color: #fff;}

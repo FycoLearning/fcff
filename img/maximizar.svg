@@ -1,20 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="41.543" height="41.543" viewBox="0 0 41.543 41.543">
-  <defs>
-    <clipPath id="clip-path">
-      <rect id="Rectángulo_122" data-name="Rectángulo 122" width="18" height="18" transform="translate(0 0.469)" fill="none"/>
-    </clipPath>
-  </defs>
-  <g id="Grupo_192" data-name="Grupo 192" transform="translate(-502.38 -1421)">
-    <g id="Grupo_175" data-name="Grupo 175" transform="translate(514.38 1432.287)">
-      <g id="Grupo_174" data-name="Grupo 174" transform="translate(0 0.244)" clip-path="url(#clip-path)">
-        <path id="Trazado_231" data-name="Trazado 231" d="M2.651,4.074l3.78,3.78a.476.476,0,0,0,.671,0L8.377,6.58a.476.476,0,0,0,0-.671L4.664,2.2,7.021,0H0V6.546Z" transform="translate(0 -0.205)" fill="#faffff"/>
-        <path id="Trazado_232" data-name="Trazado 232" d="M86.854,2.651l-3.78,3.78a.476.476,0,0,0,0,.671l1.275,1.275a.476.476,0,0,0,.671,0l3.712-3.712,2.2,2.356V0H84.382Z" transform="translate(-72.254 -0.205)" fill="#faffff"/>
-        <path id="Trazado_233" data-name="Trazado 233" d="M4.074,84.747l3.78-3.78a.476.476,0,0,0,0-.671L6.58,79.021a.476.476,0,0,0-.671,0L2.2,82.734,0,80.377V87.4H6.546Z" transform="translate(0 -68.929)" fill="#faffff"/>
-        <path id="Trazado_234" data-name="Trazado 234" d="M84.747,86.854l-3.78-3.78a.476.476,0,0,0-.671,0l-1.275,1.275a.476.476,0,0,0,0,.671l3.712,3.712-2.356,2.2H87.4V84.382Z" transform="translate(-68.724 -72.459)" fill="#faffff"/>
-      </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="41.544" height="41.544" viewBox="0 0 41.544 41.544">
+  <g id="Grupo_1337" data-name="Grupo 1337" transform="translate(-493.5 -819.5)">
+    <g id="Grupo_191" data-name="Grupo 191" transform="translate(-8.88 -601.5)">
+      <circle id="Elipse_93" data-name="Elipse 93" cx="20.272" cy="20.272" r="20.272" transform="translate(502.88 1421.5)" fill="none" stroke="#faffff" stroke-miterlimit="10" stroke-width="1"/>
     </g>
-    <g id="Grupo_191" data-name="Grupo 191">
-      <circle id="Elipse_93" data-name="Elipse 93" cx="20.272" cy="20.272" r="20.272" transform="translate(502.88 1421.5)" fill="none" stroke="#44a0ba" stroke-miterlimit="10" stroke-width="1"/>
-    </g>
+    <path id="Icon_awesome-expand-arrows-alt" data-name="Icon awesome-expand-arrows-alt" d="M20.28,16.374v5.07a1.084,1.084,0,0,1-1.086,1.086h-5.07a1.088,1.088,0,0,1-.77-1.856l1.639-1.639L10.14,14.183,5.286,19.04l1.64,1.634a1.088,1.088,0,0,1-.77,1.856H1.086A1.084,1.084,0,0,1,0,21.444v-5.07a1.088,1.088,0,0,1,1.856-.77l1.638,1.639L8.35,12.39,3.494,7.533,1.856,9.176A1.088,1.088,0,0,1,0,8.406V3.336A1.084,1.084,0,0,1,1.086,2.25h5.07a1.088,1.088,0,0,1,.77,1.856L5.287,5.745,10.14,10.6,14.994,5.74l-1.64-1.634a1.088,1.088,0,0,1,.77-1.856h5.07A1.084,1.084,0,0,1,20.28,3.336v5.07a1.088,1.088,0,0,1-1.856.77L16.786,7.537,11.93,12.39l4.856,4.857,1.638-1.639A1.086,1.086,0,0,1,20.28,16.374Z" transform="translate(504.132 827.956)" fill="#faffff"/>
   </g>
 </svg>

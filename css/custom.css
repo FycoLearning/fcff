@@ -138,7 +138,6 @@ img {
 /*Actividad 2*/
 
 .jpit-activities-cloze.jpit_activities_cloze_board {
-	max-width: 600px;
     margin: 20px auto;
 }
 
@@ -237,4 +236,3 @@ img {
 .jpit-activities-check .box_result .miss {
     font-size:30px;
 }
-

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <link href="css/fonts/Scala_SansRegular_LF.ttf" rel="stylesheet" type="text/css"/> -->
+    <title>Tecnologías de comunicación FTTx - PON</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+<!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+<!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="40" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <header>
+            <div class="logo">
+                <img src="img/logo_color.svg" alt="Fyco learning" />
+            </div>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Presentación" data-page="pag-presentacion"></menuitem>
+                    <menuitem label="Componentes">
+                        <menu>
+                            <menuitem label="1. ¿Qué es PON?" data-page="pag-que_es"></menuitem>
+                            <menuitem label="2. Arquitectura de la red PON" data-page="pag-arquitectura"></menuitem>
+                            <menuitem label="3. Estándares PON" data-page="pag-estandares"></menuitem>
+                            <menuitem label="4. Evolución de las redes PON" data-page="pag-evolucion"></menuitem>
+                        </menu>
+                    </menuitem>
+                </menu>
+            </nav>
+            <h2 class="page-title"></h2>
+        </header>
+
+        <main style="display: none;">
+
+            <section id="pag-presentacion">
+                <div class="subpage">
+                    <div class="page-index">
+                        <div class="ova_name">
+                            <div class="title">
+                                <h1>Tecnologías de comunicación FTTx - PON</h1>
+                                <div class="title-img-fibra"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <h2>Presentación</h2>
+                                <div class="videobox">
+                                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/sqeh7i6BiNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                    <video controls src="https://info.fycolearning.com/fba/cursos/fcff/mod3/tema3/m3-t3_3-introduccion.mp4" poster="https://info.fycolearning.com/fba/cursos/fcff/mod3/tema3/poster/m3-t3_3-introduccion.png"></video>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <h2>Objetivo</h2>
+                                <div class="objetivo-text">
+                                    <p>Identificar los principios de operación de las redes PON y reconocer los diferentes estándares tecnológicos existentes.</p>
+                                </div>
+                                <div class="duration">
+                                    <h2>Duración: 1 hora / 60 minutos</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-que_es" ptitle="1. ¿Qué es PON?">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>El término PON (en inglés <i>Passive Optical Network</i>) se refiere a una red óptica pasiva, es decir, una red construida con fibras ópticas, <i>splitters</i> ópticos, cajas de empalme y otros elementos que no requieren de alimentación eléctrica; de allí que se llame “pasiva”.</p>
+                            <p>PON es en sí mismo, es un conjunto de tecnologías de comunicación que emplea una topología de punto a multipunto, utilizando para ello los divisores de señales ópticas para transmitir datos hacia varios clientes finales desde un mismo puerto de red. Las tecnologías de PON, como EPON y GPON, se utilizan muy bien en las infraestructuras de FTTx y, en general aportan los protocolos de comunicaciones para estas importantes redes de acceso.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre la imagen para conocer su descripción.</span>
+                                <span class="onlymobile">Toca sobre la imagen para conocer su descripción.</span>
+                            </div>
+                            <div class="view-first">
+                                <img src="content/fig1.png" />
+                                <div class="view-content">
+                                    <p>El <i>splitter</i> o divisor óptico es un elemento pasivo representativo de la red óptica pasiva, pues no requiere suministro eléctrico para transmitir la información.</p>
+                                </div>
+                            </div>
+                            <div class="about"><strong>Figura 1.</strong> <i>Splitter</i> óptico.</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Al ser una red óptica pasiva, la tecnología PON requiere suministro eléctrico únicamente en los extremos de la fibra, en donde se conecta, por un lado, con la <strong>OLT</strong> (del inglés Optical <i>Line Terminal</i>), que es el <strong>equipo del operador</strong>, y por el otro lado con el <strong>equipo del cliente</strong>, llamado <strong>ONT</strong> (del inglés <i>Optical Network Terminal</i>).</p>
+                            <p>El concepto de PON es contrario al término AON (<i>Active Optical Network</i>), en el cual la red puede ser construida con fibras ópticas, pero en medio de la red existen equipos que interconectan las fibras, como un <i>switch</i> y que requieren de conexión a la energía eléctrica. </p>
+                            <p>En la figura se muestran los principales componentes de la red PON.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre </span>
+                                <span class="onlymobile">Toca </span>
+                                cada elemento para conocer su descripción.
+                            </div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1920" height="1080" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61faf1f5fe36a50011ac1d90" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                            <div class="about"><strong>Figura 2.</strong> Componentes de la red PON.</div>
+                        </div>
+                    </div>
+                    <p>Estos componentes son entonces la fibra óptica y los splitters; elementos pasivos que por no requerir ningún tipo de alimentación eléctrica y estar en medio de la red, permiten que no haya disipación de calor y no se requiera consumo energético para su refrigeración. Tampoco es necesario contratar servicio de suministro eléctrico ni usar baterías, lo cual hace que el mantenimiento de este tipo de redes pasivas sea muy simple, reduciéndose solo a la buena limpieza de sus conectores.</p>
+                    <p>Dependiendo del estándar PON que se utilice, las distancias máximas entre la OLT y la ONT pueden estar entre los 20 Km y los 40 Km. Recordemos que se trata de una red pasiva, lo que quiere decir que estas distancias son cubiertas únicamente con los equipos en los extremos, sin utilizar ninguna amplificación en medio.</p>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>El dispositivo de usuario final es la ONT u ONU, cuyos nombres obedecen a una diferencia de términos entre los dos principales organismos normalizadores de PON (ITU-T e IEEE) y que utilizaremos como <strong>sinónimos</strong>, a menos que queramos referirnos con toda precisión a cada estándar normativo.</p>
+                            <p>Estos equipos tienen como función principal recibir y enviar los paquetes de servicios desde y hacia la OLT, gestionados por los dispositivos del cliente como la computadora, el teléfono, el TV y la WIFI, por lo que la ONT cuenta con puertos Ethernet para la conectividad con RJ45, puerto de telefonía FXS en RJ11 y otros para demás servicios del usuario. La cantidad y diversidad de estos puertos de cobre dependen de las características técnicas de cada equipo, que deben corresponderse con los servicios ofrecidos por el operador.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre la imagen para conocer su descripción.</span>
+                                <span class="onlymobile">Toca sobre la imagen para conocer su descripción.</span>
+                            </div>
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="content/fig3a.png" alt="ONT">
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <img src="content/fig3b.png" alt="ONT">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about"><strong>Figura 3.</strong> Fotografía de una ONT u ONU.</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Por su parte, la OLT tiene la función principal de procesar tramas de información en forma de señales eléctricas y enviarlas en forma de señales ópticas a la red PON, en dirección a las ONT. </p>
+                            <p>La OLT también sincroniza las respuestas recibidas de las ONT, por lo que también realiza una conversión de las tramas ópticas que llegan por la red PON y las convierte en señales eléctricas para interpretarlas y procesarlas.</p>
+                            <p>Otra función importante es la comunicación con los dispositivos de red que conectan los servicios del proveedor.</p>
+                            <p>En la figura, podemos ver un ejemplo de una OLT PON con los principales puertos que ofrece este equipo de red.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                                <span class="onlymobile">Toca sobre cada elemento para conocer su descripción.</span>
+                            </div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 61.71%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1750" height="1080" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61fafc1f5252000013ab5120" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                            <div class="about"><strong>Figura 4.</strong> La OLT y sus puertos.</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Ambos equipos OLT y ONT hacen parte de la red PON, y permiten la transmisión simultánea de señales en el sentido descendente (<i>downstream</i>) y ascendente (<i>upstream</i>).</p>
+                            <div class="box-text important" label="Recuerda que">
+                                <p>El sentido de downstream es aquella dirección de flujo de paquetes de información que van desde la OLT hacia la ONT, mientras que, en el otro sentido, desde ONT hacia OLT, tenemos el flujo de datos llamado upstream.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <p>Estos flujos pueden coexistir de forma simultánea, gracias a la tecnología de  multiplexación por división de longitud de onda que realizan los equipos OLT y ONT, asignando una longitud de onda diferente para cada sentido de la transmisión. Estas longitudes de onda son asignadas de acuerdo con cada estándar PON, como veremos más adelante.</p>
+                            <p>En la figura, podemos tener una idea de los flujos de subida y de bajada de la red PON, que ocurre con diferentes longitudes de onda.</p>
+                        </div>
+                    </div>
+                    <div class="box_media">
+                        <img src="content/animacion1.gif" alt="Animación 1. Representación gráfica de los flujos de upstream y downstream." />
+                        <div class="about"><strong>Animación 1.</strong> Representación gráfica de los flujos de <i>upstream</i> y <i>downstream</i>.</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="box-text note" label="Nota">
+                                <p>Los <i>splitters</i> no realizan selección de las longitudes de onda que circulan por ellos, simplemente dividen la potencia óptica de entrada en partes más pequeñas.</p>
+                            </div>
+                            <p>En consecuencia, estos dos flujos coexisten en este ambiente PON sin ninguna clase de interferencias entre ellas. ¿No te parece esto maravilloso?</p>
+                        </div>
+                        <div class="col-2">
+                            <p>Bueno, esto es posible en buena parte por el WDM sobre la fibra óptica, que asigna estos diferentes colores de la luz, utilizando transceptores ópticos en OLT y ONT. </p>
+                            <p>Cada uno de estos transceptores convierte las señales eléctricas en señales ópticas para llevarlas a la fibra y también realizan el proceso contrario, convirtiendo las señales ópticas, procedentes de la fibra, en señales eléctricas en los equipos de red. </p>
+                        </div>
+                    </div>
+                    <div class="box_media">
+                        <img src="content/fig5.png" alt="Figura 5. Red FTTH con dos niveles de splitters, que representa los dos flujos de información de datos Upstream / Downstream." />
+                        <div class="about"><strong>Figura 5.</strong> Red FTTH con dos niveles de splitters, que representa los dos flujos de información de datos <i>Upstream / Downstream</i>.</div>
+                    </div>
+                    <div class="box-text important w-70" label="¡Recuerda!">
+                        <p>Los equipos de la red PON son la OLT, que está en el lado del operador y la ONT que es el equipo instalado en el lado del cliente.</p>
+                        <p>Se requiere solo un hilo de fibra óptica conectando la OLT con la ONT y por este hilo circulan los dos flujos de datos: de subida y de bajada. Esto es gracias a que los equipos disponen de un <i>diplexer</i> de WDM para dos longitudes de onda.</p>
+                        <p>Además de esto, existe un <i>broadcast</i> TDM de datos en sentido <i>downstream</i>, siendo la ONT quien selecciona lo que le corresponde, y TDMA (por sus siglas en inglés <i>Time Division Multiple Access</i>) para el sentido upstream, de acuerdo con un turno asignado por la OLT a cada ONT.</p>
+                    </div>
+                    <div class="box-text connection w-70">
+                        <p>Es importante entender que la forma de operar de estas redes tiene beneficios, pero también algunas limitaciones. Veamos en el siguiente esquema ilustrativo cuales son:</p>
+                    </div>
+                    <div class="instruction">
+                        <span class="notmobile">Haz clic sobre cada elemento para conocer su descripción.</span>
+                        <span class="onlymobile">Toca sobre cada elemento para conocer su descripción.</span>
+                    </div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 65.67%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1940" height="1274" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61fbf02f6c23020018221cb7" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="box-text connection w-90">
+                        <p>La demanda de ancho de banda para el mantenimiento de los servicios existentes y la introducción de nuevos servicios, sigue aumentando todos los días. Las redes pasivas ópticas PON pueden ofrecer suficiente ancho de banda para proporcionar verdaderos servicios <i>triple play</i> de voz, vídeo y datos. A pesar de sus desventajas, las tecnologías PON ofrecen la mejor solución para hacer frente a las necesidades de acceso que hoy vivimos.</p>
+                        <p>A continuación, estudiaremos cómo es la arquitectura de red y cómo se lleva a cabo la comunicación en ambos sentidos (<i>downstream</i> y <i>upstream</i>) de este tipo de tecnologías.</p>
+                        <p>Pasa a la siguiente página para continuar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-arquitectura" ptitle="2. Arquitectura de la red PON">
+                <div class="subpage">
+                    <p>Para comprender la operación y el funcionamiento de los datos de las redes PON, veamos dos principios de su arquitectura, como son los enlaces ópticos Punto a Multipunto (P2MP) y la comunicación lógica OLT-ONT:</p>
+                    <h3>2.1. Enlaces punto a multipunto (P2MP)</h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Las redes PON utilizan la arquitectura llamada “punto a multipunto”, abreviada como P2MP, donde los <i>splitters</i> juegan un papel fundamental: en el sentido de <i>downstream</i> dividen la señal óptica que llega desde la OLT, en 1490 nm, en varias señales más pequeñas (de la misma longitud de onda) hasta las ONT; y en el sentido de <i>upstream</i> permiten turnos para el uso de la fibra, de tal manera que cada ONT se comunica con la OLT en los 1310 nm.</p>
+                            <p>La arquitectura P2MP es más viable para las redes de acceso óptico debido a las ventajas que presenta al compartir la fibra óptica, pues de esta forma se optimiza mucho la red de cables, además, se tiene muy poco consumo eléctrico de sus equipos activos.</p>
+                            <p>En la imagen, podemos ver una comparación entre las dos arquitecturas P2P y P2MP. Se trata de dos formas de arquitecturas diferentes para suministrar los servicios de red, como vemos en este ejemplo, servicio a dos clientes.</p>
+                        </div>
+                        <div class="col-2">
+                            <p>Escucha la explicación de estas imágenes en el siguiente audio:</p>
+                            <audio controls>
+                                <source src="content/sounds/au1.mp3" type="audio/mp3">
+                                Su navegador no soporta el componente de audio
+                            </audio>
+                            <div class="about">Si no puedes escuchar el audio, lee su contenido <span class="w-content-controler" data-content="#audio1"><strong>aquí</strong></span>.
+                            </div>
+                            
+                            <div id="audio1" class="w-content" data-property-width="80%">
+                                <p>De acuerdo con la figura, la representación de la izquierda muestra una arquitectura de red P2P que requiere dos fibras ópticas para la conexión de cada uno de los clientes, por lo que una fibra oficia como transmisora y la otra como receptora. También es posible el uso de una única fibra, en cuyo caso se habilita una longitud de onda para <i>downstream</i> y otra para el <i>upstream</i>, similar a GPON. </p>
+                                <p>Suponiendo aquí dos fibras por enlace, requerimos cuatro hilos de fibras en la red óptica. Como cada fibra ocupa un puerto de red, serán necesarios cuatro puertos en el equipo <i>switch</i> del operador. Con esta arquitectura también puede requerirse el uso de equipos activos en medio de la red.</p>
+                                <p>Por otro lado, al emplear la arquitectura P2MP, representada en la imagen de la derecha, se está haciendo uso de dos factores fundamentales que van a simplificar drásticamente la red óptica. En primer lugar, está la utilización del <i>splitter</i>, que permite conectar varios clientes con una única fibra de entrada en el divisor óptico, lo que ahorra muchos hilos de fibra hacia la central, con el consecuente ahorro de puertos del equipo de red OLT. Y, en segundo lugar, tenemos el diplexor WDM, que con ayuda del TDM <i>broadcast</i> en sentido descendente y el TDMA en sentido ascendente, permite la transmisión en dos longitudes de onda sobre un único hilo de fibra, lo que reduce aún más la cantidad final de hilos de fibra.</p>
+                                <p>En general, vamos a tener en cuenta que las redes Ethernet utilizan muy comúnmente la arquitectura P2P, mientras que las redes PON emplean la arquitectura P2MP.</p>
+                            </div>
+
+                            <div class="instruction">
+                                Desliza la línea divisoria de izquierda a derecha para observar las diferencias
+                            </div>
+                            <div class="after-before" data-before-label="P2P" data-after-label="P2MP">
+                                <img src="content/fig6a.png" />
+                                <img src="content/fig6b.png" />
+                            </div>
+                            <div class="about"><strong>Figura 6.</strong> Comparación de P2P y P2MP en una red óptica.</div>
+                        </div>
+                    </div>
+                    <div class="box-text important" label="En resumen">
+                        <p>La comparación entre estas dos arquitecturas se presenta en la siguiente tabla:</p>
+                        <table class="datatable">
+                            <thead>
+                                <th>Característica</th>
+                                <th>P2P - Ethernet</th>
+                                <th>P2MP - PON</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Medio de transmisión</strong></td>
+                                    <td>Dedicado</td>
+                                    <td>Compartido</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td><strong>Central</strong></td>
+                                    <td>Gran cantidad de puertos ópticos</td>
+                                    <td>Baja cantidad de puertos ópticos</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cables</strong></td>
+                                    <td>Gran cantidad de fibras</td>
+                                    <td>Baja cantidad de fibras</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td><strong>Operación</strong></td>
+                                    <td>Requiere activos en la planta externa</td>
+                                    <td>Solo pasivos en la planta externa</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="about"><strong>Tabla 1.</strong> Comparación de características de P2P y P2MP.</div>
+                    </div>
+                    <h3>2.2. Comunicación lógica PON</h3>
+                    <div class="box-text connection w-70">
+                        <p>Para el proceso de comunicación en la red PON, la OLT reconoce a cada una de las ONT conectadas a ella mediante un número de identificación único, conocido como <strong>ONU-ID</strong>, junto con el identificador del puerto PON por el cual la ONT se conecta.</p>
+                        <p>La comunicación entre la OLT y la ONT ocurre entonces, de dos maneras diferentes: una por cada sentido de flujo en la comunicación de datos. Veamos en qué consisten:</p>
+                    </div>
+                    <h4>Comunicación de <i>downstream</i>:</h4>
+                    <p>En la comunicación de bajada, la OLT envía al mismo tiempo los paquetes de información hacia todas las ONT que se conectan en el mismo puerto PON de OLT. De esta manera, cuando la OLT requiere enviar información a una cierta ONT, primero identifica el puerto PON en el que dicha ONT está conectada y luego envía la información por dicho puerto de OLT, lo que significa que todas las ONT en este puerto recibirán la información. Sin embargo, la única ONT que trata estas informaciones es aquella que identifica su propio ONU-ID en la trama de datos.</p>
+                    <p>Esta forma de comunicación de <i>downstream</i> es una especie de difusión o broadcast desde la OLT, aprovechando la división de señal óptica que realiza el <i>splitter</i>.</p>
+                    <p>La animación muestra una idea de la comunicación de <i>downstream</i>, en donde se puede ver que, aunque todas las informaciones arriban a las ONT, solo aquella ONT que identifica su ONU-ID es la que hace el tratamiento de los paquetes.</p>
+                    <div class="box_media">
+                        <img src="content/animacion2.gif" alt="Animación 2. Representación gráfica de la comunicación en sentido downstream." />
+                        <div class="about"><strong>Animación 2.</strong> Representación gráfica de la comunicación en sentido <i>downstream</i>.</div>
+                    </div>
+                    <h4>Comunicación de <i>upstream</i>:</h4>
+                    <p>Para el caso de la comunicación de subida, la OLT sincroniza la transferencia de informaciones desde las ONT, por lo que otorga un tiempo a cada una. Estos tiempos de asignación son necesarios dado que se trata de una fibra común entre la OLT y el splitter, que debe ser compartida para transferir las informaciones de todas las ONT. Esta función es llamada “acceso múltiple por división del tiempo” también conocida como <a href="https://cora.ucc.ie/bitstream/handle/10468/5976/5464_Optimised_QoS-Aware_DBA_Mechanisms_in_XG-PON_for_Upstream_Traffic_in_LTE_Backhaul.pdf?sequence=1" target="_blank">TDMA</a>.</p>
+                    <p>TDMA se emplea para asignar un periodo de tiempo específico a cada ONT. Esta función de la OLT evita las colisiones entre las ONT que eventualmente quisieran “hablar” al mismo tiempo.</p>
+                    <p>En la siguiente imagen, podemos tener una idea de la comunicación lógica de upstream, en donde cada una de las ONT transmite su trama de datos, mientras que las demás ONT esperan su “turno”.</p>
+                    <div class="box_media">
+                        <img src="content/animacion3.gif" alt="Animación 3. Representación gráfica de la comunicación en sentido upstream." />
+                        <div class="about"><strong>Animación 3.</strong> Representación gráfica de la comunicación en sentido <i>upstream</i>.</div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Habiendo conocido cómo es la arquitectura de las redes PON y como es su proceso de comunicación. A continuación, se describen con cierta profundidad las tecnologías utilizadas para implementar esta arquitectura, incluidos los sistemas GPON y EPON que se están desplegando en la actualidad, y los sistemas PON más avanzados que proporcionan la vía de evolución hacia anchos de banda cada vez mayores.</p>
+                        <p>Pasa a la siguiente página para continuar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-estandares" ptitle="3. Estándares PON">
+                <div class="subpage">
+                    <p>Existen dos entidades normativas muy importantes a nivel mundial, cada una con un estándar diferente para cada PON, por lo que podemos dividir PON en dos grandes tecnologías: GPON y EPON.</p>
+                    <div class="horizontal-menu">
+                        <dl>
+                            <dt>GPON</dt>
+                            <dd>
+                                <h5>Redes GPON</h5>
+                                <p>Tienen capacidad Gigabit, por eso su nombre de <a href="http://www.gpon.com/how-gpon-works" target="_blank">GPON</a>. Han sido desarrolladas por <strong>ITU-T</strong> y normalizadas en el estándar <strong>G.984</strong>, utilizan protocolos basados en IP y son conocidas por su gran flexibilidad al incluir aplicaciones Triple-Play o lo que es lo mismo datos, voz y video. Para su operación con redes Ethernet, GPON encapsula la información en tramas llamadas GEM (<i>Gpon Encapsulation Method</i>).</p>
+                                <p>La red GPON cuenta con redes que abarcan distancias de entre 20 y 40 km, en función de la relación splitters que se adopte, pudiendo llegar incluso a distancias de 60 Km. La longitud de onda descendente se establece en 1490 nm y la ascendente es de 1310 nm. Tiene una velocidad de bajada de 2.5 Gbps y una velocidad de subida de 1.25 Gbps.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>EPON</dt>
+                            <dd>
+                                <h5>Redes EPON</h5>
+                                <p>Es la red PON Ethernet o E-PON, que se ha desarrollado para ofrecer compatibilidad con los dispositivos Ethernet. Las redes EPON, que se basan en el estándar <strong>IEEE 802.3</strong>, no requieren encapsulación adicional ni protocolos de conversión para conectarse a las redes basadas en Ethernet.</p>
+                                <p>Las redes EPON admiten velocidades simétricas (subida y bajada) de hasta 1.25 Gbps. También proporcionan una distancia de entre 20 y 40 km, y emplean longitudes de onda así: ascendente de 1310 nm y descendente de 1490 nm.</p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="box-text important w-90" label="En resumen">
+                        <p>Las redes EPON y GPON no son compatibles entre sí, es decir, no pueden implementarse en la misma red PON. Esto quiere decir que los equipos OLT y ONT/ONU deben ser del mismo estándar para lograr la comunicación entre ellos.</p>
+                        <p>En la siguiente tabla se expresan las principales diferencias entre EPON y GPON.</p>
+                        <table class="datatable">
+                            <thead>
+                                <th></th>
+                                <th>EPON</th>
+                                <th>GPON</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Norma</strong></td>
+                                    <td><strong>IEEE 802.3ah</strong></td>
+                                    <td><strong>ITU-T G.984</strong></td>
+                                </tr>
+                                <tr class="odd">
+                                    <td><strong>Bajada (<i>downstream</i>)</strong></td>
+                                    <td>1.25 Gbps</td>
+                                    <td>2.5 Gbps</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Subida (<i>upstream</i>)</strong></td>
+                                    <td>1.25 Gbps</td>
+                                    <td>1.25 Gbps</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td><strong>Tasa máxima de división</strong></td>
+                                    <td>1X128</td>
+                                    <td>1X128</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Distancia máxima</strong></td>
+                                    <td>20 km</td>
+                                    <td>20 km (60 km lógicos)</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td>Capa (modelo de redes)</td>
+                                    <td>L2</td>
+                                    <td>L3</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Longitud de onda λ (nm)</strong></td>
+                                    <td>1310 / 1490 / 1550 (video)</td>
+                                    <td>1310 / 1490 / 1550 (video)</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td><strong>Siguiente estándar</strong></td>
+                                    <td>IEEE 802.3av (1:128)
+                                        <br />10G-EPON:10G / 10G</td>
+                                    <td>ITU G.987 (1:256)
+                                        <br />XG-PON: 10G / 2.5G</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Equipos</strong></td>
+                                    <td>OLT / ONU</td>
+                                    <td>OLT / ONT</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="about"><strong>Tabla 2.</strong> Comparativo EPON y GPON.</div>
+                    </div>
+                    <p>Como ya vimos, ambos estándares utilizan las mismas dos longitudes de onda para la trasmisión de datos, aunque es muy importante reconocer que los flujos lógicos de información, es decir, el formato de los paquetes y los protocolos utilizados son diferentes y por lo tanto no son compatibles entre sí. Comprendido esto, podemos ver que las longitudes de onda empleadas son las siguientes:</p>
+                    <ul>
+                        <li><strong><i>Downstream</i>:</strong> el flujo de los datos viajan desde el operador (OLT) hacia el cliente (ONT) en la longitud de onda de 1490 nanómetros (nm).</li>
+                        <li><strong><i>Upstream</i>:</strong> el flujo de los datos viajan desde el cliente (ONT) hacia el operador (OLT) en la longitud de onda de 1310 nanómetros (nm).</li>
+                    </ul>
+                    <p>Entonces, estos dos flujos están presentes en el sistema PON (tanto EPON como GPON), debido a que los equipos de red OLT y ONT tienen internamente dispositivos para emitir y recibir datos en estas dos longitudes de onda, es decir que los activos de la red PON tienen internamente las funciones WDM para trabajar en 1310 nm y 1490 nm.</p>
+                    <div class="box_media">
+                        <img src="content/animacion4.gif" alt="Animación 4. Representación gráfica de las longitudes de onda empleadas por las tecnologías EPON y GPON." />
+                        <div class="about"><strong>Animación 4.</strong> Representación gráfica de las longitudes de onda empleadas por las tecnologías EPON y GPON.</div>
+                    </div>
+                    <h3>Aplicaciones de superposición de vídeo de radiofrecuencia o <i>Video Overlay</i>.</h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Las señales de televisión de radiofrecuencia (analógicas y digitales) pueden transmitirse a través de una red PON modulando en una sola longitud de onda de luz, normalmente una longitud de onda de 1550 nm. A esto se le conoce como superposición de vídeo de RF.</p>
+                            <p>Para lograr esta superposición se utilizan multiplexores WDM, instalados en la oficina central del operador, para mezclar la longitud de onda de superposición de vídeo (1550 nm) y las longitudes de onda del servicio de red PON (1310 nm y 1550 nm).</p>
+                            <div class="box-text connection">
+                                <p>En los próximos años, sin duda seguiremos viendo una migración cada vez más acelerada de redes metálicas a redes ópticas, y la evolución natural de la tecnología PON. Algunos cuellos de botella como el ancho de banda requerido para proporcionar varios servicios que se esperan en la era de los gigabits, se están resolviendo con dichas evoluciones.</p>
+                                <p>A continuación estudiaremos cómo se está llevando a cabo la evolución de las tecnologías, arquitecturas, coexistencia, mecanismos de transmisión y sus comparativas tecnológicas. </p>
+                                <p>Pasa a la siguiente página para continuar.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img class="h-80" src="content/fig7.png" alt="Figura 7. Video Overlay." />
+                                <div class="about"><strong>Figura 7.</strong> <i>Video Overlay</i>.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-evolucion" ptitle="4. Evolución de las redes PON">
+                <div class="subpage">
+                    <p>Los primeros estándares de las redes ópticas pasivas originales fueron APON y BPON, que desde su aparición en los años 90 han ido dejando paso para que las nuevas versiones vayan ganando terreno progresivamente, con cada vez mayores velocidades de transmisión, mayor cantidad de usuarios conectados y mayores distancias, constituyendo un futuro promisorio para las tecnologías PON.</p>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                        <span class="onlymobile">Toca sobre cada elemento para conocer su descripción.</span>
+                    </div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.57%; padding-top: 0; height: 0;"><iframe frameborder="0" width="2298" height="1300" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/62019f1ddf160a0012be20fa" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="about"><strong>Figura 7.</strong> Longitudes de onda empleadas por las tecnologías GPON, NGS-PON y NG-PON2.</div>
+                    <div class="horizontal-menu">
+                        <dl>
+                            <dt>10G-EPON y EPON</dt>
+                            <dd>
+                                <h5>Redes 10G-EPON y EPON</h5>
+                                <p>El estándar 10G-EPON más avanzado incrementa las velocidades a unos valores ascendentes y descendentes simétricos de 10 Gbps. Además, funciona a diferentes longitudes de onda con respecto a las redes EPON, con una longitud de onda descendente de 1577 nm y una longitud de onda ascendente de 1270 nm. Esto permite que se utilice la misma red PON tanto para redes EPON como para redes 10G-EPON a la vez, a modo de mecanismo para permitir una actualización del servicio con el incremento de capacidad en la red PON existente.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>XG-PON y XGS-PON</dt>
+                            <dd>
+                                <h5>Redes XG-PON y XGS-PON</h5>
+                                <p>La versión 10G de la red GPON se conoce como <a href="https://www.electronicdesign.com/what-s-difference-between/what-s-difference-between-epon-and-gpon-optical-fiber-networks" target="_blank">XG-PON</a>. Este nuevo protocolo admite velocidades de bajada de 10 Gbps y velocidades de subida de 2.5 Gbps. Si bien las convenciones de formato de datos y fibra física son idénticas a las de las redes GPON originales, las longitudes de onda sí presentan cambios, de forma similar a las redes 10G-EPON, con 1577 nm en el caso de la longitud de onda descendente y 1270 nm en el caso de la longitud de onda ascendente. De nuevo, este ajuste permite utilizar la misma red PON para las redes GPON y XG-PON a la vez. La versión mejorada de la red XG-PON es la red XGS-PON, que emplea las mismas longitudes de onda que la red XG-PON y proporciona 10 Gbps de carácter simétrico, es decir tanto para la subida como para la bajada.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>NG-PON2</dt>
+                            <dd>
+                                <h5>Redes NG-PON2</h5>
+                                <p>Por encima del estándar XG-PON y XGS-PON, está la red NG-PON2, que utiliza la multiplexación por longitud de onda con diversas longitudes de onda en 10G, tanto para la subida como para la bajada, a fin de proporcionar un servicio simétrico de 40 Gbps. Nuevamente, las redes NG-PON2 emplean longitudes de onda distintas a las de las redes GPON y XG/XGS-PON para permitir la coexistencia de los servicios de las tres en la misma red PON.</p>
+                                <p>Dado que la demanda de velocidad sigue aumentando a cada año que pasa, las redes XG-PON, XGS-PON y NG-PON2 proporcionarán una ruta de actualización que debería resultar positiva especialmente en configuraciones de clientes empresariales y multiempresa de gran envergadura y como parte de las redes 5G inalámbricas.</p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 55.67%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1940" height="1080" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61fc226e4ecec200130e27d3" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="about"><strong>Figura 8.</strong> Asignaciones de longitud de onda para GPON, XGS-PON y NG-PON2.</div>
+                    <div class="row">
+                        <div class="col-2">
+                            <h3>Desafíos futuros</h3>
+                            <p>Entre los desafíos a los que se enfrentarán los diseñadores de generaciones futuras, se incluyen una mayor capacidad de cobertura y unas relaciones de segmentación superiores para reducir aún más la inversión en cable. Estas mejoras, combinadas con velocidades que actualmente se proyecta para los 100 Gbps, contribuirán a continuar la expansión de las redes ópticas pasivas en las ciudades inteligentes, las universidades, los hospitales y las empresas que conformarán el mundo cada vez más conectado.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-text note" label="Síntesis">
+                                <audio controls>
+                                    <source src="content/sounds/au2.mp3" type="audio/mp3">
+                                    Su navegador no soporta el componente de audio
+                                </audio>
+                                <div class="about">Si no puedes escuchar el audio, lee su contenido <span class="w-content-controler" data-content="#audio2"><strong>aquí</strong></span>.
+                                </div>
+                                
+                                <div id="audio2" class="w-content" data-property-width="80%">
+                                    <p>PON es la tecnología de comunicaciones para las redes de acceso basadas en fibra óptica hasta el hogar, que tiene una gran aceptación por parte de los operadores del servicio de Internet, quienes pueden administrar más fácilmente los únicos equipos de la red, ubicados en los extremos. Por el lado del propio operador se encuentra la OLT, siendo esencialmente un switch PON, y por el lado del cliente está el equipo ONT, también llamado ONU, que es el router que ofrece los servicios para el usuario residencial. En medio de ellos, hasta una distancia de 20 kilómetros, está la red pasiva.</p>
+                                    <p>En este capítulo, vimos que la tecnología PON opera con una arquitectura de punto a multipunto, donde los paquetes de información viajan en los sentidos upstream y downstream. Recordemos aquí que el upstream es el flujo de datos desde la ONU hasta la OLT, mientras que el downstream es desde la OLT hasta la ONU. Las comunicaciones entre dispositivos aprovechan un solo hilo de fibra, en donde los transceptores inyectan luz a la fibra en longitudes de onda diferentes, utilizando WDM. </p>
+                                    <p>Vimos además que PON tiene hoy básicamente dos estándares tecnológicos de comunicaciones de amplia implementación. Por un lado está el EPON, normalizado por la IEEE en el estándar 802.3ah, y por el otro lado tenemos el GPON, normalizado por el estándar ITU-T G-984. Aunque ambos estándares pueden operar muy bien sobre una red de fibra óptica hasta el hogar, es importante destacar que no son compatibles entre sí, es decir, que no hablan el mismo idioma. En otras palabras, si por ejemplo, en una red FTTH se instala una OLT GPON, las ONT también deben ser G-PON.</p>
+                                    <p>Finalmente vimos que existe una evolución de las tecnologías PON, que aumentan la capacidad de transmisión, ofreciendo mayor ancho de banda digital a los usuarios y también aumentando el número de usuarios. Para la EPON el siguiente paso es el llamado 10G-EPON con velocidades de 10 Gbps simétricos, es decir, 10 Gbps  tanto para el downstream como para el upstream. Para GPON los siguientes esquemas tecnológicos son XG-PON, con 10 Gbps en la bajada y 2.5 en la subida y XGS-PON, la versión de 10 Gbps simétrico. También se presentó el más reciente estándar ITU-T para los 40 Gbps simétricos, el NG-PON2.</p>
+                                    <p>Un aspecto muy importante es que las redes FTTH que se instalan hoy, soportan los diferentes estándares EPON y GPON existentes, con lo que se requiere solo cambio y/o actualización de los equipos OLT y ONT/ONU, sin necesidad de realizar adaptaciones en la red pasiva. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-bibliografia" ptitle="Referencias">
+                <div class="subpage" id="bibliography_subpage">
+                    <ul>
+                        <li>Conectrónica, (2019). Significados de redes PON, GPON, XG-PON, 10G-EPON. Recuperado el 10 de diciembre de 2021 de <a href="https://www.conectronica.com/fibra-optica/redes-opticas/significados-de-redes-pon-gpon-xg-pon-10g-epon" target="_blank">https://www.conectronica.com/[...]</a></li>
+
+                        <li>Farmer, J. y otros. (2017). FTTx Networks Technology Implementation and Operation. Cambridge, United States. Morgan Kaufmann.</li>
+
+                        <li>García, A. (2012). GPON Introducción y Conceptos Generales. Telnet Redes Inteligentes. Recuperado el 10 de diciembre de 2021 de <a href="https://www.telnet-ri.es/wp-content/uploads/2014/10/gpon-introduccion-conceptos.pdf" target="_blank">https://www.telnet-ri.es/[...]</a>.</li>
+
+                        <li>González, N. y Becerra, S. (2016). Diseño de una ODN para una red óptica de acceso mediante tecnología GPON para servicios triple play en el sector “La Tolita 1 y la Tolita 2” de la ciudad de Esmeraldas. Riobamba, Ecuador. Escuela Superior Politécnica del Chimborazo.</li>
+
+                        <li>Holik, M., Horvath, T. y Oujezsky, V (2019). Application for GPON Frame Analysis. Brno, Czech Republic. Department of Telecommunication, Brno University of Technology.</li>
+
+                        <li>López, A. (2021). Qué es y cómo funciona la tecnología GPON: secretos técnicos. Recuperado el 10 de diciembre de 2021 de <a href="https://www.redeszone.net/tutoriales/redes-cable/tecnologia-ftth-gpon-que-es-funcionamiento/" target="_blank">https://www.redeszone.net/[...]</a>.</li>
+
+                        <li>Olmos, A. (2018). Estudio práctico del despliegue de una red de distribución FTTH. Universidad Politécnica de Cartagena. Cartagena, España.</li>
+
+                        <li>Rzfibra, (s/f). RG2824W GPON ONU/ONT. Recuperado el 10 de diciembre de 2021 de <a href="http://www.rzfibra.com/gepon/gpon-onu/ftth-wifi-modem-4-fe-2-fxs-gpon-onu-ont.html" target="_blank">http://www.rzfibra.com/[...]</a></li>
+
+                        <li>Viavi Solutions. (2021). Conozca a fondo las redes ópticas pasivas, incluidos los diferentes tipos de redes PON, sus diversas aplicaciones, sus ventajas, su arquitectura y mucho más. Recuperado el 10 de diciembre de 2021 de <a href="https://www.viavisolutions.com/es-es/red-optica-pasiva-pon" target="_blank">https://www.viavisolutions.com/[...]</a>.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!--Créditos-->
+            <section id="pag-creditos">
+                <div class="subpage" id="credits_subpage">
+
+                    <div class="creditos-fba">
+                        <h2>Créditos</h2>
+                        <div class="bloque">
+                            <table>
+                                <tr>
+                                    <td>Experto Temático</td>
+                                    <td>Luis Fernando Rodríguez</td>
+                                </tr>
+                                <tr>
+                                    <td>Pares evaluadores</td>
+                                    <td>Ana María Cárdenas / Marco Teran / Fredy Pereira</td>
+                                </tr>
+                                <tr>
+                                    <td>Asesoría pedagógica / Diseño instruccional</td>
+                                    <td>Carolina Llanos</td>
+                                </tr>
+                                <tr>
+                                    <td>Corrección de estilos</td>
+                                    <td>Danleibi Molina</td>
+                                </tr>
+                                <tr>
+                                    <td>Diseño gráfico</td>
+                                    <td>Inesly Vega</td>
+                                </tr>
+                                <tr>
+                                    <td>Producción audiovisual</td>
+                                    <td>Maria Álvarez / Sebastián Quintero</td>
+                                </tr>
+                                <tr>
+                                    <td>Integración de contenidos</td>
+                                    <td>Santiago Bernal</td>
+                                </tr>
+                                <tr>
+                                    <td>Revisión de calidad</td>
+                                    <td>Bambuco</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bloque logo">
+                            <h3>Gestión técnica y administrativa</h3>
+                            <a href="https://fycolearning.com/" target="_blank"><img src="img/logo_azul.png" alt="Fyco learning" /></a>
+                            <p>Versión 1.0</p>
+                        </div>
+                        <div class="bloque copy">
+                            <p>
+                                Este recurso educativo es propiedad de Fyco Learning.
+                                <br />Todo el material didáctico que lo compone está protegido por las leyes que rigen la propiedad intelectual. 
+                                <br />Para utilizar todo o parte de este material se debe contar con autorización expresa de la organización. 
+                            </p>
+                            <p>
+                                Derechos reservados ©
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                    <!-- <p>
+                        Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+                    </p>
+                    <div>
+                        <h3>Expertos temáticos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Leidy Cristina Madrigal Arrieta</cite>
+                    </div>
+                    <div>
+                        <h3>Asesoría pedagógica</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Corrección de estilo</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Traducción de contenidos</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión Administrativa</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión de calidad</h3>
+                        <cite>Ana Yarenis Arango</cite>
+                    </div>
+                    <div>
+                        <h3>Diseño gráfico</h3>
+                        <cite>Juliana Tobón Gaviria</cite>
+                    </div>
+                    <div>
+                        <h3>Integración de contenidos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Santiago Bernal García</cite>
+                    </div>
+
+                    <div>
+                        <h3>Producción</h3>
+                        <p class="logos">
+                            <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                            <br />
+                            <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                            <br />
+                            <a href="http://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                        </p>
+                    </div>
+
+                    <div class="editions">
+                        1ª edición: diciembre 2013<br />
+                        2ª edición: octubre 2015<br />
+                        3ª edición: febrero 2016<br />
+                        4ª edición: junio 2017
+                    </div>
+                    <div>
+                        <br />
+                        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Obra publicada bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                    </div>
+
+                    <p>
+                        Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+                    </p>
+                    <p>
+                        Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+                    </p> -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <div class="measuring-progress" data-type="horizontal"></div>
+
+            <nav label="Características globales" class="globals">
+                <menu>
+                    <menuitem data-global-id="results"><div class="progress"><p>Progreso</p></div></menuitem>
+                    <menuitem data-page="pag-creditos"><div class="credits"><p>Créditos</p></div></menuitem>
+                    <menuitem data-page="pag-bibliografia"><div class="biblio"><p>Referencias</p></div></menuitem>
+                    <menuitem data-global-id="return">
+                        <div class="maximize"><p>Maximizar</p></div>
+                        <div class="minimize"><p>Minimizar</p></div>
+                    </menuitem>
+                    <menuitem data-global-id="close_all"><div class="back"><p>Salir</p></div></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div id="page_number"></div>
+                <div class="button" next-page></div>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de tu avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya has visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

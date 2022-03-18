@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <link href="css/fonts/Scala_SansRegular_LF.ttf" rel="stylesheet" type="text/css"/> -->
+    <title>Definiciones de dB, dBm y dBmv</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="40" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <header>
+            <div class="logo">
+                <img src="img/logo_color.svg" alt="Fyco learning" />
+            </div>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Presentación" data-page="pag-presentacion"></menuitem>
+                    <menuitem label="Componentes">
+                        <menu>
+                            <menuitem label="1. ¿Por qué usar unidades de decibelios?" data-page="pag-porque"></menuitem>
+                            <menuitem label="2. Casos de uso" data-page="pag-casos"></menuitem>
+                            <menuitem label="3. Operaciones" data-page="pag-operaciones"></menuitem>
+                        </menu>
+                    </menuitem>
+                </menu>
+            </nav>
+            <h2 class="page-title"></h2>
+        </header>
+
+        <main style="display: none;">
+
+            <section id="pag-presentacion">
+                <div class="subpage">
+                    <div class="page-index">
+                        <div class="ova_name">
+                            <div class="title">
+                                <h1>Definiciones de dB, dBm y dBmv</h1>
+                                <div class="title-img-fibra"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <h2>Presentación</h2>
+                                <div class="videobox">
+                                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/sqeh7i6BiNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                    <video controls src="https://info.fycolearning.com/fba/cursos/fcff/mod2/tema2/m2-t2_2-introduccion.mp4" poster="https://info.fycolearning.com/fba/cursos/fcff/mod2/tema2/poster/m2-t2_2-introduccion.png"></video>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <h2>Objetivo</h2>
+                                <div class="objetivo-text">
+                                    <p>Reconocer la importancia del decibelio como unidad de medida, así como la aplicación de su cálculo y operaciones para actividades de diseño e implementación de redes de telecomunicaciones.</p>
+                                </div>
+                                <div class="duration">
+                                    <h2>Duración: 1 hora / 60 minutos</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-porque" ptitle="1. ¿Por qué usar unidades de decibelios?">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>El <strong>decibelio</strong> o <strong>decibel (dB)</strong> recibe su nombre en homenaje a Alexander Graham Bell, el inventor del teléfono. Es una expresión que no es lineal ni forma parte del Sistema Internacional de Unidades SI, sino que es una expresión logarítmica.</p>
+                            <div class="box-text connection">
+                                <p>Veamos cómo se define esta expresión.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <p>Si P1 y P2 son dos potencias, su relación expresada en decibelios es:</p>
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                                <span class="onlymobile">Toca sobre sobre cada elemento para conocer su descripción.</span>
+                            </div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61e6f74ac1af0d0012b71773" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Debido a que en telecomunicaciones utilizamos potencias que pueden ser muy grandes, por ejemplo para hacer una radiación de microondas, o muy pequeñas como las señales que se reciben de los satélites, esta unidad resulta ideal para compactar dichas potencias, ya que facilita los cálculos, reduciendolos a operaciones tan sencillas como las sumas y restas.</p>
+                    <div class="row align-center">
+                        <div class="col-2">
+                            <video autoplay muted loop src="https://info.fycolearning.com/fba/cursos/fcff/mod2/tema2/animacion1.mp4"></video>
+                            <div class="about"><strong>Animación 1.</strong> Medición del cambio de potencia, en decibelios, por estrés de curvatura en un elemento pasivo.</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-text example" label="Ejemplo">
+                                <p>En el siguiente ejemplo podemos observar una aplicación de este concepto.</p>
+                                <button class="w-content-controler general" data-property-width="90%" data-content="#ejemplo1">
+                                    Abrir ejemplo
+                                </button>
+                                <div id="ejemplo1" class="w-content">
+                                    <p>Analiza la siguiente tabla que presenta una escala de equivalencias, donde X es la cantidad a convertir en dB utilizando la fórmula anteriormente descrita.</p>
+                                    <p>De esta manera, por ejemplo 1 000 000 000 se puede escribir como 90 dB en tanto que 0.000 000 001 se escribe como -90 dB.</p>
+                                    <p>Si escribir estos números con todos sus ceros resulta complicado y con probabilidad de equivocarnos fácilmente,  ¡imagina haciendo operaciones!</p>
+                                    <h4>¡Importante!</h4>
+                                    <p>Una escala logarítmica muestra el valor base de 10 elevado a la potencia de un valor. Por ejemplo:</p>
+                                    <ul>
+                                        <li>10 tiene un logaritmo de 1, ya que 10<sup>1</sup> (elevado a la potencia de 1) es 10. </li>
+                                        <li>100 tiene un logaritmo de 2, ya que 10<sup>2</sup> es 100.</li>
+                                        <li>100 tiene un logaritmo de 3, ya que 10<sup>3</sup> es 1000. Y así sucesivamente.</li>
+                                    </ul>
+                                    <table class="datatable center">
+                                        <thead>
+                                            <th>10 log X</th>
+                                            <th>X</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>100</td>
+                                                <td>10 000 000 000</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>90</td>
+                                                <td>1 000 000 000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>80</td>
+                                                <td>100 000 000</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>70</td>
+                                                <td>10 000 000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>60</td>
+                                                <td>1 000 000</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>50</td>
+                                                <td>100 000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>40</td>
+                                                <td>10 000</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>30</td>
+                                                <td>1 000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>20</td>
+                                                <td>100</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>10</td>
+                                                <td>10</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>-10</td>
+                                                <td>0.1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>-20</td>
+                                                <td>0.01</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>-30</td>
+                                                <td>0.001</td>
+                                            </tr>
+                                            <tr>
+                                                <td>-40</td>
+                                                <td>0.0001</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>-50</td>
+                                                <td>0.000 01</td>
+                                            </tr>
+                                            <tr>
+                                                <td>-60</td>
+                                                <td>0.000 001</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>-70</td>
+                                                <td>0.000 000 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>-80</td>
+                                                <td>0.000 000 01</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>-90</td>
+                                                <td>0.000 000 001</td>
+                                            </tr>
+                                            <tr>
+                                                <td>-100</td>
+                                                <td>0.000 000 000 1</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="about"><strong>Tabla 1.</strong> Ejemplo que muestra 10 log(x). Es más fácil de entender y comparar 2 o 3 dígitos que comparar 10 dígitos.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Los dB se emplean en acústica para medir la intensidad del ruido, electricidad, telecomunicaciones y otras especialidades que requieren expresar la relación entre dos potencias.</p>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Específicamente en telecomunicaciones, los utilizamos frecuentemente en las relaciones:</p>
+                            <ul>
+                                <li>Señal/ruido,</li>
+                                <li>Potencia recibida y transmitida,</li>
+                                <li>Potencia de salida y potencia de entrada en</li>
+                                <ul>
+                                    <li>la ganancia de un amplificador,</li>
+                                    <li>la ganancia de una antena.</li>
+                                </ul>
+                            </ul>
+                            <div class="box-text connection">
+                                <p>Con este breve preámbulo, teniendo un contexto base de por qué es importante esta unidad de medida, entremos en materia. Alista papel, lápiz y una calculadora, pues vamos a realizar operaciones matemáticas. Pasa a la siguiente página para continuar.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="view-first">
+                                <img src="content/fig1.png" />
+                                <div class="view-content">
+                                    El decibelio es quizá la unidad más utilizada en el campo de las telecomunicaciones por la simplificación que su naturaleza logarítmica posibilita a la hora de efectuar cálculos con valores de potencia de la señal muy pequeños.
+                                </div>
+                            </div>
+                            <div class="about"><strong>Figura 1.</strong> Los dB son muy útiles en el sector de las telecomunicaciones.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-casos" ptitle="2. Casos de uso">
+                <div class="subpage">
+                    <p>El decibel es la décima parte de un bel (B) y se expresa como dB (con “d” minúscula y “B” mayúscula). Cómo ya lo hemos mencionado, esta unidad expresa una relación entre cantidades y no una cantidad como tal, y es el logaritmo en base 10 de <strong>la relación entre dos niveles de potencia</strong>.</p>
+                    <p>Esta relación entre potencias puede ser de dos tipos:</p>
+                    <h3>A. Relación entre la potencia de salida y la potencia de entrada</h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Para ejemplificar esto, pensemos en un cable donde esta relación se da entre la potencia que se inyecta al cable en un extremo y la potencia que sale en el extremo opuesto. Igual aplica en un conector o un amplificador.</p>
+                            <p>Para comprenderlo de mejor manera, observa la animación que muestra una línea de transmisión donde a la entrada, se tienen 100 W y a la salida 10 W. Si queremos expresar esta relación en dB, basta con aplicar la expresión:</p>
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                                <span class="onlymobile">Toca sobre sobre cada elemento para conocer su descripción.</span>
+                            </div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61e75886f60bae001486b2af" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <video id="animacion2" autoplay muted loop src="https://info.fycolearning.com/fba/cursos/fcff/mod2/tema2/animacion2.mp4"></video>
+                            <div class="about"><strong>Animación 2.</strong> Potencia de entrada y salida de una línea de transmisión.</div>
+                            <p>Según la expresión, para el cálculo de la relación de potencias tenemos que:</p>
+                            <table class="formula">
+                                <tr>
+                                    <td rowspan="2">dB = 10 <i>log</i><sub>10</sub> (</td>
+                                    <td>10W</td>
+                                    <td rowspan="2">) = - 10dB</td>
+                                </tr>
+                                <tr><td style="border-top: 1px solid #000;">100W</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                    <p>A partir de la animación 2, podemos extender fácilmente este ejemplo a los sistemas de telecomunicaciones, en caso de que se requiera expresar la atenuación de una señal en dB, estableciendo la relación entre la señal que entró por un extremo de la fibra óptica y compararla con la señal que salió en el otro extremo.</p>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Otra aplicación nos lleva al cálculo de dB cuando la potencia de salida es la mitad o el doble de la potencia de entrada. Usando la misma expresión general, indicando <i>Pe</i> como la potencia de entrada  cualquiera sea ella, y 0.5 o 1/2 como <i>Ps</i>, es decir, la potencia de salida, así:</p>
+                            <table class="formula">
+                                <tr>
+                                    <td rowspan="2">10 <i>log</i><sub>10</sub> (</td>
+                                    <td>0.5 <i>Ps</i></td>
+                                    <td rowspan="2">) = - 3dB</td>
+                                </tr>
+                                <tr><td style="border-top: 1px solid #000;"><i>Pe</i></td></tr>
+                            </table>
+                            <p>Esto quiere decir que cada vez que la señal se divida entre dos, adicionamos -3 dB.</p>
+                            <p>Supongamos que la <i>Pe</i> en el extremo del cable es de 100 W, como en el caso de la figura 1, y que la <i>Ps</i> corresponde a la relación 0.5 de la potencia de entrada. </p>
+                        </div>
+                        <div class="col-2" style="border-left: 1px solid #000; padding-left: 10px;">
+                            <p>Tenemos entonces:</p>
+                            <p><i>Ps</i> = 0.5 <i>Pe</i></p>
+                            <p><i>Ps</i> = 0.5 (100 <i>W</i>)=50 <i>W</i> </p>
+                            <table class="formula">
+                                <tr>
+                                    <td rowspan="2">Así   10 <i>log</i><sub>10</sub> (</td>
+                                    <td>50<i>W</i></td>
+                                    <td rowspan="2">) = - 3dB</td>
+                                </tr>
+                                <tr><td style="border-top: 1px solid #000;">100<i>W</i></td></tr>
+                            </table>
+                            <p>En realidad se trata de una aproximación: dividir la potencia de entrada corresponde con más precisión a a -3.01029996 <i>dB</i>. El caso contrario aplica cuando se duplica la potencia, en ese caso hablaremos de 3.01029996 <i>dB</i>.</p>
+                            <table class="formula">
+                                <tr>
+                                    <td rowspan="2">Así   10 <i>log</i><sub>10</sub> </td>
+                                    <td>0.5 <i>Ps</i></td>
+                                    <td rowspan="2"> = - 3dB y 10 <i>log</i><sub>10</sub> </td>
+                                    <td>2 <i>Ps</i></td>
+                                    <td rowspan="2"> = 3dB</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000;"><i>Pe</i></td>
+                                    <td style="border-top: 1px solid #000;"><i>Pe</i></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>De esta manera, es posible construir una tabla con la relación de potencias cuando dividimos o doblamos por dos la potencia de salida.</p>
+                    </div>
+                    <table class="datatable">
+                        <thead>
+                            <th>Relación de potencias</th>
+                            <th>Equivalencia en dB</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0.125 la salida ha caído una octava parte (⅛)</td>
+                                <td>-9 dB</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>0.25 la salida ha caído una cuarta parte (¼)</td>
+                                <td>-6 dB</td>
+                            </tr>
+                            <tr>
+                                <td>0.5 es decir, la salida ha caído a la mitad (½) respecto a la señal de entrada</td>
+                                <td>-3 dB</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>2 la salida ha duplicado (x 2) respecto a la señal de entrada</td>
+                                <td>3 dB</td>
+                            </tr>
+                            <tr>
+                                <td>4 la salida ha duplicado (x 4) respecto a la señal de entrada</td>
+                                <td>6 dB</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>8 la salida ha duplicado (x 8) respecto a la señal de entrada</td>
+                                <td>9 dB</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="about"><strong>Tabla 2.</strong> Relación de potencias con su equivalencia en dB.</div>
+                    <div class="box-text important" label="¡Atención!">
+                        <p>Es importante señalar que cuando esta relación resulta un <strong>valor negativo</strong>, quiere decir que tenemos a la salida menor potencia que a la entrada, con lo cual evidenciamos <strong>una atenuación</strong> de potencia, o lo que es lo mismo, representa las <strong>pérdidas de potencia en el enlace</strong>. En el caso de los amplificadores, ocurrirá justo lo contrario, la potencia de salida será mayor que la entrada, y al calcular los dB serán de <strong>signo positivo</strong>, indicando que hay una <strong>ganancia</strong>.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Finalmente y relacionando estas pérdidas con los cables de fibra, podemos decir que es usual que la pérdida sea dada por los fabricantes en dB/km. Si conocemos la longitud del cable podremos determinar cuánta pérdida adiciona a un enlace.</p>
+                            <div class="box-text example" label="Ejemplo">
+                                <p>Una fibra óptica tiene especificada una pérdida de 0.35 dB/km, si la distancia que recorre la fibra es de 10 km, podremos simplemente indicar que la pérdida total de la fibra en este enlace es de 0.35 dB/km*10 km= 3.5 dB.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-text note" label="Nota">
+                                <p>Los fabricantes indican la atenuación de las fibras en dB/km, en cuanto a splitters y conectores, se usan los dB. Por su parte, los fabricantes de equipos especifican los rangos de potencia de salida de los transmisores ópticos en dBm, y así mismo expresan los rangos de potencia en el receptor en esta misma unidad dBm.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>B. Relación de potencia de un equipo, bien sea un transmisor o un receptor, contra una unidad de potencia definida.</h3>
+                    <p>¿Cómo identificarlo?</p>
+                    <p>Piensa en la potencia de un equipo transmisor que está expresada en unidades de dBm. Esto quiere decir que se está usando como unidad de referencia el mW (milivatio).</p>
+                    <p>En general, esta unidad se expresa como dBx, siendo x la unidad de referencia. De este modo tenemos:</p>
+                    <ul>
+                        <li>m para milivatio - dBm;</li>
+                        <li>&mu; para microvatio - dB&mu;;</li>
+                        <li>n para nanovatio - dBn;</li>
+                        <li>W para vatio - dBW.</li>
+                    </ul>
+                    <div class="box-text w-90 example" label="Ejemplo">
+                        <p>Para este segundo caso pensamos en una potencia de 0.25 W que se expresa en diferentes unidades de dBx.</p>
+                        <table class="datatable">
+                            <tbody>
+                                <tr>
+                                    <th>Unidades de Watt</th>
+                                    <td>0.25</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="odd">
+                                    <th>Unidades de dBx</th>
+                                    <td>dBW</td>
+                                    <td>dBm</td>
+                                    <td>dB&mu;</td>
+                                    <td>dBn</td>
+                                </tr>
+                                <tr>
+                                    <th>Unidad de referencia</th>
+                                    <td>1 W</td>
+                                    <td>1 mW = 10<sup>-3</sup> W</td>
+                                    <td>1 &mu;W = 10<sup>-6</sup> W</td>
+                                    <td>1 nW = 10<sup>-9</sup> W</td>
+                                </tr>
+                                <tr class="odd">
+                                    <th>Cálculo</th>
+                                    <td><img src="https://latex.codecogs.com/svg.image?{\color{black}&space;10\log_{10}&space;(\frac{0.25&space;W}{1&space;W})}" /></td>
+                                    <td><img src="https://latex.codecogs.com/svg.image?{\color{black}&space;10\log_{10}&space;(\frac{0.25&space;W}{10^{-3}&space;W})}" /></td>
+                                    <td><img src="https://latex.codecogs.com/svg.image?{\color{black}&space;10\log_{10}&space;(\frac{0.25&space;W}{10^{-6}&space;W})}" /></td>
+                                    <td><img src="https://latex.codecogs.com/svg.image?{\color{black}&space;10\log_{10}&space;(\frac{0.25&space;W}{10^{-9}&space;W})}" /></td>
+                                </tr>
+                                <tr>
+                                    <th>Equivalencia</th>
+                                    <td>-6</td>
+                                    <td>24</td>
+                                    <td>54</td>
+                                    <td>84</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="about"><strong>Tabla 3.</strong> Ejemplo de cómo se expresa un valor de potencia en diferentes unidades de dBx.</div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Sobre algunas de estas unidades dBx vamos a hacer un énfasis especial a continuación.</p>
+                    </div>
+                    <h4>dBm</h4>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Los dBm se utilizan para expresar valores absolutos de potencia relativos a <strong>1 milivatio o en inglés <i>miliwatt</i>.</strong></p>
+                            <p>Recuerda que los decibeles son relaciones de potencias, y en este caso al ser potencias, por ejemplo de transmisión, nuestra relación se hace contra una unidad de potencia de referencia (1 milivatio).</p>
+                            <p>Una diferencia muy importante con respecto a los dB radica en que el dBm representa un valor de la potencia en mW, en tanto que en dB se refiere a la relación entre dos potencias. </p>
+                            <p>Para calcular los dBm a partir de una potencia que se encuentre expresada en milivatios utilicemos la siguiente ecuación:</p>
+                            <img src="https://latex.codecogs.com/svg.image?{\color{black}&space;dBm&space;=&space;10\log_{10}&space;\;P(\frac{P\;&space;mW}{1\;&space;mW})}" />
+                        </div>
+                        <div class="col-2">
+                            <div class="box-text example" label="Ejemplo">
+                                <p>Hagamos el mismo ejercicio de la figura 1,  donde a la entrada del cable se tienen 100W, lo que equivale a decir que tenemos:</p>
+                                <img src="https://latex.codecogs.com/svg.image?{10\log_{10}&space;\;100(\frac{10^{3}\;&space;mW}{1\;&space;mW})&space;=&space;50dBm}" />
+                                <p>Mientras que que a la salida tenemos 10 W, es decir:</p>
+                                <img src="https://latex.codecogs.com/svg.image?{10\log_{10}&space;\;10(\frac{10^{3}\;&space;mW}{1\;&space;mW})&space;=&space;40dBm}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-text note w-70" label="Nota">
+                        <p>Lo más importante en la relación de potencias es que tanto el numerador como el denominador, sean expresados en la misma unidad de potencia, para poderlas cancelar. </p>
+                        <p>Entonces, siempre tendremos 1 mW en el denominador, pero lo podemos igual expresar como 10<sup>-3</sup> W si así nos conviene para cancelarlo con las unidades de la potencia del numerador. Así, son totalmente equivalentes las siguientes expresiones para convertir 100 W en 50 dBm:</p>
+                        <img src="https://latex.codecogs.com/svg.image?{10\log_{10}&space;\;&space;(\frac{100\;&space;W}{10^{-3}\;&space;W})&space;=&space;10\log_{10}&space;\;&space;100(\frac{10^{3}\;&space;mW}{1\;&space;mW})&space;=&space;50dBm&space;}" />
+                    </div>
+                    <div class="box-text connection w-70">
+                        <p>Finalmente, hagamos algunos ejercicios para verificar que todo está quedando claro: vamos a convertir cantidades diferentes a dBm pero también vamos a determinar la potencia en mW a partir de los dBm, presta mucha atención.</p>
+                    </div>
+                    <div class="box-text activity" label="Ejercicios de apropiación">
+                        <p>A continuación, podremos ver algunas aplicaciones de los conceptos abordados.</p>
+                        <a href="https://info.fycolearning.com/fba/cursos/fcff/mod2/tema2/ejercicios_de_apropiacion.pdf" target="_blank">
+                            <button class="general">Abrir ejercicios</button>
+                        </a>
+                    </div>
+                    <h4>dBW</h4>
+                    <p>Cuando se toma como referencia 1 W el decibel hace referencia a vatios y se indica con dBW, entonces si tenemos una potencia de 6 W, su equivalencia es:</p>
+                    <img src="https://latex.codecogs.com/svg.image?{\color{black}10\log_{10}&space;\;&space;(\frac{6\;W}{1\;W})&space;=&space;7.79dBW&space;}" title="{\color{black}10\log_{10} \; (\frac{6\;W}{1\;W}) = 7.79dBW }" />
+                    <div class="box-text connection">
+                        <p>Por definición los decibelios son relaciones de potencia (P). Por ello, cuando deseamos usar las tensiones o voltajes (Voltios o V) como unidades base, se debe tener en cuenta que P es proporcional al cuadrado del voltaje (V<sup>2</sup>). De acuerdo a lo anterior, <strong>cuando se conocen los voltajes de entrada y salida</strong>, se deben relacionar los voltajes con la potencia, utilizando la fórmula expresada en voltaje aparece en términos de 20.</p>
+                        <div class="instruction">
+                            <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                            <span class="onlymobile">Toca sobre sobre cada elemento para conocer su descripción.</span>
+                        </div>
+                        <div class="genially">
+                            <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61e896efc2b8170013d8f5e8" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                        </div>
+                    </div>
+                    <h4>dBV</h4>
+                    <p>La tensión V medida en dB se expresa utilizando 1 V como referencia.</p>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                        <span class="onlymobile">Toca sobre sobre cada elemento para conocer su descripción.</span>
+                    </div>
+                    <div class="genially w-50">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61e89e187904b5001628568e" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <h4>dBmV</h4>
+                    <p>En este caso la referencia es el mV, de esta forma la expresión queda como sigue:</p>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                        <span class="onlymobile">Toca sobre sobre cada elemento para conocer su descripción.</span>
+                    </div>
+                    <div class="genially w-50">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61e8a13d0be6c10013c0d24f" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <h4>dB&mu;V</h4>
+                    <p>En determinadas medidas, como son las relacionadas con antenas, el dBV es demasiado grande y se utiliza el dB&mu;V, en cuya medida tomamos como referencia el valor de 1 &mu;V.</p>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                        <span class="onlymobile">Toca sobre sobre cada elemento para conocer su descripción.</span>
+                    </div>
+                    <div class="genially w-50">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61e8a379243ba50023de85a1" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <h5>Equivalencia entre dbm y db&mu;v</h5>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>El dB&mu;V es una unidad que se utiliza comúnmente en la tecnología de radio, televisión terrestre, televisión por satélite, entre otros.</p>
+                            <p>Veamos algunos casos aplicados:</p>
+                            <ul>
+                                <li>Medidor de satélite, medidor de señal DVB-T: la gama de niveles de entrada se muestra en dB&mu;V.</li>
+                                <li>Amplificadores para instalaciones de antenas y multiconmutadores: la gama de niveles de entrada y de salida se muestra en dB&mu;V.</li>
+                            </ul>
+                        </div>
+                        <div class="col-2" style="border-left: 1px solid #000; padding-left: 10px;">
+                            <p>Ahora, analicemos cómo hacer la conversión entre dBm y dB&mu;V.</p>
+                            <p>Supongamos que trabajaremos con un fabricante, el cual nos ha especificado su equipo de transmisión en X dB&mu;V, y lo queremos expresar en Y dBm. Necesitamos hacer una conversión de unidades, y para lograrlo emplearemos la siguiente expresión:</p>
+                            <img src="https://latex.codecogs.com/svg.image?{\color{black}&space;X\;&space;dB\mu&space;V&space;-&space;10\log_{10}&space;\;&space;(Z)&space;-&space;90&space;=&space;Y\;&space;dBm}" />
+                            <p>Donde Z es la impedancia sobre la que se aplica el voltaje, y cuya expresión es la siguiente:</p>
+                            <img src="https://latex.codecogs.com/svg.image?{\color{black}&space;P&space;=&space;\frac{V^{2}}{Z}}" />
+                        </div>
+                    </div>
+                    <div class="box-text example w-70" label="Ejemplo">
+                        <p>Si tenemos 100 dB&mu;V aplicados sobre una impedancia Z de 100 ohms, ¿a qué equivalen en dBm? </p>
+                        <p>Retomemos la expresión:</p>
+                        <img src="https://latex.codecogs.com/svg.image?{&space;X\;&space;dB\mu&space;V&space;-&space;10log_{10}(Z)&space;-&space;90&space;=&space;Y\;&space;dBm}" />
+                        <p>Reemplazando los valores tenemos que:</p>
+                        <img src="https://latex.codecogs.com/svg.image?{&space;100\;&space;dB\mu&space;V&space;-&space;10log_{10}(100)&space;-&space;90&space;=&space;-&space;10\;&space;dBm}" />
+                        <p>La equivalencia es de -10 dBm</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-operaciones" ptitle="3. Operaciones">
+                <div class="subpage">
+                    <p>Para hablar de las operaciones con decibelios, es importante tener en cuenta las siguientes recomendaciones:</p>
+                    <div class="ctrl-pagination" data-layer-height="150px" data-labelcurrent="true" >
+                        <li>
+                            <p>Las únicas operaciones posibles entre dos valores en dB son la suma y resta, el resultado se expresa también en dB.</p>
+                            <p>Por ejemplo, si tengo 10 dB y deseo sumarlo con -5 dB, la suma entre ellos es de 5 dB</p>
+                        </li>
+                        <li>
+                            Con cantidades expresadas en dBm o dBW <strong>NO</strong> se pueden hacer sumas entre sí.
+                        </li>
+                        <li>
+                            <p>Se puede hacer suma y resta de dBm con dB, es decir, una potencia que figura en dBm ó dBW puede sumar o restar con cantidades de dB. La única condición es que al hacer la operación, el resultado debe incluir la unidad de la cantidad de potencia usada en la operación.</p>
+                            <p>Por ejemplo, si aplicamos una señal de 5 dBm a un <a href="https://es.wikipedia.org/wiki/Amplificador" target="_blank">amplificador</a> con una ganancia de 15 dB, la suma entre ellos es 20, lo que quiere decir que en la salida tendremos una señal de 20 dBm.</p>
+                        </li>
+                    </div>
+                    <p>Un resumen de las operaciones posibles y no posibles con dB se muestra en la siguiente tabla:</p>
+                    <table class="datatable">
+                        <thead>
+                            <th>Operación</th>
+                            <th>Resultado</th>
+                            <th>Significado de operación</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>(dB) ± (dB)</td>
+                                <td>(dB)</td>
+                                <td>Relación entre potencias.
+                                    <br />Ejemplo: Aumento o disminución de una relación señal / ruido.</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>(dBm) ± (dB)</td>
+                                <td>(dBm)</td>
+                                <td rowspan="2">
+                                    Valor de una potencia después de una ganancia (suma) o de una atenuación (resta).
+                                    <br />Ejemplo: Potencia en la salida de un amplificador obtenido a partir de su ganancia y potencia de entrada.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>(dBW) ± (dB)</td>
+                                <td>(dBW)</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>(dBm) - (dBm)</td>
+                                <td rowspan="2">(dB)</td>
+                                <td rowspan="2">Relación o desnivel entre dos potencias.
+                                    <br />Ejemplo: Ganancia o atenuación.</td>
+                            </tr>
+                            <tr>
+                                <td>(dBW) - (dBW)</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>(dBm) + (dBm)</td>
+                                <td rowspan="4" colspan="2">Operaciones prohibidas.</td>
+                            </tr>
+                            <tr>
+                                <td>(dBW) + (dBW)</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>(dBm) ± (dBW)</td>
+                            </tr>
+                            <tr>
+                                <td>(dBW) ± (dBm)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="about"><strong>Tabla 4.</strong> operaciones posibles y no posibles con dB</div>
+                    <p>Cerremos este tema retomando la <a href="#" data-page="pag-casos" data-section="#animacion2">animación 2</a> y verifiquemos una operación entre las potencias de entrada y salida para determinar la pérdida de la línea de transmisión. Recordemos que a la entrada de esta línea se tenían 100W (50 dBm) de potencia (Tx - potencia del transmisor, expresada en dBm) en tanto que a la salida se tenían 10 W (40 dBm) (Rx - sensibilidad del receptor, expresada dBm).</p>
+                    <p>Podemos estimar la pérdida restando ambos resultados en dBm y este resultado nos dará la pérdida en dB.</p>
+                    <p>Tx dBm - Rx dBm = pérdida del cable en dB.</p>
+                    <p>50 dBm - 40 dBm es igual a 10 dB que es la pérdida que añade el cable.</p>
+                </div>
+            </section>
+
+            <section id="pag-bibliografia" ptitle="Referencias">
+                <div class="subpage" id="bibliography_subpage">
+                    <ul>
+                        <li>Ecuador Documents, (2015). Decibel. Recuperado el 17 de enero de 2022 desde <a href="https://fdocuments.ec/document/dbdbmv.html" target="_blank">https://fdocuments.ec/document/dbdbmv.html</a></li>
+                        <li><i>Fundamentos de comunicaciones</i>, (s/f). Recuperado el 17 de enero de 2022 desde <a href="http://www.ptolomeo.unam.mx:8080/jspui/bitstream/132.248.52.100/264/4/A4.pdf" target="_blank">http://www.ptolomeo.unam.mx:8080/[...]</a></li>
+                        <li>Instituto Nacional de Educación Tecnológica, (s/f). <i>Electrónica. Guía de Estudio 11: Decibel</i>. Recuperado el 17 de enero de 2022 desde <a href="http://www.inet.edu.ar/wp-content/uploads/2020/07/ELECTRONICA_Gu--a11-Decibel.pdf" target="_blank">http://www.inet.edu.ar/[...]</a></li>
+                        <li>Neri, R. (2013). <i>Líneas de transmisión</i>. Primera Edición, Veracruz. México.</li>
+                        <li>Pérez, P. (s/f). <i>¿Qué es el dB?</i>. Recuperado el 17 de enero de 2022 desde <a href="http://www1.frm.utn.edu.ar/medidase2/varios/dB.pdf" target="_blank">http://www1.frm.utn.edu.ar/[...]</a></li>
+                        <li><i>¿Qué es el dB? </i>(28/11/2021). Wikipedia. La enciclopedia libre. Recuperado el 17 de enero de 2022 desde <a href="https://es.wikipedia.org/wiki/Decibelio" target="_blank">https://es.wikipedia.org/wiki/Decibelio</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!--Créditos-->
+            <section id="pag-creditos">
+                <div class="subpage" id="credits_subpage">
+
+                    <div class="creditos-fba">
+                        <h2>Créditos</h2>
+                        <div class="bloque">
+                            <table>
+                                <tr>
+                                    <td>Experta Temática</td>
+                                    <td>Ana María Cárdenas</td>
+                                </tr>
+                                <tr>
+                                    <td>Pares evaluadores</td>
+                                    <td>Luis Fernando Rodríguez / Marco Teran / Fredy Pereira</td>
+                                </tr>
+                                <tr>
+                                    <td>Asesoría pedagógica / Diseño instruccional</td>
+                                    <td>Carolina Llanos</td>
+                                </tr>
+                                <tr>
+                                    <td>Corrección de estilos</td>
+                                    <td>Danleibi Molina</td>
+                                </tr>
+                                <tr>
+                                    <td>Diseño gráfico</td>
+                                    <td>Inesly Vega</td>
+                                </tr>
+                                <tr>
+                                    <td>Producción audiovisual</td>
+                                    <td>Fernanda Álvarez / Sebastián Quintero</td>
+                                </tr>
+                                <tr>
+                                    <td>Integración de contenidos</td>
+                                    <td>Santiago Bernal</td>
+                                </tr>
+                                <tr>
+                                    <td>Revisión de calidad</td>
+                                    <td>Fyco Learning</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bloque logo">
+                            <h3>Gestión técnica y administrativa</h3>
+                            <a href="https://fycolearning.com/" target="_blank"><img src="img/logo_azul.png" alt="Fyco learning" /></a>
+                            <p>Versión 1.0</p>
+                        </div>
+                        <div class="bloque copy">
+                            <p>
+                                Este recurso educativo es propiedad de Fyco Learning.
+                                <br />Todo el material didáctico que lo compone está protegido por las leyes que rigen la propiedad intelectual. 
+                                <br />Para utilizar todo o parte de este material se debe contar con autorización expresa de la organización. 
+                            </p>
+                            <p>
+                                Derechos reservados ©
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                    <!-- <p>
+                        Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+                    </p>
+                    <div>
+                        <h3>Expertos temáticos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Leidy Cristina Madrigal Arrieta</cite>
+                    </div>
+                    <div>
+                        <h3>Asesoría pedagógica</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Corrección de estilo</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Traducción de contenidos</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión Administrativa</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión de calidad</h3>
+                        <cite>Ana Yarenis Arango</cite>
+                    </div>
+                    <div>
+                        <h3>Diseño gráfico</h3>
+                        <cite>Juliana Tobón Gaviria</cite>
+                    </div>
+                    <div>
+                        <h3>Integración de contenidos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Santiago Bernal García</cite>
+                    </div>
+
+                    <div>
+                        <h3>Producción</h3>
+                        <p class="logos">
+                            <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                            <br />
+                            <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                            <br />
+                            <a href="http://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                        </p>
+                    </div>
+
+                    <div class="editions">
+                        1ª edición: diciembre 2013<br />
+                        2ª edición: octubre 2015<br />
+                        3ª edición: febrero 2016<br />
+                        4ª edición: junio 2017
+                    </div>
+                    <div>
+                        <br />
+                        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Obra publicada bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                    </div>
+
+                    <p>
+                        Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+                    </p>
+                    <p>
+                        Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+                    </p> -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <div class="measuring-progress" data-type="horizontal"></div>
+
+            <nav label="Características globales" class="globals">
+                <menu>
+                    <menuitem data-global-id="results"><div class="progress"><p>Progreso</p></div></menuitem>
+                    <menuitem data-page="pag-creditos"><div class="credits"><p>Créditos</p></div></menuitem>
+                    <menuitem data-page="pag-bibliografia"><div class="biblio"><p>Referencias</p></div></menuitem>
+                    <menuitem data-global-id="return">
+                        <div class="maximize"><p>Maximizar</p></div>
+                        <div class="minimize"><p>Minimizar</p></div>
+                    </menuitem>
+                    <menuitem data-global-id="close_all"><div class="back"><p>Salir</p></div></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div id="page_number"></div>
+                <div class="button" next-page></div>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de tu avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya has visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

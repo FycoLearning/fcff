@@ -1,0 +1,90 @@
+/*General*/
+.unset {
+	max-width: unset !important;
+}
+
+.genially {
+	max-width: 900px;
+	margin: auto;
+}
+
+.row.align-center {
+	align-items: center;
+}
+
+.center {
+	margin: auto;
+	text-align: center;
+}
+
+.w-30 {width: 30%;}
+.w-40 {width: 40%;}
+.w-50 {width: 50%;}
+.w-60 {width: 60%;}
+.w-70 {width: 70%;}
+.w-80 {width: 80%;}
+.w-100 {width: 100%;}
+
+video, img {
+	max-width: 100%;
+}
+
+.view-first {
+	max-width: 600px;
+	margin: auto;
+	z-index: 1;
+}
+
+.view-first .mask {
+	display: flex;
+	align-items: center;
+}
+
+/*#ventana_act_example {
+	width: 600px !important;
+}
+
+.ui-widget.ui-widget-content {
+	width: auto !important;
+}*/
+
+.horizontal-menu >.chalkboard_content {
+	height: auto;
+}
+
+.text_tooltip {
+	line-height: 20px;
+}
+
+.datatable {
+	margin: 10px auto;
+}
+
+.fig7 {
+	display: flex;
+    justify-content: space-between;
+}
+
+/*Holograma */
+.holograma {
+	background: url(../content/hologram.png) no-repeat;
+    background-size: 100%;
+    width: 100%;
+    padding-top: 56.5%;
+    position: relative;
+}
+
+.holograma .formula {
+	position: absolute;
+	bottom: 50%;
+	left: 0;
+	right: 0;
+	text-align: center;
+	color: #fff;
+}
+
+.holograma .formula table {
+	margin: auto;
+	font-size: 22px;
+}
+

@@ -23,9 +23,6 @@ body {
     width: 100%;
     height: 100%;
     background-color: #f6f6f6;
-    background: #fff url(../img/background.png) no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 body.dhbgapp_fullview {
@@ -42,7 +39,6 @@ body.dhbgapp_fullview {
 
 h1 {
     font-size: 35px;
-    /*color: #3f637e;*/
     font-weight: normal;
 }
 
@@ -135,17 +131,19 @@ a {
 }
 
 button.general {
-    background-color: #DBDBD3;
-    color: #000000;
-    border: 1px solid #44A0BA;
-    border-radius: 5px;
+    background-color: #fff;
+    color: #151C31;
+    border: 2px solid #151C31;
+    border-radius: 19px;
     padding: 7px 25px;
     cursor: pointer;
 }
 
 button.general.active, button.general:hover {
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
-    color: #DBDBD3;
+    background-color: #2476AD;
+    color: #fff;
+    box-shadow: 0px 3px 6px #00000029;
+    border-color: #2476AD;
 }
 
 blockquote {
@@ -222,6 +220,11 @@ img.animation, img.play-animation, .animation_image .label {
     position: relative;
     width: fit-content;
     margin: 50px auto 0;
+}
+
+.box_media img {
+    border-radius: 19px;
+    box-shadow: 0px 3px 6px #00000029;
 }
 
 /*.box_media:after {
@@ -319,10 +322,10 @@ nav.horizontal ul.menu > li {
     min-width: 120px;
     height: 15px;
     cursor: pointer;
-    border: 1px solid #44A0BA;
+    border: 2px solid #151C31;
     background-color: #fff;
     margin: 5px;
-    border-radius: 5px;
+    border-radius: 19px;
 }
 
 nav.horizontal ul.menu > li.withsubitems:after {
@@ -333,12 +336,16 @@ nav.horizontal ul.menu > li.withsubitems:after {
 }
 
 nav.horizontal ul.menu > li.active {
-    border-color: #3671c8;
+    border-color: #2476AD;
+    color: #2476AD;
+    box-shadow: 0px 3px 6px #00000029;
 }
 
 nav.horizontal ul.menu li.current {
-    background-color: #dbdbd3bf;
-    border-color: #3671c8;
+    background-color: #2476AD;
+    border-color: #2476AD;
+    color: #fff;
+    box-shadow: 0px 3px 6px #00000029;
 }
 
 nav.horizontal ul.submenu {
@@ -347,7 +354,7 @@ nav.horizontal ul.submenu {
     position: absolute;
     top: 35px;
     left: 0;
-    min-width: 300px;
+    min-width: 230px;
     padding-left: 0;
     display: none;
 }
@@ -366,12 +373,12 @@ nav.horizontal ul.submenu > li {
     text-align: left;
     list-style: none;
     font-size: 13px;
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     cursor: pointer;
     position: relative;
     border: 1px solid transparent;
-    border-radius: 5px;
+    border-radius: 19px;
 }
 
 nav.horizontal ul.submenu > li.withsubitems:after {
@@ -381,10 +388,17 @@ nav.horizontal ul.submenu > li.withsubitems:after {
     right: 5px;
 }
 
-nav.horizontal ul.submenu > li.active, nav.horizontal ul.submenu > li.current {
+nav.horizontal ul.submenu > li.current.active,
+nav.horizontal ul.submenu > li.current {
     color: #fff;
     position: relative;
-    border-color: #44A0BA;
+    border-color: #2476AD;
+}
+
+nav.horizontal ul.submenu > li.active {
+    color: #2476AD;
+    position: relative;
+    border-color: #2476AD;
 }
 
 nav.horizontal ul.submenu > li.active:before, nav.horizontal ul.submenu > li.current:before {
@@ -395,7 +409,11 @@ nav.horizontal ul.submenu > li.active:before, nav.horizontal ul.submenu > li.cur
     border-radius: 50%;
     top: 13px;
     right: 20px;
-    background-color: #44A0BA;
+    background-color: #2476AD;
+}
+
+nav.horizontal ul.submenu > li.current:before {
+    background-color: #fff;
 }
 
 nav.horizontal ul.submenu > li.active:after, nav.horizontal ul.submenu > li.current:after {
@@ -404,7 +422,11 @@ nav.horizontal ul.submenu > li.active:after, nav.horizontal ul.submenu > li.curr
     width: 25px;
     top: 15px;
     right: 0;
-    border-bottom: 2px solid #44A0BA;
+    border-bottom: 2px solid #2476AD;
+}
+
+nav.horizontal ul.submenu > li.current:after {
+    border-bottom: 2px solid #fff;
 }
  
 /*--------------------------*/
@@ -611,18 +633,14 @@ footer .globals .back {
     padding: 5px 50px 5px 15px;
 }
 
-.box-text a {
-    color: #fff;
-}
-
 .box-text {
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
-    color: #FFFFF8;
-    border-radius: 5px;
-    border: 15px solid transparent;
+    background: #fff;
+    color: #151C31;
+    border-radius: 19px;
     outline-style: solid;
-    outline-width: 1px;
+    outline-width: 2px;
     padding: 50px 20px;
+    box-shadow: 3px 5px 7px #0000009e;
 }
 
 .box-text > .title {
@@ -630,14 +648,16 @@ footer .globals .back {
     left: 0;
     top: 0;
     padding: 10px;
-    min-width: 200px;
-    border-radius: 5px;
+    border-radius: 16px 16px 0 0;
     font-size: 24px;
-    max-width: 350px;
     text-align: left;
+
+    color: #fff;
+    width: calc(100% - 20px);
+    text-align: center;
 }
 
-.box-text .title:after {
+/*.box-text .title:after {
     content: "";
     position: absolute;
     width: 121px;
@@ -645,7 +665,7 @@ footer .globals .back {
     left: 100%;
     top: 10px;
     background: url(../img/box-title.svg) no-repeat;
-}
+}*/
 
 /********* important ********/
 .box-text.important {
@@ -653,7 +673,6 @@ footer .globals .back {
     margin: 30px auto;
     position: relative;
     text-align: justify;
-    font-size: 14px;
     outline-color: #E45C09;
 }
 
@@ -679,7 +698,6 @@ footer .globals .back {
     margin: 30px auto;
     position: relative;
     text-align: justify;
-    font-size: 14px;
     outline-color: #44A0BA;
 }
 
@@ -705,7 +723,6 @@ footer .globals .back {
     margin: 30px auto;
     position: relative;
     text-align: justify;
-    font-size: 14px;
     outline-color: #2C7F25;
 }
 
@@ -731,7 +748,6 @@ footer .globals .back {
     margin: 30px auto;
     position: relative;
     text-align: justify;
-    font-size: 14px;
     outline-color: #DD9B0D;
 }
 
@@ -756,9 +772,7 @@ footer .globals .back {
     margin: 30px auto;
     position: relative;
     text-align: justify;
-    font-size: 14px;
-    border: none;
-    outline: none;
+    outline-color: #44A0BA;
     padding: 10px 20px;
 }
 
@@ -783,7 +797,6 @@ footer .globals .back {
     margin: 10px auto;
     position: relative;
     text-align: justify;
-    font-size: 14px;
     outline-color: #6A469E;
 }
 
@@ -1074,12 +1087,13 @@ div.iconvideo.active, button.iconvideo.active {
 .videobox video {
     max-width: calc(100% - 10px);
     margin-bottom: 5px;
-
-    border: 15px solid transparent;
+    
     outline-style: solid;
-    outline-width: 1px;
+    outline-width: 2px;
     outline-color: #44A0BA;
-    border-radius: 5px;
+    border-radius: 19px;
+    
+    box-shadow: 0px 3px 6px #00000029;
 }
 
 .videobox video.mejs__player {
@@ -1156,9 +1170,10 @@ sup.tooltip {
     overflow: auto;
     padding: 2%;
     margin-top: 20px;
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
-    color: #DBDBD3;
-    border-radius: 5px;
+    background-color: #fff;
+    color: #151C31;
+    border-radius: 19px;
+    border: 2px solid #151C31;
 }
 
 .vertical-menu:after {
@@ -1181,27 +1196,31 @@ sup.tooltip {
     width: 155px;
     padding: 8px;
     margin: 5px;
-    color: #DBDBD3;
+    color: #151C31;
     line-height: 20px;
     list-style: none;
     min-width: 100px;
     height: 20px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
+    border: 2px solid #151C31;
+    border-radius: 19px;
+    background-color: #fff;
     text-align: right;
 }
 
 .vertical-menu .chalkboard_vertical_items .chalkboard_vertical_item.active {
-    border-color: #3671c8;
+    border-color: #2476AD;
+    box-shadow: 0px 3px 6px #00000029;
+    color: #2476AD;
 }
 
 .vertical-menu .chalkboard_vertical_items .chalkboard_vertical_item.current {
     font-weight: bold;
-    border-color: #44A0BA;
-    color: #000000;
-    background-color: #DBDBD3;
+    border-color: #2476AD;
+    color: #fff;
+    background-color: #2476AD;
     background-image: none;
+
+    box-shadow: 0px 3px 6px #00000029;
 }
 
 .vertical-menu> .chalkboard_vertical_content > .element > h5 {
@@ -1235,9 +1254,10 @@ sup.tooltip {
     padding: 2%;
     margin: 0 10px 10px 210px;
     margin-top: 20px;
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
-    border-radius: 5px;
-    color: #DBDBD3;
+    background: #fff;
+    border-radius: 19px;
+    color: #151C31;
+    border: 2px solid #151C31;
 }
 
 .vertical-menu-both-sides .chalkboard_both_items_left {
@@ -1247,9 +1267,9 @@ sup.tooltip {
 
 .vertical-menu-both-sides .chalkboard_both_items_left .chalkboard_both_item {
     text-align: right;
-    border-radius: 5px;
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
-    color: #DBDBD3;
+    border-radius: 19px;
+    background-color: #fff;
+    color: #151C31;
 }
 
 .vertical-menu-both-sides .chalkboard_both_items_right {
@@ -1259,9 +1279,9 @@ sup.tooltip {
 
 .vertical-menu-both-sides .chalkboard_both_items_right .chalkboard_both_item {
     text-align: left;
-    border-radius: 5px;
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
-    color: #DBDBD3;
+    border-radius: 19px;
+    background-color: #fff;
+    color: #151C31;
 }
 
 .vertical-menu-both-sides .chalkboard_both_item {
@@ -1269,24 +1289,26 @@ sup.tooltip {
     line-height: 20px;
     padding: 8px;
     margin: 5px;
-    color: #DBDBD3;
+    color: #151C31;
     list-style: none;
     min-width: 100px;
     height: 20px;
-    border: 1px solid transparent;
+    border: 2px solid #151C31;
 }
 
 .vertical-menu-both-sides .chalkboard_both_item.active {
-    border-color: #3671c8;
+    border-color: #2476AD;
+    color: #2476AD;
+    box-shadow: 0px 3px 6px #00000029;
 }
 
 .vertical-menu-both-sides .chalkboard_both_current {
     font-weight: bold;
 
-    border-color: #44A0BA;
-    color: #000000 !important;
-    background-color: #DBDBD3 !important;
-    background-image: none !important;
+    border-color: #2476AD;
+    color: #fff !important;
+    background-color: #2476AD !important;
+    box-shadow: 0px 3px 6px #00000029;
 }
 
 .vertical-menu-both-sides .chalkboard_both_content > .element > h5 {
@@ -1321,28 +1343,27 @@ sup.tooltip {
     text-align: center;
     float: left;
     line-height: 20px;
-    color: #DBDBD3;
+    color: #151C31;
     list-style: none;
     min-width: 100px;
     height: 20px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
+    border: 2px solid #151C31;
+    border-radius: 19px;
+    background-color: #fff;
 }
 
 .horizontal-menu .chalkboard_items >.chalkboard_item.active {
-    border-color: #3671c8;
+    border-color: #2476AD;
+    color: #2476AD;
+    box-shadow: 0px 3px 6px #00000029;
 }
 
 .horizontal-menu .chalkboard_items >.chalkboard_item.current {
-    border-color: #44A0BA;
-    color: #000000;
-    background-color: #DBDBD3;
-    background-image: none;
-}
-
-.horizontal-menu .chalkboard_items >.chalkboard_item.current {
+    border-color: #2476AD;
+    color: #fff;
+    background-color: #2476AD;
     font-weight: bold;
+    box-shadow: 0px 3px 6px #00000029;
 }
 
 .horizontal-menu >.chalkboard_content {
@@ -1352,9 +1373,10 @@ sup.tooltip {
     padding: 2%;
     margin-top: 20px;
     overflow: auto;
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
-    border-radius: 5px;
-    color: #DBDBD3;
+    background-color: #fff;
+    border-radius: 19px;
+    color: #151C31;
+    border: 2px solid #151C31;
 }
 
 .horizontal-menu > .chalkboard_content > .element > h5 {
@@ -1370,9 +1392,10 @@ sup.tooltip {
     position: relative;
     margin-bottom: 10px;
     /*overflow: auto;*/
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
-    border-radius: 5px;
-    color: #DBDBD3;
+    background-color: #fff;
+    border-radius: 19px;
+    color: #151C31;
+    border: 2px solid #151C31;
 }
 
 .ctrl-pagination:after {
@@ -1491,7 +1514,7 @@ sup.tooltip {
 }
 
 .ctrl-pagination.vertical .button.next {
-    bottom: 2px;
+    bottom: 32px;
     transform: rotate(90deg);
 }
 
@@ -1545,7 +1568,6 @@ sup.tooltip {
 /* SPECIAL CONTENT: Data tables
 /********************************************************************************/
 .datatable {
-    border: 1px solid #0DA8D3;
     border-spacing: 0;
     border-collapse: none;
     margin-bottom: 10px;
@@ -1566,16 +1588,14 @@ sup.tooltip {
     color: #124461;
     font-size: 16px;
     text-align: left;
-    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
-}
-
-.datatable th {
+    background-color: #151C31;
+    
     color: #fff;
     font-size: 18px;
 }
 
 .datatable td {
-    background-color: #E6E6E6;
+    background-color: #f3f3f3;
     padding: 5px;
     border: 1px solid #B8B8B8;
     border-top-width: 0;
@@ -1583,7 +1603,7 @@ sup.tooltip {
 }
 
 .datatable .odd td {
-    background-color: #CCCCCC;
+    background-color: #fff;
 }
 
 .datatable tfoot td {
@@ -2686,5 +2706,8 @@ html.single h1 {
 .w-200 {width: 200px; max-width: 200px !important;}
 
 .float-right {float: right;}
+.center {margin: auto; text-align: center;}
 
-.ctrl-pagination .about {color: #fff;}
+/*.box-text .instruction,
+.box-text .about,
+.ctrl-pagination .about {color: #fff;}*/

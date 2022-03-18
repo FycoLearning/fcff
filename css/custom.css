@@ -54,10 +54,8 @@ video, img {
 	font-size: 14px;
 }
 
-.box-text .instruction,
-.box-text .about {
-	color: #fff;
-}
+.flex {display: flex;}
+.space {justify-content: space-evenly;}
 
 /*#ventana_act_example {
 	width: 600px !important;
@@ -284,6 +282,17 @@ table.vent-desv td {
 	position: relative;
 }
 
+#act4 .box_target {
+	width: 50%;
+	height: 200px;
+	border: 1px solid #151C31;
+	border-radius: 19px;
+}
+
+#act4 .box_target div {
+	border-radius: 19px;
+}
+
 #act4.jpit-activities-multidroppable .droppable {
 	border: none;
     text-align: center;
@@ -303,4 +312,5 @@ table.vent-desv td {
 
 #act4 .sources div {
 	margin: 10px;
+	border-radius: 19px;
 }

@@ -1,0 +1,209 @@
+@charset "utf-8";
+
+@font-face {font-family: "Scala Sans"; 
+    src: url(fonts/Scala_SansRegular_LF.ttf) format("truetype"),
+        url(fonts/scala_sans-bold.ttf) format("truetype"),
+        url(fonts/ScalaSansItalic.ttf) format("truetype");
+    }
+/* CSS Document */
+
+body {
+    font-family: "Scala Sans";
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../img/bg-azul.png) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#body {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+header {
+    min-height: 150px;
+    padding: 10px 0;
+}
+
+div.logo {
+    position: absolute;
+    right: 30px;
+    top: 50px;
+    width: 200px;
+    height: 110px;
+    background: url(../img/logo_blanco.svg) no-repeat;
+    background-size: contain;
+}
+
+div.title-img-fibra {
+    width: calc(100% - 250px);
+    padding-top: 5%;
+    background: url(../img/fibra.svg) no-repeat;
+    background-size: contain;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: normal;
+    padding-left: 20px;
+    color: #fff;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: normal;
+    color: #fff;
+}
+
+pre {
+    background:#F8F8FF;
+    border: #000 dashed 1px;
+    padding: 6px;
+    overflow: auto;
+}
+
+em {
+    color: #b24926;
+}
+
+button.general {
+    background-color: #DBDBD3;
+    color: #000000;
+    border: 1px solid #44A0BA;
+    border-radius: 5px;
+    padding: 7px 25px;
+    cursor: pointer;
+}
+
+button.general.active, button.general:hover {
+    background: transparent linear-gradient(90deg, #15104A 0%, #020306 100%) 0% 0% no-repeat padding-box;
+    color: #DBDBD3;
+}
+
+.videobox {
+    text-align: center;
+}
+
+.videobox > div {
+    margin: 0 auto 5px;
+}
+
+.videobox video {
+    max-width: calc(100% - 10px);
+    margin-bottom: 5px;
+
+    border: 15px solid transparent;
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: #44A0BA;
+    border-radius: 5px;
+}
+
+.videobox video.mejs__player {
+    box-shadow: none;
+}
+
+.objetivo-text {
+    color: #DBDBD3;
+    border: 1px solid #44A0BA;
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+
+.duration {
+    padding-left: 100px;
+    position: relative;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.duration:before {
+    background: url(../img/duracion.svg) no-repeat;
+    background-size: contain;
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 0;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row > .col-2 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 50%;
+    flex-grow: 1;
+    margin: 2% 3%;
+}
+
+#play_scorm {
+    text-align: center;
+}
+
+.ui-state-error, .ui-state-highlight {
+    padding: 10px;
+}
+
+@media (max-width:750px) {
+    #body {
+        width: 95%;
+    }
+
+    #play_scorm {
+        max-width: 100%;
+    }
+
+    header .title {
+        height: 100px;
+        padding: 12px 10px;
+        background-size: 100% 100%;
+    }
+
+    header .title:before {
+        content: "";
+        width: 3px;
+        height: 80px;
+        background-color: rgb(56, 128, 224);
+        position: absolute;
+        left: 15px;
+        top: 10px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .section {
+        padding: 0;
+        flex-direction: column;
+    }
+
+    .section h2 {
+        padding: 0;
+    }
+
+    .section p {
+        padding: 10px 20px;
+        margin: 0;
+    }
+
+    .section.duration p:before {
+        left: -60px;
+    }
+
+    button.general {
+        margin-top: 20px;
+    }
+}

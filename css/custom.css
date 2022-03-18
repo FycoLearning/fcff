@@ -24,6 +24,8 @@
 .w-80 {width: 80%;}
 .w-100 {width: 100%;}
 
+.w-600 {max-width: 600px;}
+
 video, img {
 	max-width: 100%;
 }
@@ -145,11 +147,15 @@ video, img {
 /*Actividad 2*/
 
 .jpit-activities-multidroppable .droppable {
-	min-height: 50px;
-	max-width: 100%;
+	height: 34%;
+    width: 18.5%;
 	display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    position: absolute;
+
+    background: transparent;
+    border: none;
 }
 
 .jpit-activities-multidroppable .sources table td:first-child {
@@ -159,19 +165,45 @@ video, img {
 	width: 20px;
 }
 
-.jpit-activities-multidroppable .sources table td div {
-	position: absolute !important;
-	top: 0 !important;
-	left: 0 !important;
-	right: 0 !important;
-}
-
 .jpit-activities-multidroppable .draggable {
-	width: 20px;
-	height: 20px;
+	width: 30px;
+	height: 25px;
 	padding: 0;
+	background: url(../content/postit.png) no-repeat;
+	background-size: 100%;
+	border: none;
+	padding-top: 10px;
 }
 
-table.w-100 td {
-	max-width: 25%;
+#act2 .box_targets {
+	background: url(../content/act2.png) no-repeat;
+	background-size: 100%;
+	padding-top: 48%;
+	position: relative;
+}
+
+#act2 .target1 {
+	top: 33%;
+    left: 3%;
+}
+
+#act2 .target2 {
+	top: 56%;
+    left: 24%;
+}
+
+#act2 .target3 {
+	top: 33%;
+	left: 54%;
+}
+
+#act2 .target4 {
+	top: 56%;
+	left: 76%;
+}
+
+#act2 .postit {
+	position: absolute;
+	top: 0;
+    right: 0;
 }

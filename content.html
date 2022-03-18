@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <link href="css/fonts/Scala_SansRegular_LF.ttf" rel="stylesheet" type="text/css"/> -->
+    <title>Comparativo entre Hilo de cobre e Hilo de fibra en Redes de Comunicaciones para transportar nuevas clases de servicios</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+<!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+<!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="40" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <header>
+            <div class="logo">
+                <img src="img/logo_color.svg" alt="Fyco learning" />
+            </div>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Presentación" data-page="pag-presentacion"></menuitem>
+                    <menuitem label="Componentes">
+                        <menu>
+                            <menuitem label="1. Qué es el cobre y qué es la fibra" data-page="pag-que_es"></menuitem>
+                            <menuitem label="2. El ancho de banda" data-page="pag-banda"></menuitem>
+                            <menuitem label="3. Atenuación y distancia" data-page="pag-atenuacion"></menuitem>
+                            <menuitem label="4. Velocidad de propagación y latencia" data-page="pag-velocidad"></menuitem>
+                            <menuitem label="5. Confiabilidad y seguridad" data-page="pag-confiabilidad"></menuitem>
+                            <menuitem label="6. Instalación, operación y mantenimiento" data-page="pag-instalacion"></menuitem>
+                            <menuitem label="7. Costo" data-page="pag-costo"></menuitem>
+                            <menuitem label="8. Síntesis" data-page="pag-sintesis"></menuitem>
+                        </menu>
+                    </menuitem>
+                </menu>
+            </nav>
+            <h2 class="page-title"></h2>
+        </header>
+
+        <main style="display: none;">
+
+            <section id="pag-presentacion">
+                <div class="subpage">
+                    <div class="page-index">
+                        <div class="ova_name">
+                            <div class="title">
+                                <h1>Evolución de las redes ópticas de transporte (PDH/SDH/Ethernet) y redes de acceso (xDSL, HFC, FTTH y wireless)</h1>
+                                <div class="title-img-fibra"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <h2>Presentación</h2>
+                                <div class="videobox">
+                                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/sqeh7i6BiNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                    <video controls src="https://info.fycolearning.com/fba/cursos/fcff/mod1/tema2/m1-t1_2-introduccion.mp4" poster="https://info.fycolearning.com/fba/cursos/fcff/mod1/tema2/poster/m1-t1_2-introduccion.png"></video>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <h2>Objetivo</h2>
+                                <div class="objetivo-text">
+                                    <p>Comparar las características principales de la fibra óptica y de los medios de transmisión en cobre como el par de cobre y el cable coaxial, con el fin de identificar las ventajas y desventajas de cada medio de transmisión.</p>
+                                </div>
+                                <div class="duration">
+                                    <h2>Duración: 1 hora / 60 minutos</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-que_es" ptitle="1. Qué es el cobre y qué es la fibra">
+                <div class="subpage">
+                    <div class="row align-center">
+                        <div class="col-2">
+                            <p>Las redes  de corta y larga distancia que permiten la comunicación entre personas en cualquier lugar del mundo, han ido evolucionando con el transcurso de los años. Dicha evolución ha venido de la mano de nuevas aplicaciones y servicios, gracias a Internet. En el caso de las redes de acceso, pasamos de redes para telefonía o televisión por cable, a redes de banda ancha, que permiten la transmisión de vídeo, datos y voz en formato digital a cientos de Mbps de forma simultánea. Los medios de transmisión como el par de cobre, el cable coaxial y la fibra óptica, han respondido a esta evolución, no sin importantes cambios en los equipos tanto en la oficina central del operador como en los predios de los clientes, pero ¿Cuál es la diferencia entre estos dos tipos de medios de transmisión, los basados en cobre y los basados en fibra óptica,  y cuál ofrece más posibilidades?</p>
+                            <p>Comencemos identificando de manera general la conformación de los tipos de medios de transmisión mencionados, observando las imágenes de la Figura 1.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento del esquema para conocer su descripción.</span>
+                                <span class="onlymobile">Toca cada elemento del esquema para conocer su descripción.</span>
+                            </div>
+                            <div style="width: 100%;"><div style="position: relative; padding-bottom: 88.46%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1300" height="1150" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/6230e40281ae18001897183f" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                        </div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Ahora, es importante señalar que tanto la fibra óptica como los medios en cobre tienen sus ventajas y desventajas, pero si queremos destacar diferencias considerables y tener razones para determinar cuál podría ser la mejor opción, podemos centrarnos en características particulares como el ancho de banda, la distancia y velocidad de transmisión, la confiabilidad, seguridad y por supuesto, el costo. Estudiemos con más detalle cada una de estas razones.</p>
+                        <p>Pasa a la siguiente página para continuar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-banda" ptitle="2. El ancho de banda">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Situémonos en una autopista de esas que tienen 5 o más líneas por cada lado y pensemos, qué podría ocurrir si, con la misma cantidad de vehículos transitando por ella, la redujeramos a dos o tres carriles solamente.</p>
+                            <p>¿Pensaste en un caos? ¡Claro! porque inevitablemente esa reducción implica que el desplazamiento de los vehículos será más lento, incluso haciendo que en una hora pico u hora punta los vehículos casi ni puedan moverse.</p>
+                            <p>Establezcamos una analogía con las autopista pero de información. Los distintos carriles o líneas son en el mundo de las telecomunicaciones comúnmente las frecuencias, y los vehículos que transitan por la autopista son los mensajes. Ahora bien, denominaremos <strong>ancho de banda</strong> al rango de frecuencias que tenemos disponibles en nuestras autopistas de información.  Mientras más amplio el rango de frecuencias, mayor es la capacidad de transportar información. </p>
+                        </div>
+                        <div class="col-2">
+                            <div class="box_media">
+                                <video muted autoplay loop src="https://info.fycolearning.com/fba/cursos/fcff/mod1/tema2/m1-t1_2-introduccion-animacion1.mp4"></video>
+                            </div>
+                            <div class="about"><strong>Animación 1.</strong> Analogía de autopistas de vehículos con autopistas de información.</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre la imagen para conocer su descripción.</span>
+                                <span class="onlymobile">Toca sobre la imagen para conocer su descripción.</span>
+                            </div>
+                            <div class="view-first">
+                                <img src="content/fig2.png" />
+                                <div class="view-content">
+                                    <p>Piensa que todo lo que hacemos cuando usamos Internet es mover paquetes de información de un lado a otro, con una velocidad que dependerá de la tecnología o el tipo de servicio que estemos utilizando. Por tanto, mientras menor sea el ancho de banda, más lento será el envío de datos de un terminal a otro y en consecuencia, mientras más personas estén enviando paquetes de información, más saturada y lenta estará la red. </p>
+                                </div>
+                            </div>
+                            <div class="about"><strong>Figura 2.</strong> Ancho de banda digital. Representación gráfica de la transmisión de información en Internet</div>
+                        </div>
+                        <div class="col-2">
+                            <p>¿Cómo medimos este ancho de banda? En unidades de frecuencia que denominamos Hz (Hertz). Cuando tenemos un rango de frecuencias de 1000 Hz (por ejemplo de 5 Hz a 1005 Hz) usamos kHz para denotarlo; MHz nos indica que el ancho de banda es de un millón de Hz; GHz nos indica que el ancho de banda cubre un rango de mil millones de Hz y finalmente THz indica un rango de 1 billón de Hz. </p>
+                            <p>En el mundo de redes de datos, como internet, hay también una definición de ancho de banda que denominaremos <strong>ancho de banda digital</strong>. En este caso, se refiere al volumen de información o número de bits que se puede enviar a través de una conexión en una cantidad medida de tiempo o en un segundo. Mientras más grande el ancho de banda, mayor capacidad de transmitir información. Igualmente que en el caso anterior, si la capacidad es de kbps, diremos que la red está en capacidad de transmitir 1000 bits por segundo, si es Mbps la capacidad sería de un millón de bits por segundo, Gbps indica mil millones y Tbps indica un billón de datos, toda cantidad referida a un lapso de tiempo de 1 segundo.</p>
+                        </div>
+                    </div>
+                    <p>La pregunta que sigue es ¿Hay diferencia entre la fibra óptica y los medios de cobre en cuanto a su ancho de banda? La respuesta es SÍ, hay grandes diferencias, pero además, tratándose de medios de transmisión, se mide su capacidad de ancho de banda a una distancia determinada, que usualmente se refiere a 1 km. Es decir, cuál es su capacidad de transmitir información en un kilómetro. Para ser coherentes, compararemos estos medios en el segmento de la red de acceso: miremos el siguiente ejemplo.</p>
+                    <div class="box-text example w-90" label="Por ejemplo">
+                        <p>Un sistema GPON que hace uso de fibra al hogar puede llevar 2.5 Gbps a 20 km, en tanto que un sistema ADSL2+ que envía información sobre el par de cobre puede transmitir señales del orden de 24 Mbps a 2.5 km aproximadamente. Podríamos decir que la fibra puede llevar 1000 veces más capacidad a un kilómetro que un par de cobre. En cuanto al cable coaxial tipo RG6, sin amplificadores, con Docsis 3.1 podría llevar 10 Gbps unos 250 m, es decir, la fibra tendría 20 veces más capacidad, Esta característica hace que la fibra pueda soportar futuros servicios y aplicaciones que demanden alto ancho de banda.</p>
+                        <div class="instruction">
+                            <span class="notmobile">Pasa el cursor sobre cada imagen para conocer más información.</span>
+                            <span class="onlymobile">Toca sobre la imagen para conocer más información.</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="view-first">
+                                    <img src="content/fig3-1.png" />
+                                    <div class="view-content">
+                                        <img src="content/fig3-1b.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="view-first">
+                                    <img src="content/fig3-2.png" />
+                                    <div class="view-content">
+                                        <img src="content/fig3-2b.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about">
+                            <strong>Figura 3.</strong> Diferencia entre el ancho de banda de fibra óptica y cobre.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-atenuacion" ptitle="3. Atenuación y distancia">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Esta es una característica que indica el medio de transmisión, qué tanto va disminuyendo la potencia de la señal que transmite. Es muy importante porque se relaciona con la cobertura que puede tener una red de telecomunicaciones. Aunque es un concepto que veremos en detalle en la fundamentación de la fibra óptica, de momento podemos afirmar que en lo que respecta a la distancia, la fibra óptica es claramente superior a los medios en cobre. Esto se debe a que la atenuación de la señal en la fibra es mucho más pequeña que los medios de cobre, pudiendo alcanzar mayores distancias.  En los medios de pares de cobre tipo UTP hay una limitación de distancia de alrededor de 100 m, en tanto que para la fibra es posible tener alcances del orden de 40 km.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/ani2.gif" alt="Señal que sufre atenuación" />
+                            </div>
+                            <div class="about">
+                                <strong>Animación 2.</strong> Señal que sufre atenuación.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-velocidad" ptitle="4. Velocidad de propagación y latencia">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Tanto la fibra óptica como los medios en cobre transmiten señales del tipo electromagnéticas. Estas señales son muy especiales pues pueden incluso propagarse en el espacio libre, son ellas las que permiten, por ejemplo, la comunicación móvil y las inalámbricas como el WIFI. En el espacio libre esta velocidad de propagación es igual a la <strong>velocidad de la luz</strong> (<strong>c</strong>), que es del orden de 300000 km/s.  En otros medios como el vidrio en la fibra, o en los medios de cobre, la velocidad de propagación es menor, y para calcularla se usa como referencia la velocidad de la luz. De acuerdo a esto, se ha logrado determinar en laboratorio, algunos casos típicos: la velocidad de propagación en la fibra es del orden del 66 % de <strong>c</strong>, en el caso del cable UTP categoría 6 es solo del 29 % y el coaxial que se usa para hacer distribución en casa del orden del 83 %. </p>
+                            <div class="box-text connection">
+                                <p><strong>Pensemos en las siguientes preguntas:</strong></p>
+                                <ul class="data_list">
+                                    <li><i>¿Por qué es importante la velocidad de propagación?</i></li>
+                                    <li><i>¿Por qué asociada a ella está un concepto que ha cobrado mucha importancia denominado <strong>Latencia</strong>?</i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/fig4.png" alt="Representación gráfica de la velocidad de transmisión de señales de luz" />
+                            </div>
+                            <div class="about"><strong>Figura 4.</strong> Representación gráfica de la velocidad de transmisión de señales de luz.</div>
+                        </div>
+                    </div>
+                    <div class="box-text note" label="La latencia">
+                        <p>En términos muy sencillos, significa retraso o cantidad de tiempo que se tarda en enviar la información de un punto a otro (suele medirse en milisegundos o ms).</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Pensemos como analogía para aplicar este concepto a nuestras redes, que el sistema de comunicaciones funciona como un sistema que hace entrega de paquetes.  Como clientes esperamos que el paquete sea entregado en perfectas condiciones en <strong>el menor tiempo posible</strong>, es decir, con la menor latencia posible. Para lograrlo se hace todo un proceso de identificación de quien entrega y a quién va dirigido, se establecen las rutas de entrega y se decide de acuerdo con los tiempos de entrega, la ruta, la manera de optimizar el espacio en los contenedores,  y el medio de transporte.</p>
+                            <p>Fíjate que hasta allí aún no ha salido el paquete, sin embargo, aunque ya va corriendo el tiempo, los procesos de su empaquetado son muy importantes para que llegue a su destino. Esto es lo que sucede en la oficina central del operador de telecomunicaciones, pero con paquetes de información: se requiere de una serie de procedimientos o protocolos, que permitan su envío al receptor correctamente. </p>
+                        </div>
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/fig5.png" alt="Representación del concepto de latencia asociado al tiempo de entrega de paquetes" />
+                            </div>
+                            <div class="about"><strong>Figura 5.</strong> Representación del concepto de latencia asociado al tiempo de entrega de paquetes.</div>
+                        </div>
+                    </div>
+                    <p>Ahora viene otra parte que consume tiempo en la entrega, y es cuando los paquetes ya están en la ruta, algunos serán entregados por avión, o en buques que cruzan los océanos, algunos más ya en puertos requerirán una nueva selección de rutas y medios de transporte para llegar a la residencia de los clientes. Continuando con nuestra analogía, estos son <strong>los medios de transmisión de los que hablamos: la fibra óptica, los pares de cobre y los cables coaxiales, añaden tiempo en la entrega del paquete</strong>, por eso la velocidad de propagación acá tiene todo el interés como característica de los medios de transmisión.</p>
+                    <p>Finalmente tenemos un tiempo más que añade la recepción del paquete y aceptación por parte del cliente que lo recibe.</p>
+                    <p>Una cosa más para añadir: las aplicaciones actuales y aún más las que están en desarrollo tienen requerimientos de latencia para funcionar correctamente. Observa en la figura como los vehículos autónomos no sólo requieren sistemas que puedan gestionar su información a una tasa de un millón de bits por segundo (1000 Mbps), sino que también el tiempo total entre transmisor y receptor tarde ¡1 milisegundo! Esto requiere no sólo medios de transmisión muy rápidos (allí volvemos al concepto de ancho de banda y grandes autopistas de información) sino una gestión de paquetes muy eficiente.</p>
+                    <p>Aunque la latencia incluye los tiempos de la entrega por parte del emisor, la transmisión y la recepción, en este apartado estamos haciendo énfasis en el tiempo que toma la señal para cruzar por el medio de transmisión, y en especial, la fibra óptica.</p>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada elemento del esquema para conocer su descripción.</span>
+                        <span class="onlymobile">Toca cada elemento del esquema para conocer su descripción.</span>
+                    </div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 57.14%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1400" height="800" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61d5b3244917b90d6cac7d41" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="about"><strong>Figura 6.</strong> Requerimientos de latencia y tasas de transmisión de diferentes aplicaciones</div>
+                    <div class="box-text example" label="Ejemplo">
+                        <p>Ahora hagamos un corto pero sencillo cálculo de la latencia para comparar estos tiempos en la fibra y un cable UTP categoría 6.</p>
+                        <button class="w-content-controler general jpit-activities-view" data-content="#ventana_act_example" data-act-title="Abrir ejemplo" data-act-id="0_example">Abrir ejemplo</button>
+                    </div>
+                    <div id="ventana_act_example" class="w-content" data-property-width="90vw">
+                        <div class="row">
+                            <div class="col-2">
+                                <table class="datatable">
+                                    <thead>
+                                        <th>Tipo de medio</th>
+                                        <th>Fibra óptica</th>
+                                        <th>Cable UTP categoría 6</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Velocidad de propagación referente a <strong>c</strong></td>
+                                            <td>66 % de <strong>c</strong> = 198000 km/s</td>
+                                            <td>29 % de <strong>c</strong> = 87000 km/s</td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td>Tomando como referencia una distancia de 1 kilómetro.
+                                                <br>Clave: la velocidad (V) es la relación entre la distancia (d) y el tiempo (t) en recorrerla (V = d / t).</td>
+                                            <td>0.000005 s ó 5 μs</td>
+                                            <td>0.000011 s ó 11 μs</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-2">
+                                <p>Observa como la fibra tiene casi el doble de la velocidad de propagación que el cable UTP, y como era de esperarse, tardará la mitad del tiempo aproximadamente en recorrer la misma distancia, en este caso fué 1 km.</p>
+                                <p>Lo importante es que si estamos pensando en aplicaciones exigentes en latencia, en distancias de decenas de kilómetros, los sistemas de comunicaciones por fibra óptica resultan muy eficientes en comparación con otros medios de transmisión.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-confiabilidad" ptitle="5. Confiabilidad y seguridad">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>El cable de fibra óptica es mucho menos susceptible a factores ambientales que el de cobre, pues tiene alta tolerancia a condiciones ambientales como niveles extremos de temperatura, humedad o presión. Además, a diferencia del par de cobre, no se afecta por ambientes corrosivos, explosivos o inflamables, por lo que resultan apropiadas para ser instaladas en minas donde la emisión de gases puede ser riesgosa en caso de producirse una chispa eléctrica. Igualmente son inmunes a interferencias electromagnéticas, por lo que se ven menos afectadas en ambientes de descargas eléctricas o motores, líneas de alta tensión, entre otros. </p>
+                        </div>
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre la imagen para conocer su descripción.</span>
+                                <span class="onlymobile">Toca sobre la imagen para conocer su descripción.</span>
+                            </div>
+                            <div class="view-first">
+                                <img src="content/fig7.png" />
+                                <div class="view-content">
+                                    <p>La fibra también es menos sensible a interferencias electromagnéticas, por estar construida con materiales dieléctricos como el vidrio. Esto hace que pueda ser instalada al interior de los cables de guarda en las torres eléctricas y que sea ideal en ambientes agresivos y con presencia de campos electromagnéticos grandes.</p>
+                                </div>
+                            </div>
+                            <div class="about">
+                                <strong>Figura 7.</strong> La fibra óptica es inmune a la interferencia de campos electromagnéticos.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-instalacion" ptitle="6. Instalación, operación y mantenimiento">
+                <div class="subpage">
+                    <p>Los cables ópticos son muy livianos y de un diámetro menor que un cable de multipar en cobre. Un solo hilo de fibra tiene un diámetro de un cabello, es típicamente de 125 micrómetros, menos de un milímetro, y esto se nota cuando se conforma en un cable de muchos hilos de fibra, comparado con el cable multipar de cobre. Como podemos ver en la figura 6, un cable de 2400 pares de hilos de cobre de 0.4 mm, tiene un diámetro de 69.1 mm y un peso de 7154 kg por cada km. Un solo hilo de fibra podría llevar más de las comunicaciones de este cable de 2400 pares, pero para poner un caso típico de cables de fibra de 144 hilos instalado en la red de acceso, éstos tienen un diámetro de 17.7 mm y un peso de 209 kg/km. Esto se traduce no solo en menos costos por metro del cable, sino en enormes ventajas en la instalación. </p>
+                    <p>Por otro lado, las fibras permiten una operación y mantenimiento simple; son muy estables en el tiempo y ofrecen una vida útil de más de 10 años sin prácticamente modificar sus parámetros ópticos. Los cables de par de cobre igualmente tienen una vida útil grande, solo que son altamente dependientes de las condiciones ambientales y de la calidad del proceso de instalación. Otro detalle que debe considerarse es que las redes en cobre, como la HFC, requieren uso de fuentes de energía externa para alimentar los amplificadores de la red, lo que no solo aumenta los costos de la red, sino que hace más compleja la operación y el mantenimiento, dada la adición de elementos como amplificadores de RF, baterías y fuentes de suministro de energía que requieren mantenimiento periódico, más aún por estar instalados en la intemperie. </p>
+                    <p>Un aspecto adicional a favor de los cables de cobre es que el proceso de empalmería, es decir, el empate de cables o por ejemplo la conexión de conectores,  es mucho más sencilla en los cables de cobre que en una fibra óptica, La fibra por ser de vidrio y con diámetros del tamaño de un cabello requiere un equipo especializado conocido como empalmadora de fibra, que requiere además de un operario con entrenamiento para lograr empalmes que hagan que la señal pase sin casi sentir que hay una discontinuidad. Sin embargo, esta desventaja se convierte también de alguna manera en una ventaja, pues el cable de fibra no puede ser fácilmente intervenido por intrusos en la red, a diferencia de los medios de cobre, que muy frecuentemente sufren de pirateo de la señal.</p>
+                    <p>Finalmente una ventaja de los cables en cobre es que pueden telealimentar los equipos activos conectados a la red, como repetidores o equipos ubicados en la casa del cliente.</p>
+                    <div class="instruction">
+                        <span class="notmobile">Pasa el cursor sobre cada imagen para conocer su descripción.</span>
+                        <span class="onlymobile">Toca sobre cada imagen para conocer su descripción.</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="view-first">
+                                <img src="content/fig8.png" />
+                                <div class="view-content">
+                                    <p>Un cable de 2400 pares de hilos de cobre de 0.4 mm, tiene un diámetro de 69.1 mm y 7154 kg/km de peso. Un solo hilo de fibra podría llevar más de las comunicaciones de este cable de 2400 pares, pero para poner un caso típico de cables de fibra de 144 hilos instalado en la red de acceso, éstos tienen un diámetro de 17.7 mm y un peso de 209 kg/km. Esto se traduce no solo en menos costos y mayor rendimiento de instalación.</p>
+                                </div>
+                            </div>
+                            <div class="about">
+                                <strong>Figura 8.</strong> Comparación entre un cable de fibra y un cable multipar en cobre
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="view-first">
+                                <img src="content/fig9.png" />
+                                <div class="view-content">
+                                    <p>Observa que para empalmar una fibra se requiere un kit de herramientas muy completo que incluye las requeridas para preparar el cable de fibra, como pela-cable, alcohol, cortadora, mangas termocontraibles para proteger el empalme  y una empalmadora por fusión. En contraste el cable coaxial requiere pocas herramientas que le permiten preparar el cable y ajustar el conector.</p>
+                                </div>
+                            </div>
+                            <div class="about">
+                                <strong>Figura 9.</strong> Empalme por fusión de fibra óptica y de un coaxial
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-costo" ptitle="7. Costo">
+                <div class="subpage">
+                    <div class="row align-center">
+                        <div class="col-2">
+                            <p>En relación al costo del cable de fibra óptica en comparación con el cable de cobre, se puede afirmar de forma contundente que la fibra es mucho menos costosa, debido a que  son construidas con un material de base abundante en la naturaleza -el sílice- en contraste con el cobre, que tiene minas identificadas y cuyo precio depende de su demanda mundial. Esto hace igualmente que los cables de cobre sean robados frecuentemente con los consecuentes perjuicios para la operadora  y para sus clientes.</p>
+                            <p>Ahora bien, hasta hace poco los equipos transmisores y receptores para operar con la fibra óptica eran más costosos que los empleados para sistemas en par de cobre y coaxial, pero con el tiempo y el desarrollo de las redes de banda ancha y la contínua demanda por más ancho de banda en la red, ha equiparado los costos, al punto que hoy los ISP (proveedores del servicio de internet) están haciendo sus expansiones basados en fibras ópticas, como veremos en el análisis del mercado de esta tecnología.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/ani3.gif" alt="Cable de fibra óptica con conector, material compuesto por arena (sílice) para elaboración de fibra óptica y minas en cobre para fabricación de pares de cobre y coaxial" />
+                            </div>
+                            <div class="about">
+                                <strong>Animación 3.</strong> Cable de fibra óptica con conector, material compuesto por arena (sílice) para elaboración de fibra óptica y minas en cobre para fabricación de pares de cobre y coaxial
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-sintesis" ptitle="8. Síntesis">
+                <div class="subpage">
+                    <div class="box-text important w-90" label="En conclusión">
+                        <p>Son todas estas características las que han hecho que la fibra óptica tenga una muy alta penetración, incluso actualmente en el acceso. Por ello, resumamos nuestra comparación en el siguiente esquema.</p>
+                    </div>
+                </div>
+                <div class="genially">
+                    <div style="width: 100%;"><div style="position: relative; padding-bottom: 62.50%; padding-top: 0; height: 0;"><iframe frameborder="0" width="2400" height="1500" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61d5baa9d262b80d6560e7f6" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                </div>
+                <div class="subpage">
+                    <div class="box-text activity w-90" label="Actividades de aprendizaje">
+                        <p><strong>Objetivo: </strong>Reconocer diferencias importantes entre el cobre y la fibra, así como las ventajas y desventajas de cada una.</p>
+                        <p>Pongamos a prueba los conocimientos adquiridos con esta actividad. Si sientes que necesitas repasar o investigar un poco más antes de realizar el ejercicio ¡adelante!</p>
+                        <p><strong>Recuerda que puedes repasar el contenido y realizar esta actividad las veces que necesites hasta completar el 100% de la calificación.</strong></p>
+
+                    </div>
+                    <h4>Actividad 1</h4>
+                    <p><strong>Enunciado: </strong>Reconociendo en qué se diferencian el cobre y la fibra, selecciona, para las siguientes situaciones, el tipo de cable que debería utilizarse.</p>
+                    <div class="jpit-activities-check" data-act-id="1_check" data-act-title="Actividad 1">
+                        <words>
+                            <li data-val="true">Una red para monitoreo en un pozo petrolero</li>
+                            <li data-val="true">Una red para transmisión de telecomunicaciones que va por torres de alta tensión</li>
+                            <li>Una red de acceso para usuarios que están a menos de 2 km con tasas máximas de 10 Mbps</li>
+                            <li data-val="true">Una red de sensores que monitorea el estado de los motores de un avión.</li>
+                            <li data-val="true">Una red que lleva la comunicación de larga distancia al interior de un país</li>
+                            <li>Una red de sensores que no está expuesto a interferencias electromagnéticas</li>
+                            <li data-val="true">Una red que atiende hogares en zona costera</li>
+                        </words>
+                        <div class="board">
+                            <div class="check_left">
+                                <div class="play">
+                                    <div class="word_content"> </div>
+                                    <div class="buttons">
+                                        <button class="yes general">Fibra</button>
+                                        <button class="not general">Cobre</button>
+                                    </div>
+                                </div>
+                                <div class="box_conclution">
+                                    <h3>¡Has finalizado!</h3>
+                                    <div class="buttons">
+                                        <button class="general reload">Repasa el contenido e intenta de nuevo esta actividad.</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="check_right">
+                                <div class="box_result">
+                                    <div class="correct">
+                                        <div class="hits">0</div>
+                                        <div class="text">Aciertos</div>
+                                    </div>
+                                    <div class="wrong">
+                                        <div class="miss">0</div>
+                                        <div class="text">Desaciertos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <h4>Actividad 2</h4>
+                    <p><strong>Enunciado: </strong>Identificando los beneficios pero también las oportunidades de mejora que tienen el cobre y la fibra, clasifica cada una de las siguientes características como ventaja o desventaja de cada tipo de cable según corresponda.</p>
+                    <p>Recuerda que puedes repasar el contenido y realizar esta actividad las veces que necesites hasta completar el 100% de la calificación.</p>
+                    <div id="arrastrargrupos" class="jpit-activities-multidroppable" data-act-title="Actividad 2" data-act-id="2_multiple">
+                        <div class="row align-center">
+                            <div class="col-2">
+                                <table class="datatable box_targets w-100 center">
+                                    <thead>
+                                        <th colspan="2">Cobre</th>
+                                        <th colspan="2">Fibra</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Ventajas</td>
+                                            <td>Desventajas</td>
+                                            <td>Ventajas</td>
+                                            <td>Desventajas</td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="target" data-target-group="1"></div></td>
+                                            <td><div class="target" data-target-group="2"></div></td>
+                                            <td><div class="target" data-target-group="3"></div></td>
+                                            <td><div class="target" data-target-group="4"></div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="buttons center">
+                                    <button class="general verify">Verificar</button>
+                                    <button class="general continue" style="display: none;">Continuar intentando</button>
+                                </div>
+                                <div class="box_end"></div>
+                            </div>
+                            <div class="col-2">
+                                <div class="sources">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                a
+                                                <div data-group="3">a</div>
+                                            </td>
+                                            <td>Más liviana con mayor rendimiento en instalación</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                b
+                                                <div data-group="3">b</div>
+                                            </td>
+                                            <td>Más capacidad en bps-km</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                c
+                                                <div data-group="2">c</div>
+                                            </td>
+                                            <td>Más atenuación</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                d
+                                                <div data-group="1">d</div>
+                                            </td>
+                                            <td>Menor retardo por más velocidad de propagación</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                e
+                                                <div data-group="2">e</div>
+                                            </td>
+                                            <td>Más fácil de acceso a intrusos</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                f
+                                                <div data-group="2">f</div>
+                                            </td>
+                                            <td>Más propenso a robo</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                g
+                                                <div data-group="1">g</div>
+                                            </td>
+                                            <td>Fácil de empalmar</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                h
+                                                <div data-group="3">h</div>
+                                            </td>
+                                            <td>Más alcance en la red de acceso</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                i
+                                                <div data-group="2">i</div>
+                                            </td>
+                                            <td>El elemento del que está hecho es escaso</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                j
+                                                <div data-group="3">j</div>
+                                            </td>
+                                            <td>Inmune a interferencias electromagnéticas</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                k
+                                                <div data-group="3">k</div>
+                                            </td>
+                                            <td>Más estable en el tiempo a condiciones ambientales adversas</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                l
+                                                <div data-group="4">l</div>
+                                            </td>
+                                            <td>No permite telealimentar elementos de red</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                m
+                                                <div data-group="3">m</div>
+                                            </td>
+                                            <td>Más barato como cable</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                n
+                                                <div data-group="2">n</div>
+                                            </td>
+                                            <td>Limitado para crecer en capacidad y escalabilidad</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-bibliografia" ptitle="Referencias">
+                <div class="subpage" id="bibliography_subpage">
+                    <ul>
+                        <li>Ministerio de Telecomunicaciones y de la Sociedad de la Información, (s/f). <i>Descubre los beneficios de la fibra óptica</i> . Recuperado el 06 de diciembre de <a href="https://www.telecomunicaciones.gob.ec/descubre-los-beneficios-de-la-fibra-optica/" target="_blank">https://www.telecomunicaciones.gob.ec/[...]</a></li>
+
+                        <li>Cabrera, J. (2021). <i>Fibra vs. Cobre</i>. Recuperado el 06 de diciembre de <a href="https://optral.com/noticias/fibra-vs-cobre" target="_blank">https://optral.com/[...]</a></li>
+                        
+                        <li>Grupo Legrand, (s/f). <i>Fibra óptica y cable de cobre. Ventajas y desventajas.</i> Recuperado el 06 de diciembre de <a href="https://legrand.com.pe/fibra-optica-y-cable-de-cobre-ventajas-y-desventajas/" target="_blank">https://legrand.com.pe/[...]</a></li>
+
+                        <li>Ortiz, A. (2021). <i>¿Cuáles son las diferencias entre los cables de fibra óptica y los cables de cobre?</i>. Recuperado el 06 de diciembre de <a href="https://www.hostdime.com.pe/blog/cuales-son-diferencias-cables-fibra-optica-cables-de-cobre/" target="_blank">https://www.hostdime.com.pe/[...]</a></li>
+
+                        <li>Izquierdo, C. (s/f). <i>Comparativa entre Fibra Óptica y Cobre.</i> Recuperado el 06 de diciembre de <a href="https://www.telecocable.com/blog/comparativa-fibra-optica-cobre/1185" target="_blank">https://www.telecocable.com/[...]</a></li>
+
+                        <li>Columnas, I. (2018). <i>¿Qué es el ancho de bandas?</i>. Recuperado el 06 de diciembre de <a href="https://pisapapeles.net/que-es-el-ancho-de-banda/" target="_blank">https://pisapapeles.net/[...]</a></li>
+                        
+                    </ul>
+                </div>
+            </section>
+
+            <!--Créditos-->
+            <section id="pag-creditos">
+                <div class="subpage" id="credits_subpage">
+
+                    <div class="creditos-fba">
+                        <h2>Créditos</h2>
+                        <div class="bloque">
+                            <table>
+                                <tr>
+                                    <td>Experta Temática</td>
+                                    <td>Ana María Cárdenas</td>
+                                </tr>
+                                <tr>
+                                    <td>Pares evaluadores</td>
+                                    <td>Luis Fernando Rodríguez / Marco Teran / Fredy Pereira</td>
+                                </tr>
+                                <tr>
+                                    <td>Asesoría pedagógica / Diseño instruccional</td>
+                                    <td>Carolina Llanos</td>
+                                </tr>
+                                <tr>
+                                    <td>Corrección de estilos</td>
+                                    <td>Danleibi Molina</td>
+                                </tr>
+                                <tr>
+                                    <td>Diseño gráfico</td>
+                                    <td>Inesly Vega</td>
+                                </tr>
+                                <tr>
+                                    <td>Producción audiovisual</td>
+                                    <td>Fernanda Álvarez / Sebastián Quintero</td>
+                                </tr>
+                                <tr>
+                                    <td>Integración de contenidos</td>
+                                    <td>Santiago Bernal</td>
+                                </tr>
+                                <tr>
+                                    <td>Revisión de calidad</td>
+                                    <td>Fyco Learning</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bloque logo">
+                            <h3>Gestión técnica y administrativa</h3>
+                            <a href="https://fycolearning.com/" target="_blank"><img src="img/logo_azul.png" alt="Fyco learning" /></a>
+                            <p>Versión 1.0</p>
+                        </div>
+                        <div class="bloque copy">
+                            <p>
+                                Este recurso educativo es propiedad de Fyco Learning.
+                                <br />Todo el material didáctico que lo compone está protegido por las leyes que rigen la propiedad intelectual. 
+                                <br />Para utilizar todo o parte de este material se debe contar con autorización expresa de la organización. 
+                            </p>
+                            <p>
+                                Derechos reservados ©
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                    <!-- <p>
+                        Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+                    </p>
+                    <div>
+                        <h3>Expertos temáticos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Leidy Cristina Madrigal Arrieta</cite>
+                    </div>
+                    <div>
+                        <h3>Asesoría pedagógica</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Corrección de estilo</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Traducción de contenidos</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión Administrativa</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión de calidad</h3>
+                        <cite>Ana Yarenis Arango</cite>
+                    </div>
+                    <div>
+                        <h3>Diseño gráfico</h3>
+                        <cite>Juliana Tobón Gaviria</cite>
+                    </div>
+                    <div>
+                        <h3>Integración de contenidos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Santiago Bernal García</cite>
+                    </div>
+
+                    <div>
+                        <h3>Producción</h3>
+                        <p class="logos">
+                            <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                            <br />
+                            <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                            <br />
+                            <a href="http://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                        </p>
+                    </div>
+
+                    <div class="editions">
+                        1ª edición: diciembre 2013<br />
+                        2ª edición: octubre 2015<br />
+                        3ª edición: febrero 2016<br />
+                        4ª edición: junio 2017
+                    </div>
+                    <div>
+                        <br />
+                        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Obra publicada bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                    </div>
+
+                    <p>
+                        Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+                    </p>
+                    <p>
+                        Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+                    </p> -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <div class="measuring-progress" data-type="horizontal"></div>
+
+            <nav label="Características globales" class="globals">
+                <menu>
+                    <menuitem data-global-id="results"><div class="progress"><p>Progreso</p></div></menuitem>
+                    <menuitem data-page="pag-creditos"><div class="credits"><p>Créditos</p></div></menuitem>
+                    <menuitem data-page="pag-bibliografia"><div class="biblio"><p>Referencias</p></div></menuitem>
+                    <menuitem data-global-id="return">
+                        <div class="maximize"><p>Maximizar</p></div>
+                        <div class="minimize"><p>Minimizar</p></div>
+                    </menuitem>
+                    <menuitem data-global-id="close_all"><div class="back"><p>Salir</p></div></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div id="page_number"></div>
+                <div class="button" next-page></div>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de tu avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya has visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

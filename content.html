@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <link href="css/fonts/Scala_SansRegular_LF.ttf" rel="stylesheet" type="text/css"/> -->
+    <title>Estado del mercado FTTH en la región LATAM</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+<!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+<!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="40" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <header>
+            <div class="logo">
+                <img src="img/logo_color.svg" alt="Fyco learning" />
+            </div>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Presentación" data-page="pag-presentacion"></menuitem>
+                    <menuitem label="Componentes">
+                        <menu>
+                            <menuitem label="1. Penetración de internet en la región latinoamericana" data-page="pag-penetracion"></menuitem>
+                            <menuitem label="2. Tecnologías de banda ancha fija y su penetración en Latinoamérica" data-page="pag-fija"></menuitem>
+                            <menuitem label="3. Penetración de accesos en fibra óptica en la región" data-page="pag-accesos"></menuitem>
+                            <menuitem label="4. La penetración de FTTH por país en Latinoamérica" data-page="pag-ftth"></menuitem>
+                            <menuitem label="5. Lo que vendrá" data-page="pag-vendra"></menuitem>
+                        </menu>
+                    </menuitem>
+                </menu>
+            </nav>
+            <h2 class="page-title"></h2>
+        </header>
+
+        <main style="display: none;">
+
+            <section id="pag-presentacion">
+                <div class="subpage">
+                    <div class="page-index">
+                        <div class="ova_name">
+                            <div class="title">
+                                <h1>Evolución de las redes ópticas de transporte (PDH/SDH/Ethernet) y redes de acceso (xDSL, HFC, FTTH y wireless)</h1>
+                                <div class="title-img-fibra"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <h2>Presentación</h2>
+                                <div class="videobox">
+                                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/sqeh7i6BiNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                    <video controls src="https://info.fycolearning.com/fba/cursos/fcff/mod4/tema1/m4-t4_1-introduccion.mp4" poster="https://info.fycolearning.com/fba/cursos/fcff/mod4/tema1/poster/m4-t4_1-introduccion.png"></video>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <h2>Objetivo</h2>
+                                <div class="objetivo-text">
+                                    <p>Visionar el estado del mercado FTTH en la región LATAM, para formarse una idea de la dinámica del despliegue de estas redes de acceso en la región.</p>
+                                </div>
+                                <div class="duration">
+                                    <h2>Duración: x hora / xx minutos</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-penetracion" ptitle="1. Penetración de internet en la región latinoamericana">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2 w-40">
+                            <p>Dado que uno de los impulsores de las redes de banda ancha, como las FTTH, es el acceso a internet, comencemos por revisar cómo estamos en el contexto internacional respecto a este indicador. Tomaremos como base de información, la suministrada por el sitio web <i>Internet World Stats</i> (<a href="https://www.internetworldstats.com/stats.htm" target="_blank">https://www.internetworldstats.com/stats.htm</a>) para representar en la figura cuál fue la distribución de usuarios de internet en el mundo al 31 de marzo de 2021.</p>
+                            <p>Interactuando con la figura, notarás que el mayor número de accesos a internet estuvo en Asia, seguido de Europa y África; pero en cuanto a Latinoamérica, podríamos interpretar que si tomamos 100 usuarios de internet en el mundo, casi 10 (9.6 para ser precisos) usuarios están en Latinoamérica en contraste con los casi 54 que están en Asia.</p>
+                            <p>Entonces podríamos pensar en una pregunta concreta: ¿cuántos usuarios están en Latinoamérica y qué porcentaje representa de su población total? Los datos nos indican que se tenían un poco más de 498 millones de usuarios, y comparado con la población a esa fecha, es decir, casi 660 millones de personas, la penetración de internet en Latinoamérica era del 75.6 %.</p>
+                        </div>
+                        <div class="col-2 w-60">
+                            <div class="about"><strong>Figura 1.</strong> Estadísticas del uso del internet a nivel mundial.</div>
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento del esquema para conocer su descripción.</span>
+                                <span class="onlymobile">Toca cada elemento del esquema para conocer su descripción.</span>
+                            </div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1920" height="1080" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61d6e63c4917b90d6cac89b9" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Seguimos tratando de enfocarnos un poco más, y ahora la pregunta es: ¿Qué porcentaje de estos usuarios latinoamericanos acceden a través de redes de banda ancha y cómo es la penetración en las diferentes tecnologías de banda ancha? Esto nos permitirá visualizar si, en efecto, la fibra en el acceso ha ganado terreno.</p>
+                        <p>Tener presente que las velocidades de transmisión para banda ancha van cambiando con el tiempo y de acuerdo con la regulación de los países. Podríamos considerar que en Latinoamérica en general la banda ancha alcanza velocidades entregadas al usuario mayores a 10 Mbps. </p>
+                        <p>Pasa a la siguiente página para continuar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-fija" ptitle="2. Tecnologías de banda ancha fija y su penetración en Latinoamérica">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Para dar respuesta a las preguntas previas, vamos a revisar la siguiente información, recuperada de S&P Global en su blog <i>Perspectiva 2021 para el mercado latinoamericano de banda ancha multicanal</i> (<a href="https://www.spglobal.com/marketintelligence/en/news-insights/blog/2021-outlook-for-latin-american-multichannel-broadband-market" target="_blank">https://www.spglobal.com/marketintelligence/en/news-insights/blog/2021-outlook-for-latin-american-multichannel-broadband-market</a>)</p>
+                            <p>En la figura 2 observamos que a enero de 2021, se estimaba que cerca del 45.1 % de los accesos residenciales corresponde a tecnologías de banda ancha fijas, con un pronóstico de crecimiento a 2029 del orden del 55.3 %. Es decir, a finales de esta década más de la mitad de los usuarios de internet en Latinoamérica tendrá un acceso de banda ancha, eso es una buena noticia, pero sería mejor si se cumple de manera anticipada, pues se espera que en el 2022 el mundo tenga el 50 % de los accesos de este tipo.</p>
+                            <p>Ahora bien, esa penetración resulta de estimar el número de suscriptores de banda ancha en la región por tipo de tecnologías a las que están conectados. En la figura 3, podemos notar que las redes de cable (acceso en cable coaxial) siguen con mayor presencia en la región, con cerca de 36 millones de accesos a enero de 2021. Sin embargo, con el ritmo de crecimiento de los accesos en fibra, se espera que a partir del 2023 este tipo de acceso supere a las redes de cable. Obsérvese también el franco descenso de los accesos tipo xDSL.</p>
+                            <div class="box-text connection">
+                                <p>Las necesidades de velocidad y ancho de banda actuales, impulsadas por la crisis del COVID-19 y por la reactivación económica post pandemia, han impulsado las conexiones rápidas de fibra óptica y con éstas el crecimiento de la banda ancha fija. En el siguiente segmento trataremos de mostrar el panorama y la importancia actual de este tipo de conexiones en nuestra región.</p>
+                                <p>Pasa a la siguiente página para continuar.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 2</strong>. Penetración del ancho de banda en función del tiempo.</div>
+                            <div class="box_media">
+                                <a href="https://www.spglobal.com/marketintelligence/en/news-insights/blog/2021-outlook-for-latin-american-multichannel-broadband-market" target="_blank">
+                                    <img src="content/fig2.png" />
+                                </a>
+                            </div>
+                            <div class="about"><strong>Figura 3</strong>. Tecnologías de acceso y número de suscriptores en función del tiempo.</div>
+                            <div class="box_media">
+                                <a href="https://www.spglobal.com/marketintelligence/en/news-insights/blog/2021-outlook-for-latin-american-multichannel-broadband-market" target="_blank">
+                                    <img src="content/fig3.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-accesos" ptitle="3. Penetración de accesos en fibra óptica en la región">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Referente a los accesos en fibra óptica, según un estudio de Broadband Trends, <strong>para fines del 2022 tendremos en el mundo 859 millones de suscriptores de banda ancha de alta velocidad, casi la mitad de ellos conectados vía FTTH.</strong></p>
+                            <p>De otro lado, el estudio realizado por IDATE Digiworld en 18 países de Latinoamérica y con corte a mayo de 2021, divulgado en la REVISTA FIBER BROADBAND-EDICIÓN 2021, muestra que el volumen de <strong>residencias pasadas por fibra en Latinoamérica</strong> (que representa el potencial de suscriptores que podrían conectarse a esta red) <strong>llegó a 81,7 millones, un 48 % más que el 2019</strong>, y el <strong>número de suscripciones llegó a 28,2 millones</strong>, cercano al estimado de la figura 4. Y el ritmo podría mantenerse ya que se han identificado más de 100 iniciativas FTTH/B en la región. </p>
+                            <p>Esta gran expansión de las redes ópticas en <strong>Latinoamérica</strong> viene impulsada por la incursión de <strong>proveedores alternativos de internet</strong>, que según el informe constituye el <strong>71.8 % de las casas conectadas por fibra en la región</strong>. Por su parte, los <strong>operadores tradicionales</strong> son responsables por la implementación de un <strong>26,8 %</strong>, siendo una parte importante la <strong>reposición de redes de cobre y coaxial por fibra</strong>. Igualmente debe considerarse que parte del crecimiento de acceso en fibra óptica está siendo logrado gracias al uso de redes neutras. </p>
+                            <p>De los 18 países investigados, solamente siete cuentan con más del 50 % de cobertura, siendo Trinidad y Tobago el más alto con un 94.7 %, seguido de Chile con un 91.8 %, Uruguay con un 90.9 %, Barbados con un 88.4%, Jamaica con 67,8 %, Brasil con un 56,4 %, y Argentina con un 54,7 %.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 4.</strong> Países con más del 50 % de cobertura.</div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1920" height="1080" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61d6ef69d262b80d6560f3c1" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 5.</strong> Crecimiento de usuarios que demandan Fibra óptica</div>
+                            <div class="box_media">
+                                <img src="content/fig5.png" alt="Crecimiento de usuarios que demandan Fibra óptica" />
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <p>Además de las residencias pasadas por fibra, el número efectivo de los que son suscriptores también continúa creciendo. Por ejemplo, en Brasil, el volumen de suscriptores creció un 52 % lo que presentó la adición de otros 5.3 millones de usuarios de redes de fibra, comparado con el 2019. </p>
+                            <p>Sobre las tecnologías de fibra más utilizadas, FTTH o fibra al hogar está presente en el 93 % de los proyectos, con el resto utilizando la FTTB (fibra al edificio). La solución ha sido la preferida para llegar hasta clientes residenciales en muchos países de la región, especialmente donde las redes de cable y DSL no llegan. <strong>Las redes PON también dominan el 96 % de los proyectos contra solamente 4 % de Ethernet P2P, siendo GPON la tecnología de mayor despliegue a la fecha.</strong></p>
+                            <p>Otra constatación es que el 70 % de las redes son aéreas, en una clara demostración de la importancia del costo en estos proyectos. La implementación aérea, incluso con fuerte impacto visual en áreas densas, tiene una realización más rápida y barata. La región también presenta una predominancia de las arquitecturas distribuidas, con división de dos niveles. En el extremo del cliente, la entrega de servicio ha sido hecha predominantemente con el uso de soluciones preconectorizadas, que reducen el tiempo, el costo y las fallas en el proceso de instalación. Además de esto, estas soluciones han simplificado el proceso de inventario y de actualización de la red.</p>
+                        </div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>El franco crecimiento de la tecnología FTTx es evidente, y es que no sólo representa el último nivel de innovación en las redes para el tráfico de datos, sino también se trata de un medio para el desarrollo económico de distintas regiones alrededor del mundo, donde nuestra región no es la excepción. América Latina es considerada una de las regiones emergentes más importantes en tecnología e implementación de fibra, por lo que ésta se muestra como el presente y el futuro de las redes en la región. En el siguiente apartado mostraremos los resultados de un estudio hecho por la Fiber Broadband Association, que detalla cómo es la penetración del FTTH por país en LATAM.</p>
+                        <p>Pasa a la siguiente página para continuar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-ftth" ptitle="4. La penetración de FTTH por país en Latinoamérica">
+                <div class="subpage">
+                    <p>Si bien los resultados son muy alentadores para las tecnologías FTTH en la región, la investigación de FBA LATAM Chapter identifica que su adopción se ha visto impactada desfavorablemente por la expectativa del uso de la tecnología 5G en bandas de alto espectro, que puede desafiar las redes FTTH en el mercado residencial fijo, y <strong>el atraso en las inversiones en fibra en varias áreas por causa del uso de tecnologías alternativas</strong> como el cable DOCSIS y G.Fast, dado que en Latinoamérica <strong>gran parte de los usuarios de internet toman el servicio con operadoras tradicionales</strong> que siguen explotando la infraestructura de coaxial y par de cobre existente, ofreciendo accesos de banda ancha a precios muy competitivos, por lo cual apuestan por mantener estas operaciones un poco más en el tiempo. </p>
+                    <p>Escenario actual en Latinoamérica por países,  sobre el desempeño en instalación FTTH, se muestra a continuación:</p>
+                    <div class="about"><strong>Figura 6.</strong> Perspectiva actual del mercado de FTTH por país en Latinoamérica.</div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1920" height="1080" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61d6f3e7ff00100d734f5083" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Y después de haber estudiado los datos y analizado esta información, ¿Has pensado qué sigue? Pasa a la siguiente página para que lo descubramos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-vendra" ptitle="5. Lo que vendrá">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Las nuevas clases de servicios de red de fibra óptica se están convirtiendo definitivamente en el camino del futuro y, para 2023, el Informe Anual de Internet de Cisco (<a href="https://news-blogs.cisco.com/americas/es/2020/02/21/el-nuevo-informe-anual-de-internet-de-cisco-pronostica-que-para-2023-mas-del-10-de-las-conexiones-moviles-globales-seran-con-5g/" target="_blank">https://news-blogs.cisco.com/americas/es/2020/02/21/el-nuevo-informe-anual-de-internet-de-cisco-pronostica-que-para-2023-mas-del-10-de-las-conexiones-moviles-globales-seran-con-5g/</a>) pronostica que casi dos tercios del mundo tendrán acceso a Internet. </p>
+                            <p>Es indudable que los mayores impulsores del desarrollo e implementación de redes FTTX son las aplicaciones (inteligencia artificial IA, internet de las cosas IoT, realidad aumentada RA, realidad virtual RV, blockchain, big data, entre otras), ya que estas sólo son posibles en esta era de hiperconexión que ni siquiera hubiéramos imaginado en el cambio de siglo. </p>
+                            <p>Cabe anotar que estas aplicaciones traen nuevos retos para las redes como son mayores requerimientos en las <strong>tasas de transmisión</strong> y <strong>menor latencia</strong>, como se puede observar en la figura 7. Estos requerimientos definitivamente seguirán afianzando las fibras ópticas en el acceso y muy posiblemente formarán un tándem con las tecnologías 5G. </p>
+                        </div>
+                        <div class="col-2">
+                            <div class="about"><strong>Figura 7.</strong> Retos en capacidad y latencia de  nuevas aplicaciones hacia los sistemas de telecomunicaciones.</div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1920" height="1080" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61d6f4d5dddeaa0d7a60aaea" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Debido a que la luz se mueve tan rápido (300.000 kilómetros por segundo), las redes de fibra óptica además de proporcionar velocidades impresionantes, pueden reducir la latencia al mismo tiempo que proporcionan flexibilidad para que los usuarios finales puedan escalar sus redes, en caso de ser necesario.</p>
+                    <p>Otro impulsor del desarrollo de las plataformas de acceso en fibra óptica, viene de los planes de reposición gradual de las redes de acceso, dada la necesidad de migrar a infraestructuras de última generación que garanticen una mayor capacidad y escalabilidad para atender los requerimientos de nuevos servicios en los próximos 20 a 25 años. </p>
+                    <div class="box-text link" label="Extendiendo el saber">
+                        <p>El ecosistema de telecomunicaciones en LATAM ha intensificado sus esfuerzos en dirección a la conectividad de fibra completa; programas nacionales, subsidios y un cuadro político relevante es imperativo para promover la expansión de la fibra óptica. La Fiber Broadband Association nos muestra este panorama en su última revista. Consulta el siguiente enlace para conocer esta información:</p>
+                        <p><strong>Documento:</strong> <a href="content/panorama_de_mercado_ftth_latam-revista_fba.pdf" target="_blank">“América Latina supera los 80 millones de casas pasadas por fibra óptica”</a></p>
+                        <p><strong>Extensión:</strong> 7 páginas</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-bibliografia" ptitle="Referencias">
+                <div class="subpage" id="bibliography_subpage">
+                    <ul>
+                        <li>Bnamericas, (2021). Los países latinoamericanos de la OCDE cuentan con un crecimiento de fibra superior al promedio. Extraído el 29 de diciembre de <a href="https://www.bnamericas.com/en/news/latam-oecd-countries-boast-above-average-fiber-growth" target="_blank">https://www.bnamericas.com/[...]</a></li>
+                        <li>Fiber Broadband Association, (2021). Panorama General del Mercado FTTH/B en América Latina. Extraído el 29 de diciembre de 2021 <a href="https://issuu.com/fiberbroadband/docs/es_revista_fiber_2021" target="_blank">https://issuu.com/fiberbroadband[...]</a></li>
+                        <li>Internet World Stats, (2021). Usuarios de Internet en el mundo y estadísticas de población de 2021. Extraído el 29 de diciembre de <a href="https://www.internetworldstats.com/stats.htm" target="_blank">https://www.internetworldstats.com/stats.htm</a></li>
+                        <li>Measuring Broadband America (2014). 2014 Measuring Broadband America Fixed Broadband Report. Extraído el 29 de diciembre de 2021 <a href="https://data.fcc.gov/download/measuring-broadband-america/2014/2014-Fixed-Measuring-Broadband-America-Report.pdf" target="_blank">https://data.fcc.gov/[...]</a></li>
+                        <li>Sevilla, P. (2020). El nuevo Informe Anual de Internet de Cisco pronostica que para 2023 más del 10% de las conexiones móviles globales. Extraído el 29 de diciembre de <a href="https://news-blogs.cisco.com/americas/es/2020/02/21/el-nuevo-informe-anual-de-internet-de-cisco-pronostica-que-para-2023-mas-del-10-de-las-conexiones-moviles-globales-seran-con-5g/" target="_blank">https://news-blogs.cisco.com/[...]</a></li>
+                        <li>Virtual Pro, (2017). El panorama de la Tecnología FTTx en Latinoamérica. Extraído el 29 de diciembre de <a href="https://www.virtualpro.co/noticias/el-panorama-de-la-tecnologia-fttx-en-latinoamerica" target="_blank">https://www.virtualpro.co/[...]</a></li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <!--Créditos-->
+            <section id="pag-creditos">
+                <div class="subpage" id="credits_subpage">
+
+                    <div class="creditos-fba">
+                        <h2>Créditos</h2>
+                        <div class="bloque">
+                            <table>
+                                <tr>
+                                    <td>Experta Temática</td>
+                                    <td>Ana María Cárdenas</td>
+                                </tr>
+                                <tr>
+                                    <td>Pares evaluadores</td>
+                                    <td>Luis Fernando Rodríguez / Marco Teran / Fredy Pereira</td>
+                                </tr>
+                                <tr>
+                                    <td>Asesoría pedagógica / Diseño instruccional</td>
+                                    <td>Carolina Llanos</td>
+                                </tr>
+                                <tr>
+                                    <td>Corrección de estilos</td>
+                                    <td>Danleibi Molina</td>
+                                </tr>
+                                <tr>
+                                    <td>Diseño gráfico</td>
+                                    <td>Inesly Vega</td>
+                                </tr>
+                                <tr>
+                                    <td>Producción audiovisual</td>
+                                    <td>Fernanda Álvarez / Sebastián Quintero</td>
+                                </tr>
+                                <tr>
+                                    <td>Integración de contenidos</td>
+                                    <td>Santiago Bernal</td>
+                                </tr>
+                                <tr>
+                                    <td>Revisión de calidad</td>
+                                    <td>Fyco Learning</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bloque logo">
+                            <h3>Gestión técnica y administrativa</h3>
+                            <a href="https://fycolearning.com/" target="_blank"><img src="img/logo_azul.png" alt="Fyco learning" /></a>
+                            <p>Versión 1.0</p>
+                        </div>
+                        <div class="bloque copy">
+                            <p>
+                                Este recurso educativo es propiedad de Fyco Learning.
+                                <br />Todo el material didáctico que lo compone está protegido por las leyes que rigen la propiedad intelectual. 
+                                <br />Para utilizar todo o parte de este material se debe contar con autorización expresa de la organización. 
+                            </p>
+                            <p>
+                                Derechos reservados ©
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                    <!-- <p>
+                        Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+                    </p>
+                    <div>
+                        <h3>Expertos temáticos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Leidy Cristina Madrigal Arrieta</cite>
+                    </div>
+                    <div>
+                        <h3>Asesoría pedagógica</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Corrección de estilo</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Traducción de contenidos</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión Administrativa</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión de calidad</h3>
+                        <cite>Ana Yarenis Arango</cite>
+                    </div>
+                    <div>
+                        <h3>Diseño gráfico</h3>
+                        <cite>Juliana Tobón Gaviria</cite>
+                    </div>
+                    <div>
+                        <h3>Integración de contenidos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Santiago Bernal García</cite>
+                    </div>
+
+                    <div>
+                        <h3>Producción</h3>
+                        <p class="logos">
+                            <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                            <br />
+                            <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                            <br />
+                            <a href="http://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                        </p>
+                    </div>
+
+                    <div class="editions">
+                        1ª edición: diciembre 2013<br />
+                        2ª edición: octubre 2015<br />
+                        3ª edición: febrero 2016<br />
+                        4ª edición: junio 2017
+                    </div>
+                    <div>
+                        <br />
+                        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Obra publicada bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                    </div>
+
+                    <p>
+                        Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+                    </p>
+                    <p>
+                        Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+                    </p> -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <div class="measuring-progress" data-type="horizontal"></div>
+
+            <nav label="Características globales" class="globals">
+                <menu>
+                    <menuitem data-global-id="results"><div class="progress"><p>Progreso</p></div></menuitem>
+                    <menuitem data-page="pag-creditos"><div class="credits"><p>Créditos</p></div></menuitem>
+                    <menuitem data-page="pag-bibliografia"><div class="biblio"><p>Referencias</p></div></menuitem>
+                    <menuitem data-global-id="return">
+                        <div class="maximize"><p>Maximizar</p></div>
+                        <div class="minimize"><p>Minimizar</p></div>
+                    </menuitem>
+                    <menuitem data-global-id="close_all"><div class="back"><p>Salir</p></div></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div id="page_number"></div>
+                <div class="button" next-page></div>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de tu avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya has visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

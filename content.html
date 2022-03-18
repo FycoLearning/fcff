@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Tipos de conectores ópticos y pulimentos</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="40" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <header>
+            <div class="logo">
+                <img src="img/logo_color.svg" alt="Fyco learning" />
+            </div>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Presentación" data-page="pag-presentacion"></menuitem>
+                    <menuitem label="Componentes">
+                        <menu>
+                            <menuitem label="1. Conectores" data-page="pag-conectores"></menuitem>
+                            <menuitem label="2. Parámetros asociados a los conectores" data-page="pag-parametros"></menuitem>
+                            <menuitem label="3. Tecnología de conectores multifibra" data-page="pag-tecnologia"></menuitem>
+                            <menuitem label="4. Pigtails y patch cords" data-page="pag-pigtails"></menuitem>
+                        </menu>
+                    </menuitem>
+                </menu>
+            </nav>
+            <h2 class="page-title"></h2>
+        </header>
+
+        <main style="display: none;">
+
+            <section id="pag-presentacion">
+                <div class="subpage">
+                    <div class="page-index">
+                        <div class="ova_name">
+                            <div class="title">
+                                <h1>Tipos de conectores ópticos y pulimentos</h1>
+                                <div class="title-img-fibra"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <h2>Presentación</h2>
+                                <div class="videobox">
+                                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/sqeh7i6BiNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                    <video controls src="https://info.fycolearning.com/fba/cursos/fcff/mod2/tema7/m2-t2_7-introduccion.mp4" poster="https://info.fycolearning.com/fba/cursos/fcff/mod2/tema7/poster/m2-t2_7-introduccion.png"></video>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <h2>Objetivo</h2>
+                                <div class="objetivo-text">
+                                    <ul>
+                                        <li>Identificar las partes constitutivas de un conector óptico, el código de colores, su clasificación por forma y tipo de pulimento, así como los dos parámetros principales de la especificación (pérdida de inserción y retorno) para decidir cuál es mejor para el tipo de aplicación y para las redes GPON.</li>
+                                        <li>Identificar los pigtails y patch cords a través del código de color del conector y de los cordones de fibra, así como los principales parámetros para especificarlos.</li>
+                                    </ul>
+                                </div>
+                                <div class="duration">
+                                    <h2>Duración: 1 hora / 60 minutos</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-conectores" ptitle="1. Conectores">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Un conector de fibra óptica es un dispositivo flexible que permite enlazar cables de fibra que requieren una conexión y desconexión rápida. Está diseñado para mantener las fibras en su lugar de modo que puedan alinearse adecuadamente con las fibras en el otro extremo de la conexión.</p>
+                            <div class="box-text connection">
+                                <p>Los conectores son considerados como el enlace más débil en un sistema de fibra óptica, pues marcan un punto en el que puede ocurrir pérdida de señal. Por lo tanto, para que los cables de fibra óptica tengan un rendimiento excepcional, se necesitan conectores bien diseñados, buenas terminaciones y un instalador habilidoso. Entonces, comencemos revisando cuáles son los elementos que componen un conector para poder entender con más detalle cómo es su funcionamiento.</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su nombre.</span>
+                                <span class="onlymobile">Toca sobre cada elemento para conocer su nombre.</span>
+                            </div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1920" height="1080" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61f18a716e49c60011d6d88f" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                            <div class="about"><strong>Figura 1.</strong> Partes del conector.</div>
+                        </div>
+                    </div>
+                    <div class="ctrl-pagination" data-labelcurrent="true" >
+                        <li>
+                            <div class="float-right w-200">
+                                <img src="content/fig2.png" alt="Figura 2. Conectores" />
+                                <div class="about"><strong>Figura 2.</strong> Conectores</div>
+                            </div>
+                            <p>Los conectores son elementos encargados de dar continuidad a la señal desde el inicio hasta el destino final. Pueden ser temporales o semipermanentes, dando flexibilidad durante la operación de la red. </p>
+                            <p>Los encontramos comúnmente cuando es necesario inyectar luz desde el transmisor óptico, sacar la luz hacia el receptor óptico o entre extremos de la fibra en un distribuidor de fibras ópticas ODF (del inglés <i>Optical Distribution Frame</i>).</p>
+                        </li>
+                        <li>
+                            <div class="float-right w-200">
+                                <img src="content/fig3.png" alt="Figura 3. Conectores" />
+                                <div class="about"><strong>Figura 3.</strong> Conectores</div>
+                            </div>
+                            <p>La mayoría de los conectores de fibra óptica son clavijas o también llamados conectores macho, ya que poseen una férula que sobresale, sujeta las fibras y las alinea para su acoplamiento. </p>
+                            <p>Los conectores ofrecen un método desmontable para unir fibras a transmisores y receptores, otras fibras y dispositivos como acopladores y multiplexores.</p>
+                        </li>
+                        <li>
+                            <div class="float-right w-200">
+                                <img src="content/fig4.png" alt="Figura 4. Conectores" />
+                                <div class="about"><strong>Figura 4.</strong> Conectores</div>
+                            </div>
+                            <p>El tamaño del conector es un factor primordial en la densidad de los puertos, por lo que se ha incorporado el uso de férulas más pequeñas, como sucede en los conectores MU y LC que usan férula de 1.25 mm de diámetro, que en comparación con las utilizadas en los conectores FC, ST y SC tradicionales, son exactamente la mitad del tamaño (2.5 mm de diámetro).</p>
+                        </li>
+                        <li>
+                            <div class="float-right w-200">
+                                <img src="content/fig5.png" alt="Figura 5. Conectores" />
+                                <div class="about"><strong>Figura 5.</strong> Conectores</div>
+                            </div>
+                            <p>Hemos incorporado el término férula, que es la traducción de la palabra <em>Ferrule</em>. Sin embargo, en el campo de la fibra óptica, cuando se habla de conectores, se menciona este término frecuentemente.</p>
+                            <p>La férula es una parte muy importante del conector, ya que es la parte central del mismo y es la que contiene a la fibra óptica. Existen algunas de material de acero o plástico, pero el más usado actualmente es la <strong>cerámica</strong> debido a su calidad. Un tipo de cerámica muy común es la <strong>zirconia</strong>.</p>
+                        </li>
+                    </div>
+                    <div class="box-text connection w-70">
+                        <p>Existen muchos tipos de conectores de fibra óptica, pero unos específicos representan la clasificación oficial del mercado, podemos decir que se lleva a cabo mediante un <i>nombre</i> y un <i>apellido</i>. El nombre obedece a su forma y el apellido viene del tipo de pulimento de la férula, así:</p>
+                    </div>
+                    <div class="flex">
+                        <button class="w-content-controler general" data-content="#clasificacion_forma" data-property-width="600px">
+                            Clasificación según la forma
+                        </button>
+                        <button class="w-content-controler general" data-content="#clasificacion_pulimiento" data-property-width="600px">
+                            Clasificación según el pulimento de la férula
+                        </button>
+                    </div>
+                    <div id="clasificacion_pulimiento" class="w-content">
+                        <div class="genially">
+                            <div style="width: 100%;"><div style="position: relative; padding-bottom: 100.00%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1400" height="1400" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61f1921cb207c300116e8168" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                        </div>
+                    </div>
+                    <div id="clasificacion_forma" class="w-content">
+                        <div class="genially">
+                            <div style="width: 100%;"><div style="position: relative; padding-bottom: 100.00%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1400" height="1400" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61f18cc5e6151f001834fcc9" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                        </div>
+                    </div>
+                    <div class="box-text connection w-70">
+                        <p>La pregunta que podría surgir es ¿qué parámetro diferencia los conectores entre sí?</p>
+                        <p>Ten en cuenta que los dos parámetros característicos de los conectores son <strong>las pérdidas de inserción IL (<i>xInsertion Loss</i>)</strong> y <strong>la pérdida de retorno ORL (<i>Optical Return Loss</i>)</strong>. Ambos medidos en decibelios dB; pero <strong>la pérdida de retorno ORL es el parámetro que más los diferencia</strong>. Revisemos estos parámetros con más detalle. Pasa a la siguiente página para continuar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-parametros" ptitle="2. Parámetros asociados a los conectores">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>La <strong>pérdida de inserción IL</strong> (del inglés <i>Insertion Loss</i>) es la diferencia de la potencia que sale del conector y la que entra al conector, en dB. </p>
+                            <p>Esta diferencia debería ser muy pequeña, pues el propósito del conector es dar continuidad al paso de la luz, la cual es muy sensible a cualquier cambio de índice de refracción en su trayectoria, por lo que es posible que se fugue por cualquier pequeña discontinuidad, o que se retorne por el fenómeno de la reflexión, dado el cambio de medio de transmisión.</p>
+                            <p>Como vemos en la fórmula, dado que la potencia que sale del conector es menor que la que entra a él, dará unidades de dB negativas indicando pérdida. Si lo que esperamos es que ambas potencias sean muy similares, <strong>este valor debería estar lo más cercano posible a 0 dB, porque significa que pasa casi toda la potencia.</strong></p>
+                        </div>
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                                <span class="onlymobile">Toca sobre sobre cada elemento para conocer su descripción.</span>
+                            </div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61f1ae13ed60c50019b42862" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-text important w-70" label="Recuerda que">
+                        <p>0 dB significa que la potencia de salida (Ps) es igual a la potencia de entrada (Pe) al conector. El estándar TIA 568 requiere que la pérdida óptica en la conectorización sea menor a 0.75 dB, los conectores actualmente ofrecen pérdidas menores, del orden de 0.3 dB.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Por otro lado, la <strong>pérdida por retorno óptico ORL</strong> (del inglés <i>Optical Return Loss</i>) da cuenta de la diferencia entre la potencia óptica que se regresa (Pr) por la fibra por reflexión y la que entra al conector (Pe), medida en dB. De nuevo, esta reflexión se produce porque la luz percibe un cambio de medio en el conector debido al tipo de pulimento. </p>
+                            <p>En el caso de las pérdidas de retorno, la potencia que se refleja es menor que la potencia que entra al conector, y por tanto también serán unidades de dB negativas. <strong>Si este valor negativo es muy grande, significa que menos potencia se refleja</strong>.</p>
+                            <p>Así el conector PC, que tiene una pérdida de retorno ORL típica de -40 dB, quiere decir que si entra 1 mW se regresará solo una fracción  1/10000, es decir se regresa del orden de una diezmilésima parte de potencia. Sin embargo, con las pocas pérdidas de las fibras, será suficiente para que alcance el transmisor, y cause perturbaciones en la señal. Los UPC son del orden de -55 dB mientras que los APC tienen pérdidas superiores a los -60 dB típicamente, es decir, 1/1 000 000, una millonésima de potencia podría devolverse. Realmente muy poca potencia se devuelve, que es realmente lo que se desea.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su descripción.</span>
+                                <span class="onlymobile">Toca sobre sobre cada elemento para conocer su descripción.</span>
+                            </div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.03%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="672.311" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61f1b7e30b45a60013f468cc" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Los conectores que hemos revisado, son todos de una única fibra. Pero el uso masivo de la fibra en data centers por ejemplo, o en distribuidores ópticos, ha creado la necesidad de tener conectores que produzcan un mayor rendimiento en la conexión y que sean más compactos. Pasa a la siguiente página para revisar en qué consisten estos conectores.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-tecnologia" ptitle="3. Tecnología de conectores multifibra">
+                <div class="subpage">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Los conectores MPO (del inglés <i>Multi-fiber Push On</i>) permiten la conexión de múltiples fibras ópticas en un único conector.</p>
+                            <p>Aunque los conectores multi o monofibra son aproximadamente de las mismas dimensiones, en su interior son muy distintos. Los conectores vistos, alojan en su interior una única fibra en una férula, en tanto que un conector multi-fibra contiene un conjunto de fibras (8, 12, 24, 48 ó 72 fibras) en una única férula.</p>
+                            <img src="content/fig6.png" alt="Figura 6. Diferencia entre conector de una única fibra y multifibra." />
+                            <div class="about"><strong>Figura 6.</strong> Diferencia entre conector de una única fibra y multifibra.</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su nombre.</span>
+                                <span class="onlymobile">Toca sobre cada elemento para conocer su nombre.</span>
+                            </div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 69.23%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1300" height="900" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61f195518705c10011560908" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                            <div class="about"><strong>Figura 7.</strong> Conector MPO.</div>
+                        </div>
+                    </div>
+                    <div class="box-text connection w-80">
+                        <p>Pensando en situaciones en las que tengamos que unir conectores diferentes, ¿qué alternativas ofrecen los proveedores? Esta situación es muy común por ejemplo, cuando un equipo de medición que tiene un tipo de conector, se va a instalar en un distribuidor de fibra óptica ODF con un conector diferente para tomar medidas de desempeño. También para hacer la conexión de conectores con diferente tipo de pulimento. Los proveedores para estos casos ofrecen los adaptadores o acopladores.</p>
+                        <p>Pasa a la siguiente página para conocer más acerca de estos elementos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-adaptadores" ptitle="4. Adaptadores o acopladores">
+                <div class="subpage">
+                    <p>Un adaptador o acoplador de fibra óptica es un conector diseñado para acoplar o conectar dos extremos de patch cords, y/o conectores de distintas características, con alta precisión. Son muy comunes en los distribuidores de fibras ópticas ODF.</p>
+                    <p>Los adaptadores de fibra óptica pueden tener diferentes formas, pero todos están diseñados para lograr la misma función: unir y alinear los conectores de dos cables de conexión de fibra óptica.</p>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/fig8.png" alt="Figura 8. Adaptadores en un ODF." />
+                                <div class="about"><strong>Figura 8.</strong> Adaptadores en un ODF.</div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/fig9.png" alt="Figura 9. Adaptadores de fibra para conexión de patch cords." />
+                                <div class="about"><strong>Figura 9.</strong> Adaptadores de fibra para conexión de patch cords.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Hay versiones que conectan fibras individuales entre sí (simplex) para lograr transferencia de datos en una dirección; otros conectan dos fibras (dúplex) permitiendo transferencia de datos de forma bidireccional y algunos incluso conectan hasta cuatro fibras.</p>
+                            <p>El acoplamiento de precisión se realiza a través de los manguitos de alineación, que están hechos de cerámica o metal como para proporcionar un soporte rígido para los conectores, mientras que el cuerpo del conector en sí está hecho de plástico.</p>
+                            <p>Hay adaptadores / acopladores de fibra óptica hechos para cada tipo de forma de conector de fibra óptica disponible como el FC/FC, LC/LC, SC/SC (azul para terminación UPC y verde para terminación APC) así como terminaciones diferentes como FC/SC, FC/ST ó incluso para conectar fibras de diferentes pulimentos como un SC azul (UPC)/ con SC verde (APC), o fibras monomodo SM con multimodo MM.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="instruction">
+                                <span class="notmobile">Pasa el cursor sobre cada elemento para conocer su nombre.</span>
+                                <span class="onlymobile">Toca sobre cada elemento para conocer su nombre.</span>
+                            </div>
+                            <div class="genially">
+                                <div style="width: 100%;"><div style="position: relative; padding-bottom: 42.86%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1400" height="600" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61f19afd90a304001433d03d" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                            </div>
+                            <div class="about"><strong>Figura 10.</strong> Esquema de funcionamiento de un adaptador. </div>
+                        </div>
+                    </div>
+                    <div class="genially">
+                        <div style="width: 100%;"><div style="position: relative; padding-bottom: 18.00%; padding-top: 0; height: 0;"><iframe frameborder="0" width="6000" height="1080" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/61f196500804a000192595a9" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+                    </div>
+                    <div class="about"><strong>Figura 11.</strong> Tipos de adaptadores.</div>
+                    <div class="box-text connection w-90">
+                        <p>En las fibras multimodo y monomodo se utilizan conectores y procedimientos de terminación distintos. Debido a las mayores dimensiones en el núcleo de las fibras multimodo, las uniones y terminaciones son más fáciles de realizar; y en el campo es usual instalar los conectores directamente. Este procedimiento es más complejo en las fibras monomodo, debido a que su núcleo tiene el orden de 9 μm. Por ello, se utilizan latiguillos o trozos de un cable flexible de una única fibra preconectorizado (desde fábrica) para empalmar con los cables de fibra de la planta externa, estos son los llamados <i>Pigtails</i>. Esta preconectorización permite que se tenga un desempeño adecuado, producto de una conexión hecha en fábrica y aumenta los rendimientos en la instalación. Sobre estos latiguillos hablaremos a continuación.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-pigtails" ptitle="5. Pigtails y patch cords">
+                <div class="subpage">
+                    <p>Los conectores para ser integrados a la red de fibra, requieren un trozo de fibra flexible que se une al conector. Este conjunto de un conector-cordón de fibra se denomina <strong>pigtail</strong>.</p>
+                    <p>El extremo libre de conector se empalma con otra fibra. Por ejemplo, el cable de exterior se empalma con estos pigtails para proseguir al interior de la oficina central y terminar en un distribuidor de fibras ópticas ODF.</p>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/fig12.png" alt="Figura 12. Ejemplo de pigtail de fibra con conector LC y fibra monomodo." />
+                                <div class="about"><strong>Figura 12.</strong> Ejemplo de pigtail de fibra con conector LC y fibra monomodo.</div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/fig13.png" alt="Figura 13. Ejemplo de pigtail de fibra en un distribuidor de fibras ópticas (ODF). " />
+                                <div class="about"><strong>Figura 13.</strong> Ejemplo de pigtail de fibra en un distribuidor de fibras ópticas (ODF). </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Cuando el cordón de fibra tiene conectores en los dos extremos, se denomina <strong>patch cord</strong>, también son conocidos como cables de conexión, cordón de fibra o en algunos países les dicen jumpers. En los patch cords, los conectores de los extremos pueden ser del mismo tipo o diferentes para permitir por ejemplo, conexión de equipos de medición y prueba, que no son necesariamente compatibles con los de la red.</p>
+                    <div class="box_media w-60">
+                        <img src="content/fig14.png" alt="Figura 14. Ejemplo de patch cord con conector LC y fibra monomodo." />
+                        <div class="about"><strong>Figura 14.</strong> Ejemplo de patch cord con conector LC y fibra monomodo.</div>
+                    </div>
+                    <h3>Especificación del <i>patch cord</i></h3>
+                    <p>El cordón de fibra tiene las especificaciones de las fibras monomodo o multimodo que deseemos, de acuerdo con la red que implementemos. <strong>En el caso de las GPON la especificación sería la ITU T G 652.D e ITU T G657 A1, en el extremo del cliente.</strong></p>
+                    <div class="box-text connection">
+                        <p>Código de colores de los conectores según la norma TIA 568/598. Hablemos de dos tipos de identificación en los conectores:</p>
+                    </div>
+                    <h4>a) Identificación del tipo de fibra que tiene el latiguillo unido al conector</h4>
+                    <p>La identificación del tipo de fibra del latiguillo se determina por el color de su chaqueta externa, según la tabla de colores siguiente contenida en la norma EIA/TIA 598:</p>
+                    <table class="no-bg">
+                        <thead>
+                            <th>Tipo de fibra</th>
+                            <th>Código de colores</th>
+                            <th>Nomenclatura sugerida</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Multimodo (50/125) (OM2)</td>
+                                <td bgcolor="orange">Naranja</td>
+                                <td>OM2, 50/125</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Multimodo (50/125) (850 nm optimizado para láser) (OM3, OM4)</td>
+                                <td bgcolor="lightblue">Aguamarina</td>
+                                <td>OM3 or OM4,  850 LO 50 /125</td>
+                            </tr>
+                            <tr>
+                                <td>Multimodo (50/125) (850 nm optimizado para láser) (OM5)</td>
+                                <td bgcolor="limegreen">Verde lima</td>
+                                <td>OM5</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Multimodo (62.5/125) (OM1)</td>
+                                <td bgcolor="orange">Naranja</td>
+                                <td>OM1, 62.5/125</td>
+                            </tr>
+                            <tr>
+                                <td>Multimodo (100/140)</td>
+                                <td bgcolor="darkorange">Naranja</td>
+                                <td>100/140</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Monomodo (OS1, OS1a, OS2)</td>
+                                <td bgcolor="yellow">Amarillo</td>
+                                <td>OS1, OS1a, OS2, SM/NZDS, SM</td>
+                            </tr>
+                            <tr>
+                                <td>Mantenimiento de la polarización Monomodo</td>
+                                <td bgcolor="deepskyblue">Azul</td>
+                                <td>No definido</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="about"><strong>Tabla 1.</strong> Código de colores para identificación de fibras ópticas según la norma EIA/TIA 598</div>
+                    <p>Así, si es una fibra monomodo será de color amarillo, si es multimodo OM1 u OM2 será naranja, si es OM3 azul marino, OM4 podría ser azul marino o violeta, OM5 sería color verde lima. Cabe anotar que si el pigtail es multifibra, la chaqueta externa o cubierta tendrá el color del tipo de fibra, y los hilos internos siendo todos de la misma especificación de fibra, deberán distinguirse entre si usando el código de colores TIA 568 B/598.</p>
+                    <img src="content/fig15.png" alt="Figura 15. Código de colores de cubiertas e hilos de fibra, según norma TIA 568 b/598." />
+                    <div class="about"><strong>Figura 15.</strong> Código de colores de cubiertas e hilos de fibra, según norma TIA 568 b/598.</div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/fig16.png" alt="Figura 16. Pigtail de única fibra OM3." />
+                                <div class="about"><strong>Figura 16.</strong> Pigtail de única fibra OM3.</div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/fig17.png" alt="Figura 17. Pigtail de 12 hilos de fibra OM3." />
+                                <div class="about"><strong>Figura 17.</strong> Pigtail de 12 hilos de fibra OM3.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box_media">
+                        <img src="content/fig18.png" alt="Figura 18. Distintos Pigtails con el código de colores de acuerdo con la fibra que se utilice." />
+                        <div class="about"><strong>Figura 18.</strong> Distintos Pigtails con el código de colores de acuerdo con la fibra que se utilice.</div>
+                    </div>
+
+                    <h4>b) Identificación del cuerpo o bota del conector</h4>
+                    <p>Por su parte, la identificación del color del cuerpo del conector, arroja igualmente información para su completa identificación, siguiendo el siguiente código de colores:</p>
+                    <table class="no-bg">
+                        <thead>
+                            <th>Tipo de fibra</th>
+                            <th>Cuerpo del conector</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>62.5/125</td>
+                                <td bgcolor="peachpuff">Beige</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>50/125 OM2</td>
+                                <td bgcolor="black" style="color: #fff">Negro</td>
+                            </tr>
+                            <tr>
+                                <td>50/125 láser optimizado (OM3, OM4)</td>
+                                <td bgcolor="lightblue">Aguamarina</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Fibra de banda ancha OM5</td>
+                                <td bgcolor="limegreen">Lima</td>
+                            </tr>
+                            <tr>
+                                <td>Monomodo</td>
+                                <td bgcolor="deepskyblue">Azul</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Monomodo APC</td>
+                                <td bgcolor="green">Verde</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="about"><strong>Tabla 2.</strong> Código de colores del cuerpo del conector de fibra óptica según la norma EIA/TIA 598.</div>
+                    <p>En el caso de un pigtail de fibra multimodo, su cordón es naranja, el color del conector nos dirá si es OM1 cuando su cuerpo sea beige u OM2 si su cuerpo es negro. En el caso de las fibras monomodo, el cordón es de color amarillo, pero si el cuerpo del conector es azul nos indica un pulimento tipo PC, SPC, UPC; mientras que, si su cuerpo es verde, nos indica que su pulimento es APC. Vale aclarar que cuando sea fibra monomodo de conector azul, se debe verificar el tipo de pulimento, que en redes GPON usualmente sería UPC.</p>
+                    <p>Cabe anotar que revisando los conectores que se ofrecen actualmente en el mercado para fibras multimodo de una única fibra OM1 y OM2, es común encontrarlos identificados con color beige (cada vez son más obsoletos). Los MPO siguen conservando el código de colores de acuerdo con el tipo de fibra que conecta.</p>
+                    <p>Veamos a continuación diversos conectores y sus acopladores, con los respectivos colores que indican su especificación.</p>
+                    <div class="box_media">
+                        <img src="content/fig19.png" alt="Figura 19. Diferentes conectores con sus respectivos acopladores, según código de colores." />
+                        <div class="about"><strong>Figura 19.</strong> Diferentes conectores con sus respectivos acopladores, según código de colores.</div>
+                    </div>
+                    <p>Los conectores más usados en redes FTTx son los SC. Las redes que transportan señales de televisión a 1550 nm o de alta tasa de transmisión (del orden de los Gbps) deben utilizar corte angular, o sea el SC-APC, o bien SC-UPC. No es posible conectar SC-APC con SC-UPC; pues la diferencia de pulimento hará que se produzcan altas pérdidas de retorno. En este caso, es necesario usar los adaptadores correspondientes.</p>
+                    <div class="box-text note" label="Nota">
+                        <p>En las redes PON es común encontrar los conectores SC - APC.</p>
+                    </div>
+                    <p>La longitud también se especifica según las necesidades de conexión. Por ejemplo, si los equipos de transmisión están en una sala de la oficina central, y el distribuidor óptico está en otra sala se podrían requerir patch cords de 10 m. Si la idea es conectar un equipo de transmisión con un equipo de medición de potencia, se requeriría un patch cord de 1 m.</p>
+                    <div class="box-text connection w-70">
+                        <p>Ahora bien, los conectores y puntos de unión juegan un papel importante en el desempeño total de las redes, por ello se realiza su inspección y certificación. La inspección se realiza conforme a la norma IEC 61300-3-35. <strong>Una cosa importante</strong>, siempre <strong>mantener limpios los conectores</strong> antes de su uso, y cuando no estén siendo utilizados, se dejan siempre cubiertos con una pequeña tapa o tapón protector, para evitar que se introduzcan motas o polvo.</p>
+                    </div>
+                    <div class="box-text link w-70" label="Extendiendo el saber">
+                        <p>Para cerrar este tema, veamos un ejemplo de especificación de conectores, en donde nos indican el desempeño respecto a las pérdidas de inserción IL y retorno ORL. Observa que no hay cambios en la IL cuando se realizan pruebas de estrés físico del conector, además nos indica un mismo comportamiento para un rango de longitudes de onda. El valor de ORL por debajo de 60 dB, muy alejado del cero, y obsérvese además características de su elaboración. Consulta la segunda página del siguiente documento para conocer esta información:</p>
+                        <p><strong>Documento:</strong> <a href="https://drive.google.com/file/d/1QLrYM9DhkdEXHKO93JIjyjfAG6DMcsnU/view?usp=sharing" target="_blank">Ficha técnica conector mecánico</a></p>
+                        <p><strong>Extensión: </strong>1 página</p>
+                    </div>
+                    <div class="box-text note" label="Conclusión">
+                        <audio controls src="content/sounds/au01.mp3"></audio>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-bibliografia" ptitle="Referencias">
+                <div class="subpage" id="bibliography_subpage">
+                    <ul>
+                        <li>Arrow, (2018). Conectores de fibra óptica: SC vs LC. Recuperado el 22 de enero de 2022 desde <a href="https://www.arrow.com/en/research-and-events/articles/fiber-optic-connectors-sc-vs-lc#:~:text=SC%2C%20abbreviated%20for%20Subscriber%20Connector,point%20and%20passive%20optical%20networking" target="_blank">https://www.arrow.com/[...]</a></li>
+
+                        <li>Cables 24. (s/f). Cable Pigtail de Fibra Óptica Monomodo LC. Recuperado el 22 de enero de 2020 desde <a href="https://cables24.com/es/fibra-optica/pigtails/pigtails-monomodo-9125-os2/2863-cable-pigtail-de-fibra-optica-monomodo-lc" target="_blank">https://cables24.com/es[...]</a></li>
+
+                        <li>ETD, (s/f). PLYG AND PLAY. Recuperado el 22 de enero de 2022 desde <a href="http://www.etd.fi/media/ETD%20products_en_1.0.pdf" target="_blank">http://www.etd.fi/[...]</a></li>
+
+                        <li>FiberMAX, (2017). Catálogo de productos. Recuperado el 22 de enero de 2022 desde <a href="http://www.fibermax.pe/pdf/CATALOGO%20FIBERMAX%20-%20JULIO%202017.pdf" target="_blank">http://www.fibermax.pe/[...]</a></li>
+
+                        <li>FS Community. (2021). ¿Qué es una coleta óptica: definición, tipos, aplicación?. Recuperado el 22 de enero de 2022 desde <a href="https://community.fs.com/ru/blog/what-is-fiber-pigtail-and-how-to-splice-it.html" target="_blank">https://community.fs.com/[...]</a></li>
+
+                        <li>FS Community. (2020). Tutorial de adaptador/acoplador de fibra óptica. Recuperado el 22 de enero de 2022 desde <a href="https://community.fs.com/blog/fiber-optic-adaptercoupler-tutorial.html" target="_blank">https://community.fs.com/[...]</a></li>
+
+                        <li>Grupo Cofitel, (2017). Los conectores MPO: su funcionalidad y características. Recuperado el 22 de enero de 2022 desde <a href="https://www.c3comunicaciones.es/los-conectores-mpo-su-funcionalidad-y-caracteristicas/" target="_blank">https://www.c3comunicaciones.es/[...]</a></li>
+
+                        <li>Grupo Elecnor, (s/f).Elecnor entra en el gran proyecto del Reino Unido para llevar la fibra óptica al 100% de su territorio. Recuperado el 22 de enero de 2022 desde <a href="https://www.elecnor.com/noticias/elecnor-entra-en-el-gran-proyecto-del-reino-unido-para-llevar-la-fibra-optica-al-100-de-su-territorio" target="_blank">https://www.elecnor.com/[...]</a></li>
+
+                        <li>HD Telecom, (s/f). Estándar óptico de cuerda para saltar. Recuperado el 22 de enero de 2022 desde <a href="https://hdtelecom.com.vn/chuan-day-nhay-quang/" target="_blank">https://hdtelecom.com.vn/[...]</a></li>
+
+                        <li>Mössner, D. (2021). Descripción de los conectores ópticos SC / APC y SC / UPC utilizados en dispositivos GPON. Recuperado el 22 de enero de 2022 desde <a href="https://support.zyxel.eu/hc/es/articles/360005173700-Descripci%C3%B3n-de-los-conectores-%C3%B3pticos-SC-APC-y-SC-UPC-utilizados-en-dispositivos-GPON" target="_blank">https://support.zyxel.eu/[...]</a></li>
+
+                        <li>Rodriguez, A. (2016). Tipos de conectores de fibra óptica. Recuperado el 22 de enero de 2022 desde <a href="https://www.fibraopticahoy.com/tipos-conectores-fibra-optica/" target="_blank">https://www.fibraopticahoy.com/[...]</a></li>
+
+                        <li>Tabango, W. (s/f). ESTÁNDAR ANSI/TIA/EIA 598-A OPTICAL FIBER CABLE COLOR CODING. Recuperado el 22 de enero de 2022 desde <a href="https://williantab.weebly.com/estaacutendares.html" target="_blank">https://williantab.weebly.com/[...]</a></li>
+
+                        <li>The Fiber Optic Association, Inc. (2021). Fiber Optic Cable And Connector Color Codes. Recuperado el 22 de enero de 2022 desde <a href="https://www.thefoa.org/tech/ColCodes.htm" target="_blank">https://www.thefoa.org/[...]</a></li>
+
+                        <li>ToolBoom, (2017). Adaptadores y conectores de fibra óptica. Recuperado el 22 de enero de 2022 desde <a href="https://toolboom.com/en/articles-and-video/optical-fiber-adapters-and-connectors/" target="_blank">https://toolboom.com/en/[...]</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!--Créditos-->
+            <section id="pag-creditos">
+                <div class="subpage" id="credits_subpage">
+
+                    <div class="creditos-fba">
+                        <h2>Créditos</h2>
+                        <div class="bloque">
+                            <table>
+                                <tr>
+                                    <td>Experta Temática</td>
+                                    <td>Ana María Cárdenas</td>
+                                </tr>
+                                <tr>
+                                    <td>Pares evaluadores</td>
+                                    <td>Luis Fernando Rodríguez / Marco Teran / Fredy Pereira</td>
+                                </tr>
+                                <tr>
+                                    <td>Asesoría pedagógica / Diseño instruccional</td>
+                                    <td>Carolina Llanos</td>
+                                </tr>
+                                <tr>
+                                    <td>Corrección de estilos</td>
+                                    <td>Danleibi Molina</td>
+                                </tr>
+                                <tr>
+                                    <td>Diseño gráfico</td>
+                                    <td>Inesly Vega</td>
+                                </tr>
+                                <tr>
+                                    <td>Producción audiovisual</td>
+                                    <td>Fernanda Álvarez / Sebastián Quintero</td>
+                                </tr>
+                                <tr>
+                                    <td>Integración de contenidos</td>
+                                    <td>Santiago Bernal</td>
+                                </tr>
+                                <tr>
+                                    <td>Revisión de calidad</td>
+                                    <td>Fyco Learning</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bloque logo">
+                            <h3>Gestión técnica y administrativa</h3>
+                            <a href="https://fycolearning.com/" target="_blank"><img src="img/logo_azul.png" alt="Fyco learning" /></a>
+                            <p>Versión 1.0</p>
+                        </div>
+                        <div class="bloque copy">
+                            <p>
+                                Este recurso educativo es propiedad de Fyco Learning.
+                                <br />Todo el material didáctico que lo compone está protegido por las leyes que rigen la propiedad intelectual. 
+                                <br />Para utilizar todo o parte de este material se debe contar con autorización expresa de la organización. 
+                            </p>
+                            <p>
+                                Derechos reservados ©
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                    <!-- <p>
+                        Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+                    </p>
+                    <div>
+                        <h3>Expertos temáticos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Leidy Cristina Madrigal Arrieta</cite>
+                    </div>
+                    <div>
+                        <h3>Asesoría pedagógica</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Corrección de estilo</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Traducción de contenidos</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión Administrativa</h3>
+                        <cite>David Herney Bernal García</cite>
+                    </div>
+                    <div>
+                        <h3>Gestión de calidad</h3>
+                        <cite>Ana Yarenis Arango</cite>
+                    </div>
+                    <div>
+                        <h3>Diseño gráfico</h3>
+                        <cite>Juliana Tobón Gaviria</cite>
+                    </div>
+                    <div>
+                        <h3>Integración de contenidos</h3>
+                        <cite>David Herney Bernal García<br />
+                        Santiago Bernal García</cite>
+                    </div>
+
+                    <div>
+                        <h3>Producción</h3>
+                        <p class="logos">
+                            <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                            <br />
+                            <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                            <br />
+                            <a href="http://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                        </p>
+                    </div>
+
+                    <div class="editions">
+                        1ª edición: diciembre 2013<br />
+                        2ª edición: octubre 2015<br />
+                        3ª edición: febrero 2016<br />
+                        4ª edición: junio 2017
+                    </div>
+                    <div>
+                        <br />
+                        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Obra publicada bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                    </div>
+
+                    <p>
+                        Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+                    </p>
+                    <p>
+                        Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+                    </p> -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <div class="measuring-progress" data-type="horizontal"></div>
+
+            <nav label="Características globales" class="globals">
+                <menu>
+                    <menuitem data-global-id="results"><div class="progress"><p>Progreso</p></div></menuitem>
+                    <menuitem data-page="pag-creditos"><div class="credits"><p>Créditos</p></div></menuitem>
+                    <menuitem data-page="pag-bibliografia"><div class="biblio"><p>Referencias</p></div></menuitem>
+                    <menuitem data-global-id="return">
+                        <div class="maximize"><p>Maximizar</p></div>
+                        <div class="minimize"><p>Minimizar</p></div>
+                    </menuitem>
+                    <menuitem data-global-id="close_all"><div class="back"><p>Salir</p></div></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div id="page_number"></div>
+                <div class="button" next-page></div>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de tu avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya has visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

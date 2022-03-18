@@ -60,27 +60,6 @@ video, img {
 	max-height: 90vh !important;
 }
 
-.ctrl-pagination .button.next {
-	width: 32px;
-    height: 32px;
-    background: url(../img/sprite.png) no-repeat;
-    background-size: 500%;
-    background-position: -122px -225px;
-}
-
-.ctrl-pagination .button.previous {
-	width: 32px;
-    height: 32px;
-    background: url(../img/sprite.png) no-repeat;
-    background-size: 500%;
-    background-position: -61px -225px;
-}
-
-.ctrl-pagination .button.previous:hover,
-.ctrl-pagination .button.next:hover {
-	filter: brightness(0.7);
-}
-
 /*Holograma */
 .holograma {
 	background: url(../content/hologram.png) no-repeat;
